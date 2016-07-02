@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="burst" nsURI="http://www.xtext.org/burst/Burst" nsPrefix="burst">
+  <eClassifiers xsi:type="ecore:EClass" name="File">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//Import" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concerns" upperBound="-1"
+        eType="#//Concern" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="externIntersections" upperBound="-1"
+        eType="#//Intersection" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Import">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Concern">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supertype" eType="#//Concern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+        eType="#//Member" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intersections" upperBound="-1"
+        eType="#//Intersection" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Member">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Intersection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualifiers" unique="false"
+        upperBound="-1" eType="#//Concern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linesContent" upperBound="-1"
+        eType="#//Line" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Line">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="called" upperBound="-1"
+        eType="#//Qualifier" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Qualifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
