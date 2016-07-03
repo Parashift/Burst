@@ -33,6 +33,24 @@ public interface BurstFactory extends EFactory
   File createFile();
 
   /**
+   * Returns a new object of class '<em>Abstract Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Element</em>'.
+   * @generated
+   */
+  AbstractElement createAbstractElement();
+
+  /**
+   * Returns a new object of class '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package</em>'.
+   * @generated
+   */
+  Package createPackage();
+
+  /**
    * Returns a new object of class '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,13 +96,22 @@ public interface BurstFactory extends EFactory
   Line createLine();
 
   /**
-   * Returns a new object of class '<em>Qualifier</em>'.
+   * Returns a new object of class '<em>Member Call</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Qualifier</em>'.
+   * @return a new object of class '<em>Member Call</em>'.
    * @generated
    */
-  Qualifier createQualifier();
+  MemberCall createMemberCall();
+
+  /**
+   * Returns a new object of class '<em>Member In Concern</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Member In Concern</em>'.
+   * @generated
+   */
+  MemberInConcern createMemberInConcern();
 
   /**
    * Returns the package supported by this factory.

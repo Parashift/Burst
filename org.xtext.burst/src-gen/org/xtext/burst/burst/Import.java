@@ -3,7 +3,6 @@
  */
 package org.xtext.burst.burst;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,39 +13,39 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.Import#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Import#getImportedNamespace <em>Imported Namespace</em>}</li>
  * </ul>
  *
  * @see org.xtext.burst.burst.BurstPackage#getImport()
  * @model
  * @generated
  */
-public interface Import extends EObject
+public interface Import extends AbstractElement
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Imported Namespace</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Imported Namespace</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.burst.burst.BurstPackage#getImport_Name()
+   * @return the value of the '<em>Imported Namespace</em>' attribute.
+   * @see #setImportedNamespace(String)
+   * @see org.xtext.burst.burst.BurstPackage#getImport_ImportedNamespace()
    * @model
    * @generated
    */
-  String getName();
+  String getImportedNamespace();
 
   /**
-   * Sets the value of the '{@link org.xtext.burst.burst.Import#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.burst.burst.Import#getImportedNamespace <em>Imported Namespace</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Imported Namespace</em>' attribute.
+   * @see #getImportedNamespace()
    * @generated
    */
-  void setName(String value);
+  void setImportedNamespace(String value);
 
 } // Import

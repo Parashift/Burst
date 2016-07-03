@@ -13,33 +13,33 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Concern;
-import org.xtext.burst.burst.Member;
+import org.xtext.burst.burst.MemberInConcern;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Member</b></em>'.
+ * An implementation of the model object '<em><b>Member In Concern</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.MemberImpl#getConcern <em>Concern</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.MemberImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.MemberInConcernImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.MemberInConcernImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MemberImpl extends MinimalEObjectImpl.Container implements Member
+public class MemberInConcernImpl extends MinimalEObjectImpl.Container implements MemberInConcern
 {
   /**
-   * The cached value of the '{@link #getConcern() <em>Concern</em>}' reference.
+   * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConcern()
+   * @see #getTarget()
    * @generated
    * @ordered
    */
-  protected Concern concern;
+  protected Concern target;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -66,7 +66,7 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MemberImpl()
+  protected MemberInConcernImpl()
   {
     super();
   }
@@ -79,7 +79,7 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
   @Override
   protected EClass eStaticClass()
   {
-    return BurstPackage.Literals.MEMBER;
+    return BurstPackage.Literals.MEMBER_IN_CONCERN;
   }
 
   /**
@@ -87,19 +87,19 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
    * <!-- end-user-doc -->
    * @generated
    */
-  public Concern getConcern()
+  public Concern getTarget()
   {
-    if (concern != null && concern.eIsProxy())
+    if (target != null && target.eIsProxy())
     {
-      InternalEObject oldConcern = (InternalEObject)concern;
-      concern = (Concern)eResolveProxy(oldConcern);
-      if (concern != oldConcern)
+      InternalEObject oldTarget = (InternalEObject)target;
+      target = (Concern)eResolveProxy(oldTarget);
+      if (target != oldTarget)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.MEMBER__CONCERN, oldConcern, concern));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.MEMBER_IN_CONCERN__TARGET, oldTarget, target));
       }
     }
-    return concern;
+    return target;
   }
 
   /**
@@ -107,9 +107,9 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
    * <!-- end-user-doc -->
    * @generated
    */
-  public Concern basicGetConcern()
+  public Concern basicGetTarget()
   {
-    return concern;
+    return target;
   }
 
   /**
@@ -117,12 +117,12 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setConcern(Concern newConcern)
+  public void setTarget(Concern newTarget)
   {
-    Concern oldConcern = concern;
-    concern = newConcern;
+    Concern oldTarget = target;
+    target = newTarget;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER__CONCERN, oldConcern, concern));
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER_IN_CONCERN__TARGET, oldTarget, target));
   }
 
   /**
@@ -145,7 +145,7 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER_IN_CONCERN__NAME, oldName, name));
   }
 
   /**
@@ -158,10 +158,10 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
   {
     switch (featureID)
     {
-      case BurstPackage.MEMBER__CONCERN:
-        if (resolve) return getConcern();
-        return basicGetConcern();
-      case BurstPackage.MEMBER__NAME:
+      case BurstPackage.MEMBER_IN_CONCERN__TARGET:
+        if (resolve) return getTarget();
+        return basicGetTarget();
+      case BurstPackage.MEMBER_IN_CONCERN__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -177,10 +177,10 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
   {
     switch (featureID)
     {
-      case BurstPackage.MEMBER__CONCERN:
-        setConcern((Concern)newValue);
+      case BurstPackage.MEMBER_IN_CONCERN__TARGET:
+        setTarget((Concern)newValue);
         return;
-      case BurstPackage.MEMBER__NAME:
+      case BurstPackage.MEMBER_IN_CONCERN__NAME:
         setName((String)newValue);
         return;
     }
@@ -197,10 +197,10 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
   {
     switch (featureID)
     {
-      case BurstPackage.MEMBER__CONCERN:
-        setConcern((Concern)null);
+      case BurstPackage.MEMBER_IN_CONCERN__TARGET:
+        setTarget((Concern)null);
         return;
-      case BurstPackage.MEMBER__NAME:
+      case BurstPackage.MEMBER_IN_CONCERN__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -217,9 +217,9 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
   {
     switch (featureID)
     {
-      case BurstPackage.MEMBER__CONCERN:
-        return concern != null;
-      case BurstPackage.MEMBER__NAME:
+      case BurstPackage.MEMBER_IN_CONCERN__TARGET:
+        return target != null;
+      case BurstPackage.MEMBER_IN_CONCERN__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -242,4 +242,4 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
     return result.toString();
   }
 
-} //MemberImpl
+} //MemberInConcernImpl

@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Import;
@@ -21,32 +20,32 @@ import org.xtext.burst.burst.Import;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.ImportImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.ImportImpl#getImportedNamespace <em>Imported Namespace</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ImportImpl extends MinimalEObjectImpl.Container implements Import
+public class ImportImpl extends AbstractElementImpl implements Import
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getImportedNamespace()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String IMPORTED_NAMESPACE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getImportedNamespace()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String importedNamespace = IMPORTED_NAMESPACE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +73,9 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public String getImportedNamespace()
   {
-    return name;
+    return importedNamespace;
   }
 
   /**
@@ -84,12 +83,12 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setImportedNamespace(String newImportedNamespace)
   {
-    String oldName = name;
-    name = newName;
+    String oldImportedNamespace = importedNamespace;
+    importedNamespace = newImportedNamespace;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.IMPORT__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.IMPORT__IMPORTED_NAMESPACE, oldImportedNamespace, importedNamespace));
   }
 
   /**
@@ -102,8 +101,8 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
   {
     switch (featureID)
     {
-      case BurstPackage.IMPORT__NAME:
-        return getName();
+      case BurstPackage.IMPORT__IMPORTED_NAMESPACE:
+        return getImportedNamespace();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +117,8 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
   {
     switch (featureID)
     {
-      case BurstPackage.IMPORT__NAME:
-        setName((String)newValue);
+      case BurstPackage.IMPORT__IMPORTED_NAMESPACE:
+        setImportedNamespace((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +134,8 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
   {
     switch (featureID)
     {
-      case BurstPackage.IMPORT__NAME:
-        setName(NAME_EDEFAULT);
+      case BurstPackage.IMPORT__IMPORTED_NAMESPACE:
+        setImportedNamespace(IMPORTED_NAMESPACE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +151,8 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
   {
     switch (featureID)
     {
-      case BurstPackage.IMPORT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case BurstPackage.IMPORT__IMPORTED_NAMESPACE:
+        return IMPORTED_NAMESPACE_EDEFAULT == null ? importedNamespace != null : !IMPORTED_NAMESPACE_EDEFAULT.equals(importedNamespace);
     }
     return super.eIsSet(featureID);
   }
@@ -169,8 +168,8 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (importedNamespace: ");
+    result.append(importedNamespace);
     result.append(')');
     return result.toString();
   }

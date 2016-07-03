@@ -5,6 +5,7 @@ package org.xtext.burst.burst.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -19,7 +21,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Line;
-import org.xtext.burst.burst.Qualifier;
+import org.xtext.burst.burst.MemberCall;
+import org.xtext.burst.burst.MemberInConcern;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,8 @@ import org.xtext.burst.burst.Qualifier;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.burst.burst.impl.LineImpl#getCalled <em>Called</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.LineImpl#getCalled2 <em>Called2</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.LineImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,7 +49,37 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
    * @generated
    * @ordered
    */
-  protected EList<Qualifier> called;
+  protected EList<MemberCall> called;
+
+  /**
+   * The cached value of the '{@link #getCalled2() <em>Called2</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCalled2()
+   * @generated
+   * @ordered
+   */
+  protected EList<MemberInConcern> called2;
+
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +107,50 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Qualifier> getCalled()
+  public EList<MemberCall> getCalled()
   {
     if (called == null)
     {
-      called = new EObjectContainmentEList<Qualifier>(Qualifier.class, this, BurstPackage.LINE__CALLED);
+      called = new EObjectContainmentEList<MemberCall>(MemberCall.class, this, BurstPackage.LINE__CALLED);
     }
     return called;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<MemberInConcern> getCalled2()
+  {
+    if (called2 == null)
+    {
+      called2 = new EObjectContainmentEList<MemberInConcern>(MemberInConcern.class, this, BurstPackage.LINE__CALLED2);
+    }
+    return called2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.LINE__NAME, oldName, name));
   }
 
   /**
@@ -93,6 +165,8 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
     {
       case BurstPackage.LINE__CALLED:
         return ((InternalEList<?>)getCalled()).basicRemove(otherEnd, msgs);
+      case BurstPackage.LINE__CALLED2:
+        return ((InternalEList<?>)getCalled2()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -109,6 +183,10 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
     {
       case BurstPackage.LINE__CALLED:
         return getCalled();
+      case BurstPackage.LINE__CALLED2:
+        return getCalled2();
+      case BurstPackage.LINE__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -126,7 +204,14 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
     {
       case BurstPackage.LINE__CALLED:
         getCalled().clear();
-        getCalled().addAll((Collection<? extends Qualifier>)newValue);
+        getCalled().addAll((Collection<? extends MemberCall>)newValue);
+        return;
+      case BurstPackage.LINE__CALLED2:
+        getCalled2().clear();
+        getCalled2().addAll((Collection<? extends MemberInConcern>)newValue);
+        return;
+      case BurstPackage.LINE__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -145,6 +230,12 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
       case BurstPackage.LINE__CALLED:
         getCalled().clear();
         return;
+      case BurstPackage.LINE__CALLED2:
+        getCalled2().clear();
+        return;
+      case BurstPackage.LINE__NAME:
+        setName(NAME_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -161,8 +252,29 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
     {
       case BurstPackage.LINE__CALLED:
         return called != null && !called.isEmpty();
+      case BurstPackage.LINE__CALLED2:
+        return called2 != null && !called2.isEmpty();
+      case BurstPackage.LINE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //LineImpl

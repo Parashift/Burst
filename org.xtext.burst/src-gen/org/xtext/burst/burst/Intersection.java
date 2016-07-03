@@ -5,8 +5,6 @@ package org.xtext.burst.burst;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Intersection</b></em>'.
@@ -16,7 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.Intersection#getQualifiers <em>Qualifiers</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Intersection#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Intersection#getMembers <em>Members</em>}</li>
  *   <li>{@link org.xtext.burst.burst.Intersection#getLinesContent <em>Lines Content</em>}</li>
  * </ul>
  *
@@ -24,23 +23,49 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Intersection extends EObject
+public interface Intersection extends AbstractElement
 {
   /**
-   * Returns the value of the '<em><b>Qualifiers</b></em>' reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.Concern}.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Qualifiers</em>' reference list isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Qualifiers</em>' reference list.
-   * @see org.xtext.burst.burst.BurstPackage#getIntersection_Qualifiers()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.burst.burst.BurstPackage#getIntersection_Name()
    * @model
    * @generated
    */
-  EList<Concern> getQualifiers();
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.burst.burst.Intersection#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Members</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.burst.burst.Member}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Members</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Members</em>' containment reference list.
+   * @see org.xtext.burst.burst.BurstPackage#getIntersection_Members()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Member> getMembers();
 
   /**
    * Returns the value of the '<em><b>Lines Content</b></em>' containment reference list.

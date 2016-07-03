@@ -7,12 +7,15 @@
   <genPackages prefix="Burst" basePackage="org.xtext.burst" disposableProviderFactory="true"
       fileExtensions="burst" ecorePackage="Burst.ecore#/">
     <genClasses ecoreClass="Burst.ecore#//File">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//File/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//File/concerns"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//File/externIntersections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//File/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Burst.ecore#//AbstractElement"/>
+    <genClasses ecoreClass="Burst.ecore#//Package">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Package/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Package/elements"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Import">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Import/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Import/importedNamespace"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Concern">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Concern/name"/>
@@ -21,17 +24,25 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Concern/intersections"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Member">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Member/concern"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Member/name"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Intersection">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Intersection/qualifiers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Intersection/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Intersection/members"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Intersection/linesContent"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Line">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Line/called"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Line/called2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Line/name"/>
     </genClasses>
-    <genClasses ecoreClass="Burst.ecore#//Qualifier">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Qualifier/name"/>
+    <genClasses ecoreClass="Burst.ecore#//MemberCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//MemberCall/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Burst.ecore#//MemberInConcern">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//MemberInConcern/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//MemberInConcern/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

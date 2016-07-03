@@ -11,7 +11,17 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.xtext.burst.burst.*;
+import org.xtext.burst.burst.AbstractElement;
+import org.xtext.burst.burst.BurstFactory;
+import org.xtext.burst.burst.BurstPackage;
+import org.xtext.burst.burst.Concern;
+import org.xtext.burst.burst.File;
+import org.xtext.burst.burst.Import;
+import org.xtext.burst.burst.Intersection;
+import org.xtext.burst.burst.Line;
+import org.xtext.burst.burst.Member;
+import org.xtext.burst.burst.MemberCall;
+import org.xtext.burst.burst.MemberInConcern;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,12 +76,15 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
     switch (eClass.getClassifierID())
     {
       case BurstPackage.FILE: return createFile();
+      case BurstPackage.ABSTRACT_ELEMENT: return createAbstractElement();
+      case BurstPackage.PACKAGE: return createPackage();
       case BurstPackage.IMPORT: return createImport();
       case BurstPackage.CONCERN: return createConcern();
       case BurstPackage.MEMBER: return createMember();
       case BurstPackage.INTERSECTION: return createIntersection();
       case BurstPackage.LINE: return createLine();
-      case BurstPackage.QUALIFIER: return createQualifier();
+      case BurstPackage.MEMBER_CALL: return createMemberCall();
+      case BurstPackage.MEMBER_IN_CONCERN: return createMemberInConcern();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -86,6 +99,28 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
   {
     FileImpl file = new FileImpl();
     return file;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractElement createAbstractElement()
+  {
+    AbstractElementImpl abstractElement = new AbstractElementImpl();
+    return abstractElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public org.xtext.burst.burst.Package createPackage()
+  {
+    PackageImpl package_ = new PackageImpl();
+    return package_;
   }
 
   /**
@@ -148,10 +183,21 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Qualifier createQualifier()
+  public MemberCall createMemberCall()
   {
-    QualifierImpl qualifier = new QualifierImpl();
-    return qualifier;
+    MemberCallImpl memberCall = new MemberCallImpl();
+    return memberCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MemberInConcern createMemberInConcern()
+  {
+    MemberInConcernImpl memberInConcern = new MemberInConcernImpl();
+    return memberInConcern;
   }
 
   /**

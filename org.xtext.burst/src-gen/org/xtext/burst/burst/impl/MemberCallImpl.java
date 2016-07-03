@@ -6,54 +6,46 @@ package org.xtext.burst.burst.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.Qualifier;
+import org.xtext.burst.burst.Member;
+import org.xtext.burst.burst.MemberCall;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Qualifier</b></em>'.
+ * An implementation of the model object '<em><b>Member Call</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.QualifierImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.MemberCallImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class QualifierImpl extends MinimalEObjectImpl.Container implements Qualifier
+public class MemberCallImpl extends MinimalEObjectImpl.Container implements MemberCall
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected Member name;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected QualifierImpl()
+  protected MemberCallImpl()
   {
     super();
   }
@@ -66,7 +58,7 @@ public class QualifierImpl extends MinimalEObjectImpl.Container implements Quali
   @Override
   protected EClass eStaticClass()
   {
-    return BurstPackage.Literals.QUALIFIER;
+    return BurstPackage.Literals.MEMBER_CALL;
   }
 
   /**
@@ -74,7 +66,27 @@ public class QualifierImpl extends MinimalEObjectImpl.Container implements Quali
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public Member getName()
+  {
+    if (name != null && name.eIsProxy())
+    {
+      InternalEObject oldName = (InternalEObject)name;
+      name = (Member)eResolveProxy(oldName);
+      if (name != oldName)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.MEMBER_CALL__NAME, oldName, name));
+      }
+    }
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Member basicGetName()
   {
     return name;
   }
@@ -84,12 +96,12 @@ public class QualifierImpl extends MinimalEObjectImpl.Container implements Quali
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setName(Member newName)
   {
-    String oldName = name;
+    Member oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.QUALIFIER__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER_CALL__NAME, oldName, name));
   }
 
   /**
@@ -102,8 +114,9 @@ public class QualifierImpl extends MinimalEObjectImpl.Container implements Quali
   {
     switch (featureID)
     {
-      case BurstPackage.QUALIFIER__NAME:
-        return getName();
+      case BurstPackage.MEMBER_CALL__NAME:
+        if (resolve) return getName();
+        return basicGetName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +131,8 @@ public class QualifierImpl extends MinimalEObjectImpl.Container implements Quali
   {
     switch (featureID)
     {
-      case BurstPackage.QUALIFIER__NAME:
-        setName((String)newValue);
+      case BurstPackage.MEMBER_CALL__NAME:
+        setName((Member)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +148,8 @@ public class QualifierImpl extends MinimalEObjectImpl.Container implements Quali
   {
     switch (featureID)
     {
-      case BurstPackage.QUALIFIER__NAME:
-        setName(NAME_EDEFAULT);
+      case BurstPackage.MEMBER_CALL__NAME:
+        setName((Member)null);
         return;
     }
     super.eUnset(featureID);
@@ -152,27 +165,10 @@ public class QualifierImpl extends MinimalEObjectImpl.Container implements Quali
   {
     switch (featureID)
     {
-      case BurstPackage.QUALIFIER__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case BurstPackage.MEMBER_CALL__NAME:
+        return name != null;
     }
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
-
-} //QualifierImpl
+} //MemberCallImpl

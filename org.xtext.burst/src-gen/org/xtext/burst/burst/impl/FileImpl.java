@@ -17,11 +17,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.burst.burst.AbstractElement;
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.File;
-import org.xtext.burst.burst.Import;
-import org.xtext.burst.burst.Intersection;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,9 +29,7 @@ import org.xtext.burst.burst.Intersection;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.FileImpl#getImports <em>Imports</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.FileImpl#getConcerns <em>Concerns</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.FileImpl#getExternIntersections <em>Extern Intersections</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.FileImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,34 +37,14 @@ import org.xtext.burst.burst.Intersection;
 public class FileImpl extends MinimalEObjectImpl.Container implements File
 {
   /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImports()
+   * @see #getElements()
    * @generated
    * @ordered
    */
-  protected EList<Import> imports;
-
-  /**
-   * The cached value of the '{@link #getConcerns() <em>Concerns</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getConcerns()
-   * @generated
-   * @ordered
-   */
-  protected EList<Concern> concerns;
-
-  /**
-   * The cached value of the '{@link #getExternIntersections() <em>Extern Intersections</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExternIntersections()
-   * @generated
-   * @ordered
-   */
-  protected EList<Intersection> externIntersections;
+  protected EList<AbstractElement> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,41 +72,13 @@ public class FileImpl extends MinimalEObjectImpl.Container implements File
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Import> getImports()
+  public EList<AbstractElement> getElements()
   {
-    if (imports == null)
+    if (elements == null)
     {
-      imports = new EObjectContainmentEList<Import>(Import.class, this, BurstPackage.FILE__IMPORTS);
+      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, BurstPackage.FILE__ELEMENTS);
     }
-    return imports;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Concern> getConcerns()
-  {
-    if (concerns == null)
-    {
-      concerns = new EObjectContainmentEList<Concern>(Concern.class, this, BurstPackage.FILE__CONCERNS);
-    }
-    return concerns;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Intersection> getExternIntersections()
-  {
-    if (externIntersections == null)
-    {
-      externIntersections = new EObjectContainmentEList<Intersection>(Intersection.class, this, BurstPackage.FILE__EXTERN_INTERSECTIONS);
-    }
-    return externIntersections;
+    return elements;
   }
 
   /**
@@ -143,12 +91,8 @@ public class FileImpl extends MinimalEObjectImpl.Container implements File
   {
     switch (featureID)
     {
-      case BurstPackage.FILE__IMPORTS:
-        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
-      case BurstPackage.FILE__CONCERNS:
-        return ((InternalEList<?>)getConcerns()).basicRemove(otherEnd, msgs);
-      case BurstPackage.FILE__EXTERN_INTERSECTIONS:
-        return ((InternalEList<?>)getExternIntersections()).basicRemove(otherEnd, msgs);
+      case BurstPackage.FILE__ELEMENTS:
+        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -163,12 +107,8 @@ public class FileImpl extends MinimalEObjectImpl.Container implements File
   {
     switch (featureID)
     {
-      case BurstPackage.FILE__IMPORTS:
-        return getImports();
-      case BurstPackage.FILE__CONCERNS:
-        return getConcerns();
-      case BurstPackage.FILE__EXTERN_INTERSECTIONS:
-        return getExternIntersections();
+      case BurstPackage.FILE__ELEMENTS:
+        return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -184,17 +124,9 @@ public class FileImpl extends MinimalEObjectImpl.Container implements File
   {
     switch (featureID)
     {
-      case BurstPackage.FILE__IMPORTS:
-        getImports().clear();
-        getImports().addAll((Collection<? extends Import>)newValue);
-        return;
-      case BurstPackage.FILE__CONCERNS:
-        getConcerns().clear();
-        getConcerns().addAll((Collection<? extends Concern>)newValue);
-        return;
-      case BurstPackage.FILE__EXTERN_INTERSECTIONS:
-        getExternIntersections().clear();
-        getExternIntersections().addAll((Collection<? extends Intersection>)newValue);
+      case BurstPackage.FILE__ELEMENTS:
+        getElements().clear();
+        getElements().addAll((Collection<? extends AbstractElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -210,14 +142,8 @@ public class FileImpl extends MinimalEObjectImpl.Container implements File
   {
     switch (featureID)
     {
-      case BurstPackage.FILE__IMPORTS:
-        getImports().clear();
-        return;
-      case BurstPackage.FILE__CONCERNS:
-        getConcerns().clear();
-        return;
-      case BurstPackage.FILE__EXTERN_INTERSECTIONS:
-        getExternIntersections().clear();
+      case BurstPackage.FILE__ELEMENTS:
+        getElements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -233,12 +159,8 @@ public class FileImpl extends MinimalEObjectImpl.Container implements File
   {
     switch (featureID)
     {
-      case BurstPackage.FILE__IMPORTS:
-        return imports != null && !imports.isEmpty();
-      case BurstPackage.FILE__CONCERNS:
-        return concerns != null && !concerns.isEmpty();
-      case BurstPackage.FILE__EXTERN_INTERSECTIONS:
-        return externIntersections != null && !externIntersections.isEmpty();
+      case BurstPackage.FILE__ELEMENTS:
+        return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.burst.burst.AbstractElement;
 import org.xtext.burst.burst.BurstFactory;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Concern;
@@ -18,7 +19,8 @@ import org.xtext.burst.burst.Import;
 import org.xtext.burst.burst.Intersection;
 import org.xtext.burst.burst.Line;
 import org.xtext.burst.burst.Member;
-import org.xtext.burst.burst.Qualifier;
+import org.xtext.burst.burst.MemberCall;
+import org.xtext.burst.burst.MemberInConcern;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +36,20 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * @generated
    */
   private EClass fileEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass abstractElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,7 +91,14 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass qualifierEClass = null;
+  private EClass memberCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass memberInConcernEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -155,7 +178,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFile_Imports()
+  public EReference getFile_Elements()
   {
     return (EReference)fileEClass.getEStructuralFeatures().get(0);
   }
@@ -165,9 +188,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFile_Concerns()
+  public EClass getAbstractElement()
   {
-    return (EReference)fileEClass.getEStructuralFeatures().get(1);
+    return abstractElementEClass;
   }
 
   /**
@@ -175,9 +198,29 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFile_ExternIntersections()
+  public EClass getPackage()
   {
-    return (EReference)fileEClass.getEStructuralFeatures().get(2);
+    return packageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPackage_Name()
+  {
+    return (EAttribute)packageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackage_Elements()
+  {
+    return (EReference)packageEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -195,7 +238,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getImport_Name()
+  public EAttribute getImport_ImportedNamespace()
   {
     return (EAttribute)importEClass.getEStructuralFeatures().get(0);
   }
@@ -265,9 +308,19 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getMember_Concern()
+  {
+    return (EReference)memberEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getMember_Name()
   {
-    return (EAttribute)memberEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)memberEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -285,9 +338,19 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIntersection_Qualifiers()
+  public EAttribute getIntersection_Name()
   {
-    return (EReference)intersectionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)intersectionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIntersection_Members()
+  {
+    return (EReference)intersectionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -297,7 +360,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    */
   public EReference getIntersection_LinesContent()
   {
-    return (EReference)intersectionEClass.getEStructuralFeatures().get(1);
+    return (EReference)intersectionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -325,9 +388,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getQualifier()
+  public EReference getLine_Called2()
   {
-    return qualifierEClass;
+    return (EReference)lineEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -335,9 +398,59 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getQualifier_Name()
+  public EAttribute getLine_Name()
   {
-    return (EAttribute)qualifierEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)lineEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMemberCall()
+  {
+    return memberCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMemberCall_Name()
+  {
+    return (EReference)memberCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMemberInConcern()
+  {
+    return memberInConcernEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMemberInConcern_Target()
+  {
+    return (EReference)memberInConcernEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMemberInConcern_Name()
+  {
+    return (EAttribute)memberInConcernEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -371,12 +484,16 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
 
     // Create classes and their features
     fileEClass = createEClass(FILE);
-    createEReference(fileEClass, FILE__IMPORTS);
-    createEReference(fileEClass, FILE__CONCERNS);
-    createEReference(fileEClass, FILE__EXTERN_INTERSECTIONS);
+    createEReference(fileEClass, FILE__ELEMENTS);
+
+    abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
+
+    packageEClass = createEClass(PACKAGE);
+    createEAttribute(packageEClass, PACKAGE__NAME);
+    createEReference(packageEClass, PACKAGE__ELEMENTS);
 
     importEClass = createEClass(IMPORT);
-    createEAttribute(importEClass, IMPORT__NAME);
+    createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
 
     concernEClass = createEClass(CONCERN);
     createEAttribute(concernEClass, CONCERN__NAME);
@@ -385,17 +502,25 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     createEReference(concernEClass, CONCERN__INTERSECTIONS);
 
     memberEClass = createEClass(MEMBER);
+    createEReference(memberEClass, MEMBER__CONCERN);
     createEAttribute(memberEClass, MEMBER__NAME);
 
     intersectionEClass = createEClass(INTERSECTION);
-    createEReference(intersectionEClass, INTERSECTION__QUALIFIERS);
+    createEAttribute(intersectionEClass, INTERSECTION__NAME);
+    createEReference(intersectionEClass, INTERSECTION__MEMBERS);
     createEReference(intersectionEClass, INTERSECTION__LINES_CONTENT);
 
     lineEClass = createEClass(LINE);
     createEReference(lineEClass, LINE__CALLED);
+    createEReference(lineEClass, LINE__CALLED2);
+    createEAttribute(lineEClass, LINE__NAME);
 
-    qualifierEClass = createEClass(QUALIFIER);
-    createEAttribute(qualifierEClass, QUALIFIER__NAME);
+    memberCallEClass = createEClass(MEMBER_CALL);
+    createEReference(memberCallEClass, MEMBER_CALL__NAME);
+
+    memberInConcernEClass = createEClass(MEMBER_IN_CONCERN);
+    createEReference(memberInConcernEClass, MEMBER_IN_CONCERN__TARGET);
+    createEAttribute(memberInConcernEClass, MEMBER_IN_CONCERN__NAME);
   }
 
   /**
@@ -427,15 +552,23 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    packageEClass.getESuperTypes().add(this.getAbstractElement());
+    importEClass.getESuperTypes().add(this.getAbstractElement());
+    concernEClass.getESuperTypes().add(this.getAbstractElement());
+    intersectionEClass.getESuperTypes().add(this.getAbstractElement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFile_Imports(), this.getImport(), null, "imports", null, 0, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFile_Concerns(), this.getConcern(), null, "concerns", null, 0, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFile_ExternIntersections(), this.getIntersection(), null, "externIntersections", null, 0, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFile_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(packageEClass, org.xtext.burst.burst.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.burst.burst.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackage_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, org.xtext.burst.burst.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getImport_Name(), ecorePackage.getEString(), "name", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(concernEClass, Concern.class, "Concern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConcern_Name(), ecorePackage.getEString(), "name", null, 0, 1, Concern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -444,17 +577,25 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     initEReference(getConcern_Intersections(), this.getIntersection(), null, "intersections", null, 0, -1, Concern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMember_Concern(), this.getConcern(), null, "concern", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(intersectionEClass, Intersection.class, "Intersection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIntersection_Qualifiers(), this.getConcern(), null, "qualifiers", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIntersection_Name(), ecorePackage.getEString(), "name", null, 0, 1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIntersection_Members(), this.getMember(), null, "members", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIntersection_LinesContent(), this.getLine(), null, "linesContent", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLine_Called(), this.getQualifier(), null, "called", null, 0, -1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLine_Called(), this.getMemberCall(), null, "called", null, 0, -1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLine_Called2(), this.getMemberInConcern(), null, "called2", null, 0, -1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLine_Name(), ecorePackage.getEString(), "name", null, 0, 1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(qualifierEClass, Qualifier.class, "Qualifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getQualifier_Name(), ecorePackage.getEString(), "name", null, 0, 1, Qualifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(memberCallEClass, MemberCall.class, "MemberCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMemberCall_Name(), this.getMember(), null, "name", null, 0, 1, MemberCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(memberInConcernEClass, MemberInConcern.class, "MemberInConcern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMemberInConcern_Target(), this.getConcern(), null, "target", null, 0, 1, MemberInConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMemberInConcern_Name(), ecorePackage.getEString(), "name", null, 0, 1, MemberInConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -5,6 +5,7 @@ package org.xtext.burst.burst.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,16 +13,15 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.Intersection;
 import org.xtext.burst.burst.Line;
+import org.xtext.burst.burst.Member;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,23 +31,44 @@ import org.xtext.burst.burst.Line;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getQualifiers <em>Qualifiers</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getMembers <em>Members</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getLinesContent <em>Lines Content</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class IntersectionImpl extends MinimalEObjectImpl.Container implements Intersection
+public class IntersectionImpl extends AbstractElementImpl implements Intersection
 {
   /**
-   * The cached value of the '{@link #getQualifiers() <em>Qualifiers</em>}' reference list.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getQualifiers()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<Concern> qualifiers;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getMembers() <em>Members</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMembers()
+   * @generated
+   * @ordered
+   */
+  protected EList<Member> members;
 
   /**
    * The cached value of the '{@link #getLinesContent() <em>Lines Content</em>}' containment reference list.
@@ -85,13 +106,36 @@ public class IntersectionImpl extends MinimalEObjectImpl.Container implements In
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Concern> getQualifiers()
+  public String getName()
   {
-    if (qualifiers == null)
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.INTERSECTION__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Member> getMembers()
+  {
+    if (members == null)
     {
-      qualifiers = new EObjectResolvingEList<Concern>(Concern.class, this, BurstPackage.INTERSECTION__QUALIFIERS);
+      members = new EObjectContainmentEList<Member>(Member.class, this, BurstPackage.INTERSECTION__MEMBERS);
     }
-    return qualifiers;
+    return members;
   }
 
   /**
@@ -118,6 +162,8 @@ public class IntersectionImpl extends MinimalEObjectImpl.Container implements In
   {
     switch (featureID)
     {
+      case BurstPackage.INTERSECTION__MEMBERS:
+        return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
       case BurstPackage.INTERSECTION__LINES_CONTENT:
         return ((InternalEList<?>)getLinesContent()).basicRemove(otherEnd, msgs);
     }
@@ -134,8 +180,10 @@ public class IntersectionImpl extends MinimalEObjectImpl.Container implements In
   {
     switch (featureID)
     {
-      case BurstPackage.INTERSECTION__QUALIFIERS:
-        return getQualifiers();
+      case BurstPackage.INTERSECTION__NAME:
+        return getName();
+      case BurstPackage.INTERSECTION__MEMBERS:
+        return getMembers();
       case BurstPackage.INTERSECTION__LINES_CONTENT:
         return getLinesContent();
     }
@@ -153,9 +201,12 @@ public class IntersectionImpl extends MinimalEObjectImpl.Container implements In
   {
     switch (featureID)
     {
-      case BurstPackage.INTERSECTION__QUALIFIERS:
-        getQualifiers().clear();
-        getQualifiers().addAll((Collection<? extends Concern>)newValue);
+      case BurstPackage.INTERSECTION__NAME:
+        setName((String)newValue);
+        return;
+      case BurstPackage.INTERSECTION__MEMBERS:
+        getMembers().clear();
+        getMembers().addAll((Collection<? extends Member>)newValue);
         return;
       case BurstPackage.INTERSECTION__LINES_CONTENT:
         getLinesContent().clear();
@@ -175,8 +226,11 @@ public class IntersectionImpl extends MinimalEObjectImpl.Container implements In
   {
     switch (featureID)
     {
-      case BurstPackage.INTERSECTION__QUALIFIERS:
-        getQualifiers().clear();
+      case BurstPackage.INTERSECTION__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case BurstPackage.INTERSECTION__MEMBERS:
+        getMembers().clear();
         return;
       case BurstPackage.INTERSECTION__LINES_CONTENT:
         getLinesContent().clear();
@@ -195,12 +249,31 @@ public class IntersectionImpl extends MinimalEObjectImpl.Container implements In
   {
     switch (featureID)
     {
-      case BurstPackage.INTERSECTION__QUALIFIERS:
-        return qualifiers != null && !qualifiers.isEmpty();
+      case BurstPackage.INTERSECTION__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case BurstPackage.INTERSECTION__MEMBERS:
+        return members != null && !members.isEmpty();
       case BurstPackage.INTERSECTION__LINES_CONTENT:
         return linesContent != null && !linesContent.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //IntersectionImpl

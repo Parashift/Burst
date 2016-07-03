@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.burst.burst.Line#getCalled <em>Called</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Line#getCalled2 <em>Called2</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Line#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see org.xtext.burst.burst.BurstPackage#getLine()
@@ -27,7 +29,7 @@ public interface Line extends EObject
 {
   /**
    * Returns the value of the '<em><b>Called</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.Qualifier}.
+   * The list contents are of type {@link org.xtext.burst.burst.MemberCall}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Called</em>' containment reference list isn't clear,
@@ -39,6 +41,48 @@ public interface Line extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Qualifier> getCalled();
+  EList<MemberCall> getCalled();
+
+  /**
+   * Returns the value of the '<em><b>Called2</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.burst.burst.MemberInConcern}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Called2</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Called2</em>' containment reference list.
+   * @see org.xtext.burst.burst.BurstPackage#getLine_Called2()
+   * @model containment="true"
+   * @generated
+   */
+  EList<MemberInConcern> getCalled2();
+
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.burst.burst.BurstPackage#getLine_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.burst.burst.Line#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
 
 } // Line

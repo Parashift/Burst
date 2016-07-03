@@ -1,28 +1,43 @@
-grammar org.xtext.burst.Burst with org.eclipse.xtext.common.Terminals
+grammar org.xtext.burst.Burst with org.eclipse.xtext.common.Terminals 
+
 
 generate burst "http://www.xtext.org/burst/Burst"
 
 
-File:
-	(imports+=Import)*
-	(concerns+=Concern | externIntersections+=Intersection)*;
 
-Import:{Import}
-	'import' name=ID;
+File:
+	(elements+=AbstractElement)*;
+
+AbstractElement:
+	Import | Concern | Intersection | Package;
+
+Package:
+	'package' name=QualifiedName '{' (elements+=AbstractElement)* '}';
+
+QualifiedName:
+	ID( '.' ID)*;
+
+Import:
+    'import' importedNamespace=QualifiedName;
 	
 Concern :	{Concern}
-	'concern' name=ID ('extends' supertype=[Concern])? '{' (members+=Member | intersections+=Intersection)* '}';
+	'concern' name=ID ('extends' supertype=[Concern|QualifiedName])? 
+	('{' (members+=Member | intersections+=Intersection)* '}')?;
 
 Member:		{Member}
-	'int' name=ID;
+	concern=[Concern|QualifiedName] name=ID;
 
 Intersection: {Intersection}
-	'when' qualifiers+=([Concern])* '{' linesContent+=(Line)* '}' ;
+	name='when' ((members+=Member ) )* 
+	 '{' linesContent+=(Line)* '}' ;
+	
+Line:
+	(called+=MemberCall | called2+=MemberInConcern)* name=';';
+	
+MemberCall:	{MemberCall}
+	name=([Member]);
 
-Line: {Line} 
-'call' called+=(Qualifier)*;
-	
-Qualifier:	{Qualifier}
-	name=ID | 'none';
-	
-terminal LINE_END	: '\n';
+MemberInConcern: {MemberInConcern}
+	target=[Concern] '.' name=ID;
+//terminal LINE_TO_COMPLETE : '&&&' !('\n'|'\r')* ('\r'? '\n')?;
+//terminal LINE_END	: ('\r'? '\n');

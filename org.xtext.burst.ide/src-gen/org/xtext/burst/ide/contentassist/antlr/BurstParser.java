@@ -35,30 +35,40 @@ public class BurstParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getFileAccess().getAlternatives_1(), "rule__File__Alternatives_1");
-					put(grammarAccess.getConcernAccess().getAlternatives_5(), "rule__Concern__Alternatives_5");
-					put(grammarAccess.getQualifierAccess().getAlternatives(), "rule__Qualifier__Alternatives");
-					put(grammarAccess.getFileAccess().getGroup(), "rule__File__Group__0");
+					put(grammarAccess.getAbstractElementAccess().getAlternatives(), "rule__AbstractElement__Alternatives");
+					put(grammarAccess.getConcernAccess().getAlternatives_4_1(), "rule__Concern__Alternatives_4_1");
+					put(grammarAccess.getLineAccess().getAlternatives_0(), "rule__Line__Alternatives_0");
+					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 					put(grammarAccess.getConcernAccess().getGroup(), "rule__Concern__Group__0");
 					put(grammarAccess.getConcernAccess().getGroup_3(), "rule__Concern__Group_3__0");
+					put(grammarAccess.getConcernAccess().getGroup_4(), "rule__Concern__Group_4__0");
 					put(grammarAccess.getMemberAccess().getGroup(), "rule__Member__Group__0");
 					put(grammarAccess.getIntersectionAccess().getGroup(), "rule__Intersection__Group__0");
 					put(grammarAccess.getLineAccess().getGroup(), "rule__Line__Group__0");
-					put(grammarAccess.getQualifierAccess().getGroup_0(), "rule__Qualifier__Group_0__0");
-					put(grammarAccess.getFileAccess().getImportsAssignment_0(), "rule__File__ImportsAssignment_0");
-					put(grammarAccess.getFileAccess().getConcernsAssignment_1_0(), "rule__File__ConcernsAssignment_1_0");
-					put(grammarAccess.getFileAccess().getExternIntersectionsAssignment_1_1(), "rule__File__ExternIntersectionsAssignment_1_1");
-					put(grammarAccess.getImportAccess().getNameAssignment_2(), "rule__Import__NameAssignment_2");
+					put(grammarAccess.getMemberCallAccess().getGroup(), "rule__MemberCall__Group__0");
+					put(grammarAccess.getMemberInConcernAccess().getGroup(), "rule__MemberInConcern__Group__0");
+					put(grammarAccess.getFileAccess().getElementsAssignment(), "rule__File__ElementsAssignment");
+					put(grammarAccess.getPackageAccess().getNameAssignment_1(), "rule__Package__NameAssignment_1");
+					put(grammarAccess.getPackageAccess().getElementsAssignment_3(), "rule__Package__ElementsAssignment_3");
+					put(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1(), "rule__Import__ImportedNamespaceAssignment_1");
 					put(grammarAccess.getConcernAccess().getNameAssignment_2(), "rule__Concern__NameAssignment_2");
 					put(grammarAccess.getConcernAccess().getSupertypeAssignment_3_1(), "rule__Concern__SupertypeAssignment_3_1");
-					put(grammarAccess.getConcernAccess().getMembersAssignment_5_0(), "rule__Concern__MembersAssignment_5_0");
-					put(grammarAccess.getConcernAccess().getIntersectionsAssignment_5_1(), "rule__Concern__IntersectionsAssignment_5_1");
+					put(grammarAccess.getConcernAccess().getMembersAssignment_4_1_0(), "rule__Concern__MembersAssignment_4_1_0");
+					put(grammarAccess.getConcernAccess().getIntersectionsAssignment_4_1_1(), "rule__Concern__IntersectionsAssignment_4_1_1");
+					put(grammarAccess.getMemberAccess().getConcernAssignment_1(), "rule__Member__ConcernAssignment_1");
 					put(grammarAccess.getMemberAccess().getNameAssignment_2(), "rule__Member__NameAssignment_2");
-					put(grammarAccess.getIntersectionAccess().getQualifiersAssignment_2(), "rule__Intersection__QualifiersAssignment_2");
+					put(grammarAccess.getIntersectionAccess().getNameAssignment_1(), "rule__Intersection__NameAssignment_1");
+					put(grammarAccess.getIntersectionAccess().getMembersAssignment_2(), "rule__Intersection__MembersAssignment_2");
 					put(grammarAccess.getIntersectionAccess().getLinesContentAssignment_4(), "rule__Intersection__LinesContentAssignment_4");
-					put(grammarAccess.getLineAccess().getCalledAssignment_2(), "rule__Line__CalledAssignment_2");
-					put(grammarAccess.getQualifierAccess().getNameAssignment_0_1(), "rule__Qualifier__NameAssignment_0_1");
+					put(grammarAccess.getLineAccess().getCalledAssignment_0_0(), "rule__Line__CalledAssignment_0_0");
+					put(grammarAccess.getLineAccess().getCalled2Assignment_0_1(), "rule__Line__Called2Assignment_0_1");
+					put(grammarAccess.getLineAccess().getNameAssignment_1(), "rule__Line__NameAssignment_1");
+					put(grammarAccess.getMemberCallAccess().getNameAssignment_1(), "rule__MemberCall__NameAssignment_1");
+					put(grammarAccess.getMemberInConcernAccess().getTargetAssignment_1(), "rule__MemberInConcern__TargetAssignment_1");
+					put(grammarAccess.getMemberInConcernAccess().getNameAssignment_3(), "rule__MemberInConcern__NameAssignment_3");
 				}
 			};
 		}

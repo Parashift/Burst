@@ -16,9 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.File#getImports <em>Imports</em>}</li>
- *   <li>{@link org.xtext.burst.burst.File#getConcerns <em>Concerns</em>}</li>
- *   <li>{@link org.xtext.burst.burst.File#getExternIntersections <em>Extern Intersections</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.File#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see org.xtext.burst.burst.BurstPackage#getFile()
@@ -28,51 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface File extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.Import}.
+   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.burst.burst.AbstractElement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Imports</em>' containment reference list.
-   * @see org.xtext.burst.burst.BurstPackage#getFile_Imports()
+   * @return the value of the '<em>Elements</em>' containment reference list.
+   * @see org.xtext.burst.burst.BurstPackage#getFile_Elements()
    * @model containment="true"
    * @generated
    */
-  EList<Import> getImports();
-
-  /**
-   * Returns the value of the '<em><b>Concerns</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.Concern}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Concerns</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Concerns</em>' containment reference list.
-   * @see org.xtext.burst.burst.BurstPackage#getFile_Concerns()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Concern> getConcerns();
-
-  /**
-   * Returns the value of the '<em><b>Extern Intersections</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.Intersection}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Extern Intersections</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Extern Intersections</em>' containment reference list.
-   * @see org.xtext.burst.burst.BurstPackage#getFile_ExternIntersections()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Intersection> getExternIntersections();
+  EList<AbstractElement> getElements();
 
 } // File

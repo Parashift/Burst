@@ -10,7 +10,16 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.xtext.burst.burst.*;
+import org.xtext.burst.burst.AbstractElement;
+import org.xtext.burst.burst.BurstPackage;
+import org.xtext.burst.burst.Concern;
+import org.xtext.burst.burst.File;
+import org.xtext.burst.burst.Import;
+import org.xtext.burst.burst.Intersection;
+import org.xtext.burst.burst.Line;
+import org.xtext.burst.burst.Member;
+import org.xtext.burst.burst.MemberCall;
+import org.xtext.burst.burst.MemberInConcern;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,6 +90,16 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
         return createFileAdapter();
       }
       @Override
+      public Adapter caseAbstractElement(AbstractElement object)
+      {
+        return createAbstractElementAdapter();
+      }
+      @Override
+      public Adapter casePackage(org.xtext.burst.burst.Package object)
+      {
+        return createPackageAdapter();
+      }
+      @Override
       public Adapter caseImport(Import object)
       {
         return createImportAdapter();
@@ -106,9 +125,14 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
         return createLineAdapter();
       }
       @Override
-      public Adapter caseQualifier(Qualifier object)
+      public Adapter caseMemberCall(MemberCall object)
       {
-        return createQualifierAdapter();
+        return createMemberCallAdapter();
+      }
+      @Override
+      public Adapter caseMemberInConcern(MemberInConcern object)
+      {
+        return createMemberInConcernAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -143,6 +167,36 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFileAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.AbstractElement <em>Abstract Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.AbstractElement
+   * @generated
+   */
+  public Adapter createAbstractElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Package <em>Package</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.Package
+   * @generated
+   */
+  public Adapter createPackageAdapter()
   {
     return null;
   }
@@ -223,16 +277,31 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Qualifier <em>Qualifier</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.MemberCall <em>Member Call</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.Qualifier
+   * @see org.xtext.burst.burst.MemberCall
    * @generated
    */
-  public Adapter createQualifierAdapter()
+  public Adapter createMemberCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.MemberInConcern <em>Member In Concern</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.MemberInConcern
+   * @generated
+   */
+  public Adapter createMemberInConcernAdapter()
   {
     return null;
   }
