@@ -45,6 +45,8 @@ public class BurstParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConcernAccess().getGroup(), "rule__Concern__Group__0");
 					put(grammarAccess.getConcernAccess().getGroup_3(), "rule__Concern__Group_3__0");
 					put(grammarAccess.getConcernAccess().getGroup_4(), "rule__Concern__Group_4__0");
+					put(grammarAccess.getDestructAccess().getGroup(), "rule__Destruct__Group__0");
+					put(grammarAccess.getBuildAccess().getGroup(), "rule__Build__Group__0");
 					put(grammarAccess.getMemberAccess().getGroup(), "rule__Member__Group__0");
 					put(grammarAccess.getIntersectionAccess().getGroup(), "rule__Intersection__Group__0");
 					put(grammarAccess.getLineAccess().getGroup(), "rule__Line__Group__0");
@@ -58,6 +60,12 @@ public class BurstParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConcernAccess().getSupertypeAssignment_3_1(), "rule__Concern__SupertypeAssignment_3_1");
 					put(grammarAccess.getConcernAccess().getMembersAssignment_4_1_0(), "rule__Concern__MembersAssignment_4_1_0");
 					put(grammarAccess.getConcernAccess().getIntersectionsAssignment_4_1_1(), "rule__Concern__IntersectionsAssignment_4_1_1");
+					put(grammarAccess.getConcernAccess().getBuildAssignment_4_1_2(), "rule__Concern__BuildAssignment_4_1_2");
+					put(grammarAccess.getConcernAccess().getDestructAssignment_4_1_3(), "rule__Concern__DestructAssignment_4_1_3");
+					put(grammarAccess.getDestructAccess().getNameAssignment_1(), "rule__Destruct__NameAssignment_1");
+					put(grammarAccess.getDestructAccess().getLinesContentAssignment_3(), "rule__Destruct__LinesContentAssignment_3");
+					put(grammarAccess.getBuildAccess().getNameAssignment_1(), "rule__Build__NameAssignment_1");
+					put(grammarAccess.getBuildAccess().getLinesContentAssignment_3(), "rule__Build__LinesContentAssignment_3");
 					put(grammarAccess.getMemberAccess().getConcernAssignment_1(), "rule__Member__ConcernAssignment_1");
 					put(grammarAccess.getMemberAccess().getNameAssignment_2(), "rule__Member__NameAssignment_2");
 					put(grammarAccess.getIntersectionAccess().getNameAssignment_1(), "rule__Intersection__NameAssignment_1");

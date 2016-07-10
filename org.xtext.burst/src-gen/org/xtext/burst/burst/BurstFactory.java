@@ -69,6 +69,24 @@ public interface BurstFactory extends EFactory
   Concern createConcern();
 
   /**
+   * Returns a new object of class '<em>Destruct</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Destruct</em>'.
+   * @generated
+   */
+  Destruct createDestruct();
+
+  /**
+   * Returns a new object of class '<em>Build</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Build</em>'.
+   * @generated
+   */
+  Build createBuild();
+
+  /**
    * Returns a new object of class '<em>Member</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

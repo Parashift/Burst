@@ -22,7 +22,13 @@ Import:
 	
 Concern :	{Concern}
 	'concern' name=ID ('extends' supertype=[Concern|QualifiedName])? 
-	('{' (members+=Member | intersections+=Intersection)* '}')?;
+	('{' (members+=Member | intersections+=Intersection | build=Build | destruct=Destruct)* '}')?;
+
+Destruct: {Destruct}
+	name='dispose' '{' linesContent+=(Line)* '}' ;
+
+Build: {Build}
+	name='new' '{' linesContent+=(Line)* '}' ;
 
 Member:		{Member}
 	concern=[Concern|QualifiedName] name=ID;

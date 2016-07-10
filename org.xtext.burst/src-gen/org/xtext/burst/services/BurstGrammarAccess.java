@@ -174,16 +174,20 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMembersMemberParserRuleCall_4_1_0_0 = (RuleCall)cMembersAssignment_4_1_0.eContents().get(0);
 		private final Assignment cIntersectionsAssignment_4_1_1 = (Assignment)cAlternatives_4_1.eContents().get(1);
 		private final RuleCall cIntersectionsIntersectionParserRuleCall_4_1_1_0 = (RuleCall)cIntersectionsAssignment_4_1_1.eContents().get(0);
+		private final Assignment cBuildAssignment_4_1_2 = (Assignment)cAlternatives_4_1.eContents().get(2);
+		private final RuleCall cBuildBuildParserRuleCall_4_1_2_0 = (RuleCall)cBuildAssignment_4_1_2.eContents().get(0);
+		private final Assignment cDestructAssignment_4_1_3 = (Assignment)cAlternatives_4_1.eContents().get(3);
+		private final RuleCall cDestructDestructParserRuleCall_4_1_3_0 = (RuleCall)cDestructAssignment_4_1_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		
 		//Concern:
 		//	{Concern}
-		//	'concern' name=ID ('extends' supertype=[Concern|QualifiedName])? ('{' (members+=Member |
-		//	intersections+=Intersection)* '}')?;
+		//	'concern' name=ID ('extends' supertype=[Concern|QualifiedName])? ('{' (members+=Member | intersections+=Intersection
+		//	| build=Build | destruct=Destruct)* '}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Concern} 'concern' name=ID ('extends' supertype=[Concern|QualifiedName])? ('{' (members+=Member |
-		//intersections+=Intersection)* '}')?
+		//intersections+=Intersection | build=Build | destruct=Destruct)* '}')?
 		public Group getGroup() { return cGroup; }
 		
 		//{Concern}
@@ -213,13 +217,13 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getSupertypeConcernQualifiedNameParserRuleCall_3_1_0_1() { return cSupertypeConcernQualifiedNameParserRuleCall_3_1_0_1; }
 		
-		//('{' (members+=Member | intersections+=Intersection)* '}')?
+		//('{' (members+=Member | intersections+=Intersection | build=Build | destruct=Destruct)* '}')?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
 		
-		//(members+=Member | intersections+=Intersection)*
+		//(members+=Member | intersections+=Intersection | build=Build | destruct=Destruct)*
 		public Alternatives getAlternatives_4_1() { return cAlternatives_4_1; }
 		
 		//members+=Member
@@ -234,8 +238,98 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//Intersection
 		public RuleCall getIntersectionsIntersectionParserRuleCall_4_1_1_0() { return cIntersectionsIntersectionParserRuleCall_4_1_1_0; }
 		
+		//build=Build
+		public Assignment getBuildAssignment_4_1_2() { return cBuildAssignment_4_1_2; }
+		
+		//Build
+		public RuleCall getBuildBuildParserRuleCall_4_1_2_0() { return cBuildBuildParserRuleCall_4_1_2_0; }
+		
+		//destruct=Destruct
+		public Assignment getDestructAssignment_4_1_3() { return cDestructAssignment_4_1_3; }
+		
+		//Destruct
+		public RuleCall getDestructDestructParserRuleCall_4_1_3_0() { return cDestructDestructParserRuleCall_4_1_3_0; }
+		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4_2() { return cRightCurlyBracketKeyword_4_2; }
+	}
+	public class DestructElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Destruct");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cDestructAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cNameDisposeKeyword_1_0 = (Keyword)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cLinesContentAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLinesContentLineParserRuleCall_3_0 = (RuleCall)cLinesContentAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Destruct:
+		//	{Destruct} name='dispose' '{' linesContent+=Line* '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Destruct} name='dispose' '{' linesContent+=Line* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{Destruct}
+		public Action getDestructAction_0() { return cDestructAction_0; }
+		
+		//name='dispose'
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//'dispose'
+		public Keyword getNameDisposeKeyword_1_0() { return cNameDisposeKeyword_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//linesContent+=Line*
+		public Assignment getLinesContentAssignment_3() { return cLinesContentAssignment_3; }
+		
+		//Line
+		public RuleCall getLinesContentLineParserRuleCall_3_0() { return cLinesContentLineParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class BuildElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Build");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBuildAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cNameNewKeyword_1_0 = (Keyword)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cLinesContentAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLinesContentLineParserRuleCall_3_0 = (RuleCall)cLinesContentAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Build:
+		//	{Build} name='new' '{' linesContent+=Line* '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Build} name='new' '{' linesContent+=Line* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{Build}
+		public Action getBuildAction_0() { return cBuildAction_0; }
+		
+		//name='new'
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//'new'
+		public Keyword getNameNewKeyword_1_0() { return cNameNewKeyword_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//linesContent+=Line*
+		public Assignment getLinesContentAssignment_3() { return cLinesContentAssignment_3; }
+		
+		//Line
+		public RuleCall getLinesContentLineParserRuleCall_3_0() { return cLinesContentLineParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 	public class MemberElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Member");
@@ -433,6 +527,8 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	private final QualifiedNameElements pQualifiedName;
 	private final ImportElements pImport;
 	private final ConcernElements pConcern;
+	private final DestructElements pDestruct;
+	private final BuildElements pBuild;
 	private final MemberElements pMember;
 	private final IntersectionElements pIntersection;
 	private final LineElements pLine;
@@ -454,6 +550,8 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		this.pQualifiedName = new QualifiedNameElements();
 		this.pImport = new ImportElements();
 		this.pConcern = new ConcernElements();
+		this.pDestruct = new DestructElements();
+		this.pBuild = new BuildElements();
 		this.pMember = new MemberElements();
 		this.pIntersection = new IntersectionElements();
 		this.pLine = new LineElements();
@@ -540,14 +638,34 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Concern:
 	//	{Concern}
-	//	'concern' name=ID ('extends' supertype=[Concern|QualifiedName])? ('{' (members+=Member |
-	//	intersections+=Intersection)* '}')?;
+	//	'concern' name=ID ('extends' supertype=[Concern|QualifiedName])? ('{' (members+=Member | intersections+=Intersection
+	//	| build=Build | destruct=Destruct)* '}')?;
 	public ConcernElements getConcernAccess() {
 		return pConcern;
 	}
 	
 	public ParserRule getConcernRule() {
 		return getConcernAccess().getRule();
+	}
+	
+	//Destruct:
+	//	{Destruct} name='dispose' '{' linesContent+=Line* '}';
+	public DestructElements getDestructAccess() {
+		return pDestruct;
+	}
+	
+	public ParserRule getDestructRule() {
+		return getDestructAccess().getRule();
+	}
+	
+	//Build:
+	//	{Build} name='new' '{' linesContent+=Line* '}';
+	public BuildElements getBuildAccess() {
+		return pBuild;
+	}
+	
+	public ParserRule getBuildRule() {
+		return getBuildAccess().getRule();
 	}
 	
 	//Member:

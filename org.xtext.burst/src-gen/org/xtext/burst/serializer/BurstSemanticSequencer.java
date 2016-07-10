@@ -14,8 +14,10 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Concern;
+import org.xtext.burst.burst.Destruct;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.Import;
 import org.xtext.burst.burst.Intersection;
@@ -39,8 +41,14 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == BurstPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case BurstPackage.BUILD:
+				sequence_Build(context, (Build) semanticObject); 
+				return; 
 			case BurstPackage.CONCERN:
 				sequence_Concern(context, (Concern) semanticObject); 
+				return; 
+			case BurstPackage.DESTRUCT:
+				sequence_Destruct(context, (Destruct) semanticObject); 
 				return; 
 			case BurstPackage.FILE:
 				sequence_File(context, (File) semanticObject); 
@@ -73,13 +81,37 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Build returns Build
+	 *
+	 * Constraint:
+	 *     (name='new' linesContent+=Line*)
+	 */
+	protected void sequence_Build(ISerializationContext context, Build semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     AbstractElement returns Concern
 	 *     Concern returns Concern
 	 *
 	 * Constraint:
-	 *     (name=ID supertype=[Concern|QualifiedName]? (members+=Member | intersections+=Intersection)*)
+	 *     (name=ID supertype=[Concern|QualifiedName]? (members+=Member | intersections+=Intersection | build=Build | destruct=Destruct)*)
 	 */
 	protected void sequence_Concern(ISerializationContext context, Concern semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Destruct returns Destruct
+	 *
+	 * Constraint:
+	 *     (name='dispose' linesContent+=Line*)
+	 */
+	protected void sequence_Destruct(ISerializationContext context, Destruct semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -413,12 +413,186 @@ ruleConcern returns [EObject current=null]
 						}
 					)
 				)
+				    |
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getConcernAccess().getBuildBuildParserRuleCall_4_1_2_0());
+						}
+						lv_build_8_0=ruleBuild
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getConcernRule());
+							}
+							set(
+								$current,
+								"build",
+								lv_build_8_0,
+								"org.xtext.burst.Burst.Build");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				    |
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getConcernAccess().getDestructDestructParserRuleCall_4_1_3_0());
+						}
+						lv_destruct_9_0=ruleDestruct
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getConcernRule());
+							}
+							set(
+								$current,
+								"destruct",
+								lv_destruct_9_0,
+								"org.xtext.burst.Burst.Destruct");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
 			)*
-			otherlv_8='}'
+			otherlv_10='}'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getConcernAccess().getRightCurlyBracketKeyword_4_2());
+				newLeafNode(otherlv_10, grammarAccess.getConcernAccess().getRightCurlyBracketKeyword_4_2());
 			}
 		)?
+	)
+;
+
+// Entry rule entryRuleDestruct
+entryRuleDestruct returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDestructRule()); }
+	iv_ruleDestruct=ruleDestruct
+	{ $current=$iv_ruleDestruct.current; }
+	EOF;
+
+// Rule Destruct
+ruleDestruct returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getDestructAccess().getDestructAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				lv_name_1_0='dispose'
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getDestructAccess().getNameDisposeKeyword_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDestructRule());
+					}
+					setWithLastConsumed($current, "name", lv_name_1_0, "dispose");
+				}
+			)
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getDestructAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDestructAccess().getLinesContentLineParserRuleCall_3_0());
+				}
+				lv_linesContent_3_0=ruleLine
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDestructRule());
+					}
+					add(
+						$current,
+						"linesContent",
+						lv_linesContent_3_0,
+						"org.xtext.burst.Burst.Line");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getDestructAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleBuild
+entryRuleBuild returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBuildRule()); }
+	iv_ruleBuild=ruleBuild
+	{ $current=$iv_ruleBuild.current; }
+	EOF;
+
+// Rule Build
+ruleBuild returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getBuildAccess().getBuildAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				lv_name_1_0='new'
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getBuildAccess().getNameNewKeyword_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getBuildRule());
+					}
+					setWithLastConsumed($current, "name", lv_name_1_0, "new");
+				}
+			)
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getBuildAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBuildAccess().getLinesContentLineParserRuleCall_3_0());
+				}
+				lv_linesContent_3_0=ruleLine
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBuildRule());
+					}
+					add(
+						$current,
+						"linesContent",
+						lv_linesContent_3_0,
+						"org.xtext.burst.Burst.Line");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getBuildAccess().getRightCurlyBracketKeyword_4());
+		}
 	)
 ;
 

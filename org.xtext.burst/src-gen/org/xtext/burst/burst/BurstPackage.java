@@ -216,13 +216,105 @@ public interface BurstPackage extends EPackage
   int CONCERN__INTERSECTIONS = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
 
   /**
+   * The feature id for the '<em><b>Build</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCERN__BUILD = ABSTRACT_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Destruct</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCERN__DESTRUCT = ABSTRACT_ELEMENT_FEATURE_COUNT + 5;
+
+  /**
    * The number of structural features of the '<em>Concern</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONCERN_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 4;
+  int CONCERN_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.DestructImpl <em>Destruct</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.burst.burst.impl.DestructImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getDestruct()
+   * @generated
+   */
+  int DESTRUCT = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DESTRUCT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Lines Content</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DESTRUCT__LINES_CONTENT = 1;
+
+  /**
+   * The number of structural features of the '<em>Destruct</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DESTRUCT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.BuildImpl <em>Build</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.burst.burst.impl.BuildImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getBuild()
+   * @generated
+   */
+  int BUILD = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUILD__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Lines Content</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUILD__LINES_CONTENT = 1;
+
+  /**
+   * The number of structural features of the '<em>Build</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUILD_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.MemberImpl <em>Member</em>}' class.
@@ -232,7 +324,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getMember()
    * @generated
    */
-  int MEMBER = 5;
+  int MEMBER = 7;
 
   /**
    * The feature id for the '<em><b>Concern</b></em>' reference.
@@ -269,7 +361,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getIntersection()
    * @generated
    */
-  int INTERSECTION = 6;
+  int INTERSECTION = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -315,7 +407,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getLine()
    * @generated
    */
-  int LINE = 7;
+  int LINE = 9;
 
   /**
    * The feature id for the '<em><b>Called</b></em>' containment reference list.
@@ -361,7 +453,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getMemberCall()
    * @generated
    */
-  int MEMBER_CALL = 8;
+  int MEMBER_CALL = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -389,7 +481,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getMemberInConcern()
    * @generated
    */
-  int MEMBER_IN_CONCERN = 9;
+  int MEMBER_IN_CONCERN = 11;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -556,6 +648,92 @@ public interface BurstPackage extends EPackage
    * @generated
    */
   EReference getConcern_Intersections();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.burst.burst.Concern#getBuild <em>Build</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Build</em>'.
+   * @see org.xtext.burst.burst.Concern#getBuild()
+   * @see #getConcern()
+   * @generated
+   */
+  EReference getConcern_Build();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.burst.burst.Concern#getDestruct <em>Destruct</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Destruct</em>'.
+   * @see org.xtext.burst.burst.Concern#getDestruct()
+   * @see #getConcern()
+   * @generated
+   */
+  EReference getConcern_Destruct();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.burst.burst.Destruct <em>Destruct</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Destruct</em>'.
+   * @see org.xtext.burst.burst.Destruct
+   * @generated
+   */
+  EClass getDestruct();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Destruct#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.burst.burst.Destruct#getName()
+   * @see #getDestruct()
+   * @generated
+   */
+  EAttribute getDestruct_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.Destruct#getLinesContent <em>Lines Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Lines Content</em>'.
+   * @see org.xtext.burst.burst.Destruct#getLinesContent()
+   * @see #getDestruct()
+   * @generated
+   */
+  EReference getDestruct_LinesContent();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.burst.burst.Build <em>Build</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Build</em>'.
+   * @see org.xtext.burst.burst.Build
+   * @generated
+   */
+  EClass getBuild();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Build#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.burst.burst.Build#getName()
+   * @see #getBuild()
+   * @generated
+   */
+  EAttribute getBuild_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.Build#getLinesContent <em>Lines Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Lines Content</em>'.
+   * @see org.xtext.burst.burst.Build#getLinesContent()
+   * @see #getBuild()
+   * @generated
+   */
+  EReference getBuild_LinesContent();
 
   /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.Member <em>Member</em>}'.
@@ -864,6 +1042,74 @@ public interface BurstPackage extends EPackage
      * @generated
      */
     EReference CONCERN__INTERSECTIONS = eINSTANCE.getConcern_Intersections();
+
+    /**
+     * The meta object literal for the '<em><b>Build</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONCERN__BUILD = eINSTANCE.getConcern_Build();
+
+    /**
+     * The meta object literal for the '<em><b>Destruct</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONCERN__DESTRUCT = eINSTANCE.getConcern_Destruct();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.DestructImpl <em>Destruct</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.burst.burst.impl.DestructImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getDestruct()
+     * @generated
+     */
+    EClass DESTRUCT = eINSTANCE.getDestruct();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DESTRUCT__NAME = eINSTANCE.getDestruct_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Lines Content</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DESTRUCT__LINES_CONTENT = eINSTANCE.getDestruct_LinesContent();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.BuildImpl <em>Build</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.burst.burst.impl.BuildImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getBuild()
+     * @generated
+     */
+    EClass BUILD = eINSTANCE.getBuild();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUILD__NAME = eINSTANCE.getBuild_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Lines Content</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUILD__LINES_CONTENT = eINSTANCE.getBuild_LinesContent();
 
     /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.MemberImpl <em>Member</em>}' class.

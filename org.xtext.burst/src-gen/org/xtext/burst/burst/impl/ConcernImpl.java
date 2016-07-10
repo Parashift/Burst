@@ -18,8 +18,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Concern;
+import org.xtext.burst.burst.Destruct;
 import org.xtext.burst.burst.Intersection;
 import org.xtext.burst.burst.Member;
 
@@ -35,6 +37,8 @@ import org.xtext.burst.burst.Member;
  *   <li>{@link org.xtext.burst.burst.impl.ConcernImpl#getSupertype <em>Supertype</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.ConcernImpl#getMembers <em>Members</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.ConcernImpl#getIntersections <em>Intersections</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.ConcernImpl#getBuild <em>Build</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.ConcernImpl#getDestruct <em>Destruct</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +94,26 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
    * @ordered
    */
   protected EList<Intersection> intersections;
+
+  /**
+   * The cached value of the '{@link #getBuild() <em>Build</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBuild()
+   * @generated
+   * @ordered
+   */
+  protected Build build;
+
+  /**
+   * The cached value of the '{@link #getDestruct() <em>Destruct</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDestruct()
+   * @generated
+   * @ordered
+   */
+  protected Destruct destruct;
 
   /**
    * <!-- begin-user-doc -->
@@ -211,6 +235,102 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
    * <!-- end-user-doc -->
    * @generated
    */
+  public Build getBuild()
+  {
+    return build;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBuild(Build newBuild, NotificationChain msgs)
+  {
+    Build oldBuild = build;
+    build = newBuild;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BurstPackage.CONCERN__BUILD, oldBuild, newBuild);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBuild(Build newBuild)
+  {
+    if (newBuild != build)
+    {
+      NotificationChain msgs = null;
+      if (build != null)
+        msgs = ((InternalEObject)build).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BurstPackage.CONCERN__BUILD, null, msgs);
+      if (newBuild != null)
+        msgs = ((InternalEObject)newBuild).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BurstPackage.CONCERN__BUILD, null, msgs);
+      msgs = basicSetBuild(newBuild, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.CONCERN__BUILD, newBuild, newBuild));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Destruct getDestruct()
+  {
+    return destruct;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDestruct(Destruct newDestruct, NotificationChain msgs)
+  {
+    Destruct oldDestruct = destruct;
+    destruct = newDestruct;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BurstPackage.CONCERN__DESTRUCT, oldDestruct, newDestruct);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDestruct(Destruct newDestruct)
+  {
+    if (newDestruct != destruct)
+    {
+      NotificationChain msgs = null;
+      if (destruct != null)
+        msgs = ((InternalEObject)destruct).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BurstPackage.CONCERN__DESTRUCT, null, msgs);
+      if (newDestruct != null)
+        msgs = ((InternalEObject)newDestruct).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BurstPackage.CONCERN__DESTRUCT, null, msgs);
+      msgs = basicSetDestruct(newDestruct, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.CONCERN__DESTRUCT, newDestruct, newDestruct));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -220,6 +340,10 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
         return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
       case BurstPackage.CONCERN__INTERSECTIONS:
         return ((InternalEList<?>)getIntersections()).basicRemove(otherEnd, msgs);
+      case BurstPackage.CONCERN__BUILD:
+        return basicSetBuild(null, msgs);
+      case BurstPackage.CONCERN__DESTRUCT:
+        return basicSetDestruct(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -243,6 +367,10 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
         return getMembers();
       case BurstPackage.CONCERN__INTERSECTIONS:
         return getIntersections();
+      case BurstPackage.CONCERN__BUILD:
+        return getBuild();
+      case BurstPackage.CONCERN__DESTRUCT:
+        return getDestruct();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -272,6 +400,12 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
         getIntersections().clear();
         getIntersections().addAll((Collection<? extends Intersection>)newValue);
         return;
+      case BurstPackage.CONCERN__BUILD:
+        setBuild((Build)newValue);
+        return;
+      case BurstPackage.CONCERN__DESTRUCT:
+        setDestruct((Destruct)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -298,6 +432,12 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
       case BurstPackage.CONCERN__INTERSECTIONS:
         getIntersections().clear();
         return;
+      case BurstPackage.CONCERN__BUILD:
+        setBuild((Build)null);
+        return;
+      case BurstPackage.CONCERN__DESTRUCT:
+        setDestruct((Destruct)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -320,6 +460,10 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
         return members != null && !members.isEmpty();
       case BurstPackage.CONCERN__INTERSECTIONS:
         return intersections != null && !intersections.isEmpty();
+      case BurstPackage.CONCERN__BUILD:
+        return build != null;
+      case BurstPackage.CONCERN__DESTRUCT:
+        return destruct != null;
     }
     return super.eIsSet(featureID);
   }

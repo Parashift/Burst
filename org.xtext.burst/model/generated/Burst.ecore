@@ -21,6 +21,20 @@
         eType="#//Member" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="intersections" upperBound="-1"
         eType="#//Intersection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="build" eType="#//Build"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destruct" eType="#//Destruct"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Destruct">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linesContent" upperBound="-1"
+        eType="#//Line" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Build">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linesContent" upperBound="-1"
+        eType="#//Line" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Member">
     <eStructuralFeatures xsi:type="ecore:EReference" name="concern" eType="#//Concern"/>

@@ -9,8 +9,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.xtext.burst.burst.AbstractElement;
+import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Concern;
+import org.xtext.burst.burst.Destruct;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.Import;
 import org.xtext.burst.burst.Intersection;
@@ -117,6 +119,20 @@ public class BurstSwitch<T> extends Switch<T>
         Concern concern = (Concern)theEObject;
         T result = caseConcern(concern);
         if (result == null) result = caseAbstractElement(concern);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.DESTRUCT:
+      {
+        Destruct destruct = (Destruct)theEObject;
+        T result = caseDestruct(destruct);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.BUILD:
+      {
+        Build build = (Build)theEObject;
+        T result = caseBuild(build);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -236,6 +252,38 @@ public class BurstSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConcern(Concern object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Destruct</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Destruct</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDestruct(Destruct object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Build</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Build</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBuild(Build object)
   {
     return null;
   }

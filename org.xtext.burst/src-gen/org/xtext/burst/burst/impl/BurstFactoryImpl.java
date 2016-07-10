@@ -12,9 +12,11 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.xtext.burst.burst.AbstractElement;
+import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstFactory;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Concern;
+import org.xtext.burst.burst.Destruct;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.Import;
 import org.xtext.burst.burst.Intersection;
@@ -80,6 +82,8 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
       case BurstPackage.PACKAGE: return createPackage();
       case BurstPackage.IMPORT: return createImport();
       case BurstPackage.CONCERN: return createConcern();
+      case BurstPackage.DESTRUCT: return createDestruct();
+      case BurstPackage.BUILD: return createBuild();
       case BurstPackage.MEMBER: return createMember();
       case BurstPackage.INTERSECTION: return createIntersection();
       case BurstPackage.LINE: return createLine();
@@ -143,6 +147,28 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
   {
     ConcernImpl concern = new ConcernImpl();
     return concern;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Destruct createDestruct()
+  {
+    DestructImpl destruct = new DestructImpl();
+    return destruct;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Build createBuild()
+  {
+    BuildImpl build = new BuildImpl();
+    return build;
   }
 
   /**
