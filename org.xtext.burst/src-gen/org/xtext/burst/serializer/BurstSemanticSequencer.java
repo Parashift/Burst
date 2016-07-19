@@ -16,6 +16,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstPackage;
+import org.xtext.burst.burst.Call;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.Destruct;
 import org.xtext.burst.burst.File;
@@ -43,6 +44,9 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			switch (semanticObject.eClass().getClassifierID()) {
 			case BurstPackage.BUILD:
 				sequence_Build(context, (Build) semanticObject); 
+				return; 
+			case BurstPackage.CALL:
+				sequence_Call(context, (Call) semanticObject); 
 				return; 
 			case BurstPackage.CONCERN:
 				sequence_Concern(context, (Concern) semanticObject); 
@@ -93,11 +97,23 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Call returns Call
+	 *
+	 * Constraint:
+	 *     (name=MemberCall | name=MemberInConcern)
+	 */
+	protected void sequence_Call(ISerializationContext context, Call semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     AbstractElement returns Concern
 	 *     Concern returns Concern
 	 *
 	 * Constraint:
-	 *     (name=ID supertype=[Concern|QualifiedName]? (members+=Member | intersections+=Intersection | build=Build | destruct=Destruct)*)
+	 *     (name=ID supertype=[Concern|QualifiedName]? (members+=Member | intersections+=Intersection)*)
 	 */
 	protected void sequence_Concern(ISerializationContext context, Concern semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -165,7 +181,7 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Line returns Line
 	 *
 	 * Constraint:
-	 *     ((called+=MemberCall | called2+=MemberInConcern)* name=';')
+	 *     (first=Call list+=Call*)
 	 */
 	protected void sequence_Line(ISerializationContext context, Line semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -195,7 +211,7 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     MemberInConcern returns MemberInConcern
 	 *
 	 * Constraint:
-	 *     (target=[Concern|ID] name=ID)
+	 *     (target=[Concern|ID] name=[Member|ID])
 	 */
 	protected void sequence_MemberInConcern(ISerializationContext context, MemberInConcern semanticObject) {
 		if (errorAcceptor != null) {
@@ -206,7 +222,7 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMemberInConcernAccess().getTargetConcernIDTerminalRuleCall_1_0_1(), semanticObject.getTarget());
-		feeder.accept(grammarAccess.getMemberInConcernAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getMemberInConcernAccess().getNameMemberIDTerminalRuleCall_3_0_1(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -227,7 +243,7 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMemberAccess().getConcernConcernQualifiedNameParserRuleCall_1_0_1(), semanticObject.getConcern());
-		feeder.accept(grammarAccess.getMemberAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getMemberAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

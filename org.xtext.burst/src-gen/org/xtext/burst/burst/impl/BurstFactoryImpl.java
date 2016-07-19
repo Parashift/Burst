@@ -15,6 +15,7 @@ import org.xtext.burst.burst.AbstractElement;
 import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstFactory;
 import org.xtext.burst.burst.BurstPackage;
+import org.xtext.burst.burst.Call;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.Destruct;
 import org.xtext.burst.burst.File;
@@ -87,6 +88,7 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
       case BurstPackage.MEMBER: return createMember();
       case BurstPackage.INTERSECTION: return createIntersection();
       case BurstPackage.LINE: return createLine();
+      case BurstPackage.CALL: return createCall();
       case BurstPackage.MEMBER_CALL: return createMemberCall();
       case BurstPackage.MEMBER_IN_CONCERN: return createMemberInConcern();
       default:
@@ -202,6 +204,17 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
   {
     LineImpl line = new LineImpl();
     return line;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Call createCall()
+  {
+    CallImpl call = new CallImpl();
+    return call;
   }
 
   /**

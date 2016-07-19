@@ -1,7 +1,8 @@
-grammar org.xtext.burst.Burst with org.eclipse.xtext.common.Terminals 
+grammar org.xtext.burst.Burst hidden(WS, ML_COMMENT, SL_COMMENT)
 
 
 generate burst "http://www.xtext.org/burst/Burst"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 
 
@@ -9,41 +10,59 @@ File:
 	(elements+=AbstractElement)*;
 
 AbstractElement:
-	Import | Concern | Intersection | Package;
+	Import | Concern | Intersection | Package | ENDLINE;
 
 Package:
-	'package' name=QualifiedName '{' (elements+=AbstractElement)* '}';
+	'package' name=QualifiedName '{' (elements+=AbstractElement)* '}' ENDLINE;
 
 QualifiedName:
 	ID( '.' ID)*;
 
 Import:
-    'import' importedNamespace=QualifiedName;
+    'import' importedNamespace=QualifiedName ENDLINE;
 	
 Concern :	{Concern}
-	'concern' name=ID ('extends' supertype=[Concern|QualifiedName])? 
-	('{' (members+=Member | intersections+=Intersection | build=Build | destruct=Destruct)* '}')?;
+	'concern' ENDLINE? name=ID ENDLINE?
+	('extends' ENDLINE? supertype=[Concern|QualifiedName] ENDLINE?)? 
+	('{' ENDLINE? (members+=Member | intersections+=Intersection )* ENDLINE? '}')? ENDLINE;
 
 Destruct: {Destruct}
-	name='dispose' '{' linesContent+=(Line)* '}' ;
+	name='dispose' '{' linesContent+=(Line)* '}' ; 
 
 Build: {Build}
 	name='new' '{' linesContent+=(Line)* '}' ;
 
 Member:		{Member}
-	concern=[Concern|QualifiedName] name=ID;
+	concern=[Concern|QualifiedName] ENDLINE? name=ID ENDLINE?;
 
 Intersection: {Intersection}
-	name='when' ((members+=Member ) )* 
-	 '{' linesContent+=(Line)* '}' ;
+	name='when' ENDLINE? ((members+=Member ) )* 
+	 '{' ENDLINE? linesContent+=(Line)* ENDLINE? '}' ;
 	
 Line:
-	(called+=MemberCall | called2+=MemberInConcern)* name=';';
+	first=Call (list+=Call)* ENDLINE ;
+
+Call: {Call}
+	name=MemberCall | name=MemberInConcern;
 	
 MemberCall:	{MemberCall}
 	name=([Member]);
 
 MemberInConcern: {MemberInConcern}
-	target=[Concern] '.' name=ID;
+	target=[Concern] '.' name=[Member];
+	
+	
+terminal ID  		: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+terminal INT returns ecore::EInt: ('0'..'9')+;
+terminal STRING	: 
+			'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |
+			"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
+		; 
+terminal ML_COMMENT	: '/*' -> '*/';
+terminal SL_COMMENT 	: '//' !('\n'|'\r')* ('\r'? '\n')?;
+
+terminal WS			: (' '|'\t' )+;
+terminal ENDLINE    : '\r'? '\n';
+terminal ANY_OTHER: .;
 //terminal LINE_TO_COMPLETE : '&&&' !('\n'|'\r')* ('\r'? '\n')?;
 //terminal LINE_END	: ('\r'? '\n');

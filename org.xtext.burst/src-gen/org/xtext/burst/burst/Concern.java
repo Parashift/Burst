@@ -18,8 +18,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.xtext.burst.burst.Concern#getSupertype <em>Supertype</em>}</li>
  *   <li>{@link org.xtext.burst.burst.Concern#getMembers <em>Members</em>}</li>
  *   <li>{@link org.xtext.burst.burst.Concern#getIntersections <em>Intersections</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Concern#getBuild <em>Build</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Concern#getDestruct <em>Destruct</em>}</li>
  * </ul>
  *
  * @see org.xtext.burst.burst.BurstPackage#getConcern()
@@ -111,57 +109,5 @@ public interface Concern extends AbstractElement
    * @generated
    */
   EList<Intersection> getIntersections();
-
-  /**
-   * Returns the value of the '<em><b>Build</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Build</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Build</em>' containment reference.
-   * @see #setBuild(Build)
-   * @see org.xtext.burst.burst.BurstPackage#getConcern_Build()
-   * @model containment="true"
-   * @generated
-   */
-  Build getBuild();
-
-  /**
-   * Sets the value of the '{@link org.xtext.burst.burst.Concern#getBuild <em>Build</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Build</em>' containment reference.
-   * @see #getBuild()
-   * @generated
-   */
-  void setBuild(Build value);
-
-  /**
-   * Returns the value of the '<em><b>Destruct</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Destruct</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Destruct</em>' containment reference.
-   * @see #setDestruct(Destruct)
-   * @see org.xtext.burst.burst.BurstPackage#getConcern_Destruct()
-   * @model containment="true"
-   * @generated
-   */
-  Destruct getDestruct();
-
-  /**
-   * Sets the value of the '{@link org.xtext.burst.burst.Concern#getDestruct <em>Destruct</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Destruct</em>' containment reference.
-   * @see #getDestruct()
-   * @generated
-   */
-  void setDestruct(Destruct value);
 
 } // Concern

@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Concern;
+import org.xtext.burst.burst.Member;
 import org.xtext.burst.burst.MemberInConcern;
 
 /**
@@ -42,24 +43,14 @@ public class MemberInConcernImpl extends MinimalEObjectImpl.Container implements
   protected Concern target;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected Member name;
 
   /**
    * <!-- begin-user-doc -->
@@ -130,7 +121,27 @@ public class MemberInConcernImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public Member getName()
+  {
+    if (name != null && name.eIsProxy())
+    {
+      InternalEObject oldName = (InternalEObject)name;
+      name = (Member)eResolveProxy(oldName);
+      if (name != oldName)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.MEMBER_IN_CONCERN__NAME, oldName, name));
+      }
+    }
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Member basicGetName()
   {
     return name;
   }
@@ -140,9 +151,9 @@ public class MemberInConcernImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setName(Member newName)
   {
-    String oldName = name;
+    Member oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER_IN_CONCERN__NAME, oldName, name));
@@ -162,7 +173,8 @@ public class MemberInConcernImpl extends MinimalEObjectImpl.Container implements
         if (resolve) return getTarget();
         return basicGetTarget();
       case BurstPackage.MEMBER_IN_CONCERN__NAME:
-        return getName();
+        if (resolve) return getName();
+        return basicGetName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -181,7 +193,7 @@ public class MemberInConcernImpl extends MinimalEObjectImpl.Container implements
         setTarget((Concern)newValue);
         return;
       case BurstPackage.MEMBER_IN_CONCERN__NAME:
-        setName((String)newValue);
+        setName((Member)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -201,7 +213,7 @@ public class MemberInConcernImpl extends MinimalEObjectImpl.Container implements
         setTarget((Concern)null);
         return;
       case BurstPackage.MEMBER_IN_CONCERN__NAME:
-        setName(NAME_EDEFAULT);
+        setName((Member)null);
         return;
     }
     super.eUnset(featureID);
@@ -220,26 +232,9 @@ public class MemberInConcernImpl extends MinimalEObjectImpl.Container implements
       case BurstPackage.MEMBER_IN_CONCERN__TARGET:
         return target != null;
       case BurstPackage.MEMBER_IN_CONCERN__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+        return name != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //MemberInConcernImpl

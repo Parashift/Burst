@@ -114,6 +114,15 @@ public interface BurstFactory extends EFactory
   Line createLine();
 
   /**
+   * Returns a new object of class '<em>Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Call</em>'.
+   * @generated
+   */
+  Call createCall();
+
+  /**
    * Returns a new object of class '<em>Member Call</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

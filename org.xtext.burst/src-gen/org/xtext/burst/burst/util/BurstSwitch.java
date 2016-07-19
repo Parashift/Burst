@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.xtext.burst.burst.AbstractElement;
 import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstPackage;
+import org.xtext.burst.burst.Call;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.Destruct;
 import org.xtext.burst.burst.File;
@@ -155,6 +156,13 @@ public class BurstSwitch<T> extends Switch<T>
       {
         Line line = (Line)theEObject;
         T result = caseLine(line);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.CALL:
+      {
+        Call call = (Call)theEObject;
+        T result = caseCall(call);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -332,6 +340,22 @@ public class BurstSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLine(Line object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCall(Call object)
   {
     return null;
   }

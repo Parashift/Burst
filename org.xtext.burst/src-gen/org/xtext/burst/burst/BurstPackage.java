@@ -216,31 +216,13 @@ public interface BurstPackage extends EPackage
   int CONCERN__INTERSECTIONS = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Build</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONCERN__BUILD = ABSTRACT_ELEMENT_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Destruct</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONCERN__DESTRUCT = ABSTRACT_ELEMENT_FEATURE_COUNT + 5;
-
-  /**
    * The number of structural features of the '<em>Concern</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONCERN_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 6;
+  int CONCERN_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.DestructImpl <em>Destruct</em>}' class.
@@ -410,31 +392,22 @@ public interface BurstPackage extends EPackage
   int LINE = 9;
 
   /**
-   * The feature id for the '<em><b>Called</b></em>' containment reference list.
+   * The feature id for the '<em><b>First</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LINE__CALLED = 0;
+  int LINE__FIRST = 0;
 
   /**
-   * The feature id for the '<em><b>Called2</b></em>' containment reference list.
+   * The feature id for the '<em><b>List</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LINE__CALLED2 = 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LINE__NAME = 2;
+  int LINE__LIST = 1;
 
   /**
    * The number of structural features of the '<em>Line</em>' class.
@@ -443,7 +416,35 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINE_FEATURE_COUNT = 3;
+  int LINE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.CallImpl <em>Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.burst.burst.impl.CallImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCall()
+   * @generated
+   */
+  int CALL = 10;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.MemberCallImpl <em>Member Call</em>}' class.
@@ -453,7 +454,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getMemberCall()
    * @generated
    */
-  int MEMBER_CALL = 10;
+  int MEMBER_CALL = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -481,7 +482,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getMemberInConcern()
    * @generated
    */
-  int MEMBER_IN_CONCERN = 11;
+  int MEMBER_IN_CONCERN = 12;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -493,7 +494,7 @@ public interface BurstPackage extends EPackage
   int MEMBER_IN_CONCERN__TARGET = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -650,28 +651,6 @@ public interface BurstPackage extends EPackage
   EReference getConcern_Intersections();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.burst.burst.Concern#getBuild <em>Build</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Build</em>'.
-   * @see org.xtext.burst.burst.Concern#getBuild()
-   * @see #getConcern()
-   * @generated
-   */
-  EReference getConcern_Build();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.burst.burst.Concern#getDestruct <em>Destruct</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Destruct</em>'.
-   * @see org.xtext.burst.burst.Concern#getDestruct()
-   * @see #getConcern()
-   * @generated
-   */
-  EReference getConcern_Destruct();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.Destruct <em>Destruct</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -821,37 +800,47 @@ public interface BurstPackage extends EPackage
   EClass getLine();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.Line#getCalled <em>Called</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.burst.burst.Line#getFirst <em>First</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Called</em>'.
-   * @see org.xtext.burst.burst.Line#getCalled()
+   * @return the meta object for the containment reference '<em>First</em>'.
+   * @see org.xtext.burst.burst.Line#getFirst()
    * @see #getLine()
    * @generated
    */
-  EReference getLine_Called();
+  EReference getLine_First();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.Line#getCalled2 <em>Called2</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.Line#getList <em>List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Called2</em>'.
-   * @see org.xtext.burst.burst.Line#getCalled2()
+   * @return the meta object for the containment reference list '<em>List</em>'.
+   * @see org.xtext.burst.burst.Line#getList()
    * @see #getLine()
    * @generated
    */
-  EReference getLine_Called2();
+  EReference getLine_List();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Line#getName <em>Name</em>}'.
+   * Returns the meta object for class '{@link org.xtext.burst.burst.Call <em>Call</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.burst.burst.Line#getName()
-   * @see #getLine()
+   * @return the meta object for class '<em>Call</em>'.
+   * @see org.xtext.burst.burst.Call
    * @generated
    */
-  EAttribute getLine_Name();
+  EClass getCall();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.burst.burst.Call#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see org.xtext.burst.burst.Call#getName()
+   * @see #getCall()
+   * @generated
+   */
+  EReference getCall_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.MemberCall <em>Member Call</em>}'.
@@ -896,15 +885,15 @@ public interface BurstPackage extends EPackage
   EReference getMemberInConcern_Target();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.MemberInConcern#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.burst.burst.MemberInConcern#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the reference '<em>Name</em>'.
    * @see org.xtext.burst.burst.MemberInConcern#getName()
    * @see #getMemberInConcern()
    * @generated
    */
-  EAttribute getMemberInConcern_Name();
+  EReference getMemberInConcern_Name();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1044,22 +1033,6 @@ public interface BurstPackage extends EPackage
     EReference CONCERN__INTERSECTIONS = eINSTANCE.getConcern_Intersections();
 
     /**
-     * The meta object literal for the '<em><b>Build</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONCERN__BUILD = eINSTANCE.getConcern_Build();
-
-    /**
-     * The meta object literal for the '<em><b>Destruct</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONCERN__DESTRUCT = eINSTANCE.getConcern_Destruct();
-
-    /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.DestructImpl <em>Destruct</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1182,28 +1155,38 @@ public interface BurstPackage extends EPackage
     EClass LINE = eINSTANCE.getLine();
 
     /**
-     * The meta object literal for the '<em><b>Called</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>First</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LINE__CALLED = eINSTANCE.getLine_Called();
+    EReference LINE__FIRST = eINSTANCE.getLine_First();
 
     /**
-     * The meta object literal for the '<em><b>Called2</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>List</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LINE__CALLED2 = eINSTANCE.getLine_Called2();
+    EReference LINE__LIST = eINSTANCE.getLine_List();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.CallImpl <em>Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.burst.burst.impl.CallImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCall()
+     * @generated
+     */
+    EClass CALL = eINSTANCE.getCall();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LINE__NAME = eINSTANCE.getLine_Name();
+    EReference CALL__NAME = eINSTANCE.getCall_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.MemberCallImpl <em>Member Call</em>}' class.
@@ -1242,12 +1225,12 @@ public interface BurstPackage extends EPackage
     EReference MEMBER_IN_CONCERN__TARGET = eINSTANCE.getMemberInConcern_Target();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MEMBER_IN_CONCERN__NAME = eINSTANCE.getMemberInConcern_Name();
+    EReference MEMBER_IN_CONCERN__NAME = eINSTANCE.getMemberInConcern_Name();
 
   }
 

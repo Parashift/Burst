@@ -16,9 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.Line#getCalled <em>Called</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Line#getCalled2 <em>Called2</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Line#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Line#getFirst <em>First</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Line#getList <em>List</em>}</li>
  * </ul>
  *
  * @see org.xtext.burst.burst.BurstPackage#getLine()
@@ -28,61 +27,45 @@ import org.eclipse.emf.ecore.EObject;
 public interface Line extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Called</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.MemberCall}.
+   * Returns the value of the '<em><b>First</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Called</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>First</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Called</em>' containment reference list.
-   * @see org.xtext.burst.burst.BurstPackage#getLine_Called()
+   * @return the value of the '<em>First</em>' containment reference.
+   * @see #setFirst(Call)
+   * @see org.xtext.burst.burst.BurstPackage#getLine_First()
    * @model containment="true"
    * @generated
    */
-  EList<MemberCall> getCalled();
+  Call getFirst();
 
   /**
-   * Returns the value of the '<em><b>Called2</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.MemberInConcern}.
+   * Sets the value of the '{@link org.xtext.burst.burst.Line#getFirst <em>First</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>First</em>' containment reference.
+   * @see #getFirst()
+   * @generated
+   */
+  void setFirst(Call value);
+
+  /**
+   * Returns the value of the '<em><b>List</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.burst.burst.Call}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Called2</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>List</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Called2</em>' containment reference list.
-   * @see org.xtext.burst.burst.BurstPackage#getLine_Called2()
+   * @return the value of the '<em>List</em>' containment reference list.
+   * @see org.xtext.burst.burst.BurstPackage#getLine_List()
    * @model containment="true"
    * @generated
    */
-  EList<MemberInConcern> getCalled2();
-
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.burst.burst.BurstPackage#getLine_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.xtext.burst.burst.Line#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
+  EList<Call> getList();
 
 } // Line

@@ -17,7 +17,6 @@ import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -46,12 +45,13 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConcernParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cIntersectionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cPackageParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cENDLINETerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//AbstractElement:
-		//	Import | Concern | Intersection | Package;
+		//	Import | Concern | Intersection | Package | ENDLINE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Import | Concern | Intersection | Package
+		//Import | Concern | Intersection | Package | ENDLINE
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Import
@@ -65,6 +65,9 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Package
 		public RuleCall getPackageParserRuleCall_3() { return cPackageParserRuleCall_3; }
+		
+		//ENDLINE
+		public RuleCall getENDLINETerminalRuleCall_4() { return cENDLINETerminalRuleCall_4; }
 	}
 	public class PackageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Package");
@@ -76,12 +79,13 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cElementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cElementsAbstractElementParserRuleCall_3_0 = (RuleCall)cElementsAssignment_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cENDLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//Package:
-		//	'package' name=QualifiedName '{' elements+=AbstractElement* '}';
+		//	'package' name=QualifiedName '{' elements+=AbstractElement* '}' ENDLINE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'package' name=QualifiedName '{' elements+=AbstractElement* '}'
+		//'package' name=QualifiedName '{' elements+=AbstractElement* '}' ENDLINE
 		public Group getGroup() { return cGroup; }
 		
 		//'package'
@@ -104,6 +108,9 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		
+		//ENDLINE
+		public RuleCall getENDLINETerminalRuleCall_5() { return cENDLINETerminalRuleCall_5; }
 	}
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.QualifiedName");
@@ -138,12 +145,13 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cImportedNamespaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cImportedNamespaceQualifiedNameParserRuleCall_1_0 = (RuleCall)cImportedNamespaceAssignment_1.eContents().get(0);
+		private final RuleCall cENDLINETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		//Import:
-		//	'import' importedNamespace=QualifiedName;
+		//	'import' importedNamespace=QualifiedName ENDLINE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'import' importedNamespace=QualifiedName
+		//'import' importedNamespace=QualifiedName ENDLINE
 		public Group getGroup() { return cGroup; }
 		
 		//'import'
@@ -154,40 +162,46 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//QualifiedName
 		public RuleCall getImportedNamespaceQualifiedNameParserRuleCall_1_0() { return cImportedNamespaceQualifiedNameParserRuleCall_1_0; }
+		
+		//ENDLINE
+		public RuleCall getENDLINETerminalRuleCall_2() { return cENDLINETerminalRuleCall_2; }
 	}
 	public class ConcernElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Concern");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cConcernAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cConcernKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cSupertypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cSupertypeConcernCrossReference_3_1_0 = (CrossReference)cSupertypeAssignment_3_1.eContents().get(0);
-		private final RuleCall cSupertypeConcernQualifiedNameParserRuleCall_3_1_0_1 = (RuleCall)cSupertypeConcernCrossReference_3_1_0.eContents().get(1);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cLeftCurlyBracketKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Alternatives cAlternatives_4_1 = (Alternatives)cGroup_4.eContents().get(1);
-		private final Assignment cMembersAssignment_4_1_0 = (Assignment)cAlternatives_4_1.eContents().get(0);
-		private final RuleCall cMembersMemberParserRuleCall_4_1_0_0 = (RuleCall)cMembersAssignment_4_1_0.eContents().get(0);
-		private final Assignment cIntersectionsAssignment_4_1_1 = (Assignment)cAlternatives_4_1.eContents().get(1);
-		private final RuleCall cIntersectionsIntersectionParserRuleCall_4_1_1_0 = (RuleCall)cIntersectionsAssignment_4_1_1.eContents().get(0);
-		private final Assignment cBuildAssignment_4_1_2 = (Assignment)cAlternatives_4_1.eContents().get(2);
-		private final RuleCall cBuildBuildParserRuleCall_4_1_2_0 = (RuleCall)cBuildAssignment_4_1_2.eContents().get(0);
-		private final Assignment cDestructAssignment_4_1_3 = (Assignment)cAlternatives_4_1.eContents().get(3);
-		private final RuleCall cDestructDestructParserRuleCall_4_1_3_0 = (RuleCall)cDestructAssignment_4_1_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final RuleCall cENDLINETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cENDLINETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cExtendsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final RuleCall cENDLINETerminalRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
+		private final Assignment cSupertypeAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final CrossReference cSupertypeConcernCrossReference_5_2_0 = (CrossReference)cSupertypeAssignment_5_2.eContents().get(0);
+		private final RuleCall cSupertypeConcernQualifiedNameParserRuleCall_5_2_0_1 = (RuleCall)cSupertypeConcernCrossReference_5_2_0.eContents().get(1);
+		private final RuleCall cENDLINETerminalRuleCall_5_3 = (RuleCall)cGroup_5.eContents().get(3);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cLeftCurlyBracketKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final RuleCall cENDLINETerminalRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
+		private final Alternatives cAlternatives_6_2 = (Alternatives)cGroup_6.eContents().get(2);
+		private final Assignment cMembersAssignment_6_2_0 = (Assignment)cAlternatives_6_2.eContents().get(0);
+		private final RuleCall cMembersMemberParserRuleCall_6_2_0_0 = (RuleCall)cMembersAssignment_6_2_0.eContents().get(0);
+		private final Assignment cIntersectionsAssignment_6_2_1 = (Assignment)cAlternatives_6_2.eContents().get(1);
+		private final RuleCall cIntersectionsIntersectionParserRuleCall_6_2_1_0 = (RuleCall)cIntersectionsAssignment_6_2_1.eContents().get(0);
+		private final RuleCall cENDLINETerminalRuleCall_6_3 = (RuleCall)cGroup_6.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final RuleCall cENDLINETerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		
 		//Concern:
 		//	{Concern}
-		//	'concern' name=ID ('extends' supertype=[Concern|QualifiedName])? ('{' (members+=Member | intersections+=Intersection
-		//	| build=Build | destruct=Destruct)* '}')?;
+		//	'concern' ENDLINE? name=ID ENDLINE? ('extends' ENDLINE? supertype=[Concern|QualifiedName] ENDLINE?)? ('{' ENDLINE?
+		//	(members+=Member | intersections+=Intersection)* ENDLINE? '}')? ENDLINE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Concern} 'concern' name=ID ('extends' supertype=[Concern|QualifiedName])? ('{' (members+=Member |
-		//intersections+=Intersection | build=Build | destruct=Destruct)* '}')?
+		//{Concern} 'concern' ENDLINE? name=ID ENDLINE? ('extends' ENDLINE? supertype=[Concern|QualifiedName] ENDLINE?)? ('{'
+		//ENDLINE? (members+=Member | intersections+=Intersection)* ENDLINE? '}')? ENDLINE
 		public Group getGroup() { return cGroup; }
 		
 		//{Concern}
@@ -196,62 +210,71 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//'concern'
 		public Keyword getConcernKeyword_1() { return cConcernKeyword_1; }
 		
+		//ENDLINE?
+		public RuleCall getENDLINETerminalRuleCall_2() { return cENDLINETerminalRuleCall_2; }
+		
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 		
-		//('extends' supertype=[Concern|QualifiedName])?
-		public Group getGroup_3() { return cGroup_3; }
+		//ENDLINE?
+		public RuleCall getENDLINETerminalRuleCall_4() { return cENDLINETerminalRuleCall_4; }
+		
+		//('extends' ENDLINE? supertype=[Concern|QualifiedName] ENDLINE?)?
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//'extends'
-		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
+		public Keyword getExtendsKeyword_5_0() { return cExtendsKeyword_5_0; }
+		
+		//ENDLINE?
+		public RuleCall getENDLINETerminalRuleCall_5_1() { return cENDLINETerminalRuleCall_5_1; }
 		
 		//supertype=[Concern|QualifiedName]
-		public Assignment getSupertypeAssignment_3_1() { return cSupertypeAssignment_3_1; }
+		public Assignment getSupertypeAssignment_5_2() { return cSupertypeAssignment_5_2; }
 		
 		//[Concern|QualifiedName]
-		public CrossReference getSupertypeConcernCrossReference_3_1_0() { return cSupertypeConcernCrossReference_3_1_0; }
+		public CrossReference getSupertypeConcernCrossReference_5_2_0() { return cSupertypeConcernCrossReference_5_2_0; }
 		
 		//QualifiedName
-		public RuleCall getSupertypeConcernQualifiedNameParserRuleCall_3_1_0_1() { return cSupertypeConcernQualifiedNameParserRuleCall_3_1_0_1; }
+		public RuleCall getSupertypeConcernQualifiedNameParserRuleCall_5_2_0_1() { return cSupertypeConcernQualifiedNameParserRuleCall_5_2_0_1; }
 		
-		//('{' (members+=Member | intersections+=Intersection | build=Build | destruct=Destruct)* '}')?
-		public Group getGroup_4() { return cGroup_4; }
+		//ENDLINE?
+		public RuleCall getENDLINETerminalRuleCall_5_3() { return cENDLINETerminalRuleCall_5_3; }
+		
+		//('{' ENDLINE? (members+=Member | intersections+=Intersection)* ENDLINE? '}')?
+		public Group getGroup_6() { return cGroup_6; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
+		public Keyword getLeftCurlyBracketKeyword_6_0() { return cLeftCurlyBracketKeyword_6_0; }
 		
-		//(members+=Member | intersections+=Intersection | build=Build | destruct=Destruct)*
-		public Alternatives getAlternatives_4_1() { return cAlternatives_4_1; }
+		//ENDLINE?
+		public RuleCall getENDLINETerminalRuleCall_6_1() { return cENDLINETerminalRuleCall_6_1; }
+		
+		//(members+=Member | intersections+=Intersection)*
+		public Alternatives getAlternatives_6_2() { return cAlternatives_6_2; }
 		
 		//members+=Member
-		public Assignment getMembersAssignment_4_1_0() { return cMembersAssignment_4_1_0; }
+		public Assignment getMembersAssignment_6_2_0() { return cMembersAssignment_6_2_0; }
 		
 		//Member
-		public RuleCall getMembersMemberParserRuleCall_4_1_0_0() { return cMembersMemberParserRuleCall_4_1_0_0; }
+		public RuleCall getMembersMemberParserRuleCall_6_2_0_0() { return cMembersMemberParserRuleCall_6_2_0_0; }
 		
 		//intersections+=Intersection
-		public Assignment getIntersectionsAssignment_4_1_1() { return cIntersectionsAssignment_4_1_1; }
+		public Assignment getIntersectionsAssignment_6_2_1() { return cIntersectionsAssignment_6_2_1; }
 		
 		//Intersection
-		public RuleCall getIntersectionsIntersectionParserRuleCall_4_1_1_0() { return cIntersectionsIntersectionParserRuleCall_4_1_1_0; }
+		public RuleCall getIntersectionsIntersectionParserRuleCall_6_2_1_0() { return cIntersectionsIntersectionParserRuleCall_6_2_1_0; }
 		
-		//build=Build
-		public Assignment getBuildAssignment_4_1_2() { return cBuildAssignment_4_1_2; }
-		
-		//Build
-		public RuleCall getBuildBuildParserRuleCall_4_1_2_0() { return cBuildBuildParserRuleCall_4_1_2_0; }
-		
-		//destruct=Destruct
-		public Assignment getDestructAssignment_4_1_3() { return cDestructAssignment_4_1_3; }
-		
-		//Destruct
-		public RuleCall getDestructDestructParserRuleCall_4_1_3_0() { return cDestructDestructParserRuleCall_4_1_3_0; }
+		//ENDLINE?
+		public RuleCall getENDLINETerminalRuleCall_6_3() { return cENDLINETerminalRuleCall_6_3; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4_2() { return cRightCurlyBracketKeyword_4_2; }
+		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
+		
+		//ENDLINE
+		public RuleCall getENDLINETerminalRuleCall_7() { return cENDLINETerminalRuleCall_7; }
 	}
 	public class DestructElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Destruct");
@@ -338,14 +361,16 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cConcernAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cConcernConcernCrossReference_1_0 = (CrossReference)cConcernAssignment_1.eContents().get(0);
 		private final RuleCall cConcernConcernQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cConcernConcernCrossReference_1_0.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cENDLINETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cENDLINETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//Member:
-		//	{Member} concern=[Concern|QualifiedName] name=ID;
+		//	{Member} concern=[Concern|QualifiedName] ENDLINE? name=ID ENDLINE?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Member} concern=[Concern|QualifiedName] name=ID
+		//{Member} concern=[Concern|QualifiedName] ENDLINE? name=ID ENDLINE?
 		public Group getGroup() { return cGroup; }
 		
 		//{Member}
@@ -360,11 +385,17 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getConcernConcernQualifiedNameParserRuleCall_1_0_1() { return cConcernConcernQualifiedNameParserRuleCall_1_0_1; }
 		
+		//ENDLINE?
+		public RuleCall getENDLINETerminalRuleCall_2() { return cENDLINETerminalRuleCall_2; }
+		
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+		
+		//ENDLINE?
+		public RuleCall getENDLINETerminalRuleCall_4() { return cENDLINETerminalRuleCall_4; }
 	}
 	public class IntersectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Intersection");
@@ -372,19 +403,22 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cIntersectionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Keyword cNameWhenKeyword_1_0 = (Keyword)cNameAssignment_1.eContents().get(0);
-		private final Assignment cMembersAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMembersMemberParserRuleCall_2_0 = (RuleCall)cMembersAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cLinesContentAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cLinesContentLineParserRuleCall_4_0 = (RuleCall)cLinesContentAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cENDLINETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cMembersAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMembersMemberParserRuleCall_3_0 = (RuleCall)cMembersAssignment_3.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cENDLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cLinesContentAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cLinesContentLineParserRuleCall_6_0 = (RuleCall)cLinesContentAssignment_6.eContents().get(0);
+		private final RuleCall cENDLINETerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Intersection:
-		//	{Intersection} name='when' members+=Member*
-		//	'{' linesContent+=Line* '}';
+		//	{Intersection} name='when' ENDLINE? members+=Member*
+		//	'{' ENDLINE? linesContent+=Line* ENDLINE? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Intersection} name='when' members+=Member* '{' linesContent+=Line* '}'
+		//{Intersection} name='when' ENDLINE? members+=Member* '{' ENDLINE? linesContent+=Line* ENDLINE? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Intersection}
@@ -396,62 +430,98 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//'when'
 		public Keyword getNameWhenKeyword_1_0() { return cNameWhenKeyword_1_0; }
 		
+		//ENDLINE?
+		public RuleCall getENDLINETerminalRuleCall_2() { return cENDLINETerminalRuleCall_2; }
+		
 		//members+=Member*
-		public Assignment getMembersAssignment_2() { return cMembersAssignment_2; }
+		public Assignment getMembersAssignment_3() { return cMembersAssignment_3; }
 		
 		//Member
-		public RuleCall getMembersMemberParserRuleCall_2_0() { return cMembersMemberParserRuleCall_2_0; }
+		public RuleCall getMembersMemberParserRuleCall_3_0() { return cMembersMemberParserRuleCall_3_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		
+		//ENDLINE?
+		public RuleCall getENDLINETerminalRuleCall_5() { return cENDLINETerminalRuleCall_5; }
 		
 		//linesContent+=Line*
-		public Assignment getLinesContentAssignment_4() { return cLinesContentAssignment_4; }
+		public Assignment getLinesContentAssignment_6() { return cLinesContentAssignment_6; }
 		
 		//Line
-		public RuleCall getLinesContentLineParserRuleCall_4_0() { return cLinesContentLineParserRuleCall_4_0; }
+		public RuleCall getLinesContentLineParserRuleCall_6_0() { return cLinesContentLineParserRuleCall_6_0; }
+		
+		//ENDLINE?
+		public RuleCall getENDLINETerminalRuleCall_7() { return cENDLINETerminalRuleCall_7; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class LineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Line");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Assignment cCalledAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
-		private final RuleCall cCalledMemberCallParserRuleCall_0_0_0 = (RuleCall)cCalledAssignment_0_0.eContents().get(0);
-		private final Assignment cCalled2Assignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
-		private final RuleCall cCalled2MemberInConcernParserRuleCall_0_1_0 = (RuleCall)cCalled2Assignment_0_1.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cNameSemicolonKeyword_1_0 = (Keyword)cNameAssignment_1.eContents().get(0);
+		private final Assignment cFirstAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cFirstCallParserRuleCall_0_0 = (RuleCall)cFirstAssignment_0.eContents().get(0);
+		private final Assignment cListAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cListCallParserRuleCall_1_0 = (RuleCall)cListAssignment_1.eContents().get(0);
+		private final RuleCall cENDLINETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		//Line:
-		//	(called+=MemberCall | called2+=MemberInConcern)* name=';';
+		//	first=Call list+=Call* ENDLINE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(called+=MemberCall | called2+=MemberInConcern)* name=';'
+		//first=Call list+=Call* ENDLINE
 		public Group getGroup() { return cGroup; }
 		
-		//(called+=MemberCall | called2+=MemberInConcern)*
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//first=Call
+		public Assignment getFirstAssignment_0() { return cFirstAssignment_0; }
 		
-		//called+=MemberCall
-		public Assignment getCalledAssignment_0_0() { return cCalledAssignment_0_0; }
+		//Call
+		public RuleCall getFirstCallParserRuleCall_0_0() { return cFirstCallParserRuleCall_0_0; }
+		
+		//list+=Call*
+		public Assignment getListAssignment_1() { return cListAssignment_1; }
+		
+		//Call
+		public RuleCall getListCallParserRuleCall_1_0() { return cListCallParserRuleCall_1_0; }
+		
+		//ENDLINE
+		public RuleCall getENDLINETerminalRuleCall_2() { return cENDLINETerminalRuleCall_2; }
+	}
+	public class CallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Call");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cCallAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameMemberCallParserRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cNameMemberInConcernParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//Call:
+		//	{Call} name=MemberCall | name=MemberInConcern;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Call} name=MemberCall | name=MemberInConcern
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//{Call} name=MemberCall
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{Call}
+		public Action getCallAction_0_0() { return cCallAction_0_0; }
+		
+		//name=MemberCall
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
 		
 		//MemberCall
-		public RuleCall getCalledMemberCallParserRuleCall_0_0_0() { return cCalledMemberCallParserRuleCall_0_0_0; }
+		public RuleCall getNameMemberCallParserRuleCall_0_1_0() { return cNameMemberCallParserRuleCall_0_1_0; }
 		
-		//called2+=MemberInConcern
-		public Assignment getCalled2Assignment_0_1() { return cCalled2Assignment_0_1; }
-		
-		//MemberInConcern
-		public RuleCall getCalled2MemberInConcernParserRuleCall_0_1_0() { return cCalled2MemberInConcernParserRuleCall_0_1_0; }
-		
-		//name=';'
+		//name=MemberInConcern
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//';'
-		public Keyword getNameSemicolonKeyword_1_0() { return cNameSemicolonKeyword_1_0; }
+		//MemberInConcern
+		public RuleCall getNameMemberInConcernParserRuleCall_1_0() { return cNameMemberInConcernParserRuleCall_1_0; }
 	}
 	public class MemberCallElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.MemberCall");
@@ -489,13 +559,14 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTargetConcernIDTerminalRuleCall_1_0_1 = (RuleCall)cTargetConcernCrossReference_1_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final CrossReference cNameMemberCrossReference_3_0 = (CrossReference)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cNameMemberIDTerminalRuleCall_3_0_1 = (RuleCall)cNameMemberCrossReference_3_0.eContents().get(1);
 		
 		//MemberInConcern:
-		//	{MemberInConcern} target=[Concern] '.' name=ID;
+		//	{MemberInConcern} target=[Concern] '.' name=[Member];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{MemberInConcern} target=[Concern] '.' name=ID
+		//{MemberInConcern} target=[Concern] '.' name=[Member]
 		public Group getGroup() { return cGroup; }
 		
 		//{MemberInConcern}
@@ -513,11 +584,14 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//'.'
 		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
 		
-		//name=ID
+		//name=[Member]
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
+		//[Member]
+		public CrossReference getNameMemberCrossReference_3_0() { return cNameMemberCrossReference_3_0; }
+		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+		public RuleCall getNameMemberIDTerminalRuleCall_3_0_1() { return cNameMemberIDTerminalRuleCall_3_0_1; }
 	}
 	
 	
@@ -532,18 +606,23 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	private final MemberElements pMember;
 	private final IntersectionElements pIntersection;
 	private final LineElements pLine;
+	private final CallElements pCall;
 	private final MemberCallElements pMemberCall;
 	private final MemberInConcernElements pMemberInConcern;
+	private final TerminalRule tID;
+	private final TerminalRule tINT;
+	private final TerminalRule tSTRING;
+	private final TerminalRule tML_COMMENT;
+	private final TerminalRule tSL_COMMENT;
+	private final TerminalRule tWS;
+	private final TerminalRule tENDLINE;
+	private final TerminalRule tANY_OTHER;
 	
 	private final Grammar grammar;
-	
-	private final TerminalsGrammarAccess gaTerminals;
 
 	@Inject
-	public BurstGrammarAccess(GrammarProvider grammarProvider,
-			TerminalsGrammarAccess gaTerminals) {
+	public BurstGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
-		this.gaTerminals = gaTerminals;
 		this.pFile = new FileElements();
 		this.pAbstractElement = new AbstractElementElements();
 		this.pPackage = new PackageElements();
@@ -555,8 +634,17 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMember = new MemberElements();
 		this.pIntersection = new IntersectionElements();
 		this.pLine = new LineElements();
+		this.pCall = new CallElements();
 		this.pMemberCall = new MemberCallElements();
 		this.pMemberInConcern = new MemberInConcernElements();
+		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.ID");
+		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.INT");
+		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.STRING");
+		this.tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.ML_COMMENT");
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.SL_COMMENT");
+		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.WS");
+		this.tENDLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.ENDLINE");
+		this.tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.ANY_OTHER");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -580,10 +668,6 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		return grammar;
 	}
 	
-	
-	public TerminalsGrammarAccess getTerminalsGrammarAccess() {
-		return gaTerminals;
-	}
 
 	
 	//File:
@@ -597,7 +681,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AbstractElement:
-	//	Import | Concern | Intersection | Package;
+	//	Import | Concern | Intersection | Package | ENDLINE;
 	public AbstractElementElements getAbstractElementAccess() {
 		return pAbstractElement;
 	}
@@ -607,7 +691,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Package:
-	//	'package' name=QualifiedName '{' elements+=AbstractElement* '}';
+	//	'package' name=QualifiedName '{' elements+=AbstractElement* '}' ENDLINE;
 	public PackageElements getPackageAccess() {
 		return pPackage;
 	}
@@ -627,7 +711,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Import:
-	//	'import' importedNamespace=QualifiedName;
+	//	'import' importedNamespace=QualifiedName ENDLINE;
 	public ImportElements getImportAccess() {
 		return pImport;
 	}
@@ -638,8 +722,8 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Concern:
 	//	{Concern}
-	//	'concern' name=ID ('extends' supertype=[Concern|QualifiedName])? ('{' (members+=Member | intersections+=Intersection
-	//	| build=Build | destruct=Destruct)* '}')?;
+	//	'concern' ENDLINE? name=ID ENDLINE? ('extends' ENDLINE? supertype=[Concern|QualifiedName] ENDLINE?)? ('{' ENDLINE?
+	//	(members+=Member | intersections+=Intersection)* ENDLINE? '}')? ENDLINE;
 	public ConcernElements getConcernAccess() {
 		return pConcern;
 	}
@@ -669,7 +753,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Member:
-	//	{Member} concern=[Concern|QualifiedName] name=ID;
+	//	{Member} concern=[Concern|QualifiedName] ENDLINE? name=ID ENDLINE?;
 	public MemberElements getMemberAccess() {
 		return pMember;
 	}
@@ -679,8 +763,8 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Intersection:
-	//	{Intersection} name='when' members+=Member*
-	//	'{' linesContent+=Line* '}';
+	//	{Intersection} name='when' ENDLINE? members+=Member*
+	//	'{' ENDLINE? linesContent+=Line* ENDLINE? '}';
 	public IntersectionElements getIntersectionAccess() {
 		return pIntersection;
 	}
@@ -690,13 +774,23 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Line:
-	//	(called+=MemberCall | called2+=MemberInConcern)* name=';';
+	//	first=Call list+=Call* ENDLINE;
 	public LineElements getLineAccess() {
 		return pLine;
 	}
 	
 	public ParserRule getLineRule() {
 		return getLineAccess().getRule();
+	}
+	
+	//Call:
+	//	{Call} name=MemberCall | name=MemberInConcern;
+	public CallElements getCallAccess() {
+		return pCall;
+	}
+	
+	public ParserRule getCallRule() {
+		return getCallAccess().getRule();
 	}
 	
 	//MemberCall:
@@ -710,7 +804,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//MemberInConcern:
-	//	{MemberInConcern} target=[Concern] '.' name=ID;
+	//	{MemberInConcern} target=[Concern] '.' name=[Member];
 	public MemberInConcernElements getMemberInConcernAccess() {
 		return pMemberInConcern;
 	}
@@ -722,42 +816,49 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	//terminal ID:
 	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
 	public TerminalRule getIDRule() {
-		return gaTerminals.getIDRule();
+		return tID;
 	}
 	
 	//terminal INT returns ecore::EInt:
 	//	'0'..'9'+;
 	public TerminalRule getINTRule() {
-		return gaTerminals.getINTRule();
+		return tINT;
 	}
 	
 	//terminal STRING:
-	//	'"' ('\\' . | !('\\' | '"'))* '"' | "'" ('\\' . | !('\\' | "'"))* "'";
+	//	'"' ('\\' . | !('\\' | '"'))* '"' |
+	//	"'" ('\\' . | !('\\' | "'"))* "'";
 	public TerminalRule getSTRINGRule() {
-		return gaTerminals.getSTRINGRule();
+		return tSTRING;
 	}
 	
 	//terminal ML_COMMENT:
 	//	'/ *'->'* /';
 	public TerminalRule getML_COMMENTRule() {
-		return gaTerminals.getML_COMMENTRule();
+		return tML_COMMENT;
 	}
 	
 	//terminal SL_COMMENT:
 	//	'//' !('\n' | '\r')* ('\r'? '\n')?;
 	public TerminalRule getSL_COMMENTRule() {
-		return gaTerminals.getSL_COMMENTRule();
+		return tSL_COMMENT;
 	}
 	
 	//terminal WS:
-	//	' ' | '\t' | '\r' | '\n'+;
+	//	' ' | '\t'+;
 	public TerminalRule getWSRule() {
-		return gaTerminals.getWSRule();
+		return tWS;
+	}
+	
+	//terminal ENDLINE:
+	//	'\r'? '\n';
+	public TerminalRule getENDLINERule() {
+		return tENDLINE;
 	}
 	
 	//terminal ANY_OTHER:
 	//	.;
 	public TerminalRule getANY_OTHERRule() {
-		return gaTerminals.getANY_OTHERRule();
+		return tANY_OTHER;
 	}
 }

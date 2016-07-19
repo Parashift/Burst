@@ -21,19 +21,51 @@ import org.xtext.burst.services.BurstGrammarAccess;
 public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected BurstGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Concern___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q;
+	protected AbstractElementAlias match_Concern_ENDLINETerminalRuleCall_2_q;
+	protected AbstractElementAlias match_Concern_ENDLINETerminalRuleCall_4_q;
+	protected AbstractElementAlias match_Concern_ENDLINETerminalRuleCall_5_1_q;
+	protected AbstractElementAlias match_Concern_ENDLINETerminalRuleCall_5_3_q;
+	protected AbstractElementAlias match_Concern_ENDLINETerminalRuleCall_6_1_q;
+	protected AbstractElementAlias match_Concern_ENDLINETerminalRuleCall_6_3_q;
+	protected AbstractElementAlias match_Concern___LeftCurlyBracketKeyword_6_0_ENDLINETerminalRuleCall_6_1_q_ENDLINETerminalRuleCall_6_3_q_RightCurlyBracketKeyword_6_4__q;
+	protected AbstractElementAlias match_Intersection_ENDLINETerminalRuleCall_2_q;
+	protected AbstractElementAlias match_Intersection_ENDLINETerminalRuleCall_5_q;
+	protected AbstractElementAlias match_Intersection_ENDLINETerminalRuleCall_7_q;
+	protected AbstractElementAlias match_Member_ENDLINETerminalRuleCall_2_q;
+	protected AbstractElementAlias match_Member_ENDLINETerminalRuleCall_4_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (BurstGrammarAccess) access;
-		match_Concern___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getConcernAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getConcernAccess().getRightCurlyBracketKeyword_4_2()));
+		match_Concern_ENDLINETerminalRuleCall_2_q = new TokenAlias(false, true, grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_2());
+		match_Concern_ENDLINETerminalRuleCall_4_q = new TokenAlias(false, true, grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_4());
+		match_Concern_ENDLINETerminalRuleCall_5_1_q = new TokenAlias(false, true, grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_5_1());
+		match_Concern_ENDLINETerminalRuleCall_5_3_q = new TokenAlias(false, true, grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_5_3());
+		match_Concern_ENDLINETerminalRuleCall_6_1_q = new TokenAlias(false, true, grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_6_1());
+		match_Concern_ENDLINETerminalRuleCall_6_3_q = new TokenAlias(false, true, grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_6_3());
+		match_Concern___LeftCurlyBracketKeyword_6_0_ENDLINETerminalRuleCall_6_1_q_ENDLINETerminalRuleCall_6_3_q_RightCurlyBracketKeyword_6_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getConcernAccess().getLeftCurlyBracketKeyword_6_0()), new TokenAlias(false, true, grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_6_1()), new TokenAlias(false, true, grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_6_3()), new TokenAlias(false, false, grammarAccess.getConcernAccess().getRightCurlyBracketKeyword_6_4()));
+		match_Intersection_ENDLINETerminalRuleCall_2_q = new TokenAlias(false, true, grammarAccess.getIntersectionAccess().getENDLINETerminalRuleCall_2());
+		match_Intersection_ENDLINETerminalRuleCall_5_q = new TokenAlias(false, true, grammarAccess.getIntersectionAccess().getENDLINETerminalRuleCall_5());
+		match_Intersection_ENDLINETerminalRuleCall_7_q = new TokenAlias(false, true, grammarAccess.getIntersectionAccess().getENDLINETerminalRuleCall_7());
+		match_Member_ENDLINETerminalRuleCall_2_q = new TokenAlias(false, true, grammarAccess.getMemberAccess().getENDLINETerminalRuleCall_2());
+		match_Member_ENDLINETerminalRuleCall_4_q = new TokenAlias(false, true, grammarAccess.getMemberAccess().getENDLINETerminalRuleCall_4());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getENDLINERule())
+			return getENDLINEToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * terminal ENDLINE    : '\r'? '\n';
+	 */
+	protected String getENDLINEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "\n";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -41,21 +73,180 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Concern___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q.equals(syntax))
-				emit_Concern___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Concern_ENDLINETerminalRuleCall_2_q.equals(syntax))
+				emit_Concern_ENDLINETerminalRuleCall_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Concern_ENDLINETerminalRuleCall_4_q.equals(syntax))
+				emit_Concern_ENDLINETerminalRuleCall_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Concern_ENDLINETerminalRuleCall_5_1_q.equals(syntax))
+				emit_Concern_ENDLINETerminalRuleCall_5_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Concern_ENDLINETerminalRuleCall_5_3_q.equals(syntax))
+				emit_Concern_ENDLINETerminalRuleCall_5_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Concern_ENDLINETerminalRuleCall_6_1_q.equals(syntax))
+				emit_Concern_ENDLINETerminalRuleCall_6_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Concern_ENDLINETerminalRuleCall_6_3_q.equals(syntax))
+				emit_Concern_ENDLINETerminalRuleCall_6_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Concern___LeftCurlyBracketKeyword_6_0_ENDLINETerminalRuleCall_6_1_q_ENDLINETerminalRuleCall_6_3_q_RightCurlyBracketKeyword_6_4__q.equals(syntax))
+				emit_Concern___LeftCurlyBracketKeyword_6_0_ENDLINETerminalRuleCall_6_1_q_ENDLINETerminalRuleCall_6_3_q_RightCurlyBracketKeyword_6_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Intersection_ENDLINETerminalRuleCall_2_q.equals(syntax))
+				emit_Intersection_ENDLINETerminalRuleCall_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Intersection_ENDLINETerminalRuleCall_5_q.equals(syntax))
+				emit_Intersection_ENDLINETerminalRuleCall_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Intersection_ENDLINETerminalRuleCall_7_q.equals(syntax))
+				emit_Intersection_ENDLINETerminalRuleCall_7_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Member_ENDLINETerminalRuleCall_2_q.equals(syntax))
+				emit_Member_ENDLINETerminalRuleCall_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Member_ENDLINETerminalRuleCall_4_q.equals(syntax))
+				emit_Member_ENDLINETerminalRuleCall_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     ('{' '}')?
+	 *     ENDLINE?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'concern' (ambiguity) name=ID
+	 */
+	protected void emit_Concern_ENDLINETerminalRuleCall_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID (ambiguity) 'extends' ENDLINE? supertype=[Concern|QualifiedName]
+	 *     name=ID (ambiguity) '{' ENDLINE? intersections+=Intersection
+	 *     name=ID (ambiguity) '{' ENDLINE? members+=Member
+	 *     name=ID (ambiguity) ('{' ENDLINE? ENDLINE? '}')? ENDLINE (rule end)
+	 */
+	protected void emit_Concern_ENDLINETerminalRuleCall_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID ENDLINE? 'extends' (ambiguity) supertype=[Concern|QualifiedName]
+	 */
+	protected void emit_Concern_ENDLINETerminalRuleCall_5_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     supertype=[Concern|QualifiedName] (ambiguity) '{' ENDLINE? intersections+=Intersection
+	 *     supertype=[Concern|QualifiedName] (ambiguity) '{' ENDLINE? members+=Member
+	 *     supertype=[Concern|QualifiedName] (ambiguity) ('{' ENDLINE? ENDLINE? '}')? ENDLINE (rule end)
+	 */
+	protected void emit_Concern_ENDLINETerminalRuleCall_5_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID ENDLINE? '{' (ambiguity) intersections+=Intersection
+	 *     name=ID ENDLINE? '{' (ambiguity) members+=Member
+	 *     supertype=[Concern|QualifiedName] ENDLINE? '{' (ambiguity) intersections+=Intersection
+	 *     supertype=[Concern|QualifiedName] ENDLINE? '{' (ambiguity) members+=Member
+	 */
+	protected void emit_Concern_ENDLINETerminalRuleCall_6_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     intersections+=Intersection (ambiguity) '}' ENDLINE (rule end)
+	 *     members+=Member (ambiguity) '}' ENDLINE (rule end)
+	 */
+	protected void emit_Concern_ENDLINETerminalRuleCall_6_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('{' ENDLINE? ENDLINE? '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID ENDLINE? (ambiguity) ENDLINE (rule end)
+	 *     supertype=[Concern|QualifiedName] ENDLINE? (ambiguity) ENDLINE (rule end)
+	 */
+	protected void emit_Concern___LeftCurlyBracketKeyword_6_0_ENDLINETerminalRuleCall_6_1_q_ENDLINETerminalRuleCall_6_3_q_RightCurlyBracketKeyword_6_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name='when' (ambiguity) '{' ENDLINE? ENDLINE? '}' (rule end)
+	 *     name='when' (ambiguity) '{' ENDLINE? linesContent+=Line
+	 *     name='when' (ambiguity) members+=Member
+	 */
+	protected void emit_Intersection_ENDLINETerminalRuleCall_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     members+=Member '{' (ambiguity) ENDLINE? '}' (rule end)
+	 *     members+=Member '{' (ambiguity) linesContent+=Line
+	 *     name='when' ENDLINE? '{' (ambiguity) ENDLINE? '}' (rule end)
+	 *     name='when' ENDLINE? '{' (ambiguity) linesContent+=Line
+	 */
+	protected void emit_Intersection_ENDLINETerminalRuleCall_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     linesContent+=Line (ambiguity) '}' (rule end)
+	 *     members+=Member '{' ENDLINE? (ambiguity) '}' (rule end)
+	 *     name='when' ENDLINE? '{' ENDLINE? (ambiguity) '}' (rule end)
+	 */
+	protected void emit_Intersection_ENDLINETerminalRuleCall_7_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     concern=[Concern|QualifiedName] (ambiguity) name=ID
+	 */
+	protected void emit_Member_ENDLINETerminalRuleCall_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     name=ID (ambiguity) (rule end)
-	 *     supertype=[Concern|QualifiedName] (ambiguity) (rule end)
 	 */
-	protected void emit_Concern___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Member_ENDLINETerminalRuleCall_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -22,8 +22,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Concern/supertype"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Concern/members"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Concern/intersections"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Concern/build"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Concern/destruct"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Destruct">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Destruct/name"/>
@@ -43,16 +41,18 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Intersection/linesContent"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Line">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Line/called"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Line/called2"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Line/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Line/first"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Line/list"/>
+    </genClasses>
+    <genClasses ecoreClass="Burst.ecore#//Call">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Call/name"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//MemberCall">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//MemberCall/name"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//MemberInConcern">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//MemberInConcern/target"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//MemberInConcern/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//MemberInConcern/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

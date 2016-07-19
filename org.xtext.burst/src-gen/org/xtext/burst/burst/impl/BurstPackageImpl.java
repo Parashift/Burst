@@ -14,6 +14,7 @@ import org.xtext.burst.burst.AbstractElement;
 import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstFactory;
 import org.xtext.burst.burst.BurstPackage;
+import org.xtext.burst.burst.Call;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.Destruct;
 import org.xtext.burst.burst.File;
@@ -101,6 +102,13 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * @generated
    */
   private EClass lineEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass callEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -314,26 +322,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConcern_Build()
-  {
-    return (EReference)concernEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getConcern_Destruct()
-  {
-    return (EReference)concernEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getDestruct()
   {
     return destructEClass;
@@ -474,7 +462,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLine_Called()
+  public EReference getLine_First()
   {
     return (EReference)lineEClass.getEStructuralFeatures().get(0);
   }
@@ -484,7 +472,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLine_Called2()
+  public EReference getLine_List()
   {
     return (EReference)lineEClass.getEStructuralFeatures().get(1);
   }
@@ -494,9 +482,19 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLine_Name()
+  public EClass getCall()
   {
-    return (EAttribute)lineEClass.getEStructuralFeatures().get(2);
+    return callEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCall_Name()
+  {
+    return (EReference)callEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -544,9 +542,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMemberInConcern_Name()
+  public EReference getMemberInConcern_Name()
   {
-    return (EAttribute)memberInConcernEClass.getEStructuralFeatures().get(1);
+    return (EReference)memberInConcernEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -596,8 +594,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     createEReference(concernEClass, CONCERN__SUPERTYPE);
     createEReference(concernEClass, CONCERN__MEMBERS);
     createEReference(concernEClass, CONCERN__INTERSECTIONS);
-    createEReference(concernEClass, CONCERN__BUILD);
-    createEReference(concernEClass, CONCERN__DESTRUCT);
 
     destructEClass = createEClass(DESTRUCT);
     createEAttribute(destructEClass, DESTRUCT__NAME);
@@ -617,16 +613,18 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     createEReference(intersectionEClass, INTERSECTION__LINES_CONTENT);
 
     lineEClass = createEClass(LINE);
-    createEReference(lineEClass, LINE__CALLED);
-    createEReference(lineEClass, LINE__CALLED2);
-    createEAttribute(lineEClass, LINE__NAME);
+    createEReference(lineEClass, LINE__FIRST);
+    createEReference(lineEClass, LINE__LIST);
+
+    callEClass = createEClass(CALL);
+    createEReference(callEClass, CALL__NAME);
 
     memberCallEClass = createEClass(MEMBER_CALL);
     createEReference(memberCallEClass, MEMBER_CALL__NAME);
 
     memberInConcernEClass = createEClass(MEMBER_IN_CONCERN);
     createEReference(memberInConcernEClass, MEMBER_IN_CONCERN__TARGET);
-    createEAttribute(memberInConcernEClass, MEMBER_IN_CONCERN__NAME);
+    createEReference(memberInConcernEClass, MEMBER_IN_CONCERN__NAME);
   }
 
   /**
@@ -681,8 +679,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     initEReference(getConcern_Supertype(), this.getConcern(), null, "supertype", null, 0, 1, Concern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConcern_Members(), this.getMember(), null, "members", null, 0, -1, Concern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConcern_Intersections(), this.getIntersection(), null, "intersections", null, 0, -1, Concern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConcern_Build(), this.getBuild(), null, "build", null, 0, 1, Concern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConcern_Destruct(), this.getDestruct(), null, "destruct", null, 0, 1, Concern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(destructEClass, Destruct.class, "Destruct", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDestruct_Name(), ecorePackage.getEString(), "name", null, 0, 1, Destruct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -702,16 +698,18 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     initEReference(getIntersection_LinesContent(), this.getLine(), null, "linesContent", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLine_Called(), this.getMemberCall(), null, "called", null, 0, -1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLine_Called2(), this.getMemberInConcern(), null, "called2", null, 0, -1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLine_Name(), ecorePackage.getEString(), "name", null, 0, 1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLine_First(), this.getCall(), null, "first", null, 0, 1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLine_List(), this.getCall(), null, "list", null, 0, -1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(callEClass, Call.class, "Call", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCall_Name(), ecorePackage.getEObject(), null, "name", null, 0, 1, Call.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(memberCallEClass, MemberCall.class, "MemberCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMemberCall_Name(), this.getMember(), null, "name", null, 0, 1, MemberCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(memberInConcernEClass, MemberInConcern.class, "MemberInConcern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMemberInConcern_Target(), this.getConcern(), null, "target", null, 0, 1, MemberInConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMemberInConcern_Name(), ecorePackage.getEString(), "name", null, 0, 1, MemberInConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMemberInConcern_Name(), this.getMember(), null, "name", null, 0, 1, MemberInConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

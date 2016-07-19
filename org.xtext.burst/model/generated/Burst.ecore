@@ -21,10 +21,6 @@
         eType="#//Member" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="intersections" upperBound="-1"
         eType="#//Intersection" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="build" eType="#//Build"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="destruct" eType="#//Destruct"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Destruct">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -48,17 +44,20 @@
         eType="#//Line" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Line">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="called" upperBound="-1"
-        eType="#//MemberCall" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="called2" upperBound="-1"
-        eType="#//MemberInConcern" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="first" eType="#//Call"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" upperBound="-1" eType="#//Call"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Call">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MemberCall">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Member"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MemberInConcern">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Concern"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Member"/>
   </eClassifiers>
 </ecore:EPackage>

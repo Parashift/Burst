@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.xtext.burst.burst.AbstractElement;
 import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstPackage;
+import org.xtext.burst.burst.Call;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.Destruct;
 import org.xtext.burst.burst.File;
@@ -135,6 +136,11 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
       public Adapter caseLine(Line object)
       {
         return createLineAdapter();
+      }
+      @Override
+      public Adapter caseCall(Call object)
+      {
+        return createCallAdapter();
       }
       @Override
       public Adapter caseMemberCall(MemberCall object)
@@ -314,6 +320,21 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLineAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Call <em>Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.Call
+   * @generated
+   */
+  public Adapter createCallAdapter()
   {
     return null;
   }
