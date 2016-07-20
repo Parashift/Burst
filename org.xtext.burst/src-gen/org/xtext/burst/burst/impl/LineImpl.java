@@ -5,16 +5,12 @@ package org.xtext.burst.burst.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,33 +27,22 @@ import org.xtext.burst.burst.Line;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.LineImpl#getFirst <em>First</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.LineImpl#getList <em>List</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.LineImpl#getCalls <em>Calls</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LineImpl extends MinimalEObjectImpl.Container implements Line
+public class LineImpl extends IntersectionElementImpl implements Line
 {
   /**
-   * The cached value of the '{@link #getFirst() <em>First</em>}' containment reference.
+   * The cached value of the '{@link #getCalls() <em>Calls</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFirst()
+   * @see #getCalls()
    * @generated
    * @ordered
    */
-  protected Call first;
-
-  /**
-   * The cached value of the '{@link #getList() <em>List</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getList()
-   * @generated
-   * @ordered
-   */
-  protected EList<Call> list;
+  protected EList<Call> calls;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,61 +70,13 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
    * <!-- end-user-doc -->
    * @generated
    */
-  public Call getFirst()
+  public EList<Call> getCalls()
   {
-    return first;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetFirst(Call newFirst, NotificationChain msgs)
-  {
-    Call oldFirst = first;
-    first = newFirst;
-    if (eNotificationRequired())
+    if (calls == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BurstPackage.LINE__FIRST, oldFirst, newFirst);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      calls = new EObjectContainmentEList<Call>(Call.class, this, BurstPackage.LINE__CALLS);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFirst(Call newFirst)
-  {
-    if (newFirst != first)
-    {
-      NotificationChain msgs = null;
-      if (first != null)
-        msgs = ((InternalEObject)first).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BurstPackage.LINE__FIRST, null, msgs);
-      if (newFirst != null)
-        msgs = ((InternalEObject)newFirst).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BurstPackage.LINE__FIRST, null, msgs);
-      msgs = basicSetFirst(newFirst, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.LINE__FIRST, newFirst, newFirst));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Call> getList()
-  {
-    if (list == null)
-    {
-      list = new EObjectContainmentEList<Call>(Call.class, this, BurstPackage.LINE__LIST);
-    }
-    return list;
+    return calls;
   }
 
   /**
@@ -152,10 +89,8 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
   {
     switch (featureID)
     {
-      case BurstPackage.LINE__FIRST:
-        return basicSetFirst(null, msgs);
-      case BurstPackage.LINE__LIST:
-        return ((InternalEList<?>)getList()).basicRemove(otherEnd, msgs);
+      case BurstPackage.LINE__CALLS:
+        return ((InternalEList<?>)getCalls()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -170,10 +105,8 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
   {
     switch (featureID)
     {
-      case BurstPackage.LINE__FIRST:
-        return getFirst();
-      case BurstPackage.LINE__LIST:
-        return getList();
+      case BurstPackage.LINE__CALLS:
+        return getCalls();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -189,12 +122,9 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
   {
     switch (featureID)
     {
-      case BurstPackage.LINE__FIRST:
-        setFirst((Call)newValue);
-        return;
-      case BurstPackage.LINE__LIST:
-        getList().clear();
-        getList().addAll((Collection<? extends Call>)newValue);
+      case BurstPackage.LINE__CALLS:
+        getCalls().clear();
+        getCalls().addAll((Collection<? extends Call>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -210,11 +140,8 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
   {
     switch (featureID)
     {
-      case BurstPackage.LINE__FIRST:
-        setFirst((Call)null);
-        return;
-      case BurstPackage.LINE__LIST:
-        getList().clear();
+      case BurstPackage.LINE__CALLS:
+        getCalls().clear();
         return;
     }
     super.eUnset(featureID);
@@ -230,10 +157,8 @@ public class LineImpl extends MinimalEObjectImpl.Container implements Line
   {
     switch (featureID)
     {
-      case BurstPackage.LINE__FIRST:
-        return first != null;
-      case BurstPackage.LINE__LIST:
-        return list != null && !list.isEmpty();
+      case BurstPackage.LINE__CALLS:
+        return calls != null && !calls.isEmpty();
     }
     return super.eIsSet(featureID);
   }

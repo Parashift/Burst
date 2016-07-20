@@ -15,15 +15,15 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.burst.burst.Intersection#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Intersection#getMembers <em>Members</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Intersection#getLinesContent <em>Lines Content</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Intersection#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Intersection#getLines <em>Lines</em>}</li>
  * </ul>
  *
  * @see org.xtext.burst.burst.BurstPackage#getIntersection()
  * @model
  * @generated
  */
-public interface Intersection extends AbstractElement
+public interface Intersection extends RuleIntersect
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -52,35 +52,35 @@ public interface Intersection extends AbstractElement
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Members</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.Member}.
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.burst.burst.DeclareParameter}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Members</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Members</em>' containment reference list.
-   * @see org.xtext.burst.burst.BurstPackage#getIntersection_Members()
+   * @return the value of the '<em>Parameters</em>' containment reference list.
+   * @see org.xtext.burst.burst.BurstPackage#getIntersection_Parameters()
    * @model containment="true"
    * @generated
    */
-  EList<Member> getMembers();
+  EList<DeclareParameter> getParameters();
 
   /**
-   * Returns the value of the '<em><b>Lines Content</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.Line}.
+   * Returns the value of the '<em><b>Lines</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.burst.burst.IntersectionElement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Lines Content</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Lines</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Lines Content</em>' containment reference list.
-   * @see org.xtext.burst.burst.BurstPackage#getIntersection_LinesContent()
+   * @return the value of the '<em>Lines</em>' containment reference list.
+   * @see org.xtext.burst.burst.BurstPackage#getIntersection_Lines()
    * @model containment="true"
    * @generated
    */
-  EList<Line> getLinesContent();
+  EList<IntersectionElement> getLines();
 
 } // Intersection

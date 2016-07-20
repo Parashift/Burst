@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Package extends AbstractElement
+public interface Package extends RulePackage
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -52,7 +52,7 @@ public interface Package extends AbstractElement
 
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.AbstractElement}.
+   * The list contents are of type {@link org.xtext.burst.burst.PackageElement}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
@@ -64,6 +64,6 @@ public interface Package extends AbstractElement
    * @model containment="true"
    * @generated
    */
-  EList<AbstractElement> getElements();
+  EList<PackageElement> getElements();
 
 } // Package

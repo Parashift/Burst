@@ -7,24 +7,68 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 
 File:
-	(elements+=AbstractElement)*;
+	elements+= RuleFileElement* ;
 
-AbstractElement:
-	Import | Concern | Intersection | Package | ENDLINE;
-
-Package:
-	'package' name=QualifiedName '{' (elements+=AbstractElement)* '}' ENDLINE;
-
-QualifiedName:
-	ID( '.' ID)*;
-
-Import:
-    'import' importedNamespace=QualifiedName ENDLINE;
+RuleFileElement:
+	RuleImport | RulePackage | ENDLINE ;
 	
-Concern :	{Concern}
-	'concern' ENDLINE? name=ID ENDLINE?
-	('extends' ENDLINE? supertype=[Concern|QualifiedName] ENDLINE?)? 
-	('{' ENDLINE? (members+=Member | intersections+=Intersection )* ENDLINE? '}')? ENDLINE;
+RuleImport:	{Import}
+    'import' importedNamespace=QualifiedName;
+    
+RulePackage: {Package}
+	'package' name=QualifiedName (ENDLINE)* '{' elements+=PackageElement* '}';
+
+PackageElement: 
+	RuleConcern   | RuleIntersect | ENDLINE;
+	
+RuleConcern :	{Concern}
+	'concern' name=ID 
+	((ENDLINE)* 'extends' (ENDLINE)* supertype=[Concern|QualifiedName])?
+	('{'  elements+=ConcernElement*  '}')?;
+
+ConcernElement:
+	DeclareMember | RuleIntersect | ENDLINE;
+	
+DeclareMember:		{Member}
+	concern=[Concern|QualifiedName] name=ID;
+	
+RuleIntersect: {Intersection}
+	name='when'  ( (ENDLINE)* parameters+=DeclareParameter (','|'and')? )* 
+	 '{' lines+=IntersectionElement* '}' ;
+	 
+DeclareParameter: 
+	RenamedParameter ;//| ConcernParameter;
+
+ConcernParameter: {ConcernParameter}
+	name=[Concern|QualifiedName];
+	
+RenamedParameter: {RenamedParameter}
+	concern=[Concern|QualifiedName] name=ID;
+	 
+IntersectionElement:
+	Line | ENDLINE;
+
+Line: {Line}
+	calls+=Call calls+=Call*;
+	
+Call: 
+	toto | RenamedParameterCall ;
+
+toto: {toto}
+	name='toto';
+	
+RenamedParameterCall:	{RenamedParameterCall}
+	name=[RenamedParameter];
+	
+ConcernParameterCall:	{ConcernParameterCall}
+	name=[ConcernParameter];
+	
+MemberCall:	{MemberCall}
+	name=[Member];
+
+MemberInConcern: {MemberInConcern}
+	target=[Concern] '.' name=[Member];
+	/* 
 
 Destruct: {Destruct}
 	name='dispose' '{' linesContent+=(Line)* '}' ; 
@@ -32,26 +76,17 @@ Destruct: {Destruct}
 Build: {Build}
 	name='new' '{' linesContent+=(Line)* '}' ;
 
-Member:		{Member}
-	concern=[Concern|QualifiedName] ENDLINE? name=ID ENDLINE?;
 
-Intersection: {Intersection}
-	name='when' ENDLINE? ((members+=Member ) )* 
-	 '{' ENDLINE? linesContent+=(Line)* ENDLINE? '}' ;
 	
-Line:
-	first=Call (list+=Call)* ENDLINE ;
+PotentialLine: 
+	Line|ENDLINE;
+	
+*/
+	
+	
+QualifiedName:
+	ID( '.' ID)*;
 
-Call: {Call}
-	name=MemberCall | name=MemberInConcern;
-	
-MemberCall:	{MemberCall}
-	name=([Member]);
-
-MemberInConcern: {MemberInConcern}
-	target=[Concern] '.' name=[Member];
-	
-	
 terminal ID  		: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 terminal INT returns ecore::EInt: ('0'..'9')+;
 terminal STRING	: 
@@ -62,6 +97,7 @@ terminal ML_COMMENT	: '/*' -> '*/';
 terminal SL_COMMENT 	: '//' !('\n'|'\r')* ('\r'? '\n')?;
 
 terminal WS			: (' '|'\t' )+;
+//terminal PAUSE    : (ENDLINE)*;
 terminal ENDLINE    : '\r'? '\n';
 terminal ANY_OTHER: .;
 //terminal LINE_TO_COMPLETE : '&&&' !('\n'|'\r')* ('\r'? '\n')?;

@@ -25,7 +25,7 @@ import org.xtext.burst.burst.Import;
  *
  * @generated
  */
-public class ImportImpl extends AbstractElementImpl implements Import
+public class ImportImpl extends RuleImportImpl implements Import
 {
   /**
    * The default value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' attribute.

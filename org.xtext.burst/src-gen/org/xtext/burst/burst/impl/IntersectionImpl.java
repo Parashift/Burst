@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.burst.burst.BurstPackage;
+import org.xtext.burst.burst.DeclareParameter;
 import org.xtext.burst.burst.Intersection;
-import org.xtext.burst.burst.Line;
-import org.xtext.burst.burst.Member;
+import org.xtext.burst.burst.IntersectionElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,13 +32,13 @@ import org.xtext.burst.burst.Member;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getMembers <em>Members</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getLinesContent <em>Lines Content</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getLines <em>Lines</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class IntersectionImpl extends AbstractElementImpl implements Intersection
+public class IntersectionImpl extends RuleIntersectImpl implements Intersection
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -61,24 +61,24 @@ public class IntersectionImpl extends AbstractElementImpl implements Intersectio
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getMembers() <em>Members</em>}' containment reference list.
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMembers()
+   * @see #getParameters()
    * @generated
    * @ordered
    */
-  protected EList<Member> members;
+  protected EList<DeclareParameter> parameters;
 
   /**
-   * The cached value of the '{@link #getLinesContent() <em>Lines Content</em>}' containment reference list.
+   * The cached value of the '{@link #getLines() <em>Lines</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLinesContent()
+   * @see #getLines()
    * @generated
    * @ordered
    */
-  protected EList<Line> linesContent;
+  protected EList<IntersectionElement> lines;
 
   /**
    * <!-- begin-user-doc -->
@@ -129,13 +129,13 @@ public class IntersectionImpl extends AbstractElementImpl implements Intersectio
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Member> getMembers()
+  public EList<DeclareParameter> getParameters()
   {
-    if (members == null)
+    if (parameters == null)
     {
-      members = new EObjectContainmentEList<Member>(Member.class, this, BurstPackage.INTERSECTION__MEMBERS);
+      parameters = new EObjectContainmentEList<DeclareParameter>(DeclareParameter.class, this, BurstPackage.INTERSECTION__PARAMETERS);
     }
-    return members;
+    return parameters;
   }
 
   /**
@@ -143,13 +143,13 @@ public class IntersectionImpl extends AbstractElementImpl implements Intersectio
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Line> getLinesContent()
+  public EList<IntersectionElement> getLines()
   {
-    if (linesContent == null)
+    if (lines == null)
     {
-      linesContent = new EObjectContainmentEList<Line>(Line.class, this, BurstPackage.INTERSECTION__LINES_CONTENT);
+      lines = new EObjectContainmentEList<IntersectionElement>(IntersectionElement.class, this, BurstPackage.INTERSECTION__LINES);
     }
-    return linesContent;
+    return lines;
   }
 
   /**
@@ -162,10 +162,10 @@ public class IntersectionImpl extends AbstractElementImpl implements Intersectio
   {
     switch (featureID)
     {
-      case BurstPackage.INTERSECTION__MEMBERS:
-        return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
-      case BurstPackage.INTERSECTION__LINES_CONTENT:
-        return ((InternalEList<?>)getLinesContent()).basicRemove(otherEnd, msgs);
+      case BurstPackage.INTERSECTION__PARAMETERS:
+        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+      case BurstPackage.INTERSECTION__LINES:
+        return ((InternalEList<?>)getLines()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -182,10 +182,10 @@ public class IntersectionImpl extends AbstractElementImpl implements Intersectio
     {
       case BurstPackage.INTERSECTION__NAME:
         return getName();
-      case BurstPackage.INTERSECTION__MEMBERS:
-        return getMembers();
-      case BurstPackage.INTERSECTION__LINES_CONTENT:
-        return getLinesContent();
+      case BurstPackage.INTERSECTION__PARAMETERS:
+        return getParameters();
+      case BurstPackage.INTERSECTION__LINES:
+        return getLines();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -204,13 +204,13 @@ public class IntersectionImpl extends AbstractElementImpl implements Intersectio
       case BurstPackage.INTERSECTION__NAME:
         setName((String)newValue);
         return;
-      case BurstPackage.INTERSECTION__MEMBERS:
-        getMembers().clear();
-        getMembers().addAll((Collection<? extends Member>)newValue);
+      case BurstPackage.INTERSECTION__PARAMETERS:
+        getParameters().clear();
+        getParameters().addAll((Collection<? extends DeclareParameter>)newValue);
         return;
-      case BurstPackage.INTERSECTION__LINES_CONTENT:
-        getLinesContent().clear();
-        getLinesContent().addAll((Collection<? extends Line>)newValue);
+      case BurstPackage.INTERSECTION__LINES:
+        getLines().clear();
+        getLines().addAll((Collection<? extends IntersectionElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -229,11 +229,11 @@ public class IntersectionImpl extends AbstractElementImpl implements Intersectio
       case BurstPackage.INTERSECTION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case BurstPackage.INTERSECTION__MEMBERS:
-        getMembers().clear();
+      case BurstPackage.INTERSECTION__PARAMETERS:
+        getParameters().clear();
         return;
-      case BurstPackage.INTERSECTION__LINES_CONTENT:
-        getLinesContent().clear();
+      case BurstPackage.INTERSECTION__LINES:
+        getLines().clear();
         return;
     }
     super.eUnset(featureID);
@@ -251,10 +251,10 @@ public class IntersectionImpl extends AbstractElementImpl implements Intersectio
     {
       case BurstPackage.INTERSECTION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case BurstPackage.INTERSECTION__MEMBERS:
-        return members != null && !members.isEmpty();
-      case BurstPackage.INTERSECTION__LINES_CONTENT:
-        return linesContent != null && !linesContent.isEmpty();
+      case BurstPackage.INTERSECTION__PARAMETERS:
+        return parameters != null && !parameters.isEmpty();
+      case BurstPackage.INTERSECTION__LINES:
+        return lines != null && !lines.isEmpty();
     }
     return super.eIsSet(featureID);
   }

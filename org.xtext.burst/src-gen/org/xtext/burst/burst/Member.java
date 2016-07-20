@@ -3,7 +3,6 @@
  */
 package org.xtext.burst.burst;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Member extends EObject
+public interface Member extends DeclareMember
 {
   /**
    * Returns the value of the '<em><b>Concern</b></em>' reference.

@@ -7,14 +7,14 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Abstract Element</b></em>'.
+ * A representation of the model object '<em><b>Package Element</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.xtext.burst.burst.BurstPackage#getAbstractElement()
+ * @see org.xtext.burst.burst.BurstPackage#getPackageElement()
  * @model
  * @generated
  */
-public interface AbstractElement extends EObject
+public interface PackageElement extends EObject
 {
-} // AbstractElement
+} // PackageElement

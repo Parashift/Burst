@@ -20,7 +20,7 @@ package org.xtext.burst.burst;
  * @model
  * @generated
  */
-public interface Import extends AbstractElement
+public interface Import extends RuleImport
 {
   /**
    * Returns the value of the '<em><b>Imported Namespace</b></em>' attribute.

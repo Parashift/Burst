@@ -3,42 +3,43 @@
  */
 package org.xtext.burst.burst.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.Line;
+import org.xtext.burst.burst.Concern;
+import org.xtext.burst.burst.RenamedParameter;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Build</b></em>'.
+ * An implementation of the model object '<em><b>Renamed Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.BuildImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.BuildImpl#getLinesContent <em>Lines Content</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.RenamedParameterImpl#getConcern <em>Concern</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.RenamedParameterImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BuildImpl extends MinimalEObjectImpl.Container implements Build
+public class RenamedParameterImpl extends DeclareParameterImpl implements RenamedParameter
 {
+  /**
+   * The cached value of the '{@link #getConcern() <em>Concern</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConcern()
+   * @generated
+   * @ordered
+   */
+  protected Concern concern;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -60,21 +61,11 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getLinesContent() <em>Lines Content</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLinesContent()
-   * @generated
-   * @ordered
-   */
-  protected EList<Line> linesContent;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BuildImpl()
+  protected RenamedParameterImpl()
   {
     super();
   }
@@ -87,7 +78,50 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
   @Override
   protected EClass eStaticClass()
   {
-    return BurstPackage.Literals.BUILD;
+    return BurstPackage.Literals.RENAMED_PARAMETER;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Concern getConcern()
+  {
+    if (concern != null && concern.eIsProxy())
+    {
+      InternalEObject oldConcern = (InternalEObject)concern;
+      concern = (Concern)eResolveProxy(oldConcern);
+      if (concern != oldConcern)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.RENAMED_PARAMETER__CONCERN, oldConcern, concern));
+      }
+    }
+    return concern;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Concern basicGetConcern()
+  {
+    return concern;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConcern(Concern newConcern)
+  {
+    Concern oldConcern = concern;
+    concern = newConcern;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.RENAMED_PARAMETER__CONCERN, oldConcern, concern));
   }
 
   /**
@@ -110,37 +144,7 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.BUILD__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Line> getLinesContent()
-  {
-    if (linesContent == null)
-    {
-      linesContent = new EObjectContainmentEList<Line>(Line.class, this, BurstPackage.BUILD__LINES_CONTENT);
-    }
-    return linesContent;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case BurstPackage.BUILD__LINES_CONTENT:
-        return ((InternalEList<?>)getLinesContent()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.RENAMED_PARAMETER__NAME, oldName, name));
   }
 
   /**
@@ -153,10 +157,11 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
   {
     switch (featureID)
     {
-      case BurstPackage.BUILD__NAME:
+      case BurstPackage.RENAMED_PARAMETER__CONCERN:
+        if (resolve) return getConcern();
+        return basicGetConcern();
+      case BurstPackage.RENAMED_PARAMETER__NAME:
         return getName();
-      case BurstPackage.BUILD__LINES_CONTENT:
-        return getLinesContent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -166,18 +171,16 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case BurstPackage.BUILD__NAME:
-        setName((String)newValue);
+      case BurstPackage.RENAMED_PARAMETER__CONCERN:
+        setConcern((Concern)newValue);
         return;
-      case BurstPackage.BUILD__LINES_CONTENT:
-        getLinesContent().clear();
-        getLinesContent().addAll((Collection<? extends Line>)newValue);
+      case BurstPackage.RENAMED_PARAMETER__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -193,11 +196,11 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
   {
     switch (featureID)
     {
-      case BurstPackage.BUILD__NAME:
-        setName(NAME_EDEFAULT);
+      case BurstPackage.RENAMED_PARAMETER__CONCERN:
+        setConcern((Concern)null);
         return;
-      case BurstPackage.BUILD__LINES_CONTENT:
-        getLinesContent().clear();
+      case BurstPackage.RENAMED_PARAMETER__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -213,10 +216,10 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
   {
     switch (featureID)
     {
-      case BurstPackage.BUILD__NAME:
+      case BurstPackage.RENAMED_PARAMETER__CONCERN:
+        return concern != null;
+      case BurstPackage.RENAMED_PARAMETER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case BurstPackage.BUILD__LINES_CONTENT:
-        return linesContent != null && !linesContent.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -238,4 +241,4 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build
     return result.toString();
   }
 
-} //BuildImpl
+} //RenamedParameterImpl

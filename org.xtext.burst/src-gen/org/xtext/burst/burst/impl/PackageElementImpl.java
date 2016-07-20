@@ -7,24 +7,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.burst.burst.AbstractElement;
 import org.xtext.burst.burst.BurstPackage;
+import org.xtext.burst.burst.PackageElement;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Element</b></em>'.
+ * An implementation of the model object '<em><b>Package Element</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class AbstractElementImpl extends MinimalEObjectImpl.Container implements AbstractElement
+public class PackageElementImpl extends MinimalEObjectImpl.Container implements PackageElement
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AbstractElementImpl()
+  protected PackageElementImpl()
   {
     super();
   }
@@ -37,7 +37,7 @@ public class AbstractElementImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return BurstPackage.Literals.ABSTRACT_ELEMENT;
+    return BurstPackage.Literals.PACKAGE_ELEMENT;
   }
 
-} //AbstractElementImpl
+} //PackageElementImpl

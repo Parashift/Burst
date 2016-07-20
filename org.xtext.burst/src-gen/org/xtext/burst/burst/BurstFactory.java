@@ -33,76 +33,112 @@ public interface BurstFactory extends EFactory
   File createFile();
 
   /**
-   * Returns a new object of class '<em>Abstract Element</em>'.
+   * Returns a new object of class '<em>Rule File Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Element</em>'.
+   * @return a new object of class '<em>Rule File Element</em>'.
    * @generated
    */
-  AbstractElement createAbstractElement();
+  RuleFileElement createRuleFileElement();
 
   /**
-   * Returns a new object of class '<em>Package</em>'.
+   * Returns a new object of class '<em>Rule Import</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Package</em>'.
+   * @return a new object of class '<em>Rule Import</em>'.
    * @generated
    */
-  Package createPackage();
+  RuleImport createRuleImport();
 
   /**
-   * Returns a new object of class '<em>Import</em>'.
+   * Returns a new object of class '<em>Rule Package</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Import</em>'.
+   * @return a new object of class '<em>Rule Package</em>'.
    * @generated
    */
-  Import createImport();
+  RulePackage createRulePackage();
 
   /**
-   * Returns a new object of class '<em>Concern</em>'.
+   * Returns a new object of class '<em>Package Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Concern</em>'.
+   * @return a new object of class '<em>Package Element</em>'.
    * @generated
    */
-  Concern createConcern();
+  PackageElement createPackageElement();
 
   /**
-   * Returns a new object of class '<em>Destruct</em>'.
+   * Returns a new object of class '<em>Rule Concern</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Destruct</em>'.
+   * @return a new object of class '<em>Rule Concern</em>'.
    * @generated
    */
-  Destruct createDestruct();
+  RuleConcern createRuleConcern();
 
   /**
-   * Returns a new object of class '<em>Build</em>'.
+   * Returns a new object of class '<em>Concern Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Build</em>'.
+   * @return a new object of class '<em>Concern Element</em>'.
    * @generated
    */
-  Build createBuild();
+  ConcernElement createConcernElement();
 
   /**
-   * Returns a new object of class '<em>Member</em>'.
+   * Returns a new object of class '<em>Declare Member</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Member</em>'.
+   * @return a new object of class '<em>Declare Member</em>'.
    * @generated
    */
-  Member createMember();
+  DeclareMember createDeclareMember();
 
   /**
-   * Returns a new object of class '<em>Intersection</em>'.
+   * Returns a new object of class '<em>Rule Intersect</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Intersection</em>'.
+   * @return a new object of class '<em>Rule Intersect</em>'.
    * @generated
    */
-  Intersection createIntersection();
+  RuleIntersect createRuleIntersect();
+
+  /**
+   * Returns a new object of class '<em>Declare Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Declare Parameter</em>'.
+   * @generated
+   */
+  DeclareParameter createDeclareParameter();
+
+  /**
+   * Returns a new object of class '<em>Concern Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Concern Parameter</em>'.
+   * @generated
+   */
+  ConcernParameter createConcernParameter();
+
+  /**
+   * Returns a new object of class '<em>Renamed Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Renamed Parameter</em>'.
+   * @generated
+   */
+  RenamedParameter createRenamedParameter();
+
+  /**
+   * Returns a new object of class '<em>Intersection Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Intersection Element</em>'.
+   * @generated
+   */
+  IntersectionElement createIntersectionElement();
 
   /**
    * Returns a new object of class '<em>Line</em>'.
@@ -123,6 +159,33 @@ public interface BurstFactory extends EFactory
   Call createCall();
 
   /**
+   * Returns a new object of class '<em>toto</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>toto</em>'.
+   * @generated
+   */
+  toto createtoto();
+
+  /**
+   * Returns a new object of class '<em>Renamed Parameter Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Renamed Parameter Call</em>'.
+   * @generated
+   */
+  RenamedParameterCall createRenamedParameterCall();
+
+  /**
+   * Returns a new object of class '<em>Concern Parameter Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Concern Parameter Call</em>'.
+   * @generated
+   */
+  ConcernParameterCall createConcernParameterCall();
+
+  /**
    * Returns a new object of class '<em>Member Call</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -139,6 +202,51 @@ public interface BurstFactory extends EFactory
    * @generated
    */
   MemberInConcern createMemberInConcern();
+
+  /**
+   * Returns a new object of class '<em>Import</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Import</em>'.
+   * @generated
+   */
+  Import createImport();
+
+  /**
+   * Returns a new object of class '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package</em>'.
+   * @generated
+   */
+  Package createPackage();
+
+  /**
+   * Returns a new object of class '<em>Concern</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Concern</em>'.
+   * @generated
+   */
+  Concern createConcern();
+
+  /**
+   * Returns a new object of class '<em>Member</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Member</em>'.
+   * @generated
+   */
+  Member createMember();
+
+  /**
+   * Returns a new object of class '<em>Intersection</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Intersection</em>'.
+   * @generated
+   */
+  Intersection createIntersection();
 
   /**
    * Returns the package supported by this factory.

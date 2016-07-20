@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.burst.burst.AbstractElement;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.File;
+import org.xtext.burst.burst.RuleFileElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +44,7 @@ public class FileImpl extends MinimalEObjectImpl.Container implements File
    * @generated
    * @ordered
    */
-  protected EList<AbstractElement> elements;
+  protected EList<RuleFileElement> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,11 +72,11 @@ public class FileImpl extends MinimalEObjectImpl.Container implements File
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<AbstractElement> getElements()
+  public EList<RuleFileElement> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, BurstPackage.FILE__ELEMENTS);
+      elements = new EObjectContainmentEList<RuleFileElement>(RuleFileElement.class, this, BurstPackage.FILE__ELEMENTS);
     }
     return elements;
   }
@@ -126,7 +126,7 @@ public class FileImpl extends MinimalEObjectImpl.Container implements File
     {
       case BurstPackage.FILE__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends AbstractElement>)newValue);
+        getElements().addAll((Collection<? extends RuleFileElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

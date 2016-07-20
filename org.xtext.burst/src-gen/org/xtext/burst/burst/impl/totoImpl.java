@@ -3,41 +3,29 @@
  */
 package org.xtext.burst.burst.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.Destruct;
-import org.xtext.burst.burst.Line;
+import org.xtext.burst.burst.toto;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Destruct</b></em>'.
+ * An implementation of the model object '<em><b>toto</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.DestructImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.DestructImpl#getLinesContent <em>Lines Content</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.totoImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DestructImpl extends MinimalEObjectImpl.Container implements Destruct
+public class totoImpl extends CallImpl implements toto
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -60,21 +48,11 @@ public class DestructImpl extends MinimalEObjectImpl.Container implements Destru
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getLinesContent() <em>Lines Content</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLinesContent()
-   * @generated
-   * @ordered
-   */
-  protected EList<Line> linesContent;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DestructImpl()
+  protected totoImpl()
   {
     super();
   }
@@ -87,7 +65,7 @@ public class DestructImpl extends MinimalEObjectImpl.Container implements Destru
   @Override
   protected EClass eStaticClass()
   {
-    return BurstPackage.Literals.DESTRUCT;
+    return BurstPackage.Literals.TOTO;
   }
 
   /**
@@ -110,37 +88,7 @@ public class DestructImpl extends MinimalEObjectImpl.Container implements Destru
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.DESTRUCT__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Line> getLinesContent()
-  {
-    if (linesContent == null)
-    {
-      linesContent = new EObjectContainmentEList<Line>(Line.class, this, BurstPackage.DESTRUCT__LINES_CONTENT);
-    }
-    return linesContent;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case BurstPackage.DESTRUCT__LINES_CONTENT:
-        return ((InternalEList<?>)getLinesContent()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.TOTO__NAME, oldName, name));
   }
 
   /**
@@ -153,10 +101,8 @@ public class DestructImpl extends MinimalEObjectImpl.Container implements Destru
   {
     switch (featureID)
     {
-      case BurstPackage.DESTRUCT__NAME:
+      case BurstPackage.TOTO__NAME:
         return getName();
-      case BurstPackage.DESTRUCT__LINES_CONTENT:
-        return getLinesContent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -166,18 +112,13 @@ public class DestructImpl extends MinimalEObjectImpl.Container implements Destru
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case BurstPackage.DESTRUCT__NAME:
+      case BurstPackage.TOTO__NAME:
         setName((String)newValue);
-        return;
-      case BurstPackage.DESTRUCT__LINES_CONTENT:
-        getLinesContent().clear();
-        getLinesContent().addAll((Collection<? extends Line>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -193,11 +134,8 @@ public class DestructImpl extends MinimalEObjectImpl.Container implements Destru
   {
     switch (featureID)
     {
-      case BurstPackage.DESTRUCT__NAME:
+      case BurstPackage.TOTO__NAME:
         setName(NAME_EDEFAULT);
-        return;
-      case BurstPackage.DESTRUCT__LINES_CONTENT:
-        getLinesContent().clear();
         return;
     }
     super.eUnset(featureID);
@@ -213,10 +151,8 @@ public class DestructImpl extends MinimalEObjectImpl.Container implements Destru
   {
     switch (featureID)
     {
-      case BurstPackage.DESTRUCT__NAME:
+      case BurstPackage.TOTO__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case BurstPackage.DESTRUCT__LINES_CONTENT:
-        return linesContent != null && !linesContent.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -238,4 +174,4 @@ public class DestructImpl extends MinimalEObjectImpl.Container implements Destru
     return result.toString();
   }
 
-} //DestructImpl
+} //totoImpl

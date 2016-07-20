@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalBurstParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ENDLINE", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'{'", "'}'", "'.'", "'import'", "'concern'", "'extends'", "'when'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ENDLINE", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "','", "'and'", "'import'", "'package'", "'{'", "'}'", "'concern'", "'extends'", "'.'", "'when'", "'toto'"
     };
     public static final int RULE_ENDLINE=4;
     public static final int RULE_STRING=7;
@@ -40,7 +40,10 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
     public static final int RULE_WS=10;
     public static final int RULE_ANY_OTHER=11;
     public static final int RULE_INT=6;
+    public static final int T__22=22;
     public static final int RULE_ML_COMMENT=8;
+    public static final int T__20=20;
+    public static final int T__21=21;
 
     // delegates
     // delegators
@@ -127,7 +130,7 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==RULE_ENDLINE||LA1_0==12||(LA1_0>=16 && LA1_0<=17)||LA1_0==19) ) {
+                if ( (LA1_0==RULE_ENDLINE||(LA1_0>=14 && LA1_0<=15)) ) {
                     alt1=1;
                 }
 
@@ -172,20 +175,20 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleFile"
 
 
-    // $ANTLR start "entryRuleAbstractElement"
-    // InternalBurst.g:78:1: entryRuleAbstractElement : ruleAbstractElement EOF ;
-    public final void entryRuleAbstractElement() throws RecognitionException {
+    // $ANTLR start "entryRuleRuleFileElement"
+    // InternalBurst.g:78:1: entryRuleRuleFileElement : ruleRuleFileElement EOF ;
+    public final void entryRuleRuleFileElement() throws RecognitionException {
         try {
-            // InternalBurst.g:79:1: ( ruleAbstractElement EOF )
-            // InternalBurst.g:80:1: ruleAbstractElement EOF
+            // InternalBurst.g:79:1: ( ruleRuleFileElement EOF )
+            // InternalBurst.g:80:1: ruleRuleFileElement EOF
             {
-             before(grammarAccess.getAbstractElementRule()); 
+             before(grammarAccess.getRuleFileElementRule()); 
             pushFollow(FOLLOW_1);
-            ruleAbstractElement();
+            ruleRuleFileElement();
 
             state._fsp--;
 
-             after(grammarAccess.getAbstractElementRule()); 
+             after(grammarAccess.getRuleFileElementRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -199,35 +202,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleAbstractElement"
+    // $ANTLR end "entryRuleRuleFileElement"
 
 
-    // $ANTLR start "ruleAbstractElement"
-    // InternalBurst.g:87:1: ruleAbstractElement : ( ( rule__AbstractElement__Alternatives ) ) ;
-    public final void ruleAbstractElement() throws RecognitionException {
+    // $ANTLR start "ruleRuleFileElement"
+    // InternalBurst.g:87:1: ruleRuleFileElement : ( ( rule__RuleFileElement__Alternatives ) ) ;
+    public final void ruleRuleFileElement() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:91:2: ( ( ( rule__AbstractElement__Alternatives ) ) )
-            // InternalBurst.g:92:2: ( ( rule__AbstractElement__Alternatives ) )
+            // InternalBurst.g:91:2: ( ( ( rule__RuleFileElement__Alternatives ) ) )
+            // InternalBurst.g:92:2: ( ( rule__RuleFileElement__Alternatives ) )
             {
-            // InternalBurst.g:92:2: ( ( rule__AbstractElement__Alternatives ) )
-            // InternalBurst.g:93:3: ( rule__AbstractElement__Alternatives )
+            // InternalBurst.g:92:2: ( ( rule__RuleFileElement__Alternatives ) )
+            // InternalBurst.g:93:3: ( rule__RuleFileElement__Alternatives )
             {
-             before(grammarAccess.getAbstractElementAccess().getAlternatives()); 
-            // InternalBurst.g:94:3: ( rule__AbstractElement__Alternatives )
-            // InternalBurst.g:94:4: rule__AbstractElement__Alternatives
+             before(grammarAccess.getRuleFileElementAccess().getAlternatives()); 
+            // InternalBurst.g:94:3: ( rule__RuleFileElement__Alternatives )
+            // InternalBurst.g:94:4: rule__RuleFileElement__Alternatives
             {
             pushFollow(FOLLOW_2);
-            rule__AbstractElement__Alternatives();
+            rule__RuleFileElement__Alternatives();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getAbstractElementAccess().getAlternatives()); 
+             after(grammarAccess.getRuleFileElementAccess().getAlternatives()); 
 
             }
 
@@ -246,23 +249,23 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleAbstractElement"
+    // $ANTLR end "ruleRuleFileElement"
 
 
-    // $ANTLR start "entryRulePackage"
-    // InternalBurst.g:103:1: entryRulePackage : rulePackage EOF ;
-    public final void entryRulePackage() throws RecognitionException {
+    // $ANTLR start "entryRuleRuleImport"
+    // InternalBurst.g:103:1: entryRuleRuleImport : ruleRuleImport EOF ;
+    public final void entryRuleRuleImport() throws RecognitionException {
         try {
-            // InternalBurst.g:104:1: ( rulePackage EOF )
-            // InternalBurst.g:105:1: rulePackage EOF
+            // InternalBurst.g:104:1: ( ruleRuleImport EOF )
+            // InternalBurst.g:105:1: ruleRuleImport EOF
             {
-             before(grammarAccess.getPackageRule()); 
+             before(grammarAccess.getRuleImportRule()); 
             pushFollow(FOLLOW_1);
-            rulePackage();
+            ruleRuleImport();
 
             state._fsp--;
 
-             after(grammarAccess.getPackageRule()); 
+             after(grammarAccess.getRuleImportRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -276,35 +279,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRulePackage"
+    // $ANTLR end "entryRuleRuleImport"
 
 
-    // $ANTLR start "rulePackage"
-    // InternalBurst.g:112:1: rulePackage : ( ( rule__Package__Group__0 ) ) ;
-    public final void rulePackage() throws RecognitionException {
+    // $ANTLR start "ruleRuleImport"
+    // InternalBurst.g:112:1: ruleRuleImport : ( ( rule__RuleImport__Group__0 ) ) ;
+    public final void ruleRuleImport() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:116:2: ( ( ( rule__Package__Group__0 ) ) )
-            // InternalBurst.g:117:2: ( ( rule__Package__Group__0 ) )
+            // InternalBurst.g:116:2: ( ( ( rule__RuleImport__Group__0 ) ) )
+            // InternalBurst.g:117:2: ( ( rule__RuleImport__Group__0 ) )
             {
-            // InternalBurst.g:117:2: ( ( rule__Package__Group__0 ) )
-            // InternalBurst.g:118:3: ( rule__Package__Group__0 )
+            // InternalBurst.g:117:2: ( ( rule__RuleImport__Group__0 ) )
+            // InternalBurst.g:118:3: ( rule__RuleImport__Group__0 )
             {
-             before(grammarAccess.getPackageAccess().getGroup()); 
-            // InternalBurst.g:119:3: ( rule__Package__Group__0 )
-            // InternalBurst.g:119:4: rule__Package__Group__0
+             before(grammarAccess.getRuleImportAccess().getGroup()); 
+            // InternalBurst.g:119:3: ( rule__RuleImport__Group__0 )
+            // InternalBurst.g:119:4: rule__RuleImport__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Package__Group__0();
+            rule__RuleImport__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getPackageAccess().getGroup()); 
+             after(grammarAccess.getRuleImportAccess().getGroup()); 
 
             }
 
@@ -323,23 +326,23 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rulePackage"
+    // $ANTLR end "ruleRuleImport"
 
 
-    // $ANTLR start "entryRuleQualifiedName"
-    // InternalBurst.g:128:1: entryRuleQualifiedName : ruleQualifiedName EOF ;
-    public final void entryRuleQualifiedName() throws RecognitionException {
+    // $ANTLR start "entryRuleRulePackage"
+    // InternalBurst.g:128:1: entryRuleRulePackage : ruleRulePackage EOF ;
+    public final void entryRuleRulePackage() throws RecognitionException {
         try {
-            // InternalBurst.g:129:1: ( ruleQualifiedName EOF )
-            // InternalBurst.g:130:1: ruleQualifiedName EOF
+            // InternalBurst.g:129:1: ( ruleRulePackage EOF )
+            // InternalBurst.g:130:1: ruleRulePackage EOF
             {
-             before(grammarAccess.getQualifiedNameRule()); 
+             before(grammarAccess.getRulePackageRule()); 
             pushFollow(FOLLOW_1);
-            ruleQualifiedName();
+            ruleRulePackage();
 
             state._fsp--;
 
-             after(grammarAccess.getQualifiedNameRule()); 
+             after(grammarAccess.getRulePackageRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -353,35 +356,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleQualifiedName"
+    // $ANTLR end "entryRuleRulePackage"
 
 
-    // $ANTLR start "ruleQualifiedName"
-    // InternalBurst.g:137:1: ruleQualifiedName : ( ( rule__QualifiedName__Group__0 ) ) ;
-    public final void ruleQualifiedName() throws RecognitionException {
+    // $ANTLR start "ruleRulePackage"
+    // InternalBurst.g:137:1: ruleRulePackage : ( ( rule__RulePackage__Group__0 ) ) ;
+    public final void ruleRulePackage() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:141:2: ( ( ( rule__QualifiedName__Group__0 ) ) )
-            // InternalBurst.g:142:2: ( ( rule__QualifiedName__Group__0 ) )
+            // InternalBurst.g:141:2: ( ( ( rule__RulePackage__Group__0 ) ) )
+            // InternalBurst.g:142:2: ( ( rule__RulePackage__Group__0 ) )
             {
-            // InternalBurst.g:142:2: ( ( rule__QualifiedName__Group__0 ) )
-            // InternalBurst.g:143:3: ( rule__QualifiedName__Group__0 )
+            // InternalBurst.g:142:2: ( ( rule__RulePackage__Group__0 ) )
+            // InternalBurst.g:143:3: ( rule__RulePackage__Group__0 )
             {
-             before(grammarAccess.getQualifiedNameAccess().getGroup()); 
-            // InternalBurst.g:144:3: ( rule__QualifiedName__Group__0 )
-            // InternalBurst.g:144:4: rule__QualifiedName__Group__0
+             before(grammarAccess.getRulePackageAccess().getGroup()); 
+            // InternalBurst.g:144:3: ( rule__RulePackage__Group__0 )
+            // InternalBurst.g:144:4: rule__RulePackage__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__QualifiedName__Group__0();
+            rule__RulePackage__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getQualifiedNameAccess().getGroup()); 
+             after(grammarAccess.getRulePackageAccess().getGroup()); 
 
             }
 
@@ -400,23 +403,23 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleQualifiedName"
+    // $ANTLR end "ruleRulePackage"
 
 
-    // $ANTLR start "entryRuleImport"
-    // InternalBurst.g:153:1: entryRuleImport : ruleImport EOF ;
-    public final void entryRuleImport() throws RecognitionException {
+    // $ANTLR start "entryRulePackageElement"
+    // InternalBurst.g:153:1: entryRulePackageElement : rulePackageElement EOF ;
+    public final void entryRulePackageElement() throws RecognitionException {
         try {
-            // InternalBurst.g:154:1: ( ruleImport EOF )
-            // InternalBurst.g:155:1: ruleImport EOF
+            // InternalBurst.g:154:1: ( rulePackageElement EOF )
+            // InternalBurst.g:155:1: rulePackageElement EOF
             {
-             before(grammarAccess.getImportRule()); 
+             before(grammarAccess.getPackageElementRule()); 
             pushFollow(FOLLOW_1);
-            ruleImport();
+            rulePackageElement();
 
             state._fsp--;
 
-             after(grammarAccess.getImportRule()); 
+             after(grammarAccess.getPackageElementRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -430,35 +433,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleImport"
+    // $ANTLR end "entryRulePackageElement"
 
 
-    // $ANTLR start "ruleImport"
-    // InternalBurst.g:162:1: ruleImport : ( ( rule__Import__Group__0 ) ) ;
-    public final void ruleImport() throws RecognitionException {
+    // $ANTLR start "rulePackageElement"
+    // InternalBurst.g:162:1: rulePackageElement : ( ( rule__PackageElement__Alternatives ) ) ;
+    public final void rulePackageElement() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:166:2: ( ( ( rule__Import__Group__0 ) ) )
-            // InternalBurst.g:167:2: ( ( rule__Import__Group__0 ) )
+            // InternalBurst.g:166:2: ( ( ( rule__PackageElement__Alternatives ) ) )
+            // InternalBurst.g:167:2: ( ( rule__PackageElement__Alternatives ) )
             {
-            // InternalBurst.g:167:2: ( ( rule__Import__Group__0 ) )
-            // InternalBurst.g:168:3: ( rule__Import__Group__0 )
+            // InternalBurst.g:167:2: ( ( rule__PackageElement__Alternatives ) )
+            // InternalBurst.g:168:3: ( rule__PackageElement__Alternatives )
             {
-             before(grammarAccess.getImportAccess().getGroup()); 
-            // InternalBurst.g:169:3: ( rule__Import__Group__0 )
-            // InternalBurst.g:169:4: rule__Import__Group__0
+             before(grammarAccess.getPackageElementAccess().getAlternatives()); 
+            // InternalBurst.g:169:3: ( rule__PackageElement__Alternatives )
+            // InternalBurst.g:169:4: rule__PackageElement__Alternatives
             {
             pushFollow(FOLLOW_2);
-            rule__Import__Group__0();
+            rule__PackageElement__Alternatives();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getImportAccess().getGroup()); 
+             after(grammarAccess.getPackageElementAccess().getAlternatives()); 
 
             }
 
@@ -477,23 +480,23 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleImport"
+    // $ANTLR end "rulePackageElement"
 
 
-    // $ANTLR start "entryRuleConcern"
-    // InternalBurst.g:178:1: entryRuleConcern : ruleConcern EOF ;
-    public final void entryRuleConcern() throws RecognitionException {
+    // $ANTLR start "entryRuleRuleConcern"
+    // InternalBurst.g:178:1: entryRuleRuleConcern : ruleRuleConcern EOF ;
+    public final void entryRuleRuleConcern() throws RecognitionException {
         try {
-            // InternalBurst.g:179:1: ( ruleConcern EOF )
-            // InternalBurst.g:180:1: ruleConcern EOF
+            // InternalBurst.g:179:1: ( ruleRuleConcern EOF )
+            // InternalBurst.g:180:1: ruleRuleConcern EOF
             {
-             before(grammarAccess.getConcernRule()); 
+             before(grammarAccess.getRuleConcernRule()); 
             pushFollow(FOLLOW_1);
-            ruleConcern();
+            ruleRuleConcern();
 
             state._fsp--;
 
-             after(grammarAccess.getConcernRule()); 
+             after(grammarAccess.getRuleConcernRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -507,35 +510,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleConcern"
+    // $ANTLR end "entryRuleRuleConcern"
 
 
-    // $ANTLR start "ruleConcern"
-    // InternalBurst.g:187:1: ruleConcern : ( ( rule__Concern__Group__0 ) ) ;
-    public final void ruleConcern() throws RecognitionException {
+    // $ANTLR start "ruleRuleConcern"
+    // InternalBurst.g:187:1: ruleRuleConcern : ( ( rule__RuleConcern__Group__0 ) ) ;
+    public final void ruleRuleConcern() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:191:2: ( ( ( rule__Concern__Group__0 ) ) )
-            // InternalBurst.g:192:2: ( ( rule__Concern__Group__0 ) )
+            // InternalBurst.g:191:2: ( ( ( rule__RuleConcern__Group__0 ) ) )
+            // InternalBurst.g:192:2: ( ( rule__RuleConcern__Group__0 ) )
             {
-            // InternalBurst.g:192:2: ( ( rule__Concern__Group__0 ) )
-            // InternalBurst.g:193:3: ( rule__Concern__Group__0 )
+            // InternalBurst.g:192:2: ( ( rule__RuleConcern__Group__0 ) )
+            // InternalBurst.g:193:3: ( rule__RuleConcern__Group__0 )
             {
-             before(grammarAccess.getConcernAccess().getGroup()); 
-            // InternalBurst.g:194:3: ( rule__Concern__Group__0 )
-            // InternalBurst.g:194:4: rule__Concern__Group__0
+             before(grammarAccess.getRuleConcernAccess().getGroup()); 
+            // InternalBurst.g:194:3: ( rule__RuleConcern__Group__0 )
+            // InternalBurst.g:194:4: rule__RuleConcern__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Concern__Group__0();
+            rule__RuleConcern__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getConcernAccess().getGroup()); 
+             after(grammarAccess.getRuleConcernAccess().getGroup()); 
 
             }
 
@@ -554,23 +557,23 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleConcern"
+    // $ANTLR end "ruleRuleConcern"
 
 
-    // $ANTLR start "entryRuleMember"
-    // InternalBurst.g:203:1: entryRuleMember : ruleMember EOF ;
-    public final void entryRuleMember() throws RecognitionException {
+    // $ANTLR start "entryRuleConcernElement"
+    // InternalBurst.g:203:1: entryRuleConcernElement : ruleConcernElement EOF ;
+    public final void entryRuleConcernElement() throws RecognitionException {
         try {
-            // InternalBurst.g:204:1: ( ruleMember EOF )
-            // InternalBurst.g:205:1: ruleMember EOF
+            // InternalBurst.g:204:1: ( ruleConcernElement EOF )
+            // InternalBurst.g:205:1: ruleConcernElement EOF
             {
-             before(grammarAccess.getMemberRule()); 
+             before(grammarAccess.getConcernElementRule()); 
             pushFollow(FOLLOW_1);
-            ruleMember();
+            ruleConcernElement();
 
             state._fsp--;
 
-             after(grammarAccess.getMemberRule()); 
+             after(grammarAccess.getConcernElementRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -584,35 +587,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleMember"
+    // $ANTLR end "entryRuleConcernElement"
 
 
-    // $ANTLR start "ruleMember"
-    // InternalBurst.g:212:1: ruleMember : ( ( rule__Member__Group__0 ) ) ;
-    public final void ruleMember() throws RecognitionException {
+    // $ANTLR start "ruleConcernElement"
+    // InternalBurst.g:212:1: ruleConcernElement : ( ( rule__ConcernElement__Alternatives ) ) ;
+    public final void ruleConcernElement() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:216:2: ( ( ( rule__Member__Group__0 ) ) )
-            // InternalBurst.g:217:2: ( ( rule__Member__Group__0 ) )
+            // InternalBurst.g:216:2: ( ( ( rule__ConcernElement__Alternatives ) ) )
+            // InternalBurst.g:217:2: ( ( rule__ConcernElement__Alternatives ) )
             {
-            // InternalBurst.g:217:2: ( ( rule__Member__Group__0 ) )
-            // InternalBurst.g:218:3: ( rule__Member__Group__0 )
+            // InternalBurst.g:217:2: ( ( rule__ConcernElement__Alternatives ) )
+            // InternalBurst.g:218:3: ( rule__ConcernElement__Alternatives )
             {
-             before(grammarAccess.getMemberAccess().getGroup()); 
-            // InternalBurst.g:219:3: ( rule__Member__Group__0 )
-            // InternalBurst.g:219:4: rule__Member__Group__0
+             before(grammarAccess.getConcernElementAccess().getAlternatives()); 
+            // InternalBurst.g:219:3: ( rule__ConcernElement__Alternatives )
+            // InternalBurst.g:219:4: rule__ConcernElement__Alternatives
             {
             pushFollow(FOLLOW_2);
-            rule__Member__Group__0();
+            rule__ConcernElement__Alternatives();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMemberAccess().getGroup()); 
+             after(grammarAccess.getConcernElementAccess().getAlternatives()); 
 
             }
 
@@ -631,23 +634,23 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleMember"
+    // $ANTLR end "ruleConcernElement"
 
 
-    // $ANTLR start "entryRuleIntersection"
-    // InternalBurst.g:228:1: entryRuleIntersection : ruleIntersection EOF ;
-    public final void entryRuleIntersection() throws RecognitionException {
+    // $ANTLR start "entryRuleDeclareMember"
+    // InternalBurst.g:228:1: entryRuleDeclareMember : ruleDeclareMember EOF ;
+    public final void entryRuleDeclareMember() throws RecognitionException {
         try {
-            // InternalBurst.g:229:1: ( ruleIntersection EOF )
-            // InternalBurst.g:230:1: ruleIntersection EOF
+            // InternalBurst.g:229:1: ( ruleDeclareMember EOF )
+            // InternalBurst.g:230:1: ruleDeclareMember EOF
             {
-             before(grammarAccess.getIntersectionRule()); 
+             before(grammarAccess.getDeclareMemberRule()); 
             pushFollow(FOLLOW_1);
-            ruleIntersection();
+            ruleDeclareMember();
 
             state._fsp--;
 
-             after(grammarAccess.getIntersectionRule()); 
+             after(grammarAccess.getDeclareMemberRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -661,35 +664,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleIntersection"
+    // $ANTLR end "entryRuleDeclareMember"
 
 
-    // $ANTLR start "ruleIntersection"
-    // InternalBurst.g:237:1: ruleIntersection : ( ( rule__Intersection__Group__0 ) ) ;
-    public final void ruleIntersection() throws RecognitionException {
+    // $ANTLR start "ruleDeclareMember"
+    // InternalBurst.g:237:1: ruleDeclareMember : ( ( rule__DeclareMember__Group__0 ) ) ;
+    public final void ruleDeclareMember() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:241:2: ( ( ( rule__Intersection__Group__0 ) ) )
-            // InternalBurst.g:242:2: ( ( rule__Intersection__Group__0 ) )
+            // InternalBurst.g:241:2: ( ( ( rule__DeclareMember__Group__0 ) ) )
+            // InternalBurst.g:242:2: ( ( rule__DeclareMember__Group__0 ) )
             {
-            // InternalBurst.g:242:2: ( ( rule__Intersection__Group__0 ) )
-            // InternalBurst.g:243:3: ( rule__Intersection__Group__0 )
+            // InternalBurst.g:242:2: ( ( rule__DeclareMember__Group__0 ) )
+            // InternalBurst.g:243:3: ( rule__DeclareMember__Group__0 )
             {
-             before(grammarAccess.getIntersectionAccess().getGroup()); 
-            // InternalBurst.g:244:3: ( rule__Intersection__Group__0 )
-            // InternalBurst.g:244:4: rule__Intersection__Group__0
+             before(grammarAccess.getDeclareMemberAccess().getGroup()); 
+            // InternalBurst.g:244:3: ( rule__DeclareMember__Group__0 )
+            // InternalBurst.g:244:4: rule__DeclareMember__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Intersection__Group__0();
+            rule__DeclareMember__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getIntersectionAccess().getGroup()); 
+             after(grammarAccess.getDeclareMemberAccess().getGroup()); 
 
             }
 
@@ -708,15 +711,317 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleIntersection"
+    // $ANTLR end "ruleDeclareMember"
+
+
+    // $ANTLR start "entryRuleRuleIntersect"
+    // InternalBurst.g:253:1: entryRuleRuleIntersect : ruleRuleIntersect EOF ;
+    public final void entryRuleRuleIntersect() throws RecognitionException {
+        try {
+            // InternalBurst.g:254:1: ( ruleRuleIntersect EOF )
+            // InternalBurst.g:255:1: ruleRuleIntersect EOF
+            {
+             before(grammarAccess.getRuleIntersectRule()); 
+            pushFollow(FOLLOW_1);
+            ruleRuleIntersect();
+
+            state._fsp--;
+
+             after(grammarAccess.getRuleIntersectRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleRuleIntersect"
+
+
+    // $ANTLR start "ruleRuleIntersect"
+    // InternalBurst.g:262:1: ruleRuleIntersect : ( ( rule__RuleIntersect__Group__0 ) ) ;
+    public final void ruleRuleIntersect() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:266:2: ( ( ( rule__RuleIntersect__Group__0 ) ) )
+            // InternalBurst.g:267:2: ( ( rule__RuleIntersect__Group__0 ) )
+            {
+            // InternalBurst.g:267:2: ( ( rule__RuleIntersect__Group__0 ) )
+            // InternalBurst.g:268:3: ( rule__RuleIntersect__Group__0 )
+            {
+             before(grammarAccess.getRuleIntersectAccess().getGroup()); 
+            // InternalBurst.g:269:3: ( rule__RuleIntersect__Group__0 )
+            // InternalBurst.g:269:4: rule__RuleIntersect__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__RuleIntersect__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRuleIntersectAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleRuleIntersect"
+
+
+    // $ANTLR start "entryRuleDeclareParameter"
+    // InternalBurst.g:278:1: entryRuleDeclareParameter : ruleDeclareParameter EOF ;
+    public final void entryRuleDeclareParameter() throws RecognitionException {
+        try {
+            // InternalBurst.g:279:1: ( ruleDeclareParameter EOF )
+            // InternalBurst.g:280:1: ruleDeclareParameter EOF
+            {
+             before(grammarAccess.getDeclareParameterRule()); 
+            pushFollow(FOLLOW_1);
+            ruleDeclareParameter();
+
+            state._fsp--;
+
+             after(grammarAccess.getDeclareParameterRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleDeclareParameter"
+
+
+    // $ANTLR start "ruleDeclareParameter"
+    // InternalBurst.g:287:1: ruleDeclareParameter : ( ruleRenamedParameter ) ;
+    public final void ruleDeclareParameter() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:291:2: ( ( ruleRenamedParameter ) )
+            // InternalBurst.g:292:2: ( ruleRenamedParameter )
+            {
+            // InternalBurst.g:292:2: ( ruleRenamedParameter )
+            // InternalBurst.g:293:3: ruleRenamedParameter
+            {
+             before(grammarAccess.getDeclareParameterAccess().getRenamedParameterParserRuleCall()); 
+            pushFollow(FOLLOW_2);
+            ruleRenamedParameter();
+
+            state._fsp--;
+
+             after(grammarAccess.getDeclareParameterAccess().getRenamedParameterParserRuleCall()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleDeclareParameter"
+
+
+    // $ANTLR start "entryRuleRenamedParameter"
+    // InternalBurst.g:303:1: entryRuleRenamedParameter : ruleRenamedParameter EOF ;
+    public final void entryRuleRenamedParameter() throws RecognitionException {
+        try {
+            // InternalBurst.g:304:1: ( ruleRenamedParameter EOF )
+            // InternalBurst.g:305:1: ruleRenamedParameter EOF
+            {
+             before(grammarAccess.getRenamedParameterRule()); 
+            pushFollow(FOLLOW_1);
+            ruleRenamedParameter();
+
+            state._fsp--;
+
+             after(grammarAccess.getRenamedParameterRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleRenamedParameter"
+
+
+    // $ANTLR start "ruleRenamedParameter"
+    // InternalBurst.g:312:1: ruleRenamedParameter : ( ( rule__RenamedParameter__Group__0 ) ) ;
+    public final void ruleRenamedParameter() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:316:2: ( ( ( rule__RenamedParameter__Group__0 ) ) )
+            // InternalBurst.g:317:2: ( ( rule__RenamedParameter__Group__0 ) )
+            {
+            // InternalBurst.g:317:2: ( ( rule__RenamedParameter__Group__0 ) )
+            // InternalBurst.g:318:3: ( rule__RenamedParameter__Group__0 )
+            {
+             before(grammarAccess.getRenamedParameterAccess().getGroup()); 
+            // InternalBurst.g:319:3: ( rule__RenamedParameter__Group__0 )
+            // InternalBurst.g:319:4: rule__RenamedParameter__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__RenamedParameter__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRenamedParameterAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleRenamedParameter"
+
+
+    // $ANTLR start "entryRuleIntersectionElement"
+    // InternalBurst.g:328:1: entryRuleIntersectionElement : ruleIntersectionElement EOF ;
+    public final void entryRuleIntersectionElement() throws RecognitionException {
+        try {
+            // InternalBurst.g:329:1: ( ruleIntersectionElement EOF )
+            // InternalBurst.g:330:1: ruleIntersectionElement EOF
+            {
+             before(grammarAccess.getIntersectionElementRule()); 
+            pushFollow(FOLLOW_1);
+            ruleIntersectionElement();
+
+            state._fsp--;
+
+             after(grammarAccess.getIntersectionElementRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleIntersectionElement"
+
+
+    // $ANTLR start "ruleIntersectionElement"
+    // InternalBurst.g:337:1: ruleIntersectionElement : ( ( rule__IntersectionElement__Alternatives ) ) ;
+    public final void ruleIntersectionElement() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:341:2: ( ( ( rule__IntersectionElement__Alternatives ) ) )
+            // InternalBurst.g:342:2: ( ( rule__IntersectionElement__Alternatives ) )
+            {
+            // InternalBurst.g:342:2: ( ( rule__IntersectionElement__Alternatives ) )
+            // InternalBurst.g:343:3: ( rule__IntersectionElement__Alternatives )
+            {
+             before(grammarAccess.getIntersectionElementAccess().getAlternatives()); 
+            // InternalBurst.g:344:3: ( rule__IntersectionElement__Alternatives )
+            // InternalBurst.g:344:4: rule__IntersectionElement__Alternatives
+            {
+            pushFollow(FOLLOW_2);
+            rule__IntersectionElement__Alternatives();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getIntersectionElementAccess().getAlternatives()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleIntersectionElement"
 
 
     // $ANTLR start "entryRuleLine"
-    // InternalBurst.g:253:1: entryRuleLine : ruleLine EOF ;
+    // InternalBurst.g:353:1: entryRuleLine : ruleLine EOF ;
     public final void entryRuleLine() throws RecognitionException {
         try {
-            // InternalBurst.g:254:1: ( ruleLine EOF )
-            // InternalBurst.g:255:1: ruleLine EOF
+            // InternalBurst.g:354:1: ( ruleLine EOF )
+            // InternalBurst.g:355:1: ruleLine EOF
             {
              before(grammarAccess.getLineRule()); 
             pushFollow(FOLLOW_1);
@@ -742,21 +1047,21 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleLine"
-    // InternalBurst.g:262:1: ruleLine : ( ( rule__Line__Group__0 ) ) ;
+    // InternalBurst.g:362:1: ruleLine : ( ( rule__Line__Group__0 ) ) ;
     public final void ruleLine() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:266:2: ( ( ( rule__Line__Group__0 ) ) )
-            // InternalBurst.g:267:2: ( ( rule__Line__Group__0 ) )
+            // InternalBurst.g:366:2: ( ( ( rule__Line__Group__0 ) ) )
+            // InternalBurst.g:367:2: ( ( rule__Line__Group__0 ) )
             {
-            // InternalBurst.g:267:2: ( ( rule__Line__Group__0 ) )
-            // InternalBurst.g:268:3: ( rule__Line__Group__0 )
+            // InternalBurst.g:367:2: ( ( rule__Line__Group__0 ) )
+            // InternalBurst.g:368:3: ( rule__Line__Group__0 )
             {
              before(grammarAccess.getLineAccess().getGroup()); 
-            // InternalBurst.g:269:3: ( rule__Line__Group__0 )
-            // InternalBurst.g:269:4: rule__Line__Group__0
+            // InternalBurst.g:369:3: ( rule__Line__Group__0 )
+            // InternalBurst.g:369:4: rule__Line__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Line__Group__0();
@@ -789,11 +1094,11 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleCall"
-    // InternalBurst.g:278:1: entryRuleCall : ruleCall EOF ;
+    // InternalBurst.g:378:1: entryRuleCall : ruleCall EOF ;
     public final void entryRuleCall() throws RecognitionException {
         try {
-            // InternalBurst.g:279:1: ( ruleCall EOF )
-            // InternalBurst.g:280:1: ruleCall EOF
+            // InternalBurst.g:379:1: ( ruleCall EOF )
+            // InternalBurst.g:380:1: ruleCall EOF
             {
              before(grammarAccess.getCallRule()); 
             pushFollow(FOLLOW_1);
@@ -819,21 +1124,21 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleCall"
-    // InternalBurst.g:287:1: ruleCall : ( ( rule__Call__Alternatives ) ) ;
+    // InternalBurst.g:387:1: ruleCall : ( ( rule__Call__Alternatives ) ) ;
     public final void ruleCall() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:291:2: ( ( ( rule__Call__Alternatives ) ) )
-            // InternalBurst.g:292:2: ( ( rule__Call__Alternatives ) )
+            // InternalBurst.g:391:2: ( ( ( rule__Call__Alternatives ) ) )
+            // InternalBurst.g:392:2: ( ( rule__Call__Alternatives ) )
             {
-            // InternalBurst.g:292:2: ( ( rule__Call__Alternatives ) )
-            // InternalBurst.g:293:3: ( rule__Call__Alternatives )
+            // InternalBurst.g:392:2: ( ( rule__Call__Alternatives ) )
+            // InternalBurst.g:393:3: ( rule__Call__Alternatives )
             {
              before(grammarAccess.getCallAccess().getAlternatives()); 
-            // InternalBurst.g:294:3: ( rule__Call__Alternatives )
-            // InternalBurst.g:294:4: rule__Call__Alternatives
+            // InternalBurst.g:394:3: ( rule__Call__Alternatives )
+            // InternalBurst.g:394:4: rule__Call__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__Call__Alternatives();
@@ -865,20 +1170,20 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleCall"
 
 
-    // $ANTLR start "entryRuleMemberCall"
-    // InternalBurst.g:303:1: entryRuleMemberCall : ruleMemberCall EOF ;
-    public final void entryRuleMemberCall() throws RecognitionException {
+    // $ANTLR start "entryRuletoto"
+    // InternalBurst.g:403:1: entryRuletoto : ruletoto EOF ;
+    public final void entryRuletoto() throws RecognitionException {
         try {
-            // InternalBurst.g:304:1: ( ruleMemberCall EOF )
-            // InternalBurst.g:305:1: ruleMemberCall EOF
+            // InternalBurst.g:404:1: ( ruletoto EOF )
+            // InternalBurst.g:405:1: ruletoto EOF
             {
-             before(grammarAccess.getMemberCallRule()); 
+             before(grammarAccess.getTotoRule()); 
             pushFollow(FOLLOW_1);
-            ruleMemberCall();
+            ruletoto();
 
             state._fsp--;
 
-             after(grammarAccess.getMemberCallRule()); 
+             after(grammarAccess.getTotoRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -892,35 +1197,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleMemberCall"
+    // $ANTLR end "entryRuletoto"
 
 
-    // $ANTLR start "ruleMemberCall"
-    // InternalBurst.g:312:1: ruleMemberCall : ( ( rule__MemberCall__Group__0 ) ) ;
-    public final void ruleMemberCall() throws RecognitionException {
+    // $ANTLR start "ruletoto"
+    // InternalBurst.g:412:1: ruletoto : ( ( rule__Toto__Group__0 ) ) ;
+    public final void ruletoto() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:316:2: ( ( ( rule__MemberCall__Group__0 ) ) )
-            // InternalBurst.g:317:2: ( ( rule__MemberCall__Group__0 ) )
+            // InternalBurst.g:416:2: ( ( ( rule__Toto__Group__0 ) ) )
+            // InternalBurst.g:417:2: ( ( rule__Toto__Group__0 ) )
             {
-            // InternalBurst.g:317:2: ( ( rule__MemberCall__Group__0 ) )
-            // InternalBurst.g:318:3: ( rule__MemberCall__Group__0 )
+            // InternalBurst.g:417:2: ( ( rule__Toto__Group__0 ) )
+            // InternalBurst.g:418:3: ( rule__Toto__Group__0 )
             {
-             before(grammarAccess.getMemberCallAccess().getGroup()); 
-            // InternalBurst.g:319:3: ( rule__MemberCall__Group__0 )
-            // InternalBurst.g:319:4: rule__MemberCall__Group__0
+             before(grammarAccess.getTotoAccess().getGroup()); 
+            // InternalBurst.g:419:3: ( rule__Toto__Group__0 )
+            // InternalBurst.g:419:4: rule__Toto__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__MemberCall__Group__0();
+            rule__Toto__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMemberCallAccess().getGroup()); 
+             after(grammarAccess.getTotoAccess().getGroup()); 
 
             }
 
@@ -939,23 +1244,23 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleMemberCall"
+    // $ANTLR end "ruletoto"
 
 
-    // $ANTLR start "entryRuleMemberInConcern"
-    // InternalBurst.g:328:1: entryRuleMemberInConcern : ruleMemberInConcern EOF ;
-    public final void entryRuleMemberInConcern() throws RecognitionException {
+    // $ANTLR start "entryRuleRenamedParameterCall"
+    // InternalBurst.g:428:1: entryRuleRenamedParameterCall : ruleRenamedParameterCall EOF ;
+    public final void entryRuleRenamedParameterCall() throws RecognitionException {
         try {
-            // InternalBurst.g:329:1: ( ruleMemberInConcern EOF )
-            // InternalBurst.g:330:1: ruleMemberInConcern EOF
+            // InternalBurst.g:429:1: ( ruleRenamedParameterCall EOF )
+            // InternalBurst.g:430:1: ruleRenamedParameterCall EOF
             {
-             before(grammarAccess.getMemberInConcernRule()); 
+             before(grammarAccess.getRenamedParameterCallRule()); 
             pushFollow(FOLLOW_1);
-            ruleMemberInConcern();
+            ruleRenamedParameterCall();
 
             state._fsp--;
 
-             after(grammarAccess.getMemberInConcernRule()); 
+             after(grammarAccess.getRenamedParameterCallRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -969,35 +1274,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleMemberInConcern"
+    // $ANTLR end "entryRuleRenamedParameterCall"
 
 
-    // $ANTLR start "ruleMemberInConcern"
-    // InternalBurst.g:337:1: ruleMemberInConcern : ( ( rule__MemberInConcern__Group__0 ) ) ;
-    public final void ruleMemberInConcern() throws RecognitionException {
+    // $ANTLR start "ruleRenamedParameterCall"
+    // InternalBurst.g:437:1: ruleRenamedParameterCall : ( ( rule__RenamedParameterCall__Group__0 ) ) ;
+    public final void ruleRenamedParameterCall() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:341:2: ( ( ( rule__MemberInConcern__Group__0 ) ) )
-            // InternalBurst.g:342:2: ( ( rule__MemberInConcern__Group__0 ) )
+            // InternalBurst.g:441:2: ( ( ( rule__RenamedParameterCall__Group__0 ) ) )
+            // InternalBurst.g:442:2: ( ( rule__RenamedParameterCall__Group__0 ) )
             {
-            // InternalBurst.g:342:2: ( ( rule__MemberInConcern__Group__0 ) )
-            // InternalBurst.g:343:3: ( rule__MemberInConcern__Group__0 )
+            // InternalBurst.g:442:2: ( ( rule__RenamedParameterCall__Group__0 ) )
+            // InternalBurst.g:443:3: ( rule__RenamedParameterCall__Group__0 )
             {
-             before(grammarAccess.getMemberInConcernAccess().getGroup()); 
-            // InternalBurst.g:344:3: ( rule__MemberInConcern__Group__0 )
-            // InternalBurst.g:344:4: rule__MemberInConcern__Group__0
+             before(grammarAccess.getRenamedParameterCallAccess().getGroup()); 
+            // InternalBurst.g:444:3: ( rule__RenamedParameterCall__Group__0 )
+            // InternalBurst.g:444:4: rule__RenamedParameterCall__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__MemberInConcern__Group__0();
+            rule__RenamedParameterCall__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMemberInConcernAccess().getGroup()); 
+             after(grammarAccess.getRenamedParameterCallAccess().getGroup()); 
 
             }
 
@@ -1016,42 +1321,109 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleMemberInConcern"
+    // $ANTLR end "ruleRenamedParameterCall"
 
 
-    // $ANTLR start "rule__AbstractElement__Alternatives"
-    // InternalBurst.g:352:1: rule__AbstractElement__Alternatives : ( ( ruleImport ) | ( ruleConcern ) | ( ruleIntersection ) | ( rulePackage ) | ( RULE_ENDLINE ) );
-    public final void rule__AbstractElement__Alternatives() throws RecognitionException {
+    // $ANTLR start "entryRuleQualifiedName"
+    // InternalBurst.g:453:1: entryRuleQualifiedName : ruleQualifiedName EOF ;
+    public final void entryRuleQualifiedName() throws RecognitionException {
+        try {
+            // InternalBurst.g:454:1: ( ruleQualifiedName EOF )
+            // InternalBurst.g:455:1: ruleQualifiedName EOF
+            {
+             before(grammarAccess.getQualifiedNameRule()); 
+            pushFollow(FOLLOW_1);
+            ruleQualifiedName();
+
+            state._fsp--;
+
+             after(grammarAccess.getQualifiedNameRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleQualifiedName"
+
+
+    // $ANTLR start "ruleQualifiedName"
+    // InternalBurst.g:462:1: ruleQualifiedName : ( ( rule__QualifiedName__Group__0 ) ) ;
+    public final void ruleQualifiedName() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:356:1: ( ( ruleImport ) | ( ruleConcern ) | ( ruleIntersection ) | ( rulePackage ) | ( RULE_ENDLINE ) )
-            int alt2=5;
+            // InternalBurst.g:466:2: ( ( ( rule__QualifiedName__Group__0 ) ) )
+            // InternalBurst.g:467:2: ( ( rule__QualifiedName__Group__0 ) )
+            {
+            // InternalBurst.g:467:2: ( ( rule__QualifiedName__Group__0 ) )
+            // InternalBurst.g:468:3: ( rule__QualifiedName__Group__0 )
+            {
+             before(grammarAccess.getQualifiedNameAccess().getGroup()); 
+            // InternalBurst.g:469:3: ( rule__QualifiedName__Group__0 )
+            // InternalBurst.g:469:4: rule__QualifiedName__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__QualifiedName__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getQualifiedNameAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleQualifiedName"
+
+
+    // $ANTLR start "rule__RuleFileElement__Alternatives"
+    // InternalBurst.g:477:1: rule__RuleFileElement__Alternatives : ( ( ruleRuleImport ) | ( ruleRulePackage ) | ( RULE_ENDLINE ) );
+    public final void rule__RuleFileElement__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:481:1: ( ( ruleRuleImport ) | ( ruleRulePackage ) | ( RULE_ENDLINE ) )
+            int alt2=3;
             switch ( input.LA(1) ) {
-            case 16:
+            case 14:
                 {
                 alt2=1;
                 }
                 break;
-            case 17:
+            case 15:
                 {
                 alt2=2;
                 }
                 break;
-            case 19:
-                {
-                alt2=3;
-                }
-                break;
-            case 12:
-                {
-                alt2=4;
-                }
-                break;
             case RULE_ENDLINE:
                 {
-                alt2=5;
+                alt2=3;
                 }
                 break;
             default:
@@ -1063,18 +1435,18 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
 
             switch (alt2) {
                 case 1 :
-                    // InternalBurst.g:357:2: ( ruleImport )
+                    // InternalBurst.g:482:2: ( ruleRuleImport )
                     {
-                    // InternalBurst.g:357:2: ( ruleImport )
-                    // InternalBurst.g:358:3: ruleImport
+                    // InternalBurst.g:482:2: ( ruleRuleImport )
+                    // InternalBurst.g:483:3: ruleRuleImport
                     {
-                     before(grammarAccess.getAbstractElementAccess().getImportParserRuleCall_0()); 
+                     before(grammarAccess.getRuleFileElementAccess().getRuleImportParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
-                    ruleImport();
+                    ruleRuleImport();
 
                     state._fsp--;
 
-                     after(grammarAccess.getAbstractElementAccess().getImportParserRuleCall_0()); 
+                     after(grammarAccess.getRuleFileElementAccess().getRuleImportParserRuleCall_0()); 
 
                     }
 
@@ -1082,18 +1454,18 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBurst.g:363:2: ( ruleConcern )
+                    // InternalBurst.g:488:2: ( ruleRulePackage )
                     {
-                    // InternalBurst.g:363:2: ( ruleConcern )
-                    // InternalBurst.g:364:3: ruleConcern
+                    // InternalBurst.g:488:2: ( ruleRulePackage )
+                    // InternalBurst.g:489:3: ruleRulePackage
                     {
-                     before(grammarAccess.getAbstractElementAccess().getConcernParserRuleCall_1()); 
+                     before(grammarAccess.getRuleFileElementAccess().getRulePackageParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
-                    ruleConcern();
+                    ruleRulePackage();
 
                     state._fsp--;
 
-                     after(grammarAccess.getAbstractElementAccess().getConcernParserRuleCall_1()); 
+                     after(grammarAccess.getRuleFileElementAccess().getRulePackageParserRuleCall_1()); 
 
                     }
 
@@ -1101,52 +1473,14 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalBurst.g:369:2: ( ruleIntersection )
+                    // InternalBurst.g:494:2: ( RULE_ENDLINE )
                     {
-                    // InternalBurst.g:369:2: ( ruleIntersection )
-                    // InternalBurst.g:370:3: ruleIntersection
+                    // InternalBurst.g:494:2: ( RULE_ENDLINE )
+                    // InternalBurst.g:495:3: RULE_ENDLINE
                     {
-                     before(grammarAccess.getAbstractElementAccess().getIntersectionParserRuleCall_2()); 
-                    pushFollow(FOLLOW_2);
-                    ruleIntersection();
-
-                    state._fsp--;
-
-                     after(grammarAccess.getAbstractElementAccess().getIntersectionParserRuleCall_2()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // InternalBurst.g:375:2: ( rulePackage )
-                    {
-                    // InternalBurst.g:375:2: ( rulePackage )
-                    // InternalBurst.g:376:3: rulePackage
-                    {
-                     before(grammarAccess.getAbstractElementAccess().getPackageParserRuleCall_3()); 
-                    pushFollow(FOLLOW_2);
-                    rulePackage();
-
-                    state._fsp--;
-
-                     after(grammarAccess.getAbstractElementAccess().getPackageParserRuleCall_3()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 5 :
-                    // InternalBurst.g:381:2: ( RULE_ENDLINE )
-                    {
-                    // InternalBurst.g:381:2: ( RULE_ENDLINE )
-                    // InternalBurst.g:382:3: RULE_ENDLINE
-                    {
-                     before(grammarAccess.getAbstractElementAccess().getENDLINETerminalRuleCall_4()); 
+                     before(grammarAccess.getRuleFileElementAccess().getENDLINETerminalRuleCall_2()); 
                     match(input,RULE_ENDLINE,FOLLOW_2); 
-                     after(grammarAccess.getAbstractElementAccess().getENDLINETerminalRuleCall_4()); 
+                     after(grammarAccess.getRuleFileElementAccess().getENDLINETerminalRuleCall_2()); 
 
                     }
 
@@ -1167,52 +1501,55 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__AbstractElement__Alternatives"
+    // $ANTLR end "rule__RuleFileElement__Alternatives"
 
 
-    // $ANTLR start "rule__Concern__Alternatives_6_2"
-    // InternalBurst.g:391:1: rule__Concern__Alternatives_6_2 : ( ( ( rule__Concern__MembersAssignment_6_2_0 ) ) | ( ( rule__Concern__IntersectionsAssignment_6_2_1 ) ) );
-    public final void rule__Concern__Alternatives_6_2() throws RecognitionException {
+    // $ANTLR start "rule__PackageElement__Alternatives"
+    // InternalBurst.g:504:1: rule__PackageElement__Alternatives : ( ( ruleRuleConcern ) | ( ruleRuleIntersect ) | ( RULE_ENDLINE ) );
+    public final void rule__PackageElement__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:395:1: ( ( ( rule__Concern__MembersAssignment_6_2_0 ) ) | ( ( rule__Concern__IntersectionsAssignment_6_2_1 ) ) )
-            int alt3=2;
-            int LA3_0 = input.LA(1);
-
-            if ( (LA3_0==RULE_ID) ) {
+            // InternalBurst.g:508:1: ( ( ruleRuleConcern ) | ( ruleRuleIntersect ) | ( RULE_ENDLINE ) )
+            int alt3=3;
+            switch ( input.LA(1) ) {
+            case 18:
+                {
                 alt3=1;
-            }
-            else if ( (LA3_0==19) ) {
+                }
+                break;
+            case 21:
+                {
                 alt3=2;
-            }
-            else {
+                }
+                break;
+            case RULE_ENDLINE:
+                {
+                alt3=3;
+                }
+                break;
+            default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 3, 0, input);
 
                 throw nvae;
             }
+
             switch (alt3) {
                 case 1 :
-                    // InternalBurst.g:396:2: ( ( rule__Concern__MembersAssignment_6_2_0 ) )
+                    // InternalBurst.g:509:2: ( ruleRuleConcern )
                     {
-                    // InternalBurst.g:396:2: ( ( rule__Concern__MembersAssignment_6_2_0 ) )
-                    // InternalBurst.g:397:3: ( rule__Concern__MembersAssignment_6_2_0 )
+                    // InternalBurst.g:509:2: ( ruleRuleConcern )
+                    // InternalBurst.g:510:3: ruleRuleConcern
                     {
-                     before(grammarAccess.getConcernAccess().getMembersAssignment_6_2_0()); 
-                    // InternalBurst.g:398:3: ( rule__Concern__MembersAssignment_6_2_0 )
-                    // InternalBurst.g:398:4: rule__Concern__MembersAssignment_6_2_0
-                    {
+                     before(grammarAccess.getPackageElementAccess().getRuleConcernParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
-                    rule__Concern__MembersAssignment_6_2_0();
+                    ruleRuleConcern();
 
                     state._fsp--;
 
-
-                    }
-
-                     after(grammarAccess.getConcernAccess().getMembersAssignment_6_2_0()); 
+                     after(grammarAccess.getPackageElementAccess().getRuleConcernParserRuleCall_0()); 
 
                     }
 
@@ -1220,24 +1557,33 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBurst.g:402:2: ( ( rule__Concern__IntersectionsAssignment_6_2_1 ) )
+                    // InternalBurst.g:515:2: ( ruleRuleIntersect )
                     {
-                    // InternalBurst.g:402:2: ( ( rule__Concern__IntersectionsAssignment_6_2_1 ) )
-                    // InternalBurst.g:403:3: ( rule__Concern__IntersectionsAssignment_6_2_1 )
+                    // InternalBurst.g:515:2: ( ruleRuleIntersect )
+                    // InternalBurst.g:516:3: ruleRuleIntersect
                     {
-                     before(grammarAccess.getConcernAccess().getIntersectionsAssignment_6_2_1()); 
-                    // InternalBurst.g:404:3: ( rule__Concern__IntersectionsAssignment_6_2_1 )
-                    // InternalBurst.g:404:4: rule__Concern__IntersectionsAssignment_6_2_1
-                    {
+                     before(grammarAccess.getPackageElementAccess().getRuleIntersectParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
-                    rule__Concern__IntersectionsAssignment_6_2_1();
+                    ruleRuleIntersect();
 
                     state._fsp--;
 
+                     after(grammarAccess.getPackageElementAccess().getRuleIntersectParserRuleCall_1()); 
 
                     }
 
-                     after(grammarAccess.getConcernAccess().getIntersectionsAssignment_6_2_1()); 
+
+                    }
+                    break;
+                case 3 :
+                    // InternalBurst.g:521:2: ( RULE_ENDLINE )
+                    {
+                    // InternalBurst.g:521:2: ( RULE_ENDLINE )
+                    // InternalBurst.g:522:3: RULE_ENDLINE
+                    {
+                     before(grammarAccess.getPackageElementAccess().getENDLINETerminalRuleCall_2()); 
+                    match(input,RULE_ENDLINE,FOLLOW_2); 
+                     after(grammarAccess.getPackageElementAccess().getENDLINETerminalRuleCall_2()); 
 
                     }
 
@@ -1258,62 +1604,55 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Alternatives_6_2"
+    // $ANTLR end "rule__PackageElement__Alternatives"
 
 
-    // $ANTLR start "rule__Call__Alternatives"
-    // InternalBurst.g:412:1: rule__Call__Alternatives : ( ( ( rule__Call__Group_0__0 ) ) | ( ( rule__Call__NameAssignment_1 ) ) );
-    public final void rule__Call__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__ConcernElement__Alternatives"
+    // InternalBurst.g:531:1: rule__ConcernElement__Alternatives : ( ( ruleDeclareMember ) | ( ruleRuleIntersect ) | ( RULE_ENDLINE ) );
+    public final void rule__ConcernElement__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:416:1: ( ( ( rule__Call__Group_0__0 ) ) | ( ( rule__Call__NameAssignment_1 ) ) )
-            int alt4=2;
-            int LA4_0 = input.LA(1);
-
-            if ( (LA4_0==RULE_ID) ) {
-                int LA4_1 = input.LA(2);
-
-                if ( (LA4_1==15) ) {
-                    alt4=2;
+            // InternalBurst.g:535:1: ( ( ruleDeclareMember ) | ( ruleRuleIntersect ) | ( RULE_ENDLINE ) )
+            int alt4=3;
+            switch ( input.LA(1) ) {
+            case RULE_ID:
+                {
+                alt4=1;
                 }
-                else if ( (LA4_1==EOF||(LA4_1>=RULE_ENDLINE && LA4_1<=RULE_ID)) ) {
-                    alt4=1;
+                break;
+            case 21:
+                {
+                alt4=2;
                 }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 4, 1, input);
-
-                    throw nvae;
+                break;
+            case RULE_ENDLINE:
+                {
+                alt4=3;
                 }
-            }
-            else {
+                break;
+            default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
+
             switch (alt4) {
                 case 1 :
-                    // InternalBurst.g:417:2: ( ( rule__Call__Group_0__0 ) )
+                    // InternalBurst.g:536:2: ( ruleDeclareMember )
                     {
-                    // InternalBurst.g:417:2: ( ( rule__Call__Group_0__0 ) )
-                    // InternalBurst.g:418:3: ( rule__Call__Group_0__0 )
+                    // InternalBurst.g:536:2: ( ruleDeclareMember )
+                    // InternalBurst.g:537:3: ruleDeclareMember
                     {
-                     before(grammarAccess.getCallAccess().getGroup_0()); 
-                    // InternalBurst.g:419:3: ( rule__Call__Group_0__0 )
-                    // InternalBurst.g:419:4: rule__Call__Group_0__0
-                    {
+                     before(grammarAccess.getConcernElementAccess().getDeclareMemberParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
-                    rule__Call__Group_0__0();
+                    ruleDeclareMember();
 
                     state._fsp--;
 
-
-                    }
-
-                     after(grammarAccess.getCallAccess().getGroup_0()); 
+                     after(grammarAccess.getConcernElementAccess().getDeclareMemberParserRuleCall_0()); 
 
                     }
 
@@ -1321,24 +1660,258 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBurst.g:423:2: ( ( rule__Call__NameAssignment_1 ) )
+                    // InternalBurst.g:542:2: ( ruleRuleIntersect )
                     {
-                    // InternalBurst.g:423:2: ( ( rule__Call__NameAssignment_1 ) )
-                    // InternalBurst.g:424:3: ( rule__Call__NameAssignment_1 )
+                    // InternalBurst.g:542:2: ( ruleRuleIntersect )
+                    // InternalBurst.g:543:3: ruleRuleIntersect
                     {
-                     before(grammarAccess.getCallAccess().getNameAssignment_1()); 
-                    // InternalBurst.g:425:3: ( rule__Call__NameAssignment_1 )
-                    // InternalBurst.g:425:4: rule__Call__NameAssignment_1
-                    {
+                     before(grammarAccess.getConcernElementAccess().getRuleIntersectParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
-                    rule__Call__NameAssignment_1();
+                    ruleRuleIntersect();
 
                     state._fsp--;
 
+                     after(grammarAccess.getConcernElementAccess().getRuleIntersectParserRuleCall_1()); 
 
                     }
 
-                     after(grammarAccess.getCallAccess().getNameAssignment_1()); 
+
+                    }
+                    break;
+                case 3 :
+                    // InternalBurst.g:548:2: ( RULE_ENDLINE )
+                    {
+                    // InternalBurst.g:548:2: ( RULE_ENDLINE )
+                    // InternalBurst.g:549:3: RULE_ENDLINE
+                    {
+                     before(grammarAccess.getConcernElementAccess().getENDLINETerminalRuleCall_2()); 
+                    match(input,RULE_ENDLINE,FOLLOW_2); 
+                     after(grammarAccess.getConcernElementAccess().getENDLINETerminalRuleCall_2()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ConcernElement__Alternatives"
+
+
+    // $ANTLR start "rule__RuleIntersect__Alternatives_2_2"
+    // InternalBurst.g:558:1: rule__RuleIntersect__Alternatives_2_2 : ( ( ',' ) | ( 'and' ) );
+    public final void rule__RuleIntersect__Alternatives_2_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:562:1: ( ( ',' ) | ( 'and' ) )
+            int alt5=2;
+            int LA5_0 = input.LA(1);
+
+            if ( (LA5_0==12) ) {
+                alt5=1;
+            }
+            else if ( (LA5_0==13) ) {
+                alt5=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 5, 0, input);
+
+                throw nvae;
+            }
+            switch (alt5) {
+                case 1 :
+                    // InternalBurst.g:563:2: ( ',' )
+                    {
+                    // InternalBurst.g:563:2: ( ',' )
+                    // InternalBurst.g:564:3: ','
+                    {
+                     before(grammarAccess.getRuleIntersectAccess().getCommaKeyword_2_2_0()); 
+                    match(input,12,FOLLOW_2); 
+                     after(grammarAccess.getRuleIntersectAccess().getCommaKeyword_2_2_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalBurst.g:569:2: ( 'and' )
+                    {
+                    // InternalBurst.g:569:2: ( 'and' )
+                    // InternalBurst.g:570:3: 'and'
+                    {
+                     before(grammarAccess.getRuleIntersectAccess().getAndKeyword_2_2_1()); 
+                    match(input,13,FOLLOW_2); 
+                     after(grammarAccess.getRuleIntersectAccess().getAndKeyword_2_2_1()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleIntersect__Alternatives_2_2"
+
+
+    // $ANTLR start "rule__IntersectionElement__Alternatives"
+    // InternalBurst.g:579:1: rule__IntersectionElement__Alternatives : ( ( ruleLine ) | ( RULE_ENDLINE ) );
+    public final void rule__IntersectionElement__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:583:1: ( ( ruleLine ) | ( RULE_ENDLINE ) )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
+
+            if ( (LA6_0==RULE_ID||LA6_0==22) ) {
+                alt6=1;
+            }
+            else if ( (LA6_0==RULE_ENDLINE) ) {
+                alt6=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 6, 0, input);
+
+                throw nvae;
+            }
+            switch (alt6) {
+                case 1 :
+                    // InternalBurst.g:584:2: ( ruleLine )
+                    {
+                    // InternalBurst.g:584:2: ( ruleLine )
+                    // InternalBurst.g:585:3: ruleLine
+                    {
+                     before(grammarAccess.getIntersectionElementAccess().getLineParserRuleCall_0()); 
+                    pushFollow(FOLLOW_2);
+                    ruleLine();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getIntersectionElementAccess().getLineParserRuleCall_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalBurst.g:590:2: ( RULE_ENDLINE )
+                    {
+                    // InternalBurst.g:590:2: ( RULE_ENDLINE )
+                    // InternalBurst.g:591:3: RULE_ENDLINE
+                    {
+                     before(grammarAccess.getIntersectionElementAccess().getENDLINETerminalRuleCall_1()); 
+                    match(input,RULE_ENDLINE,FOLLOW_2); 
+                     after(grammarAccess.getIntersectionElementAccess().getENDLINETerminalRuleCall_1()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__IntersectionElement__Alternatives"
+
+
+    // $ANTLR start "rule__Call__Alternatives"
+    // InternalBurst.g:600:1: rule__Call__Alternatives : ( ( ruletoto ) | ( ruleRenamedParameterCall ) );
+    public final void rule__Call__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:604:1: ( ( ruletoto ) | ( ruleRenamedParameterCall ) )
+            int alt7=2;
+            int LA7_0 = input.LA(1);
+
+            if ( (LA7_0==22) ) {
+                alt7=1;
+            }
+            else if ( (LA7_0==RULE_ID) ) {
+                alt7=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 7, 0, input);
+
+                throw nvae;
+            }
+            switch (alt7) {
+                case 1 :
+                    // InternalBurst.g:605:2: ( ruletoto )
+                    {
+                    // InternalBurst.g:605:2: ( ruletoto )
+                    // InternalBurst.g:606:3: ruletoto
+                    {
+                     before(grammarAccess.getCallAccess().getTotoParserRuleCall_0()); 
+                    pushFollow(FOLLOW_2);
+                    ruletoto();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getCallAccess().getTotoParserRuleCall_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalBurst.g:611:2: ( ruleRenamedParameterCall )
+                    {
+                    // InternalBurst.g:611:2: ( ruleRenamedParameterCall )
+                    // InternalBurst.g:612:3: ruleRenamedParameterCall
+                    {
+                     before(grammarAccess.getCallAccess().getRenamedParameterCallParserRuleCall_1()); 
+                    pushFollow(FOLLOW_2);
+                    ruleRenamedParameterCall();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getCallAccess().getRenamedParameterCallParserRuleCall_1()); 
 
                     }
 
@@ -1362,23 +1935,23 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Call__Alternatives"
 
 
-    // $ANTLR start "rule__Package__Group__0"
-    // InternalBurst.g:433:1: rule__Package__Group__0 : rule__Package__Group__0__Impl rule__Package__Group__1 ;
-    public final void rule__Package__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__RuleImport__Group__0"
+    // InternalBurst.g:621:1: rule__RuleImport__Group__0 : rule__RuleImport__Group__0__Impl rule__RuleImport__Group__1 ;
+    public final void rule__RuleImport__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:437:1: ( rule__Package__Group__0__Impl rule__Package__Group__1 )
-            // InternalBurst.g:438:2: rule__Package__Group__0__Impl rule__Package__Group__1
+            // InternalBurst.g:625:1: ( rule__RuleImport__Group__0__Impl rule__RuleImport__Group__1 )
+            // InternalBurst.g:626:2: rule__RuleImport__Group__0__Impl rule__RuleImport__Group__1
             {
             pushFollow(FOLLOW_4);
-            rule__Package__Group__0__Impl();
+            rule__RuleImport__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Package__Group__1();
+            rule__RuleImport__Group__1();
 
             state._fsp--;
 
@@ -1397,35 +1970,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Package__Group__0"
+    // $ANTLR end "rule__RuleImport__Group__0"
 
 
-    // $ANTLR start "rule__Package__Group__0__Impl"
-    // InternalBurst.g:445:1: rule__Package__Group__0__Impl : ( 'package' ) ;
-    public final void rule__Package__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleImport__Group__0__Impl"
+    // InternalBurst.g:633:1: rule__RuleImport__Group__0__Impl : ( () ) ;
+    public final void rule__RuleImport__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:449:1: ( ( 'package' ) )
-            // InternalBurst.g:450:1: ( 'package' )
+            // InternalBurst.g:637:1: ( ( () ) )
+            // InternalBurst.g:638:1: ( () )
             {
-            // InternalBurst.g:450:1: ( 'package' )
-            // InternalBurst.g:451:2: 'package'
+            // InternalBurst.g:638:1: ( () )
+            // InternalBurst.g:639:2: ()
             {
-             before(grammarAccess.getPackageAccess().getPackageKeyword_0()); 
-            match(input,12,FOLLOW_2); 
-             after(grammarAccess.getPackageAccess().getPackageKeyword_0()); 
+             before(grammarAccess.getRuleImportAccess().getImportAction_0()); 
+            // InternalBurst.g:640:2: ()
+            // InternalBurst.g:640:3: 
+            {
+            }
+
+             after(grammarAccess.getRuleImportAccess().getImportAction_0()); 
 
             }
 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -1434,26 +2007,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Package__Group__0__Impl"
+    // $ANTLR end "rule__RuleImport__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Package__Group__1"
-    // InternalBurst.g:460:1: rule__Package__Group__1 : rule__Package__Group__1__Impl rule__Package__Group__2 ;
-    public final void rule__Package__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__RuleImport__Group__1"
+    // InternalBurst.g:648:1: rule__RuleImport__Group__1 : rule__RuleImport__Group__1__Impl rule__RuleImport__Group__2 ;
+    public final void rule__RuleImport__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:464:1: ( rule__Package__Group__1__Impl rule__Package__Group__2 )
-            // InternalBurst.g:465:2: rule__Package__Group__1__Impl rule__Package__Group__2
+            // InternalBurst.g:652:1: ( rule__RuleImport__Group__1__Impl rule__RuleImport__Group__2 )
+            // InternalBurst.g:653:2: rule__RuleImport__Group__1__Impl rule__RuleImport__Group__2
             {
             pushFollow(FOLLOW_5);
-            rule__Package__Group__1__Impl();
+            rule__RuleImport__Group__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Package__Group__2();
+            rule__RuleImport__Group__2();
 
             state._fsp--;
 
@@ -1472,288 +2045,25 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Package__Group__1"
+    // $ANTLR end "rule__RuleImport__Group__1"
 
 
-    // $ANTLR start "rule__Package__Group__1__Impl"
-    // InternalBurst.g:472:1: rule__Package__Group__1__Impl : ( ( rule__Package__NameAssignment_1 ) ) ;
-    public final void rule__Package__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:476:1: ( ( ( rule__Package__NameAssignment_1 ) ) )
-            // InternalBurst.g:477:1: ( ( rule__Package__NameAssignment_1 ) )
-            {
-            // InternalBurst.g:477:1: ( ( rule__Package__NameAssignment_1 ) )
-            // InternalBurst.g:478:2: ( rule__Package__NameAssignment_1 )
-            {
-             before(grammarAccess.getPackageAccess().getNameAssignment_1()); 
-            // InternalBurst.g:479:2: ( rule__Package__NameAssignment_1 )
-            // InternalBurst.g:479:3: rule__Package__NameAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Package__NameAssignment_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getPackageAccess().getNameAssignment_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Package__Group__1__Impl"
-
-
-    // $ANTLR start "rule__Package__Group__2"
-    // InternalBurst.g:487:1: rule__Package__Group__2 : rule__Package__Group__2__Impl rule__Package__Group__3 ;
-    public final void rule__Package__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__RuleImport__Group__1__Impl"
+    // InternalBurst.g:660:1: rule__RuleImport__Group__1__Impl : ( 'import' ) ;
+    public final void rule__RuleImport__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:491:1: ( rule__Package__Group__2__Impl rule__Package__Group__3 )
-            // InternalBurst.g:492:2: rule__Package__Group__2__Impl rule__Package__Group__3
+            // InternalBurst.g:664:1: ( ( 'import' ) )
+            // InternalBurst.g:665:1: ( 'import' )
             {
-            pushFollow(FOLLOW_6);
-            rule__Package__Group__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Package__Group__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Package__Group__2"
-
-
-    // $ANTLR start "rule__Package__Group__2__Impl"
-    // InternalBurst.g:499:1: rule__Package__Group__2__Impl : ( '{' ) ;
-    public final void rule__Package__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:503:1: ( ( '{' ) )
-            // InternalBurst.g:504:1: ( '{' )
+            // InternalBurst.g:665:1: ( 'import' )
+            // InternalBurst.g:666:2: 'import'
             {
-            // InternalBurst.g:504:1: ( '{' )
-            // InternalBurst.g:505:2: '{'
-            {
-             before(grammarAccess.getPackageAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,13,FOLLOW_2); 
-             after(grammarAccess.getPackageAccess().getLeftCurlyBracketKeyword_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Package__Group__2__Impl"
-
-
-    // $ANTLR start "rule__Package__Group__3"
-    // InternalBurst.g:514:1: rule__Package__Group__3 : rule__Package__Group__3__Impl rule__Package__Group__4 ;
-    public final void rule__Package__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:518:1: ( rule__Package__Group__3__Impl rule__Package__Group__4 )
-            // InternalBurst.g:519:2: rule__Package__Group__3__Impl rule__Package__Group__4
-            {
-            pushFollow(FOLLOW_6);
-            rule__Package__Group__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Package__Group__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Package__Group__3"
-
-
-    // $ANTLR start "rule__Package__Group__3__Impl"
-    // InternalBurst.g:526:1: rule__Package__Group__3__Impl : ( ( rule__Package__ElementsAssignment_3 )* ) ;
-    public final void rule__Package__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:530:1: ( ( ( rule__Package__ElementsAssignment_3 )* ) )
-            // InternalBurst.g:531:1: ( ( rule__Package__ElementsAssignment_3 )* )
-            {
-            // InternalBurst.g:531:1: ( ( rule__Package__ElementsAssignment_3 )* )
-            // InternalBurst.g:532:2: ( rule__Package__ElementsAssignment_3 )*
-            {
-             before(grammarAccess.getPackageAccess().getElementsAssignment_3()); 
-            // InternalBurst.g:533:2: ( rule__Package__ElementsAssignment_3 )*
-            loop5:
-            do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
-
-                if ( (LA5_0==RULE_ENDLINE||LA5_0==12||(LA5_0>=16 && LA5_0<=17)||LA5_0==19) ) {
-                    alt5=1;
-                }
-
-
-                switch (alt5) {
-            	case 1 :
-            	    // InternalBurst.g:533:3: rule__Package__ElementsAssignment_3
-            	    {
-            	    pushFollow(FOLLOW_3);
-            	    rule__Package__ElementsAssignment_3();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop5;
-                }
-            } while (true);
-
-             after(grammarAccess.getPackageAccess().getElementsAssignment_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Package__Group__3__Impl"
-
-
-    // $ANTLR start "rule__Package__Group__4"
-    // InternalBurst.g:541:1: rule__Package__Group__4 : rule__Package__Group__4__Impl rule__Package__Group__5 ;
-    public final void rule__Package__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:545:1: ( rule__Package__Group__4__Impl rule__Package__Group__5 )
-            // InternalBurst.g:546:2: rule__Package__Group__4__Impl rule__Package__Group__5
-            {
-            pushFollow(FOLLOW_7);
-            rule__Package__Group__4__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Package__Group__5();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Package__Group__4"
-
-
-    // $ANTLR start "rule__Package__Group__4__Impl"
-    // InternalBurst.g:553:1: rule__Package__Group__4__Impl : ( '}' ) ;
-    public final void rule__Package__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:557:1: ( ( '}' ) )
-            // InternalBurst.g:558:1: ( '}' )
-            {
-            // InternalBurst.g:558:1: ( '}' )
-            // InternalBurst.g:559:2: '}'
-            {
-             before(grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_4()); 
+             before(grammarAccess.getRuleImportAccess().getImportKeyword_1()); 
             match(input,14,FOLLOW_2); 
-             after(grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_4()); 
+             after(grammarAccess.getRuleImportAccess().getImportKeyword_1()); 
 
             }
 
@@ -1772,21 +2082,21 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Package__Group__4__Impl"
+    // $ANTLR end "rule__RuleImport__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Package__Group__5"
-    // InternalBurst.g:568:1: rule__Package__Group__5 : rule__Package__Group__5__Impl ;
-    public final void rule__Package__Group__5() throws RecognitionException {
+    // $ANTLR start "rule__RuleImport__Group__2"
+    // InternalBurst.g:675:1: rule__RuleImport__Group__2 : rule__RuleImport__Group__2__Impl ;
+    public final void rule__RuleImport__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:572:1: ( rule__Package__Group__5__Impl )
-            // InternalBurst.g:573:2: rule__Package__Group__5__Impl
+            // InternalBurst.g:679:1: ( rule__RuleImport__Group__2__Impl )
+            // InternalBurst.g:680:2: rule__RuleImport__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Package__Group__5__Impl();
+            rule__RuleImport__Group__2__Impl();
 
             state._fsp--;
 
@@ -1805,25 +2115,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Package__Group__5"
+    // $ANTLR end "rule__RuleImport__Group__2"
 
 
-    // $ANTLR start "rule__Package__Group__5__Impl"
-    // InternalBurst.g:579:1: rule__Package__Group__5__Impl : ( RULE_ENDLINE ) ;
-    public final void rule__Package__Group__5__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleImport__Group__2__Impl"
+    // InternalBurst.g:686:1: rule__RuleImport__Group__2__Impl : ( ( rule__RuleImport__ImportedNamespaceAssignment_2 ) ) ;
+    public final void rule__RuleImport__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:583:1: ( ( RULE_ENDLINE ) )
-            // InternalBurst.g:584:1: ( RULE_ENDLINE )
+            // InternalBurst.g:690:1: ( ( ( rule__RuleImport__ImportedNamespaceAssignment_2 ) ) )
+            // InternalBurst.g:691:1: ( ( rule__RuleImport__ImportedNamespaceAssignment_2 ) )
             {
-            // InternalBurst.g:584:1: ( RULE_ENDLINE )
-            // InternalBurst.g:585:2: RULE_ENDLINE
+            // InternalBurst.g:691:1: ( ( rule__RuleImport__ImportedNamespaceAssignment_2 ) )
+            // InternalBurst.g:692:2: ( rule__RuleImport__ImportedNamespaceAssignment_2 )
             {
-             before(grammarAccess.getPackageAccess().getENDLINETerminalRuleCall_5()); 
-            match(input,RULE_ENDLINE,FOLLOW_2); 
-             after(grammarAccess.getPackageAccess().getENDLINETerminalRuleCall_5()); 
+             before(grammarAccess.getRuleImportAccess().getImportedNamespaceAssignment_2()); 
+            // InternalBurst.g:693:2: ( rule__RuleImport__ImportedNamespaceAssignment_2 )
+            // InternalBurst.g:693:3: rule__RuleImport__ImportedNamespaceAssignment_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__RuleImport__ImportedNamespaceAssignment_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRuleImportAccess().getImportedNamespaceAssignment_2()); 
 
             }
 
@@ -1842,26 +2162,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Package__Group__5__Impl"
+    // $ANTLR end "rule__RuleImport__Group__2__Impl"
 
 
-    // $ANTLR start "rule__QualifiedName__Group__0"
-    // InternalBurst.g:595:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
-    public final void rule__QualifiedName__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__RulePackage__Group__0"
+    // InternalBurst.g:702:1: rule__RulePackage__Group__0 : rule__RulePackage__Group__0__Impl rule__RulePackage__Group__1 ;
+    public final void rule__RulePackage__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:599:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
-            // InternalBurst.g:600:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
+            // InternalBurst.g:706:1: ( rule__RulePackage__Group__0__Impl rule__RulePackage__Group__1 )
+            // InternalBurst.g:707:2: rule__RulePackage__Group__0__Impl rule__RulePackage__Group__1
             {
-            pushFollow(FOLLOW_8);
-            rule__QualifiedName__Group__0__Impl();
+            pushFollow(FOLLOW_6);
+            rule__RulePackage__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__QualifiedName__Group__1();
+            rule__RulePackage__Group__1();
 
             state._fsp--;
 
@@ -1880,25 +2200,100 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group__0"
+    // $ANTLR end "rule__RulePackage__Group__0"
 
 
-    // $ANTLR start "rule__QualifiedName__Group__0__Impl"
-    // InternalBurst.g:607:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
-    public final void rule__QualifiedName__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RulePackage__Group__0__Impl"
+    // InternalBurst.g:714:1: rule__RulePackage__Group__0__Impl : ( () ) ;
+    public final void rule__RulePackage__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:611:1: ( ( RULE_ID ) )
-            // InternalBurst.g:612:1: ( RULE_ID )
+            // InternalBurst.g:718:1: ( ( () ) )
+            // InternalBurst.g:719:1: ( () )
             {
-            // InternalBurst.g:612:1: ( RULE_ID )
-            // InternalBurst.g:613:2: RULE_ID
+            // InternalBurst.g:719:1: ( () )
+            // InternalBurst.g:720:2: ()
             {
-             before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
+             before(grammarAccess.getRulePackageAccess().getPackageAction_0()); 
+            // InternalBurst.g:721:2: ()
+            // InternalBurst.g:721:3: 
+            {
+            }
+
+             after(grammarAccess.getRulePackageAccess().getPackageAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RulePackage__Group__0__Impl"
+
+
+    // $ANTLR start "rule__RulePackage__Group__1"
+    // InternalBurst.g:729:1: rule__RulePackage__Group__1 : rule__RulePackage__Group__1__Impl rule__RulePackage__Group__2 ;
+    public final void rule__RulePackage__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:733:1: ( rule__RulePackage__Group__1__Impl rule__RulePackage__Group__2 )
+            // InternalBurst.g:734:2: rule__RulePackage__Group__1__Impl rule__RulePackage__Group__2
+            {
+            pushFollow(FOLLOW_5);
+            rule__RulePackage__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RulePackage__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RulePackage__Group__1"
+
+
+    // $ANTLR start "rule__RulePackage__Group__1__Impl"
+    // InternalBurst.g:741:1: rule__RulePackage__Group__1__Impl : ( 'package' ) ;
+    public final void rule__RulePackage__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:745:1: ( ( 'package' ) )
+            // InternalBurst.g:746:1: ( 'package' )
+            {
+            // InternalBurst.g:746:1: ( 'package' )
+            // InternalBurst.g:747:2: 'package'
+            {
+             before(grammarAccess.getRulePackageAccess().getPackageKeyword_1()); 
+            match(input,15,FOLLOW_2); 
+             after(grammarAccess.getRulePackageAccess().getPackageKeyword_1()); 
 
             }
 
@@ -1917,21 +2312,111 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group__0__Impl"
+    // $ANTLR end "rule__RulePackage__Group__1__Impl"
 
 
-    // $ANTLR start "rule__QualifiedName__Group__1"
-    // InternalBurst.g:622:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
-    public final void rule__QualifiedName__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__RulePackage__Group__2"
+    // InternalBurst.g:756:1: rule__RulePackage__Group__2 : rule__RulePackage__Group__2__Impl rule__RulePackage__Group__3 ;
+    public final void rule__RulePackage__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:626:1: ( rule__QualifiedName__Group__1__Impl )
-            // InternalBurst.g:627:2: rule__QualifiedName__Group__1__Impl
+            // InternalBurst.g:760:1: ( rule__RulePackage__Group__2__Impl rule__RulePackage__Group__3 )
+            // InternalBurst.g:761:2: rule__RulePackage__Group__2__Impl rule__RulePackage__Group__3
+            {
+            pushFollow(FOLLOW_7);
+            rule__RulePackage__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RulePackage__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RulePackage__Group__2"
+
+
+    // $ANTLR start "rule__RulePackage__Group__2__Impl"
+    // InternalBurst.g:768:1: rule__RulePackage__Group__2__Impl : ( ( rule__RulePackage__NameAssignment_2 ) ) ;
+    public final void rule__RulePackage__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:772:1: ( ( ( rule__RulePackage__NameAssignment_2 ) ) )
+            // InternalBurst.g:773:1: ( ( rule__RulePackage__NameAssignment_2 ) )
+            {
+            // InternalBurst.g:773:1: ( ( rule__RulePackage__NameAssignment_2 ) )
+            // InternalBurst.g:774:2: ( rule__RulePackage__NameAssignment_2 )
+            {
+             before(grammarAccess.getRulePackageAccess().getNameAssignment_2()); 
+            // InternalBurst.g:775:2: ( rule__RulePackage__NameAssignment_2 )
+            // InternalBurst.g:775:3: rule__RulePackage__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
-            rule__QualifiedName__Group__1__Impl();
+            rule__RulePackage__NameAssignment_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRulePackageAccess().getNameAssignment_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RulePackage__Group__2__Impl"
+
+
+    // $ANTLR start "rule__RulePackage__Group__3"
+    // InternalBurst.g:783:1: rule__RulePackage__Group__3 : rule__RulePackage__Group__3__Impl rule__RulePackage__Group__4 ;
+    public final void rule__RulePackage__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:787:1: ( rule__RulePackage__Group__3__Impl rule__RulePackage__Group__4 )
+            // InternalBurst.g:788:2: rule__RulePackage__Group__3__Impl rule__RulePackage__Group__4
+            {
+            pushFollow(FOLLOW_7);
+            rule__RulePackage__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RulePackage__Group__4();
 
             state._fsp--;
 
@@ -1950,40 +2435,214 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group__1"
+    // $ANTLR end "rule__RulePackage__Group__3"
 
 
-    // $ANTLR start "rule__QualifiedName__Group__1__Impl"
-    // InternalBurst.g:633:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
-    public final void rule__QualifiedName__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RulePackage__Group__3__Impl"
+    // InternalBurst.g:795:1: rule__RulePackage__Group__3__Impl : ( ( RULE_ENDLINE )* ) ;
+    public final void rule__RulePackage__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:637:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
-            // InternalBurst.g:638:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // InternalBurst.g:799:1: ( ( ( RULE_ENDLINE )* ) )
+            // InternalBurst.g:800:1: ( ( RULE_ENDLINE )* )
             {
-            // InternalBurst.g:638:1: ( ( rule__QualifiedName__Group_1__0 )* )
-            // InternalBurst.g:639:2: ( rule__QualifiedName__Group_1__0 )*
+            // InternalBurst.g:800:1: ( ( RULE_ENDLINE )* )
+            // InternalBurst.g:801:2: ( RULE_ENDLINE )*
             {
-             before(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
-            // InternalBurst.g:640:2: ( rule__QualifiedName__Group_1__0 )*
-            loop6:
+             before(grammarAccess.getRulePackageAccess().getENDLINETerminalRuleCall_3()); 
+            // InternalBurst.g:802:2: ( RULE_ENDLINE )*
+            loop8:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( (LA6_0==15) ) {
-                    alt6=1;
+                if ( (LA8_0==RULE_ENDLINE) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt8) {
             	case 1 :
-            	    // InternalBurst.g:640:3: rule__QualifiedName__Group_1__0
+            	    // InternalBurst.g:802:3: RULE_ENDLINE
             	    {
-            	    pushFollow(FOLLOW_9);
-            	    rule__QualifiedName__Group_1__0();
+            	    match(input,RULE_ENDLINE,FOLLOW_8); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop8;
+                }
+            } while (true);
+
+             after(grammarAccess.getRulePackageAccess().getENDLINETerminalRuleCall_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RulePackage__Group__3__Impl"
+
+
+    // $ANTLR start "rule__RulePackage__Group__4"
+    // InternalBurst.g:810:1: rule__RulePackage__Group__4 : rule__RulePackage__Group__4__Impl rule__RulePackage__Group__5 ;
+    public final void rule__RulePackage__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:814:1: ( rule__RulePackage__Group__4__Impl rule__RulePackage__Group__5 )
+            // InternalBurst.g:815:2: rule__RulePackage__Group__4__Impl rule__RulePackage__Group__5
+            {
+            pushFollow(FOLLOW_9);
+            rule__RulePackage__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RulePackage__Group__5();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RulePackage__Group__4"
+
+
+    // $ANTLR start "rule__RulePackage__Group__4__Impl"
+    // InternalBurst.g:822:1: rule__RulePackage__Group__4__Impl : ( '{' ) ;
+    public final void rule__RulePackage__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:826:1: ( ( '{' ) )
+            // InternalBurst.g:827:1: ( '{' )
+            {
+            // InternalBurst.g:827:1: ( '{' )
+            // InternalBurst.g:828:2: '{'
+            {
+             before(grammarAccess.getRulePackageAccess().getLeftCurlyBracketKeyword_4()); 
+            match(input,16,FOLLOW_2); 
+             after(grammarAccess.getRulePackageAccess().getLeftCurlyBracketKeyword_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RulePackage__Group__4__Impl"
+
+
+    // $ANTLR start "rule__RulePackage__Group__5"
+    // InternalBurst.g:837:1: rule__RulePackage__Group__5 : rule__RulePackage__Group__5__Impl rule__RulePackage__Group__6 ;
+    public final void rule__RulePackage__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:841:1: ( rule__RulePackage__Group__5__Impl rule__RulePackage__Group__6 )
+            // InternalBurst.g:842:2: rule__RulePackage__Group__5__Impl rule__RulePackage__Group__6
+            {
+            pushFollow(FOLLOW_9);
+            rule__RulePackage__Group__5__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RulePackage__Group__6();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RulePackage__Group__5"
+
+
+    // $ANTLR start "rule__RulePackage__Group__5__Impl"
+    // InternalBurst.g:849:1: rule__RulePackage__Group__5__Impl : ( ( rule__RulePackage__ElementsAssignment_5 )* ) ;
+    public final void rule__RulePackage__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:853:1: ( ( ( rule__RulePackage__ElementsAssignment_5 )* ) )
+            // InternalBurst.g:854:1: ( ( rule__RulePackage__ElementsAssignment_5 )* )
+            {
+            // InternalBurst.g:854:1: ( ( rule__RulePackage__ElementsAssignment_5 )* )
+            // InternalBurst.g:855:2: ( rule__RulePackage__ElementsAssignment_5 )*
+            {
+             before(grammarAccess.getRulePackageAccess().getElementsAssignment_5()); 
+            // InternalBurst.g:856:2: ( rule__RulePackage__ElementsAssignment_5 )*
+            loop9:
+            do {
+                int alt9=2;
+                int LA9_0 = input.LA(1);
+
+                if ( (LA9_0==RULE_ENDLINE||LA9_0==18||LA9_0==21) ) {
+                    alt9=1;
+                }
+
+
+                switch (alt9) {
+            	case 1 :
+            	    // InternalBurst.g:856:3: rule__RulePackage__ElementsAssignment_5
+            	    {
+            	    pushFollow(FOLLOW_10);
+            	    rule__RulePackage__ElementsAssignment_5();
 
             	    state._fsp--;
 
@@ -1992,11 +2651,11 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop9;
                 }
             } while (true);
 
-             after(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
+             after(grammarAccess.getRulePackageAccess().getElementsAssignment_5()); 
 
             }
 
@@ -2015,96 +2674,21 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group__1__Impl"
+    // $ANTLR end "rule__RulePackage__Group__5__Impl"
 
 
-    // $ANTLR start "rule__QualifiedName__Group_1__0"
-    // InternalBurst.g:649:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
-    public final void rule__QualifiedName__Group_1__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:653:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
-            // InternalBurst.g:654:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
-            {
-            pushFollow(FOLLOW_4);
-            rule__QualifiedName__Group_1__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__QualifiedName__Group_1__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__QualifiedName__Group_1__0"
-
-
-    // $ANTLR start "rule__QualifiedName__Group_1__0__Impl"
-    // InternalBurst.g:661:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
-    public final void rule__QualifiedName__Group_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RulePackage__Group__6"
+    // InternalBurst.g:864:1: rule__RulePackage__Group__6 : rule__RulePackage__Group__6__Impl ;
+    public final void rule__RulePackage__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:665:1: ( ( '.' ) )
-            // InternalBurst.g:666:1: ( '.' )
-            {
-            // InternalBurst.g:666:1: ( '.' )
-            // InternalBurst.g:667:2: '.'
-            {
-             before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
-            match(input,15,FOLLOW_2); 
-             after(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__QualifiedName__Group_1__0__Impl"
-
-
-    // $ANTLR start "rule__QualifiedName__Group_1__1"
-    // InternalBurst.g:676:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
-    public final void rule__QualifiedName__Group_1__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:680:1: ( rule__QualifiedName__Group_1__1__Impl )
-            // InternalBurst.g:681:2: rule__QualifiedName__Group_1__1__Impl
+            // InternalBurst.g:868:1: ( rule__RulePackage__Group__6__Impl )
+            // InternalBurst.g:869:2: rule__RulePackage__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__QualifiedName__Group_1__1__Impl();
+            rule__RulePackage__Group__6__Impl();
 
             state._fsp--;
 
@@ -2123,405 +2707,25 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QualifiedName__Group_1__1"
+    // $ANTLR end "rule__RulePackage__Group__6"
 
 
-    // $ANTLR start "rule__QualifiedName__Group_1__1__Impl"
-    // InternalBurst.g:687:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
-    public final void rule__QualifiedName__Group_1__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:691:1: ( ( RULE_ID ) )
-            // InternalBurst.g:692:1: ( RULE_ID )
-            {
-            // InternalBurst.g:692:1: ( RULE_ID )
-            // InternalBurst.g:693:2: RULE_ID
-            {
-             before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__QualifiedName__Group_1__1__Impl"
-
-
-    // $ANTLR start "rule__Import__Group__0"
-    // InternalBurst.g:703:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
-    public final void rule__Import__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__RulePackage__Group__6__Impl"
+    // InternalBurst.g:875:1: rule__RulePackage__Group__6__Impl : ( '}' ) ;
+    public final void rule__RulePackage__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:707:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
-            // InternalBurst.g:708:2: rule__Import__Group__0__Impl rule__Import__Group__1
+            // InternalBurst.g:879:1: ( ( '}' ) )
+            // InternalBurst.g:880:1: ( '}' )
             {
-            pushFollow(FOLLOW_4);
-            rule__Import__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Import__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Import__Group__0"
-
-
-    // $ANTLR start "rule__Import__Group__0__Impl"
-    // InternalBurst.g:715:1: rule__Import__Group__0__Impl : ( 'import' ) ;
-    public final void rule__Import__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:719:1: ( ( 'import' ) )
-            // InternalBurst.g:720:1: ( 'import' )
+            // InternalBurst.g:880:1: ( '}' )
+            // InternalBurst.g:881:2: '}'
             {
-            // InternalBurst.g:720:1: ( 'import' )
-            // InternalBurst.g:721:2: 'import'
-            {
-             before(grammarAccess.getImportAccess().getImportKeyword_0()); 
-            match(input,16,FOLLOW_2); 
-             after(grammarAccess.getImportAccess().getImportKeyword_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Import__Group__0__Impl"
-
-
-    // $ANTLR start "rule__Import__Group__1"
-    // InternalBurst.g:730:1: rule__Import__Group__1 : rule__Import__Group__1__Impl rule__Import__Group__2 ;
-    public final void rule__Import__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:734:1: ( rule__Import__Group__1__Impl rule__Import__Group__2 )
-            // InternalBurst.g:735:2: rule__Import__Group__1__Impl rule__Import__Group__2
-            {
-            pushFollow(FOLLOW_7);
-            rule__Import__Group__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Import__Group__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Import__Group__1"
-
-
-    // $ANTLR start "rule__Import__Group__1__Impl"
-    // InternalBurst.g:742:1: rule__Import__Group__1__Impl : ( ( rule__Import__ImportedNamespaceAssignment_1 ) ) ;
-    public final void rule__Import__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:746:1: ( ( ( rule__Import__ImportedNamespaceAssignment_1 ) ) )
-            // InternalBurst.g:747:1: ( ( rule__Import__ImportedNamespaceAssignment_1 ) )
-            {
-            // InternalBurst.g:747:1: ( ( rule__Import__ImportedNamespaceAssignment_1 ) )
-            // InternalBurst.g:748:2: ( rule__Import__ImportedNamespaceAssignment_1 )
-            {
-             before(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1()); 
-            // InternalBurst.g:749:2: ( rule__Import__ImportedNamespaceAssignment_1 )
-            // InternalBurst.g:749:3: rule__Import__ImportedNamespaceAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Import__ImportedNamespaceAssignment_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Import__Group__1__Impl"
-
-
-    // $ANTLR start "rule__Import__Group__2"
-    // InternalBurst.g:757:1: rule__Import__Group__2 : rule__Import__Group__2__Impl ;
-    public final void rule__Import__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:761:1: ( rule__Import__Group__2__Impl )
-            // InternalBurst.g:762:2: rule__Import__Group__2__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Import__Group__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Import__Group__2"
-
-
-    // $ANTLR start "rule__Import__Group__2__Impl"
-    // InternalBurst.g:768:1: rule__Import__Group__2__Impl : ( RULE_ENDLINE ) ;
-    public final void rule__Import__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:772:1: ( ( RULE_ENDLINE ) )
-            // InternalBurst.g:773:1: ( RULE_ENDLINE )
-            {
-            // InternalBurst.g:773:1: ( RULE_ENDLINE )
-            // InternalBurst.g:774:2: RULE_ENDLINE
-            {
-             before(grammarAccess.getImportAccess().getENDLINETerminalRuleCall_2()); 
-            match(input,RULE_ENDLINE,FOLLOW_2); 
-             after(grammarAccess.getImportAccess().getENDLINETerminalRuleCall_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Import__Group__2__Impl"
-
-
-    // $ANTLR start "rule__Concern__Group__0"
-    // InternalBurst.g:784:1: rule__Concern__Group__0 : rule__Concern__Group__0__Impl rule__Concern__Group__1 ;
-    public final void rule__Concern__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:788:1: ( rule__Concern__Group__0__Impl rule__Concern__Group__1 )
-            // InternalBurst.g:789:2: rule__Concern__Group__0__Impl rule__Concern__Group__1
-            {
-            pushFollow(FOLLOW_10);
-            rule__Concern__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Concern__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group__0"
-
-
-    // $ANTLR start "rule__Concern__Group__0__Impl"
-    // InternalBurst.g:796:1: rule__Concern__Group__0__Impl : ( () ) ;
-    public final void rule__Concern__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:800:1: ( ( () ) )
-            // InternalBurst.g:801:1: ( () )
-            {
-            // InternalBurst.g:801:1: ( () )
-            // InternalBurst.g:802:2: ()
-            {
-             before(grammarAccess.getConcernAccess().getConcernAction_0()); 
-            // InternalBurst.g:803:2: ()
-            // InternalBurst.g:803:3: 
-            {
-            }
-
-             after(grammarAccess.getConcernAccess().getConcernAction_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group__0__Impl"
-
-
-    // $ANTLR start "rule__Concern__Group__1"
-    // InternalBurst.g:811:1: rule__Concern__Group__1 : rule__Concern__Group__1__Impl rule__Concern__Group__2 ;
-    public final void rule__Concern__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:815:1: ( rule__Concern__Group__1__Impl rule__Concern__Group__2 )
-            // InternalBurst.g:816:2: rule__Concern__Group__1__Impl rule__Concern__Group__2
-            {
-            pushFollow(FOLLOW_11);
-            rule__Concern__Group__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Concern__Group__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group__1"
-
-
-    // $ANTLR start "rule__Concern__Group__1__Impl"
-    // InternalBurst.g:823:1: rule__Concern__Group__1__Impl : ( 'concern' ) ;
-    public final void rule__Concern__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:827:1: ( ( 'concern' ) )
-            // InternalBurst.g:828:1: ( 'concern' )
-            {
-            // InternalBurst.g:828:1: ( 'concern' )
-            // InternalBurst.g:829:2: 'concern'
-            {
-             before(grammarAccess.getConcernAccess().getConcernKeyword_1()); 
+             before(grammarAccess.getRulePackageAccess().getRightCurlyBracketKeyword_6()); 
             match(input,17,FOLLOW_2); 
-             after(grammarAccess.getConcernAccess().getConcernKeyword_1()); 
+             after(grammarAccess.getRulePackageAccess().getRightCurlyBracketKeyword_6()); 
 
             }
 
@@ -2540,26 +2744,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group__1__Impl"
+    // $ANTLR end "rule__RulePackage__Group__6__Impl"
 
 
-    // $ANTLR start "rule__Concern__Group__2"
-    // InternalBurst.g:838:1: rule__Concern__Group__2 : rule__Concern__Group__2__Impl rule__Concern__Group__3 ;
-    public final void rule__Concern__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group__0"
+    // InternalBurst.g:891:1: rule__RuleConcern__Group__0 : rule__RuleConcern__Group__0__Impl rule__RuleConcern__Group__1 ;
+    public final void rule__RuleConcern__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:842:1: ( rule__Concern__Group__2__Impl rule__Concern__Group__3 )
-            // InternalBurst.g:843:2: rule__Concern__Group__2__Impl rule__Concern__Group__3
+            // InternalBurst.g:895:1: ( rule__RuleConcern__Group__0__Impl rule__RuleConcern__Group__1 )
+            // InternalBurst.g:896:2: rule__RuleConcern__Group__0__Impl rule__RuleConcern__Group__1
             {
             pushFollow(FOLLOW_11);
-            rule__Concern__Group__2__Impl();
+            rule__RuleConcern__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Concern__Group__3();
+            rule__RuleConcern__Group__1();
 
             state._fsp--;
 
@@ -2578,42 +2782,100 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group__2"
+    // $ANTLR end "rule__RuleConcern__Group__0"
 
 
-    // $ANTLR start "rule__Concern__Group__2__Impl"
-    // InternalBurst.g:850:1: rule__Concern__Group__2__Impl : ( ( RULE_ENDLINE )? ) ;
-    public final void rule__Concern__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group__0__Impl"
+    // InternalBurst.g:903:1: rule__RuleConcern__Group__0__Impl : ( () ) ;
+    public final void rule__RuleConcern__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:854:1: ( ( ( RULE_ENDLINE )? ) )
-            // InternalBurst.g:855:1: ( ( RULE_ENDLINE )? )
+            // InternalBurst.g:907:1: ( ( () ) )
+            // InternalBurst.g:908:1: ( () )
             {
-            // InternalBurst.g:855:1: ( ( RULE_ENDLINE )? )
-            // InternalBurst.g:856:2: ( RULE_ENDLINE )?
+            // InternalBurst.g:908:1: ( () )
+            // InternalBurst.g:909:2: ()
             {
-             before(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_2()); 
-            // InternalBurst.g:857:2: ( RULE_ENDLINE )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
-
-            if ( (LA7_0==RULE_ENDLINE) ) {
-                alt7=1;
+             before(grammarAccess.getRuleConcernAccess().getConcernAction_0()); 
+            // InternalBurst.g:910:2: ()
+            // InternalBurst.g:910:3: 
+            {
             }
-            switch (alt7) {
-                case 1 :
-                    // InternalBurst.g:857:3: RULE_ENDLINE
-                    {
-                    match(input,RULE_ENDLINE,FOLLOW_2); 
 
-                    }
-                    break;
+             after(grammarAccess.getRuleConcernAccess().getConcernAction_0()); 
 
             }
 
-             after(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_2()); 
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleConcern__Group__0__Impl"
+
+
+    // $ANTLR start "rule__RuleConcern__Group__1"
+    // InternalBurst.g:918:1: rule__RuleConcern__Group__1 : rule__RuleConcern__Group__1__Impl rule__RuleConcern__Group__2 ;
+    public final void rule__RuleConcern__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:922:1: ( rule__RuleConcern__Group__1__Impl rule__RuleConcern__Group__2 )
+            // InternalBurst.g:923:2: rule__RuleConcern__Group__1__Impl rule__RuleConcern__Group__2
+            {
+            pushFollow(FOLLOW_5);
+            rule__RuleConcern__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RuleConcern__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleConcern__Group__1"
+
+
+    // $ANTLR start "rule__RuleConcern__Group__1__Impl"
+    // InternalBurst.g:930:1: rule__RuleConcern__Group__1__Impl : ( 'concern' ) ;
+    public final void rule__RuleConcern__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:934:1: ( ( 'concern' ) )
+            // InternalBurst.g:935:1: ( 'concern' )
+            {
+            // InternalBurst.g:935:1: ( 'concern' )
+            // InternalBurst.g:936:2: 'concern'
+            {
+             before(grammarAccess.getRuleConcernAccess().getConcernKeyword_1()); 
+            match(input,18,FOLLOW_2); 
+             after(grammarAccess.getRuleConcernAccess().getConcernKeyword_1()); 
 
             }
 
@@ -2632,26 +2894,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group__2__Impl"
+    // $ANTLR end "rule__RuleConcern__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Concern__Group__3"
-    // InternalBurst.g:865:1: rule__Concern__Group__3 : rule__Concern__Group__3__Impl rule__Concern__Group__4 ;
-    public final void rule__Concern__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group__2"
+    // InternalBurst.g:945:1: rule__RuleConcern__Group__2 : rule__RuleConcern__Group__2__Impl rule__RuleConcern__Group__3 ;
+    public final void rule__RuleConcern__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:869:1: ( rule__Concern__Group__3__Impl rule__Concern__Group__4 )
-            // InternalBurst.g:870:2: rule__Concern__Group__3__Impl rule__Concern__Group__4
+            // InternalBurst.g:949:1: ( rule__RuleConcern__Group__2__Impl rule__RuleConcern__Group__3 )
+            // InternalBurst.g:950:2: rule__RuleConcern__Group__2__Impl rule__RuleConcern__Group__3
             {
             pushFollow(FOLLOW_12);
-            rule__Concern__Group__3__Impl();
+            rule__RuleConcern__Group__2__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Concern__Group__4();
+            rule__RuleConcern__Group__3();
 
             state._fsp--;
 
@@ -2670,35 +2932,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group__3"
+    // $ANTLR end "rule__RuleConcern__Group__2"
 
 
-    // $ANTLR start "rule__Concern__Group__3__Impl"
-    // InternalBurst.g:877:1: rule__Concern__Group__3__Impl : ( ( rule__Concern__NameAssignment_3 ) ) ;
-    public final void rule__Concern__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group__2__Impl"
+    // InternalBurst.g:957:1: rule__RuleConcern__Group__2__Impl : ( ( rule__RuleConcern__NameAssignment_2 ) ) ;
+    public final void rule__RuleConcern__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:881:1: ( ( ( rule__Concern__NameAssignment_3 ) ) )
-            // InternalBurst.g:882:1: ( ( rule__Concern__NameAssignment_3 ) )
+            // InternalBurst.g:961:1: ( ( ( rule__RuleConcern__NameAssignment_2 ) ) )
+            // InternalBurst.g:962:1: ( ( rule__RuleConcern__NameAssignment_2 ) )
             {
-            // InternalBurst.g:882:1: ( ( rule__Concern__NameAssignment_3 ) )
-            // InternalBurst.g:883:2: ( rule__Concern__NameAssignment_3 )
+            // InternalBurst.g:962:1: ( ( rule__RuleConcern__NameAssignment_2 ) )
+            // InternalBurst.g:963:2: ( rule__RuleConcern__NameAssignment_2 )
             {
-             before(grammarAccess.getConcernAccess().getNameAssignment_3()); 
-            // InternalBurst.g:884:2: ( rule__Concern__NameAssignment_3 )
-            // InternalBurst.g:884:3: rule__Concern__NameAssignment_3
+             before(grammarAccess.getRuleConcernAccess().getNameAssignment_2()); 
+            // InternalBurst.g:964:2: ( rule__RuleConcern__NameAssignment_2 )
+            // InternalBurst.g:964:3: rule__RuleConcern__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
-            rule__Concern__NameAssignment_3();
+            rule__RuleConcern__NameAssignment_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getConcernAccess().getNameAssignment_3()); 
+             after(grammarAccess.getRuleConcernAccess().getNameAssignment_2()); 
 
             }
 
@@ -2717,26 +2979,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group__3__Impl"
+    // $ANTLR end "rule__RuleConcern__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Concern__Group__4"
-    // InternalBurst.g:892:1: rule__Concern__Group__4 : rule__Concern__Group__4__Impl rule__Concern__Group__5 ;
-    public final void rule__Concern__Group__4() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group__3"
+    // InternalBurst.g:972:1: rule__RuleConcern__Group__3 : rule__RuleConcern__Group__3__Impl rule__RuleConcern__Group__4 ;
+    public final void rule__RuleConcern__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:896:1: ( rule__Concern__Group__4__Impl rule__Concern__Group__5 )
-            // InternalBurst.g:897:2: rule__Concern__Group__4__Impl rule__Concern__Group__5
+            // InternalBurst.g:976:1: ( rule__RuleConcern__Group__3__Impl rule__RuleConcern__Group__4 )
+            // InternalBurst.g:977:2: rule__RuleConcern__Group__3__Impl rule__RuleConcern__Group__4
             {
             pushFollow(FOLLOW_12);
-            rule__Concern__Group__4__Impl();
+            rule__RuleConcern__Group__3__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Concern__Group__5();
+            rule__RuleConcern__Group__4();
 
             state._fsp--;
 
@@ -2755,231 +3017,32 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group__4"
+    // $ANTLR end "rule__RuleConcern__Group__3"
 
 
-    // $ANTLR start "rule__Concern__Group__4__Impl"
-    // InternalBurst.g:904:1: rule__Concern__Group__4__Impl : ( ( RULE_ENDLINE )? ) ;
-    public final void rule__Concern__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:908:1: ( ( ( RULE_ENDLINE )? ) )
-            // InternalBurst.g:909:1: ( ( RULE_ENDLINE )? )
-            {
-            // InternalBurst.g:909:1: ( ( RULE_ENDLINE )? )
-            // InternalBurst.g:910:2: ( RULE_ENDLINE )?
-            {
-             before(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_4()); 
-            // InternalBurst.g:911:2: ( RULE_ENDLINE )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
-
-            if ( (LA8_0==RULE_ENDLINE) ) {
-                int LA8_1 = input.LA(2);
-
-                if ( (LA8_1==13||LA8_1==18) ) {
-                    alt8=1;
-                }
-                else if ( (LA8_1==RULE_ENDLINE) ) {
-                    alt8=1;
-                }
-            }
-            switch (alt8) {
-                case 1 :
-                    // InternalBurst.g:911:3: RULE_ENDLINE
-                    {
-                    match(input,RULE_ENDLINE,FOLLOW_2); 
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group__4__Impl"
-
-
-    // $ANTLR start "rule__Concern__Group__5"
-    // InternalBurst.g:919:1: rule__Concern__Group__5 : rule__Concern__Group__5__Impl rule__Concern__Group__6 ;
-    public final void rule__Concern__Group__5() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group__3__Impl"
+    // InternalBurst.g:984:1: rule__RuleConcern__Group__3__Impl : ( ( rule__RuleConcern__Group_3__0 )? ) ;
+    public final void rule__RuleConcern__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:923:1: ( rule__Concern__Group__5__Impl rule__Concern__Group__6 )
-            // InternalBurst.g:924:2: rule__Concern__Group__5__Impl rule__Concern__Group__6
+            // InternalBurst.g:988:1: ( ( ( rule__RuleConcern__Group_3__0 )? ) )
+            // InternalBurst.g:989:1: ( ( rule__RuleConcern__Group_3__0 )? )
             {
-            pushFollow(FOLLOW_12);
-            rule__Concern__Group__5__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Concern__Group__6();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group__5"
-
-
-    // $ANTLR start "rule__Concern__Group__5__Impl"
-    // InternalBurst.g:931:1: rule__Concern__Group__5__Impl : ( ( rule__Concern__Group_5__0 )? ) ;
-    public final void rule__Concern__Group__5__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:935:1: ( ( ( rule__Concern__Group_5__0 )? ) )
-            // InternalBurst.g:936:1: ( ( rule__Concern__Group_5__0 )? )
+            // InternalBurst.g:989:1: ( ( rule__RuleConcern__Group_3__0 )? )
+            // InternalBurst.g:990:2: ( rule__RuleConcern__Group_3__0 )?
             {
-            // InternalBurst.g:936:1: ( ( rule__Concern__Group_5__0 )? )
-            // InternalBurst.g:937:2: ( rule__Concern__Group_5__0 )?
-            {
-             before(grammarAccess.getConcernAccess().getGroup_5()); 
-            // InternalBurst.g:938:2: ( rule__Concern__Group_5__0 )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
-
-            if ( (LA9_0==18) ) {
-                alt9=1;
-            }
-            switch (alt9) {
-                case 1 :
-                    // InternalBurst.g:938:3: rule__Concern__Group_5__0
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Concern__Group_5__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getConcernAccess().getGroup_5()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group__5__Impl"
-
-
-    // $ANTLR start "rule__Concern__Group__6"
-    // InternalBurst.g:946:1: rule__Concern__Group__6 : rule__Concern__Group__6__Impl rule__Concern__Group__7 ;
-    public final void rule__Concern__Group__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:950:1: ( rule__Concern__Group__6__Impl rule__Concern__Group__7 )
-            // InternalBurst.g:951:2: rule__Concern__Group__6__Impl rule__Concern__Group__7
-            {
-            pushFollow(FOLLOW_12);
-            rule__Concern__Group__6__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Concern__Group__7();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group__6"
-
-
-    // $ANTLR start "rule__Concern__Group__6__Impl"
-    // InternalBurst.g:958:1: rule__Concern__Group__6__Impl : ( ( rule__Concern__Group_6__0 )? ) ;
-    public final void rule__Concern__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:962:1: ( ( ( rule__Concern__Group_6__0 )? ) )
-            // InternalBurst.g:963:1: ( ( rule__Concern__Group_6__0 )? )
-            {
-            // InternalBurst.g:963:1: ( ( rule__Concern__Group_6__0 )? )
-            // InternalBurst.g:964:2: ( rule__Concern__Group_6__0 )?
-            {
-             before(grammarAccess.getConcernAccess().getGroup_6()); 
-            // InternalBurst.g:965:2: ( rule__Concern__Group_6__0 )?
+             before(grammarAccess.getRuleConcernAccess().getGroup_3()); 
+            // InternalBurst.g:991:2: ( rule__RuleConcern__Group_3__0 )?
             int alt10=2;
-            int LA10_0 = input.LA(1);
-
-            if ( (LA10_0==13) ) {
-                alt10=1;
-            }
+            alt10 = dfa10.predict(input);
             switch (alt10) {
                 case 1 :
-                    // InternalBurst.g:965:3: rule__Concern__Group_6__0
+                    // InternalBurst.g:991:3: rule__RuleConcern__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__Concern__Group_6__0();
+                    rule__RuleConcern__Group_3__0();
 
                     state._fsp--;
 
@@ -2989,7 +3052,7 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
 
             }
 
-             after(grammarAccess.getConcernAccess().getGroup_6()); 
+             after(grammarAccess.getRuleConcernAccess().getGroup_3()); 
 
             }
 
@@ -3008,21 +3071,21 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group__6__Impl"
+    // $ANTLR end "rule__RuleConcern__Group__3__Impl"
 
 
-    // $ANTLR start "rule__Concern__Group__7"
-    // InternalBurst.g:973:1: rule__Concern__Group__7 : rule__Concern__Group__7__Impl ;
-    public final void rule__Concern__Group__7() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group__4"
+    // InternalBurst.g:999:1: rule__RuleConcern__Group__4 : rule__RuleConcern__Group__4__Impl ;
+    public final void rule__RuleConcern__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:977:1: ( rule__Concern__Group__7__Impl )
-            // InternalBurst.g:978:2: rule__Concern__Group__7__Impl
+            // InternalBurst.g:1003:1: ( rule__RuleConcern__Group__4__Impl )
+            // InternalBurst.g:1004:2: rule__RuleConcern__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Concern__Group__7__Impl();
+            rule__RuleConcern__Group__4__Impl();
 
             state._fsp--;
 
@@ -3041,192 +3104,46 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group__7"
+    // $ANTLR end "rule__RuleConcern__Group__4"
 
 
-    // $ANTLR start "rule__Concern__Group__7__Impl"
-    // InternalBurst.g:984:1: rule__Concern__Group__7__Impl : ( RULE_ENDLINE ) ;
-    public final void rule__Concern__Group__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:988:1: ( ( RULE_ENDLINE ) )
-            // InternalBurst.g:989:1: ( RULE_ENDLINE )
-            {
-            // InternalBurst.g:989:1: ( RULE_ENDLINE )
-            // InternalBurst.g:990:2: RULE_ENDLINE
-            {
-             before(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_7()); 
-            match(input,RULE_ENDLINE,FOLLOW_2); 
-             after(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_7()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group__7__Impl"
-
-
-    // $ANTLR start "rule__Concern__Group_5__0"
-    // InternalBurst.g:1000:1: rule__Concern__Group_5__0 : rule__Concern__Group_5__0__Impl rule__Concern__Group_5__1 ;
-    public final void rule__Concern__Group_5__0() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group__4__Impl"
+    // InternalBurst.g:1010:1: rule__RuleConcern__Group__4__Impl : ( ( rule__RuleConcern__Group_4__0 )? ) ;
+    public final void rule__RuleConcern__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1004:1: ( rule__Concern__Group_5__0__Impl rule__Concern__Group_5__1 )
-            // InternalBurst.g:1005:2: rule__Concern__Group_5__0__Impl rule__Concern__Group_5__1
+            // InternalBurst.g:1014:1: ( ( ( rule__RuleConcern__Group_4__0 )? ) )
+            // InternalBurst.g:1015:1: ( ( rule__RuleConcern__Group_4__0 )? )
             {
-            pushFollow(FOLLOW_11);
-            rule__Concern__Group_5__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Concern__Group_5__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group_5__0"
-
-
-    // $ANTLR start "rule__Concern__Group_5__0__Impl"
-    // InternalBurst.g:1012:1: rule__Concern__Group_5__0__Impl : ( 'extends' ) ;
-    public final void rule__Concern__Group_5__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1016:1: ( ( 'extends' ) )
-            // InternalBurst.g:1017:1: ( 'extends' )
+            // InternalBurst.g:1015:1: ( ( rule__RuleConcern__Group_4__0 )? )
+            // InternalBurst.g:1016:2: ( rule__RuleConcern__Group_4__0 )?
             {
-            // InternalBurst.g:1017:1: ( 'extends' )
-            // InternalBurst.g:1018:2: 'extends'
-            {
-             before(grammarAccess.getConcernAccess().getExtendsKeyword_5_0()); 
-            match(input,18,FOLLOW_2); 
-             after(grammarAccess.getConcernAccess().getExtendsKeyword_5_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group_5__0__Impl"
-
-
-    // $ANTLR start "rule__Concern__Group_5__1"
-    // InternalBurst.g:1027:1: rule__Concern__Group_5__1 : rule__Concern__Group_5__1__Impl rule__Concern__Group_5__2 ;
-    public final void rule__Concern__Group_5__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1031:1: ( rule__Concern__Group_5__1__Impl rule__Concern__Group_5__2 )
-            // InternalBurst.g:1032:2: rule__Concern__Group_5__1__Impl rule__Concern__Group_5__2
-            {
-            pushFollow(FOLLOW_11);
-            rule__Concern__Group_5__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Concern__Group_5__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group_5__1"
-
-
-    // $ANTLR start "rule__Concern__Group_5__1__Impl"
-    // InternalBurst.g:1039:1: rule__Concern__Group_5__1__Impl : ( ( RULE_ENDLINE )? ) ;
-    public final void rule__Concern__Group_5__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1043:1: ( ( ( RULE_ENDLINE )? ) )
-            // InternalBurst.g:1044:1: ( ( RULE_ENDLINE )? )
-            {
-            // InternalBurst.g:1044:1: ( ( RULE_ENDLINE )? )
-            // InternalBurst.g:1045:2: ( RULE_ENDLINE )?
-            {
-             before(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_5_1()); 
-            // InternalBurst.g:1046:2: ( RULE_ENDLINE )?
+             before(grammarAccess.getRuleConcernAccess().getGroup_4()); 
+            // InternalBurst.g:1017:2: ( rule__RuleConcern__Group_4__0 )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==RULE_ENDLINE) ) {
+            if ( (LA11_0==16) ) {
                 alt11=1;
             }
             switch (alt11) {
                 case 1 :
-                    // InternalBurst.g:1046:3: RULE_ENDLINE
+                    // InternalBurst.g:1017:3: rule__RuleConcern__Group_4__0
                     {
-                    match(input,RULE_ENDLINE,FOLLOW_2); 
+                    pushFollow(FOLLOW_2);
+                    rule__RuleConcern__Group_4__0();
+
+                    state._fsp--;
+
 
                     }
                     break;
 
             }
 
-             after(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_5_1()); 
+             after(grammarAccess.getRuleConcernAccess().getGroup_4()); 
 
             }
 
@@ -3245,26 +3162,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group_5__1__Impl"
+    // $ANTLR end "rule__RuleConcern__Group__4__Impl"
 
 
-    // $ANTLR start "rule__Concern__Group_5__2"
-    // InternalBurst.g:1054:1: rule__Concern__Group_5__2 : rule__Concern__Group_5__2__Impl rule__Concern__Group_5__3 ;
-    public final void rule__Concern__Group_5__2() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group_3__0"
+    // InternalBurst.g:1026:1: rule__RuleConcern__Group_3__0 : rule__RuleConcern__Group_3__0__Impl rule__RuleConcern__Group_3__1 ;
+    public final void rule__RuleConcern__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1058:1: ( rule__Concern__Group_5__2__Impl rule__Concern__Group_5__3 )
-            // InternalBurst.g:1059:2: rule__Concern__Group_5__2__Impl rule__Concern__Group_5__3
+            // InternalBurst.g:1030:1: ( rule__RuleConcern__Group_3__0__Impl rule__RuleConcern__Group_3__1 )
+            // InternalBurst.g:1031:2: rule__RuleConcern__Group_3__0__Impl rule__RuleConcern__Group_3__1
             {
-            pushFollow(FOLLOW_7);
-            rule__Concern__Group_5__2__Impl();
+            pushFollow(FOLLOW_13);
+            rule__RuleConcern__Group_3__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Concern__Group_5__3();
+            rule__RuleConcern__Group_3__1();
 
             state._fsp--;
 
@@ -3283,129 +3200,49 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group_5__2"
+    // $ANTLR end "rule__RuleConcern__Group_3__0"
 
 
-    // $ANTLR start "rule__Concern__Group_5__2__Impl"
-    // InternalBurst.g:1066:1: rule__Concern__Group_5__2__Impl : ( ( rule__Concern__SupertypeAssignment_5_2 ) ) ;
-    public final void rule__Concern__Group_5__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1070:1: ( ( ( rule__Concern__SupertypeAssignment_5_2 ) ) )
-            // InternalBurst.g:1071:1: ( ( rule__Concern__SupertypeAssignment_5_2 ) )
-            {
-            // InternalBurst.g:1071:1: ( ( rule__Concern__SupertypeAssignment_5_2 ) )
-            // InternalBurst.g:1072:2: ( rule__Concern__SupertypeAssignment_5_2 )
-            {
-             before(grammarAccess.getConcernAccess().getSupertypeAssignment_5_2()); 
-            // InternalBurst.g:1073:2: ( rule__Concern__SupertypeAssignment_5_2 )
-            // InternalBurst.g:1073:3: rule__Concern__SupertypeAssignment_5_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__Concern__SupertypeAssignment_5_2();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getConcernAccess().getSupertypeAssignment_5_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group_5__2__Impl"
-
-
-    // $ANTLR start "rule__Concern__Group_5__3"
-    // InternalBurst.g:1081:1: rule__Concern__Group_5__3 : rule__Concern__Group_5__3__Impl ;
-    public final void rule__Concern__Group_5__3() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group_3__0__Impl"
+    // InternalBurst.g:1038:1: rule__RuleConcern__Group_3__0__Impl : ( ( RULE_ENDLINE )* ) ;
+    public final void rule__RuleConcern__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1085:1: ( rule__Concern__Group_5__3__Impl )
-            // InternalBurst.g:1086:2: rule__Concern__Group_5__3__Impl
+            // InternalBurst.g:1042:1: ( ( ( RULE_ENDLINE )* ) )
+            // InternalBurst.g:1043:1: ( ( RULE_ENDLINE )* )
             {
-            pushFollow(FOLLOW_2);
-            rule__Concern__Group_5__3__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group_5__3"
-
-
-    // $ANTLR start "rule__Concern__Group_5__3__Impl"
-    // InternalBurst.g:1092:1: rule__Concern__Group_5__3__Impl : ( ( RULE_ENDLINE )? ) ;
-    public final void rule__Concern__Group_5__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1096:1: ( ( ( RULE_ENDLINE )? ) )
-            // InternalBurst.g:1097:1: ( ( RULE_ENDLINE )? )
+            // InternalBurst.g:1043:1: ( ( RULE_ENDLINE )* )
+            // InternalBurst.g:1044:2: ( RULE_ENDLINE )*
             {
-            // InternalBurst.g:1097:1: ( ( RULE_ENDLINE )? )
-            // InternalBurst.g:1098:2: ( RULE_ENDLINE )?
-            {
-             before(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_5_3()); 
-            // InternalBurst.g:1099:2: ( RULE_ENDLINE )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+             before(grammarAccess.getRuleConcernAccess().getENDLINETerminalRuleCall_3_0()); 
+            // InternalBurst.g:1045:2: ( RULE_ENDLINE )*
+            loop12:
+            do {
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==RULE_ENDLINE) ) {
-                int LA12_1 = input.LA(2);
-
-                if ( (LA12_1==13) ) {
+                if ( (LA12_0==RULE_ENDLINE) ) {
                     alt12=1;
                 }
-                else if ( (LA12_1==RULE_ENDLINE) ) {
-                    alt12=1;
+
+
+                switch (alt12) {
+            	case 1 :
+            	    // InternalBurst.g:1045:3: RULE_ENDLINE
+            	    {
+            	    match(input,RULE_ENDLINE,FOLLOW_8); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop12;
                 }
-            }
-            switch (alt12) {
-                case 1 :
-                    // InternalBurst.g:1099:3: RULE_ENDLINE
-                    {
-                    match(input,RULE_ENDLINE,FOLLOW_2); 
+            } while (true);
 
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_5_3()); 
+             after(grammarAccess.getRuleConcernAccess().getENDLINETerminalRuleCall_3_0()); 
 
             }
 
@@ -3424,26 +3261,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group_5__3__Impl"
+    // $ANTLR end "rule__RuleConcern__Group_3__0__Impl"
 
 
-    // $ANTLR start "rule__Concern__Group_6__0"
-    // InternalBurst.g:1108:1: rule__Concern__Group_6__0 : rule__Concern__Group_6__0__Impl rule__Concern__Group_6__1 ;
-    public final void rule__Concern__Group_6__0() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group_3__1"
+    // InternalBurst.g:1053:1: rule__RuleConcern__Group_3__1 : rule__RuleConcern__Group_3__1__Impl rule__RuleConcern__Group_3__2 ;
+    public final void rule__RuleConcern__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1112:1: ( rule__Concern__Group_6__0__Impl rule__Concern__Group_6__1 )
-            // InternalBurst.g:1113:2: rule__Concern__Group_6__0__Impl rule__Concern__Group_6__1
+            // InternalBurst.g:1057:1: ( rule__RuleConcern__Group_3__1__Impl rule__RuleConcern__Group_3__2 )
+            // InternalBurst.g:1058:2: rule__RuleConcern__Group_3__1__Impl rule__RuleConcern__Group_3__2
             {
-            pushFollow(FOLLOW_13);
-            rule__Concern__Group_6__0__Impl();
+            pushFollow(FOLLOW_14);
+            rule__RuleConcern__Group_3__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Concern__Group_6__1();
+            rule__RuleConcern__Group_3__2();
 
             state._fsp--;
 
@@ -3462,25 +3299,25 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group_6__0"
+    // $ANTLR end "rule__RuleConcern__Group_3__1"
 
 
-    // $ANTLR start "rule__Concern__Group_6__0__Impl"
-    // InternalBurst.g:1120:1: rule__Concern__Group_6__0__Impl : ( '{' ) ;
-    public final void rule__Concern__Group_6__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group_3__1__Impl"
+    // InternalBurst.g:1065:1: rule__RuleConcern__Group_3__1__Impl : ( 'extends' ) ;
+    public final void rule__RuleConcern__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1124:1: ( ( '{' ) )
-            // InternalBurst.g:1125:1: ( '{' )
+            // InternalBurst.g:1069:1: ( ( 'extends' ) )
+            // InternalBurst.g:1070:1: ( 'extends' )
             {
-            // InternalBurst.g:1125:1: ( '{' )
-            // InternalBurst.g:1126:2: '{'
+            // InternalBurst.g:1070:1: ( 'extends' )
+            // InternalBurst.g:1071:2: 'extends'
             {
-             before(grammarAccess.getConcernAccess().getLeftCurlyBracketKeyword_6_0()); 
-            match(input,13,FOLLOW_2); 
-             after(grammarAccess.getConcernAccess().getLeftCurlyBracketKeyword_6_0()); 
+             before(grammarAccess.getRuleConcernAccess().getExtendsKeyword_3_1()); 
+            match(input,19,FOLLOW_2); 
+             after(grammarAccess.getRuleConcernAccess().getExtendsKeyword_3_1()); 
 
             }
 
@@ -3499,118 +3336,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group_6__0__Impl"
+    // $ANTLR end "rule__RuleConcern__Group_3__1__Impl"
 
 
-    // $ANTLR start "rule__Concern__Group_6__1"
-    // InternalBurst.g:1135:1: rule__Concern__Group_6__1 : rule__Concern__Group_6__1__Impl rule__Concern__Group_6__2 ;
-    public final void rule__Concern__Group_6__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1139:1: ( rule__Concern__Group_6__1__Impl rule__Concern__Group_6__2 )
-            // InternalBurst.g:1140:2: rule__Concern__Group_6__1__Impl rule__Concern__Group_6__2
-            {
-            pushFollow(FOLLOW_13);
-            rule__Concern__Group_6__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Concern__Group_6__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group_6__1"
-
-
-    // $ANTLR start "rule__Concern__Group_6__1__Impl"
-    // InternalBurst.g:1147:1: rule__Concern__Group_6__1__Impl : ( ( RULE_ENDLINE )? ) ;
-    public final void rule__Concern__Group_6__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group_3__2"
+    // InternalBurst.g:1080:1: rule__RuleConcern__Group_3__2 : rule__RuleConcern__Group_3__2__Impl rule__RuleConcern__Group_3__3 ;
+    public final void rule__RuleConcern__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1151:1: ( ( ( RULE_ENDLINE )? ) )
-            // InternalBurst.g:1152:1: ( ( RULE_ENDLINE )? )
+            // InternalBurst.g:1084:1: ( rule__RuleConcern__Group_3__2__Impl rule__RuleConcern__Group_3__3 )
+            // InternalBurst.g:1085:2: rule__RuleConcern__Group_3__2__Impl rule__RuleConcern__Group_3__3
             {
-            // InternalBurst.g:1152:1: ( ( RULE_ENDLINE )? )
-            // InternalBurst.g:1153:2: ( RULE_ENDLINE )?
-            {
-             before(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_6_1()); 
-            // InternalBurst.g:1154:2: ( RULE_ENDLINE )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
-
-            if ( (LA13_0==RULE_ENDLINE) ) {
-                alt13=1;
-            }
-            switch (alt13) {
-                case 1 :
-                    // InternalBurst.g:1154:3: RULE_ENDLINE
-                    {
-                    match(input,RULE_ENDLINE,FOLLOW_2); 
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_6_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group_6__1__Impl"
-
-
-    // $ANTLR start "rule__Concern__Group_6__2"
-    // InternalBurst.g:1162:1: rule__Concern__Group_6__2 : rule__Concern__Group_6__2__Impl rule__Concern__Group_6__3 ;
-    public final void rule__Concern__Group_6__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1166:1: ( rule__Concern__Group_6__2__Impl rule__Concern__Group_6__3 )
-            // InternalBurst.g:1167:2: rule__Concern__Group_6__2__Impl rule__Concern__Group_6__3
-            {
-            pushFollow(FOLLOW_13);
-            rule__Concern__Group_6__2__Impl();
+            pushFollow(FOLLOW_14);
+            rule__RuleConcern__Group_3__2__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Concern__Group_6__3();
+            rule__RuleConcern__Group_3__3();
 
             state._fsp--;
 
@@ -3629,40 +3374,294 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group_6__2"
+    // $ANTLR end "rule__RuleConcern__Group_3__2"
 
 
-    // $ANTLR start "rule__Concern__Group_6__2__Impl"
-    // InternalBurst.g:1174:1: rule__Concern__Group_6__2__Impl : ( ( rule__Concern__Alternatives_6_2 )* ) ;
-    public final void rule__Concern__Group_6__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group_3__2__Impl"
+    // InternalBurst.g:1092:1: rule__RuleConcern__Group_3__2__Impl : ( ( RULE_ENDLINE )* ) ;
+    public final void rule__RuleConcern__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1178:1: ( ( ( rule__Concern__Alternatives_6_2 )* ) )
-            // InternalBurst.g:1179:1: ( ( rule__Concern__Alternatives_6_2 )* )
+            // InternalBurst.g:1096:1: ( ( ( RULE_ENDLINE )* ) )
+            // InternalBurst.g:1097:1: ( ( RULE_ENDLINE )* )
             {
-            // InternalBurst.g:1179:1: ( ( rule__Concern__Alternatives_6_2 )* )
-            // InternalBurst.g:1180:2: ( rule__Concern__Alternatives_6_2 )*
+            // InternalBurst.g:1097:1: ( ( RULE_ENDLINE )* )
+            // InternalBurst.g:1098:2: ( RULE_ENDLINE )*
             {
-             before(grammarAccess.getConcernAccess().getAlternatives_6_2()); 
-            // InternalBurst.g:1181:2: ( rule__Concern__Alternatives_6_2 )*
+             before(grammarAccess.getRuleConcernAccess().getENDLINETerminalRuleCall_3_2()); 
+            // InternalBurst.g:1099:2: ( RULE_ENDLINE )*
+            loop13:
+            do {
+                int alt13=2;
+                int LA13_0 = input.LA(1);
+
+                if ( (LA13_0==RULE_ENDLINE) ) {
+                    alt13=1;
+                }
+
+
+                switch (alt13) {
+            	case 1 :
+            	    // InternalBurst.g:1099:3: RULE_ENDLINE
+            	    {
+            	    match(input,RULE_ENDLINE,FOLLOW_8); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop13;
+                }
+            } while (true);
+
+             after(grammarAccess.getRuleConcernAccess().getENDLINETerminalRuleCall_3_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleConcern__Group_3__2__Impl"
+
+
+    // $ANTLR start "rule__RuleConcern__Group_3__3"
+    // InternalBurst.g:1107:1: rule__RuleConcern__Group_3__3 : rule__RuleConcern__Group_3__3__Impl ;
+    public final void rule__RuleConcern__Group_3__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1111:1: ( rule__RuleConcern__Group_3__3__Impl )
+            // InternalBurst.g:1112:2: rule__RuleConcern__Group_3__3__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RuleConcern__Group_3__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleConcern__Group_3__3"
+
+
+    // $ANTLR start "rule__RuleConcern__Group_3__3__Impl"
+    // InternalBurst.g:1118:1: rule__RuleConcern__Group_3__3__Impl : ( ( rule__RuleConcern__SupertypeAssignment_3_3 ) ) ;
+    public final void rule__RuleConcern__Group_3__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1122:1: ( ( ( rule__RuleConcern__SupertypeAssignment_3_3 ) ) )
+            // InternalBurst.g:1123:1: ( ( rule__RuleConcern__SupertypeAssignment_3_3 ) )
+            {
+            // InternalBurst.g:1123:1: ( ( rule__RuleConcern__SupertypeAssignment_3_3 ) )
+            // InternalBurst.g:1124:2: ( rule__RuleConcern__SupertypeAssignment_3_3 )
+            {
+             before(grammarAccess.getRuleConcernAccess().getSupertypeAssignment_3_3()); 
+            // InternalBurst.g:1125:2: ( rule__RuleConcern__SupertypeAssignment_3_3 )
+            // InternalBurst.g:1125:3: rule__RuleConcern__SupertypeAssignment_3_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__RuleConcern__SupertypeAssignment_3_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRuleConcernAccess().getSupertypeAssignment_3_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleConcern__Group_3__3__Impl"
+
+
+    // $ANTLR start "rule__RuleConcern__Group_4__0"
+    // InternalBurst.g:1134:1: rule__RuleConcern__Group_4__0 : rule__RuleConcern__Group_4__0__Impl rule__RuleConcern__Group_4__1 ;
+    public final void rule__RuleConcern__Group_4__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1138:1: ( rule__RuleConcern__Group_4__0__Impl rule__RuleConcern__Group_4__1 )
+            // InternalBurst.g:1139:2: rule__RuleConcern__Group_4__0__Impl rule__RuleConcern__Group_4__1
+            {
+            pushFollow(FOLLOW_15);
+            rule__RuleConcern__Group_4__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RuleConcern__Group_4__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleConcern__Group_4__0"
+
+
+    // $ANTLR start "rule__RuleConcern__Group_4__0__Impl"
+    // InternalBurst.g:1146:1: rule__RuleConcern__Group_4__0__Impl : ( '{' ) ;
+    public final void rule__RuleConcern__Group_4__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1150:1: ( ( '{' ) )
+            // InternalBurst.g:1151:1: ( '{' )
+            {
+            // InternalBurst.g:1151:1: ( '{' )
+            // InternalBurst.g:1152:2: '{'
+            {
+             before(grammarAccess.getRuleConcernAccess().getLeftCurlyBracketKeyword_4_0()); 
+            match(input,16,FOLLOW_2); 
+             after(grammarAccess.getRuleConcernAccess().getLeftCurlyBracketKeyword_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleConcern__Group_4__0__Impl"
+
+
+    // $ANTLR start "rule__RuleConcern__Group_4__1"
+    // InternalBurst.g:1161:1: rule__RuleConcern__Group_4__1 : rule__RuleConcern__Group_4__1__Impl rule__RuleConcern__Group_4__2 ;
+    public final void rule__RuleConcern__Group_4__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1165:1: ( rule__RuleConcern__Group_4__1__Impl rule__RuleConcern__Group_4__2 )
+            // InternalBurst.g:1166:2: rule__RuleConcern__Group_4__1__Impl rule__RuleConcern__Group_4__2
+            {
+            pushFollow(FOLLOW_15);
+            rule__RuleConcern__Group_4__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RuleConcern__Group_4__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleConcern__Group_4__1"
+
+
+    // $ANTLR start "rule__RuleConcern__Group_4__1__Impl"
+    // InternalBurst.g:1173:1: rule__RuleConcern__Group_4__1__Impl : ( ( rule__RuleConcern__ElementsAssignment_4_1 )* ) ;
+    public final void rule__RuleConcern__Group_4__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1177:1: ( ( ( rule__RuleConcern__ElementsAssignment_4_1 )* ) )
+            // InternalBurst.g:1178:1: ( ( rule__RuleConcern__ElementsAssignment_4_1 )* )
+            {
+            // InternalBurst.g:1178:1: ( ( rule__RuleConcern__ElementsAssignment_4_1 )* )
+            // InternalBurst.g:1179:2: ( rule__RuleConcern__ElementsAssignment_4_1 )*
+            {
+             before(grammarAccess.getRuleConcernAccess().getElementsAssignment_4_1()); 
+            // InternalBurst.g:1180:2: ( rule__RuleConcern__ElementsAssignment_4_1 )*
             loop14:
             do {
                 int alt14=2;
                 int LA14_0 = input.LA(1);
 
-                if ( (LA14_0==RULE_ID||LA14_0==19) ) {
+                if ( ((LA14_0>=RULE_ENDLINE && LA14_0<=RULE_ID)||LA14_0==21) ) {
                     alt14=1;
                 }
 
 
                 switch (alt14) {
             	case 1 :
-            	    // InternalBurst.g:1181:3: rule__Concern__Alternatives_6_2
+            	    // InternalBurst.g:1180:3: rule__RuleConcern__ElementsAssignment_4_1
             	    {
-            	    pushFollow(FOLLOW_14);
-            	    rule__Concern__Alternatives_6_2();
+            	    pushFollow(FOLLOW_16);
+            	    rule__RuleConcern__ElementsAssignment_4_1();
 
             	    state._fsp--;
 
@@ -3675,7 +3674,7 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
                 }
             } while (true);
 
-             after(grammarAccess.getConcernAccess().getAlternatives_6_2()); 
+             after(grammarAccess.getRuleConcernAccess().getElementsAssignment_4_1()); 
 
             }
 
@@ -3694,26 +3693,96 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group_6__2__Impl"
+    // $ANTLR end "rule__RuleConcern__Group_4__1__Impl"
 
 
-    // $ANTLR start "rule__Concern__Group_6__3"
-    // InternalBurst.g:1189:1: rule__Concern__Group_6__3 : rule__Concern__Group_6__3__Impl rule__Concern__Group_6__4 ;
-    public final void rule__Concern__Group_6__3() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__Group_4__2"
+    // InternalBurst.g:1188:1: rule__RuleConcern__Group_4__2 : rule__RuleConcern__Group_4__2__Impl ;
+    public final void rule__RuleConcern__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1193:1: ( rule__Concern__Group_6__3__Impl rule__Concern__Group_6__4 )
-            // InternalBurst.g:1194:2: rule__Concern__Group_6__3__Impl rule__Concern__Group_6__4
+            // InternalBurst.g:1192:1: ( rule__RuleConcern__Group_4__2__Impl )
+            // InternalBurst.g:1193:2: rule__RuleConcern__Group_4__2__Impl
             {
-            pushFollow(FOLLOW_13);
-            rule__Concern__Group_6__3__Impl();
+            pushFollow(FOLLOW_2);
+            rule__RuleConcern__Group_4__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleConcern__Group_4__2"
+
+
+    // $ANTLR start "rule__RuleConcern__Group_4__2__Impl"
+    // InternalBurst.g:1199:1: rule__RuleConcern__Group_4__2__Impl : ( '}' ) ;
+    public final void rule__RuleConcern__Group_4__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1203:1: ( ( '}' ) )
+            // InternalBurst.g:1204:1: ( '}' )
+            {
+            // InternalBurst.g:1204:1: ( '}' )
+            // InternalBurst.g:1205:2: '}'
+            {
+             before(grammarAccess.getRuleConcernAccess().getRightCurlyBracketKeyword_4_2()); 
+            match(input,17,FOLLOW_2); 
+             after(grammarAccess.getRuleConcernAccess().getRightCurlyBracketKeyword_4_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleConcern__Group_4__2__Impl"
+
+
+    // $ANTLR start "rule__DeclareMember__Group__0"
+    // InternalBurst.g:1215:1: rule__DeclareMember__Group__0 : rule__DeclareMember__Group__0__Impl rule__DeclareMember__Group__1 ;
+    public final void rule__DeclareMember__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1219:1: ( rule__DeclareMember__Group__0__Impl rule__DeclareMember__Group__1 )
+            // InternalBurst.g:1220:2: rule__DeclareMember__Group__0__Impl rule__DeclareMember__Group__1
+            {
+            pushFollow(FOLLOW_5);
+            rule__DeclareMember__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Concern__Group_6__4();
+            rule__DeclareMember__Group__1();
 
             state._fsp--;
 
@@ -3732,52 +3801,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group_6__3"
+    // $ANTLR end "rule__DeclareMember__Group__0"
 
 
-    // $ANTLR start "rule__Concern__Group_6__3__Impl"
-    // InternalBurst.g:1201:1: rule__Concern__Group_6__3__Impl : ( ( RULE_ENDLINE )? ) ;
-    public final void rule__Concern__Group_6__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DeclareMember__Group__0__Impl"
+    // InternalBurst.g:1227:1: rule__DeclareMember__Group__0__Impl : ( () ) ;
+    public final void rule__DeclareMember__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1205:1: ( ( ( RULE_ENDLINE )? ) )
-            // InternalBurst.g:1206:1: ( ( RULE_ENDLINE )? )
+            // InternalBurst.g:1231:1: ( ( () ) )
+            // InternalBurst.g:1232:1: ( () )
             {
-            // InternalBurst.g:1206:1: ( ( RULE_ENDLINE )? )
-            // InternalBurst.g:1207:2: ( RULE_ENDLINE )?
+            // InternalBurst.g:1232:1: ( () )
+            // InternalBurst.g:1233:2: ()
             {
-             before(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_6_3()); 
-            // InternalBurst.g:1208:2: ( RULE_ENDLINE )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
-
-            if ( (LA15_0==RULE_ENDLINE) ) {
-                alt15=1;
-            }
-            switch (alt15) {
-                case 1 :
-                    // InternalBurst.g:1208:3: RULE_ENDLINE
-                    {
-                    match(input,RULE_ENDLINE,FOLLOW_2); 
-
-                    }
-                    break;
-
+             before(grammarAccess.getDeclareMemberAccess().getMemberAction_0()); 
+            // InternalBurst.g:1234:2: ()
+            // InternalBurst.g:1234:3: 
+            {
             }
 
-             after(grammarAccess.getConcernAccess().getENDLINETerminalRuleCall_6_3()); 
+             after(grammarAccess.getDeclareMemberAccess().getMemberAction_0()); 
 
             }
 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -3786,96 +3838,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__Group_6__3__Impl"
+    // $ANTLR end "rule__DeclareMember__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Concern__Group_6__4"
-    // InternalBurst.g:1216:1: rule__Concern__Group_6__4 : rule__Concern__Group_6__4__Impl ;
-    public final void rule__Concern__Group_6__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1220:1: ( rule__Concern__Group_6__4__Impl )
-            // InternalBurst.g:1221:2: rule__Concern__Group_6__4__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Concern__Group_6__4__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group_6__4"
-
-
-    // $ANTLR start "rule__Concern__Group_6__4__Impl"
-    // InternalBurst.g:1227:1: rule__Concern__Group_6__4__Impl : ( '}' ) ;
-    public final void rule__Concern__Group_6__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DeclareMember__Group__1"
+    // InternalBurst.g:1242:1: rule__DeclareMember__Group__1 : rule__DeclareMember__Group__1__Impl rule__DeclareMember__Group__2 ;
+    public final void rule__DeclareMember__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1231:1: ( ( '}' ) )
-            // InternalBurst.g:1232:1: ( '}' )
+            // InternalBurst.g:1246:1: ( rule__DeclareMember__Group__1__Impl rule__DeclareMember__Group__2 )
+            // InternalBurst.g:1247:2: rule__DeclareMember__Group__1__Impl rule__DeclareMember__Group__2
             {
-            // InternalBurst.g:1232:1: ( '}' )
-            // InternalBurst.g:1233:2: '}'
-            {
-             before(grammarAccess.getConcernAccess().getRightCurlyBracketKeyword_6_4()); 
-            match(input,14,FOLLOW_2); 
-             after(grammarAccess.getConcernAccess().getRightCurlyBracketKeyword_6_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__Group_6__4__Impl"
-
-
-    // $ANTLR start "rule__Member__Group__0"
-    // InternalBurst.g:1243:1: rule__Member__Group__0 : rule__Member__Group__0__Impl rule__Member__Group__1 ;
-    public final void rule__Member__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1247:1: ( rule__Member__Group__0__Impl rule__Member__Group__1 )
-            // InternalBurst.g:1248:2: rule__Member__Group__0__Impl rule__Member__Group__1
-            {
-            pushFollow(FOLLOW_4);
-            rule__Member__Group__0__Impl();
+            pushFollow(FOLLOW_5);
+            rule__DeclareMember__Group__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Member__Group__1();
+            rule__DeclareMember__Group__2();
 
             state._fsp--;
 
@@ -3894,35 +3876,45 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Member__Group__0"
+    // $ANTLR end "rule__DeclareMember__Group__1"
 
 
-    // $ANTLR start "rule__Member__Group__0__Impl"
-    // InternalBurst.g:1255:1: rule__Member__Group__0__Impl : ( () ) ;
-    public final void rule__Member__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__DeclareMember__Group__1__Impl"
+    // InternalBurst.g:1254:1: rule__DeclareMember__Group__1__Impl : ( ( rule__DeclareMember__ConcernAssignment_1 ) ) ;
+    public final void rule__DeclareMember__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1259:1: ( ( () ) )
-            // InternalBurst.g:1260:1: ( () )
+            // InternalBurst.g:1258:1: ( ( ( rule__DeclareMember__ConcernAssignment_1 ) ) )
+            // InternalBurst.g:1259:1: ( ( rule__DeclareMember__ConcernAssignment_1 ) )
             {
-            // InternalBurst.g:1260:1: ( () )
-            // InternalBurst.g:1261:2: ()
+            // InternalBurst.g:1259:1: ( ( rule__DeclareMember__ConcernAssignment_1 ) )
+            // InternalBurst.g:1260:2: ( rule__DeclareMember__ConcernAssignment_1 )
             {
-             before(grammarAccess.getMemberAccess().getMemberAction_0()); 
-            // InternalBurst.g:1262:2: ()
-            // InternalBurst.g:1262:3: 
+             before(grammarAccess.getDeclareMemberAccess().getConcernAssignment_1()); 
+            // InternalBurst.g:1261:2: ( rule__DeclareMember__ConcernAssignment_1 )
+            // InternalBurst.g:1261:3: rule__DeclareMember__ConcernAssignment_1
             {
+            pushFollow(FOLLOW_2);
+            rule__DeclareMember__ConcernAssignment_1();
+
+            state._fsp--;
+
+
             }
 
-             after(grammarAccess.getMemberAccess().getMemberAction_0()); 
+             after(grammarAccess.getDeclareMemberAccess().getConcernAssignment_1()); 
 
             }
 
 
             }
 
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
         }
         finally {
 
@@ -3931,26 +3923,106 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Member__Group__0__Impl"
+    // $ANTLR end "rule__DeclareMember__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Member__Group__1"
-    // InternalBurst.g:1270:1: rule__Member__Group__1 : rule__Member__Group__1__Impl rule__Member__Group__2 ;
-    public final void rule__Member__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__DeclareMember__Group__2"
+    // InternalBurst.g:1269:1: rule__DeclareMember__Group__2 : rule__DeclareMember__Group__2__Impl ;
+    public final void rule__DeclareMember__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1274:1: ( rule__Member__Group__1__Impl rule__Member__Group__2 )
-            // InternalBurst.g:1275:2: rule__Member__Group__1__Impl rule__Member__Group__2
+            // InternalBurst.g:1273:1: ( rule__DeclareMember__Group__2__Impl )
+            // InternalBurst.g:1274:2: rule__DeclareMember__Group__2__Impl
             {
-            pushFollow(FOLLOW_11);
-            rule__Member__Group__1__Impl();
+            pushFollow(FOLLOW_2);
+            rule__DeclareMember__Group__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DeclareMember__Group__2"
+
+
+    // $ANTLR start "rule__DeclareMember__Group__2__Impl"
+    // InternalBurst.g:1280:1: rule__DeclareMember__Group__2__Impl : ( ( rule__DeclareMember__NameAssignment_2 ) ) ;
+    public final void rule__DeclareMember__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1284:1: ( ( ( rule__DeclareMember__NameAssignment_2 ) ) )
+            // InternalBurst.g:1285:1: ( ( rule__DeclareMember__NameAssignment_2 ) )
+            {
+            // InternalBurst.g:1285:1: ( ( rule__DeclareMember__NameAssignment_2 ) )
+            // InternalBurst.g:1286:2: ( rule__DeclareMember__NameAssignment_2 )
+            {
+             before(grammarAccess.getDeclareMemberAccess().getNameAssignment_2()); 
+            // InternalBurst.g:1287:2: ( rule__DeclareMember__NameAssignment_2 )
+            // InternalBurst.g:1287:3: rule__DeclareMember__NameAssignment_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__DeclareMember__NameAssignment_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDeclareMemberAccess().getNameAssignment_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DeclareMember__Group__2__Impl"
+
+
+    // $ANTLR start "rule__RuleIntersect__Group__0"
+    // InternalBurst.g:1296:1: rule__RuleIntersect__Group__0 : rule__RuleIntersect__Group__0__Impl rule__RuleIntersect__Group__1 ;
+    public final void rule__RuleIntersect__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1300:1: ( rule__RuleIntersect__Group__0__Impl rule__RuleIntersect__Group__1 )
+            // InternalBurst.g:1301:2: rule__RuleIntersect__Group__0__Impl rule__RuleIntersect__Group__1
+            {
+            pushFollow(FOLLOW_17);
+            rule__RuleIntersect__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Member__Group__2();
+            rule__RuleIntersect__Group__1();
 
             state._fsp--;
 
@@ -3969,45 +4041,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Member__Group__1"
+    // $ANTLR end "rule__RuleIntersect__Group__0"
 
 
-    // $ANTLR start "rule__Member__Group__1__Impl"
-    // InternalBurst.g:1282:1: rule__Member__Group__1__Impl : ( ( rule__Member__ConcernAssignment_1 ) ) ;
-    public final void rule__Member__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__Group__0__Impl"
+    // InternalBurst.g:1308:1: rule__RuleIntersect__Group__0__Impl : ( () ) ;
+    public final void rule__RuleIntersect__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1286:1: ( ( ( rule__Member__ConcernAssignment_1 ) ) )
-            // InternalBurst.g:1287:1: ( ( rule__Member__ConcernAssignment_1 ) )
+            // InternalBurst.g:1312:1: ( ( () ) )
+            // InternalBurst.g:1313:1: ( () )
             {
-            // InternalBurst.g:1287:1: ( ( rule__Member__ConcernAssignment_1 ) )
-            // InternalBurst.g:1288:2: ( rule__Member__ConcernAssignment_1 )
+            // InternalBurst.g:1313:1: ( () )
+            // InternalBurst.g:1314:2: ()
             {
-             before(grammarAccess.getMemberAccess().getConcernAssignment_1()); 
-            // InternalBurst.g:1289:2: ( rule__Member__ConcernAssignment_1 )
-            // InternalBurst.g:1289:3: rule__Member__ConcernAssignment_1
+             before(grammarAccess.getRuleIntersectAccess().getIntersectionAction_0()); 
+            // InternalBurst.g:1315:2: ()
+            // InternalBurst.g:1315:3: 
             {
-            pushFollow(FOLLOW_2);
-            rule__Member__ConcernAssignment_1();
-
-            state._fsp--;
-
-
             }
 
-             after(grammarAccess.getMemberAccess().getConcernAssignment_1()); 
+             after(grammarAccess.getRuleIntersectAccess().getIntersectionAction_0()); 
 
             }
 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -4016,26 +4078,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Member__Group__1__Impl"
+    // $ANTLR end "rule__RuleIntersect__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Member__Group__2"
-    // InternalBurst.g:1297:1: rule__Member__Group__2 : rule__Member__Group__2__Impl rule__Member__Group__3 ;
-    public final void rule__Member__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__Group__1"
+    // InternalBurst.g:1323:1: rule__RuleIntersect__Group__1 : rule__RuleIntersect__Group__1__Impl rule__RuleIntersect__Group__2 ;
+    public final void rule__RuleIntersect__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1301:1: ( rule__Member__Group__2__Impl rule__Member__Group__3 )
-            // InternalBurst.g:1302:2: rule__Member__Group__2__Impl rule__Member__Group__3
+            // InternalBurst.g:1327:1: ( rule__RuleIntersect__Group__1__Impl rule__RuleIntersect__Group__2 )
+            // InternalBurst.g:1328:2: rule__RuleIntersect__Group__1__Impl rule__RuleIntersect__Group__2
             {
-            pushFollow(FOLLOW_11);
-            rule__Member__Group__2__Impl();
+            pushFollow(FOLLOW_18);
+            rule__RuleIntersect__Group__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Member__Group__3();
+            rule__RuleIntersect__Group__2();
 
             state._fsp--;
 
@@ -4054,42 +4116,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Member__Group__2"
+    // $ANTLR end "rule__RuleIntersect__Group__1"
 
 
-    // $ANTLR start "rule__Member__Group__2__Impl"
-    // InternalBurst.g:1309:1: rule__Member__Group__2__Impl : ( ( RULE_ENDLINE )? ) ;
-    public final void rule__Member__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__Group__1__Impl"
+    // InternalBurst.g:1335:1: rule__RuleIntersect__Group__1__Impl : ( ( rule__RuleIntersect__NameAssignment_1 ) ) ;
+    public final void rule__RuleIntersect__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1313:1: ( ( ( RULE_ENDLINE )? ) )
-            // InternalBurst.g:1314:1: ( ( RULE_ENDLINE )? )
+            // InternalBurst.g:1339:1: ( ( ( rule__RuleIntersect__NameAssignment_1 ) ) )
+            // InternalBurst.g:1340:1: ( ( rule__RuleIntersect__NameAssignment_1 ) )
             {
-            // InternalBurst.g:1314:1: ( ( RULE_ENDLINE )? )
-            // InternalBurst.g:1315:2: ( RULE_ENDLINE )?
+            // InternalBurst.g:1340:1: ( ( rule__RuleIntersect__NameAssignment_1 ) )
+            // InternalBurst.g:1341:2: ( rule__RuleIntersect__NameAssignment_1 )
             {
-             before(grammarAccess.getMemberAccess().getENDLINETerminalRuleCall_2()); 
-            // InternalBurst.g:1316:2: ( RULE_ENDLINE )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+             before(grammarAccess.getRuleIntersectAccess().getNameAssignment_1()); 
+            // InternalBurst.g:1342:2: ( rule__RuleIntersect__NameAssignment_1 )
+            // InternalBurst.g:1342:3: rule__RuleIntersect__NameAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__RuleIntersect__NameAssignment_1();
 
-            if ( (LA16_0==RULE_ENDLINE) ) {
-                alt16=1;
-            }
-            switch (alt16) {
-                case 1 :
-                    // InternalBurst.g:1316:3: RULE_ENDLINE
-                    {
-                    match(input,RULE_ENDLINE,FOLLOW_2); 
+            state._fsp--;
 
-                    }
-                    break;
 
             }
 
-             after(grammarAccess.getMemberAccess().getENDLINETerminalRuleCall_2()); 
+             after(grammarAccess.getRuleIntersectAccess().getNameAssignment_1()); 
 
             }
 
@@ -4108,26 +4163,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Member__Group__2__Impl"
+    // $ANTLR end "rule__RuleIntersect__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Member__Group__3"
-    // InternalBurst.g:1324:1: rule__Member__Group__3 : rule__Member__Group__3__Impl rule__Member__Group__4 ;
-    public final void rule__Member__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__Group__2"
+    // InternalBurst.g:1350:1: rule__RuleIntersect__Group__2 : rule__RuleIntersect__Group__2__Impl rule__RuleIntersect__Group__3 ;
+    public final void rule__RuleIntersect__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1328:1: ( rule__Member__Group__3__Impl rule__Member__Group__4 )
-            // InternalBurst.g:1329:2: rule__Member__Group__3__Impl rule__Member__Group__4
+            // InternalBurst.g:1354:1: ( rule__RuleIntersect__Group__2__Impl rule__RuleIntersect__Group__3 )
+            // InternalBurst.g:1355:2: rule__RuleIntersect__Group__2__Impl rule__RuleIntersect__Group__3
             {
-            pushFollow(FOLLOW_7);
-            rule__Member__Group__3__Impl();
+            pushFollow(FOLLOW_18);
+            rule__RuleIntersect__Group__2__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Member__Group__4();
+            rule__RuleIntersect__Group__3();
 
             state._fsp--;
 
@@ -4146,35 +4201,53 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Member__Group__3"
+    // $ANTLR end "rule__RuleIntersect__Group__2"
 
 
-    // $ANTLR start "rule__Member__Group__3__Impl"
-    // InternalBurst.g:1336:1: rule__Member__Group__3__Impl : ( ( rule__Member__NameAssignment_3 ) ) ;
-    public final void rule__Member__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__Group__2__Impl"
+    // InternalBurst.g:1362:1: rule__RuleIntersect__Group__2__Impl : ( ( rule__RuleIntersect__Group_2__0 )* ) ;
+    public final void rule__RuleIntersect__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1340:1: ( ( ( rule__Member__NameAssignment_3 ) ) )
-            // InternalBurst.g:1341:1: ( ( rule__Member__NameAssignment_3 ) )
+            // InternalBurst.g:1366:1: ( ( ( rule__RuleIntersect__Group_2__0 )* ) )
+            // InternalBurst.g:1367:1: ( ( rule__RuleIntersect__Group_2__0 )* )
             {
-            // InternalBurst.g:1341:1: ( ( rule__Member__NameAssignment_3 ) )
-            // InternalBurst.g:1342:2: ( rule__Member__NameAssignment_3 )
+            // InternalBurst.g:1367:1: ( ( rule__RuleIntersect__Group_2__0 )* )
+            // InternalBurst.g:1368:2: ( rule__RuleIntersect__Group_2__0 )*
             {
-             before(grammarAccess.getMemberAccess().getNameAssignment_3()); 
-            // InternalBurst.g:1343:2: ( rule__Member__NameAssignment_3 )
-            // InternalBurst.g:1343:3: rule__Member__NameAssignment_3
-            {
-            pushFollow(FOLLOW_2);
-            rule__Member__NameAssignment_3();
+             before(grammarAccess.getRuleIntersectAccess().getGroup_2()); 
+            // InternalBurst.g:1369:2: ( rule__RuleIntersect__Group_2__0 )*
+            loop15:
+            do {
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-            state._fsp--;
+                if ( ((LA15_0>=RULE_ENDLINE && LA15_0<=RULE_ID)) ) {
+                    alt15=1;
+                }
 
 
-            }
+                switch (alt15) {
+            	case 1 :
+            	    // InternalBurst.g:1369:3: rule__RuleIntersect__Group_2__0
+            	    {
+            	    pushFollow(FOLLOW_19);
+            	    rule__RuleIntersect__Group_2__0();
 
-             after(grammarAccess.getMemberAccess().getNameAssignment_3()); 
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop15;
+                }
+            } while (true);
+
+             after(grammarAccess.getRuleIntersectAccess().getGroup_2()); 
 
             }
 
@@ -4193,113 +4266,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Member__Group__3__Impl"
+    // $ANTLR end "rule__RuleIntersect__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Member__Group__4"
-    // InternalBurst.g:1351:1: rule__Member__Group__4 : rule__Member__Group__4__Impl ;
-    public final void rule__Member__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1355:1: ( rule__Member__Group__4__Impl )
-            // InternalBurst.g:1356:2: rule__Member__Group__4__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Member__Group__4__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Member__Group__4"
-
-
-    // $ANTLR start "rule__Member__Group__4__Impl"
-    // InternalBurst.g:1362:1: rule__Member__Group__4__Impl : ( ( RULE_ENDLINE )? ) ;
-    public final void rule__Member__Group__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__Group__3"
+    // InternalBurst.g:1377:1: rule__RuleIntersect__Group__3 : rule__RuleIntersect__Group__3__Impl rule__RuleIntersect__Group__4 ;
+    public final void rule__RuleIntersect__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1366:1: ( ( ( RULE_ENDLINE )? ) )
-            // InternalBurst.g:1367:1: ( ( RULE_ENDLINE )? )
+            // InternalBurst.g:1381:1: ( rule__RuleIntersect__Group__3__Impl rule__RuleIntersect__Group__4 )
+            // InternalBurst.g:1382:2: rule__RuleIntersect__Group__3__Impl rule__RuleIntersect__Group__4
             {
-            // InternalBurst.g:1367:1: ( ( RULE_ENDLINE )? )
-            // InternalBurst.g:1368:2: ( RULE_ENDLINE )?
-            {
-             before(grammarAccess.getMemberAccess().getENDLINETerminalRuleCall_4()); 
-            // InternalBurst.g:1369:2: ( RULE_ENDLINE )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
-
-            if ( (LA17_0==RULE_ENDLINE) ) {
-                alt17=1;
-            }
-            switch (alt17) {
-                case 1 :
-                    // InternalBurst.g:1369:3: RULE_ENDLINE
-                    {
-                    match(input,RULE_ENDLINE,FOLLOW_2); 
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getMemberAccess().getENDLINETerminalRuleCall_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Member__Group__4__Impl"
-
-
-    // $ANTLR start "rule__Intersection__Group__0"
-    // InternalBurst.g:1378:1: rule__Intersection__Group__0 : rule__Intersection__Group__0__Impl rule__Intersection__Group__1 ;
-    public final void rule__Intersection__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1382:1: ( rule__Intersection__Group__0__Impl rule__Intersection__Group__1 )
-            // InternalBurst.g:1383:2: rule__Intersection__Group__0__Impl rule__Intersection__Group__1
-            {
-            pushFollow(FOLLOW_15);
-            rule__Intersection__Group__0__Impl();
+            pushFollow(FOLLOW_20);
+            rule__RuleIntersect__Group__3__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Intersection__Group__1();
+            rule__RuleIntersect__Group__4();
 
             state._fsp--;
 
@@ -4318,35 +4304,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__Group__0"
+    // $ANTLR end "rule__RuleIntersect__Group__3"
 
 
-    // $ANTLR start "rule__Intersection__Group__0__Impl"
-    // InternalBurst.g:1390:1: rule__Intersection__Group__0__Impl : ( () ) ;
-    public final void rule__Intersection__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__Group__3__Impl"
+    // InternalBurst.g:1389:1: rule__RuleIntersect__Group__3__Impl : ( '{' ) ;
+    public final void rule__RuleIntersect__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1394:1: ( ( () ) )
-            // InternalBurst.g:1395:1: ( () )
+            // InternalBurst.g:1393:1: ( ( '{' ) )
+            // InternalBurst.g:1394:1: ( '{' )
             {
-            // InternalBurst.g:1395:1: ( () )
-            // InternalBurst.g:1396:2: ()
+            // InternalBurst.g:1394:1: ( '{' )
+            // InternalBurst.g:1395:2: '{'
             {
-             before(grammarAccess.getIntersectionAccess().getIntersectionAction_0()); 
-            // InternalBurst.g:1397:2: ()
-            // InternalBurst.g:1397:3: 
-            {
-            }
-
-             after(grammarAccess.getIntersectionAccess().getIntersectionAction_0()); 
+             before(grammarAccess.getRuleIntersectAccess().getLeftCurlyBracketKeyword_3()); 
+            match(input,16,FOLLOW_2); 
+             after(grammarAccess.getRuleIntersectAccess().getLeftCurlyBracketKeyword_3()); 
 
             }
 
 
             }
 
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
         }
         finally {
 
@@ -4355,26 +4341,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__Group__0__Impl"
+    // $ANTLR end "rule__RuleIntersect__Group__3__Impl"
 
 
-    // $ANTLR start "rule__Intersection__Group__1"
-    // InternalBurst.g:1405:1: rule__Intersection__Group__1 : rule__Intersection__Group__1__Impl rule__Intersection__Group__2 ;
-    public final void rule__Intersection__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__Group__4"
+    // InternalBurst.g:1404:1: rule__RuleIntersect__Group__4 : rule__RuleIntersect__Group__4__Impl rule__RuleIntersect__Group__5 ;
+    public final void rule__RuleIntersect__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1409:1: ( rule__Intersection__Group__1__Impl rule__Intersection__Group__2 )
-            // InternalBurst.g:1410:2: rule__Intersection__Group__1__Impl rule__Intersection__Group__2
+            // InternalBurst.g:1408:1: ( rule__RuleIntersect__Group__4__Impl rule__RuleIntersect__Group__5 )
+            // InternalBurst.g:1409:2: rule__RuleIntersect__Group__4__Impl rule__RuleIntersect__Group__5
             {
-            pushFollow(FOLLOW_16);
-            rule__Intersection__Group__1__Impl();
+            pushFollow(FOLLOW_20);
+            rule__RuleIntersect__Group__4__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Intersection__Group__2();
+            rule__RuleIntersect__Group__5();
 
             state._fsp--;
 
@@ -4393,35 +4379,123 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__Group__1"
+    // $ANTLR end "rule__RuleIntersect__Group__4"
 
 
-    // $ANTLR start "rule__Intersection__Group__1__Impl"
-    // InternalBurst.g:1417:1: rule__Intersection__Group__1__Impl : ( ( rule__Intersection__NameAssignment_1 ) ) ;
-    public final void rule__Intersection__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__Group__4__Impl"
+    // InternalBurst.g:1416:1: rule__RuleIntersect__Group__4__Impl : ( ( rule__RuleIntersect__LinesAssignment_4 )* ) ;
+    public final void rule__RuleIntersect__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1421:1: ( ( ( rule__Intersection__NameAssignment_1 ) ) )
-            // InternalBurst.g:1422:1: ( ( rule__Intersection__NameAssignment_1 ) )
+            // InternalBurst.g:1420:1: ( ( ( rule__RuleIntersect__LinesAssignment_4 )* ) )
+            // InternalBurst.g:1421:1: ( ( rule__RuleIntersect__LinesAssignment_4 )* )
             {
-            // InternalBurst.g:1422:1: ( ( rule__Intersection__NameAssignment_1 ) )
-            // InternalBurst.g:1423:2: ( rule__Intersection__NameAssignment_1 )
+            // InternalBurst.g:1421:1: ( ( rule__RuleIntersect__LinesAssignment_4 )* )
+            // InternalBurst.g:1422:2: ( rule__RuleIntersect__LinesAssignment_4 )*
             {
-             before(grammarAccess.getIntersectionAccess().getNameAssignment_1()); 
-            // InternalBurst.g:1424:2: ( rule__Intersection__NameAssignment_1 )
-            // InternalBurst.g:1424:3: rule__Intersection__NameAssignment_1
+             before(grammarAccess.getRuleIntersectAccess().getLinesAssignment_4()); 
+            // InternalBurst.g:1423:2: ( rule__RuleIntersect__LinesAssignment_4 )*
+            loop16:
+            do {
+                int alt16=2;
+                int LA16_0 = input.LA(1);
+
+                if ( ((LA16_0>=RULE_ENDLINE && LA16_0<=RULE_ID)||LA16_0==22) ) {
+                    alt16=1;
+                }
+
+
+                switch (alt16) {
+            	case 1 :
+            	    // InternalBurst.g:1423:3: rule__RuleIntersect__LinesAssignment_4
+            	    {
+            	    pushFollow(FOLLOW_21);
+            	    rule__RuleIntersect__LinesAssignment_4();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop16;
+                }
+            } while (true);
+
+             after(grammarAccess.getRuleIntersectAccess().getLinesAssignment_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleIntersect__Group__4__Impl"
+
+
+    // $ANTLR start "rule__RuleIntersect__Group__5"
+    // InternalBurst.g:1431:1: rule__RuleIntersect__Group__5 : rule__RuleIntersect__Group__5__Impl ;
+    public final void rule__RuleIntersect__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1435:1: ( rule__RuleIntersect__Group__5__Impl )
+            // InternalBurst.g:1436:2: rule__RuleIntersect__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Intersection__NameAssignment_1();
+            rule__RuleIntersect__Group__5__Impl();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getIntersectionAccess().getNameAssignment_1()); 
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleIntersect__Group__5"
+
+
+    // $ANTLR start "rule__RuleIntersect__Group__5__Impl"
+    // InternalBurst.g:1442:1: rule__RuleIntersect__Group__5__Impl : ( '}' ) ;
+    public final void rule__RuleIntersect__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1446:1: ( ( '}' ) )
+            // InternalBurst.g:1447:1: ( '}' )
+            {
+            // InternalBurst.g:1447:1: ( '}' )
+            // InternalBurst.g:1448:2: '}'
+            {
+             before(grammarAccess.getRuleIntersectAccess().getRightCurlyBracketKeyword_5()); 
+            match(input,17,FOLLOW_2); 
+             after(grammarAccess.getRuleIntersectAccess().getRightCurlyBracketKeyword_5()); 
 
             }
 
@@ -4440,26 +4514,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__Group__1__Impl"
+    // $ANTLR end "rule__RuleIntersect__Group__5__Impl"
 
 
-    // $ANTLR start "rule__Intersection__Group__2"
-    // InternalBurst.g:1432:1: rule__Intersection__Group__2 : rule__Intersection__Group__2__Impl rule__Intersection__Group__3 ;
-    public final void rule__Intersection__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__Group_2__0"
+    // InternalBurst.g:1458:1: rule__RuleIntersect__Group_2__0 : rule__RuleIntersect__Group_2__0__Impl rule__RuleIntersect__Group_2__1 ;
+    public final void rule__RuleIntersect__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1436:1: ( rule__Intersection__Group__2__Impl rule__Intersection__Group__3 )
-            // InternalBurst.g:1437:2: rule__Intersection__Group__2__Impl rule__Intersection__Group__3
+            // InternalBurst.g:1462:1: ( rule__RuleIntersect__Group_2__0__Impl rule__RuleIntersect__Group_2__1 )
+            // InternalBurst.g:1463:2: rule__RuleIntersect__Group_2__0__Impl rule__RuleIntersect__Group_2__1
             {
-            pushFollow(FOLLOW_16);
-            rule__Intersection__Group__2__Impl();
+            pushFollow(FOLLOW_14);
+            rule__RuleIntersect__Group_2__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Intersection__Group__3();
+            rule__RuleIntersect__Group_2__1();
 
             state._fsp--;
 
@@ -4478,42 +4552,225 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__Group__2"
+    // $ANTLR end "rule__RuleIntersect__Group_2__0"
 
 
-    // $ANTLR start "rule__Intersection__Group__2__Impl"
-    // InternalBurst.g:1444:1: rule__Intersection__Group__2__Impl : ( ( RULE_ENDLINE )? ) ;
-    public final void rule__Intersection__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__Group_2__0__Impl"
+    // InternalBurst.g:1470:1: rule__RuleIntersect__Group_2__0__Impl : ( ( RULE_ENDLINE )* ) ;
+    public final void rule__RuleIntersect__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1448:1: ( ( ( RULE_ENDLINE )? ) )
-            // InternalBurst.g:1449:1: ( ( RULE_ENDLINE )? )
+            // InternalBurst.g:1474:1: ( ( ( RULE_ENDLINE )* ) )
+            // InternalBurst.g:1475:1: ( ( RULE_ENDLINE )* )
             {
-            // InternalBurst.g:1449:1: ( ( RULE_ENDLINE )? )
-            // InternalBurst.g:1450:2: ( RULE_ENDLINE )?
+            // InternalBurst.g:1475:1: ( ( RULE_ENDLINE )* )
+            // InternalBurst.g:1476:2: ( RULE_ENDLINE )*
             {
-             before(grammarAccess.getIntersectionAccess().getENDLINETerminalRuleCall_2()); 
-            // InternalBurst.g:1451:2: ( RULE_ENDLINE )?
+             before(grammarAccess.getRuleIntersectAccess().getENDLINETerminalRuleCall_2_0()); 
+            // InternalBurst.g:1477:2: ( RULE_ENDLINE )*
+            loop17:
+            do {
+                int alt17=2;
+                int LA17_0 = input.LA(1);
+
+                if ( (LA17_0==RULE_ENDLINE) ) {
+                    alt17=1;
+                }
+
+
+                switch (alt17) {
+            	case 1 :
+            	    // InternalBurst.g:1477:3: RULE_ENDLINE
+            	    {
+            	    match(input,RULE_ENDLINE,FOLLOW_8); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop17;
+                }
+            } while (true);
+
+             after(grammarAccess.getRuleIntersectAccess().getENDLINETerminalRuleCall_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleIntersect__Group_2__0__Impl"
+
+
+    // $ANTLR start "rule__RuleIntersect__Group_2__1"
+    // InternalBurst.g:1485:1: rule__RuleIntersect__Group_2__1 : rule__RuleIntersect__Group_2__1__Impl rule__RuleIntersect__Group_2__2 ;
+    public final void rule__RuleIntersect__Group_2__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1489:1: ( rule__RuleIntersect__Group_2__1__Impl rule__RuleIntersect__Group_2__2 )
+            // InternalBurst.g:1490:2: rule__RuleIntersect__Group_2__1__Impl rule__RuleIntersect__Group_2__2
+            {
+            pushFollow(FOLLOW_22);
+            rule__RuleIntersect__Group_2__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RuleIntersect__Group_2__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleIntersect__Group_2__1"
+
+
+    // $ANTLR start "rule__RuleIntersect__Group_2__1__Impl"
+    // InternalBurst.g:1497:1: rule__RuleIntersect__Group_2__1__Impl : ( ( rule__RuleIntersect__ParametersAssignment_2_1 ) ) ;
+    public final void rule__RuleIntersect__Group_2__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1501:1: ( ( ( rule__RuleIntersect__ParametersAssignment_2_1 ) ) )
+            // InternalBurst.g:1502:1: ( ( rule__RuleIntersect__ParametersAssignment_2_1 ) )
+            {
+            // InternalBurst.g:1502:1: ( ( rule__RuleIntersect__ParametersAssignment_2_1 ) )
+            // InternalBurst.g:1503:2: ( rule__RuleIntersect__ParametersAssignment_2_1 )
+            {
+             before(grammarAccess.getRuleIntersectAccess().getParametersAssignment_2_1()); 
+            // InternalBurst.g:1504:2: ( rule__RuleIntersect__ParametersAssignment_2_1 )
+            // InternalBurst.g:1504:3: rule__RuleIntersect__ParametersAssignment_2_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__RuleIntersect__ParametersAssignment_2_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRuleIntersectAccess().getParametersAssignment_2_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleIntersect__Group_2__1__Impl"
+
+
+    // $ANTLR start "rule__RuleIntersect__Group_2__2"
+    // InternalBurst.g:1512:1: rule__RuleIntersect__Group_2__2 : rule__RuleIntersect__Group_2__2__Impl ;
+    public final void rule__RuleIntersect__Group_2__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1516:1: ( rule__RuleIntersect__Group_2__2__Impl )
+            // InternalBurst.g:1517:2: rule__RuleIntersect__Group_2__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RuleIntersect__Group_2__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RuleIntersect__Group_2__2"
+
+
+    // $ANTLR start "rule__RuleIntersect__Group_2__2__Impl"
+    // InternalBurst.g:1523:1: rule__RuleIntersect__Group_2__2__Impl : ( ( rule__RuleIntersect__Alternatives_2_2 )? ) ;
+    public final void rule__RuleIntersect__Group_2__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1527:1: ( ( ( rule__RuleIntersect__Alternatives_2_2 )? ) )
+            // InternalBurst.g:1528:1: ( ( rule__RuleIntersect__Alternatives_2_2 )? )
+            {
+            // InternalBurst.g:1528:1: ( ( rule__RuleIntersect__Alternatives_2_2 )? )
+            // InternalBurst.g:1529:2: ( rule__RuleIntersect__Alternatives_2_2 )?
+            {
+             before(grammarAccess.getRuleIntersectAccess().getAlternatives_2_2()); 
+            // InternalBurst.g:1530:2: ( rule__RuleIntersect__Alternatives_2_2 )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
-            if ( (LA18_0==RULE_ENDLINE) ) {
+            if ( ((LA18_0>=12 && LA18_0<=13)) ) {
                 alt18=1;
             }
             switch (alt18) {
                 case 1 :
-                    // InternalBurst.g:1451:3: RULE_ENDLINE
+                    // InternalBurst.g:1530:3: rule__RuleIntersect__Alternatives_2_2
                     {
-                    match(input,RULE_ENDLINE,FOLLOW_2); 
+                    pushFollow(FOLLOW_2);
+                    rule__RuleIntersect__Alternatives_2_2();
+
+                    state._fsp--;
+
 
                     }
                     break;
 
             }
 
-             after(grammarAccess.getIntersectionAccess().getENDLINETerminalRuleCall_2()); 
+             after(grammarAccess.getRuleIntersectAccess().getAlternatives_2_2()); 
 
             }
 
@@ -4532,26 +4789,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__Group__2__Impl"
+    // $ANTLR end "rule__RuleIntersect__Group_2__2__Impl"
 
 
-    // $ANTLR start "rule__Intersection__Group__3"
-    // InternalBurst.g:1459:1: rule__Intersection__Group__3 : rule__Intersection__Group__3__Impl rule__Intersection__Group__4 ;
-    public final void rule__Intersection__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__RenamedParameter__Group__0"
+    // InternalBurst.g:1539:1: rule__RenamedParameter__Group__0 : rule__RenamedParameter__Group__0__Impl rule__RenamedParameter__Group__1 ;
+    public final void rule__RenamedParameter__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1463:1: ( rule__Intersection__Group__3__Impl rule__Intersection__Group__4 )
-            // InternalBurst.g:1464:2: rule__Intersection__Group__3__Impl rule__Intersection__Group__4
+            // InternalBurst.g:1543:1: ( rule__RenamedParameter__Group__0__Impl rule__RenamedParameter__Group__1 )
+            // InternalBurst.g:1544:2: rule__RenamedParameter__Group__0__Impl rule__RenamedParameter__Group__1
             {
-            pushFollow(FOLLOW_16);
-            rule__Intersection__Group__3__Impl();
+            pushFollow(FOLLOW_14);
+            rule__RenamedParameter__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Intersection__Group__4();
+            rule__RenamedParameter__Group__1();
 
             state._fsp--;
 
@@ -4570,63 +4827,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__Group__3"
+    // $ANTLR end "rule__RenamedParameter__Group__0"
 
 
-    // $ANTLR start "rule__Intersection__Group__3__Impl"
-    // InternalBurst.g:1471:1: rule__Intersection__Group__3__Impl : ( ( rule__Intersection__MembersAssignment_3 )* ) ;
-    public final void rule__Intersection__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RenamedParameter__Group__0__Impl"
+    // InternalBurst.g:1551:1: rule__RenamedParameter__Group__0__Impl : ( () ) ;
+    public final void rule__RenamedParameter__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1475:1: ( ( ( rule__Intersection__MembersAssignment_3 )* ) )
-            // InternalBurst.g:1476:1: ( ( rule__Intersection__MembersAssignment_3 )* )
+            // InternalBurst.g:1555:1: ( ( () ) )
+            // InternalBurst.g:1556:1: ( () )
             {
-            // InternalBurst.g:1476:1: ( ( rule__Intersection__MembersAssignment_3 )* )
-            // InternalBurst.g:1477:2: ( rule__Intersection__MembersAssignment_3 )*
+            // InternalBurst.g:1556:1: ( () )
+            // InternalBurst.g:1557:2: ()
             {
-             before(grammarAccess.getIntersectionAccess().getMembersAssignment_3()); 
-            // InternalBurst.g:1478:2: ( rule__Intersection__MembersAssignment_3 )*
-            loop19:
-            do {
-                int alt19=2;
-                int LA19_0 = input.LA(1);
+             before(grammarAccess.getRenamedParameterAccess().getRenamedParameterAction_0()); 
+            // InternalBurst.g:1558:2: ()
+            // InternalBurst.g:1558:3: 
+            {
+            }
 
-                if ( (LA19_0==RULE_ID) ) {
-                    alt19=1;
-                }
-
-
-                switch (alt19) {
-            	case 1 :
-            	    // InternalBurst.g:1478:3: rule__Intersection__MembersAssignment_3
-            	    {
-            	    pushFollow(FOLLOW_17);
-            	    rule__Intersection__MembersAssignment_3();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop19;
-                }
-            } while (true);
-
-             after(grammarAccess.getIntersectionAccess().getMembersAssignment_3()); 
+             after(grammarAccess.getRenamedParameterAccess().getRenamedParameterAction_0()); 
 
             }
 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -4635,26 +4864,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__Group__3__Impl"
+    // $ANTLR end "rule__RenamedParameter__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Intersection__Group__4"
-    // InternalBurst.g:1486:1: rule__Intersection__Group__4 : rule__Intersection__Group__4__Impl rule__Intersection__Group__5 ;
-    public final void rule__Intersection__Group__4() throws RecognitionException {
+    // $ANTLR start "rule__RenamedParameter__Group__1"
+    // InternalBurst.g:1566:1: rule__RenamedParameter__Group__1 : rule__RenamedParameter__Group__1__Impl rule__RenamedParameter__Group__2 ;
+    public final void rule__RenamedParameter__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1490:1: ( rule__Intersection__Group__4__Impl rule__Intersection__Group__5 )
-            // InternalBurst.g:1491:2: rule__Intersection__Group__4__Impl rule__Intersection__Group__5
+            // InternalBurst.g:1570:1: ( rule__RenamedParameter__Group__1__Impl rule__RenamedParameter__Group__2 )
+            // InternalBurst.g:1571:2: rule__RenamedParameter__Group__1__Impl rule__RenamedParameter__Group__2
             {
-            pushFollow(FOLLOW_18);
-            rule__Intersection__Group__4__Impl();
+            pushFollow(FOLLOW_5);
+            rule__RenamedParameter__Group__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Intersection__Group__5();
+            rule__RenamedParameter__Group__2();
 
             state._fsp--;
 
@@ -4673,345 +4902,68 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__Group__4"
+    // $ANTLR end "rule__RenamedParameter__Group__1"
 
 
-    // $ANTLR start "rule__Intersection__Group__4__Impl"
-    // InternalBurst.g:1498:1: rule__Intersection__Group__4__Impl : ( '{' ) ;
-    public final void rule__Intersection__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1502:1: ( ( '{' ) )
-            // InternalBurst.g:1503:1: ( '{' )
-            {
-            // InternalBurst.g:1503:1: ( '{' )
-            // InternalBurst.g:1504:2: '{'
-            {
-             before(grammarAccess.getIntersectionAccess().getLeftCurlyBracketKeyword_4()); 
-            match(input,13,FOLLOW_2); 
-             after(grammarAccess.getIntersectionAccess().getLeftCurlyBracketKeyword_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Intersection__Group__4__Impl"
-
-
-    // $ANTLR start "rule__Intersection__Group__5"
-    // InternalBurst.g:1513:1: rule__Intersection__Group__5 : rule__Intersection__Group__5__Impl rule__Intersection__Group__6 ;
-    public final void rule__Intersection__Group__5() throws RecognitionException {
+    // $ANTLR start "rule__RenamedParameter__Group__1__Impl"
+    // InternalBurst.g:1578:1: rule__RenamedParameter__Group__1__Impl : ( ( rule__RenamedParameter__ConcernAssignment_1 ) ) ;
+    public final void rule__RenamedParameter__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1517:1: ( rule__Intersection__Group__5__Impl rule__Intersection__Group__6 )
-            // InternalBurst.g:1518:2: rule__Intersection__Group__5__Impl rule__Intersection__Group__6
+            // InternalBurst.g:1582:1: ( ( ( rule__RenamedParameter__ConcernAssignment_1 ) ) )
+            // InternalBurst.g:1583:1: ( ( rule__RenamedParameter__ConcernAssignment_1 ) )
             {
-            pushFollow(FOLLOW_18);
-            rule__Intersection__Group__5__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Intersection__Group__6();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Intersection__Group__5"
-
-
-    // $ANTLR start "rule__Intersection__Group__5__Impl"
-    // InternalBurst.g:1525:1: rule__Intersection__Group__5__Impl : ( ( RULE_ENDLINE )? ) ;
-    public final void rule__Intersection__Group__5__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1529:1: ( ( ( RULE_ENDLINE )? ) )
-            // InternalBurst.g:1530:1: ( ( RULE_ENDLINE )? )
+            // InternalBurst.g:1583:1: ( ( rule__RenamedParameter__ConcernAssignment_1 ) )
+            // InternalBurst.g:1584:2: ( rule__RenamedParameter__ConcernAssignment_1 )
             {
-            // InternalBurst.g:1530:1: ( ( RULE_ENDLINE )? )
-            // InternalBurst.g:1531:2: ( RULE_ENDLINE )?
-            {
-             before(grammarAccess.getIntersectionAccess().getENDLINETerminalRuleCall_5()); 
-            // InternalBurst.g:1532:2: ( RULE_ENDLINE )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
-
-            if ( (LA20_0==RULE_ENDLINE) ) {
-                alt20=1;
-            }
-            switch (alt20) {
-                case 1 :
-                    // InternalBurst.g:1532:3: RULE_ENDLINE
-                    {
-                    match(input,RULE_ENDLINE,FOLLOW_2); 
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getIntersectionAccess().getENDLINETerminalRuleCall_5()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Intersection__Group__5__Impl"
-
-
-    // $ANTLR start "rule__Intersection__Group__6"
-    // InternalBurst.g:1540:1: rule__Intersection__Group__6 : rule__Intersection__Group__6__Impl rule__Intersection__Group__7 ;
-    public final void rule__Intersection__Group__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1544:1: ( rule__Intersection__Group__6__Impl rule__Intersection__Group__7 )
-            // InternalBurst.g:1545:2: rule__Intersection__Group__6__Impl rule__Intersection__Group__7
-            {
-            pushFollow(FOLLOW_18);
-            rule__Intersection__Group__6__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Intersection__Group__7();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Intersection__Group__6"
-
-
-    // $ANTLR start "rule__Intersection__Group__6__Impl"
-    // InternalBurst.g:1552:1: rule__Intersection__Group__6__Impl : ( ( rule__Intersection__LinesContentAssignment_6 )* ) ;
-    public final void rule__Intersection__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1556:1: ( ( ( rule__Intersection__LinesContentAssignment_6 )* ) )
-            // InternalBurst.g:1557:1: ( ( rule__Intersection__LinesContentAssignment_6 )* )
-            {
-            // InternalBurst.g:1557:1: ( ( rule__Intersection__LinesContentAssignment_6 )* )
-            // InternalBurst.g:1558:2: ( rule__Intersection__LinesContentAssignment_6 )*
-            {
-             before(grammarAccess.getIntersectionAccess().getLinesContentAssignment_6()); 
-            // InternalBurst.g:1559:2: ( rule__Intersection__LinesContentAssignment_6 )*
-            loop21:
-            do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
-
-                if ( (LA21_0==RULE_ID) ) {
-                    alt21=1;
-                }
-
-
-                switch (alt21) {
-            	case 1 :
-            	    // InternalBurst.g:1559:3: rule__Intersection__LinesContentAssignment_6
-            	    {
-            	    pushFollow(FOLLOW_17);
-            	    rule__Intersection__LinesContentAssignment_6();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop21;
-                }
-            } while (true);
-
-             after(grammarAccess.getIntersectionAccess().getLinesContentAssignment_6()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Intersection__Group__6__Impl"
-
-
-    // $ANTLR start "rule__Intersection__Group__7"
-    // InternalBurst.g:1567:1: rule__Intersection__Group__7 : rule__Intersection__Group__7__Impl rule__Intersection__Group__8 ;
-    public final void rule__Intersection__Group__7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1571:1: ( rule__Intersection__Group__7__Impl rule__Intersection__Group__8 )
-            // InternalBurst.g:1572:2: rule__Intersection__Group__7__Impl rule__Intersection__Group__8
-            {
-            pushFollow(FOLLOW_18);
-            rule__Intersection__Group__7__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Intersection__Group__8();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Intersection__Group__7"
-
-
-    // $ANTLR start "rule__Intersection__Group__7__Impl"
-    // InternalBurst.g:1579:1: rule__Intersection__Group__7__Impl : ( ( RULE_ENDLINE )? ) ;
-    public final void rule__Intersection__Group__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1583:1: ( ( ( RULE_ENDLINE )? ) )
-            // InternalBurst.g:1584:1: ( ( RULE_ENDLINE )? )
-            {
-            // InternalBurst.g:1584:1: ( ( RULE_ENDLINE )? )
-            // InternalBurst.g:1585:2: ( RULE_ENDLINE )?
-            {
-             before(grammarAccess.getIntersectionAccess().getENDLINETerminalRuleCall_7()); 
-            // InternalBurst.g:1586:2: ( RULE_ENDLINE )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
-
-            if ( (LA22_0==RULE_ENDLINE) ) {
-                alt22=1;
-            }
-            switch (alt22) {
-                case 1 :
-                    // InternalBurst.g:1586:3: RULE_ENDLINE
-                    {
-                    match(input,RULE_ENDLINE,FOLLOW_2); 
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getIntersectionAccess().getENDLINETerminalRuleCall_7()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Intersection__Group__7__Impl"
-
-
-    // $ANTLR start "rule__Intersection__Group__8"
-    // InternalBurst.g:1594:1: rule__Intersection__Group__8 : rule__Intersection__Group__8__Impl ;
-    public final void rule__Intersection__Group__8() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1598:1: ( rule__Intersection__Group__8__Impl )
-            // InternalBurst.g:1599:2: rule__Intersection__Group__8__Impl
+             before(grammarAccess.getRenamedParameterAccess().getConcernAssignment_1()); 
+            // InternalBurst.g:1585:2: ( rule__RenamedParameter__ConcernAssignment_1 )
+            // InternalBurst.g:1585:3: rule__RenamedParameter__ConcernAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__Intersection__Group__8__Impl();
+            rule__RenamedParameter__ConcernAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRenamedParameterAccess().getConcernAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RenamedParameter__Group__1__Impl"
+
+
+    // $ANTLR start "rule__RenamedParameter__Group__2"
+    // InternalBurst.g:1593:1: rule__RenamedParameter__Group__2 : rule__RenamedParameter__Group__2__Impl ;
+    public final void rule__RenamedParameter__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1597:1: ( rule__RenamedParameter__Group__2__Impl )
+            // InternalBurst.g:1598:2: rule__RenamedParameter__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RenamedParameter__Group__2__Impl();
 
             state._fsp--;
 
@@ -5030,25 +4982,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__Group__8"
+    // $ANTLR end "rule__RenamedParameter__Group__2"
 
 
-    // $ANTLR start "rule__Intersection__Group__8__Impl"
-    // InternalBurst.g:1605:1: rule__Intersection__Group__8__Impl : ( '}' ) ;
-    public final void rule__Intersection__Group__8__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RenamedParameter__Group__2__Impl"
+    // InternalBurst.g:1604:1: rule__RenamedParameter__Group__2__Impl : ( ( rule__RenamedParameter__NameAssignment_2 ) ) ;
+    public final void rule__RenamedParameter__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1609:1: ( ( '}' ) )
-            // InternalBurst.g:1610:1: ( '}' )
+            // InternalBurst.g:1608:1: ( ( ( rule__RenamedParameter__NameAssignment_2 ) ) )
+            // InternalBurst.g:1609:1: ( ( rule__RenamedParameter__NameAssignment_2 ) )
             {
-            // InternalBurst.g:1610:1: ( '}' )
-            // InternalBurst.g:1611:2: '}'
+            // InternalBurst.g:1609:1: ( ( rule__RenamedParameter__NameAssignment_2 ) )
+            // InternalBurst.g:1610:2: ( rule__RenamedParameter__NameAssignment_2 )
             {
-             before(grammarAccess.getIntersectionAccess().getRightCurlyBracketKeyword_8()); 
-            match(input,14,FOLLOW_2); 
-             after(grammarAccess.getIntersectionAccess().getRightCurlyBracketKeyword_8()); 
+             before(grammarAccess.getRenamedParameterAccess().getNameAssignment_2()); 
+            // InternalBurst.g:1611:2: ( rule__RenamedParameter__NameAssignment_2 )
+            // InternalBurst.g:1611:3: rule__RenamedParameter__NameAssignment_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__RenamedParameter__NameAssignment_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRenamedParameterAccess().getNameAssignment_2()); 
 
             }
 
@@ -5067,20 +5029,20 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__Group__8__Impl"
+    // $ANTLR end "rule__RenamedParameter__Group__2__Impl"
 
 
     // $ANTLR start "rule__Line__Group__0"
-    // InternalBurst.g:1621:1: rule__Line__Group__0 : rule__Line__Group__0__Impl rule__Line__Group__1 ;
+    // InternalBurst.g:1620:1: rule__Line__Group__0 : rule__Line__Group__0__Impl rule__Line__Group__1 ;
     public final void rule__Line__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1625:1: ( rule__Line__Group__0__Impl rule__Line__Group__1 )
-            // InternalBurst.g:1626:2: rule__Line__Group__0__Impl rule__Line__Group__1
+            // InternalBurst.g:1624:1: ( rule__Line__Group__0__Impl rule__Line__Group__1 )
+            // InternalBurst.g:1625:2: rule__Line__Group__0__Impl rule__Line__Group__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_23);
             rule__Line__Group__0__Impl();
 
             state._fsp--;
@@ -5109,41 +5071,31 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Line__Group__0__Impl"
-    // InternalBurst.g:1633:1: rule__Line__Group__0__Impl : ( ( rule__Line__FirstAssignment_0 ) ) ;
+    // InternalBurst.g:1632:1: rule__Line__Group__0__Impl : ( () ) ;
     public final void rule__Line__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1637:1: ( ( ( rule__Line__FirstAssignment_0 ) ) )
-            // InternalBurst.g:1638:1: ( ( rule__Line__FirstAssignment_0 ) )
+            // InternalBurst.g:1636:1: ( ( () ) )
+            // InternalBurst.g:1637:1: ( () )
             {
-            // InternalBurst.g:1638:1: ( ( rule__Line__FirstAssignment_0 ) )
-            // InternalBurst.g:1639:2: ( rule__Line__FirstAssignment_0 )
+            // InternalBurst.g:1637:1: ( () )
+            // InternalBurst.g:1638:2: ()
             {
-             before(grammarAccess.getLineAccess().getFirstAssignment_0()); 
-            // InternalBurst.g:1640:2: ( rule__Line__FirstAssignment_0 )
-            // InternalBurst.g:1640:3: rule__Line__FirstAssignment_0
+             before(grammarAccess.getLineAccess().getLineAction_0()); 
+            // InternalBurst.g:1639:2: ()
+            // InternalBurst.g:1639:3: 
             {
-            pushFollow(FOLLOW_2);
-            rule__Line__FirstAssignment_0();
-
-            state._fsp--;
-
-
             }
 
-             after(grammarAccess.getLineAccess().getFirstAssignment_0()); 
+             after(grammarAccess.getLineAccess().getLineAction_0()); 
 
             }
 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -5156,16 +5108,16 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Line__Group__1"
-    // InternalBurst.g:1648:1: rule__Line__Group__1 : rule__Line__Group__1__Impl rule__Line__Group__2 ;
+    // InternalBurst.g:1647:1: rule__Line__Group__1 : rule__Line__Group__1__Impl rule__Line__Group__2 ;
     public final void rule__Line__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1652:1: ( rule__Line__Group__1__Impl rule__Line__Group__2 )
-            // InternalBurst.g:1653:2: rule__Line__Group__1__Impl rule__Line__Group__2
+            // InternalBurst.g:1651:1: ( rule__Line__Group__1__Impl rule__Line__Group__2 )
+            // InternalBurst.g:1652:2: rule__Line__Group__1__Impl rule__Line__Group__2
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_23);
             rule__Line__Group__1__Impl();
 
             state._fsp--;
@@ -5194,49 +5146,31 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Line__Group__1__Impl"
-    // InternalBurst.g:1660:1: rule__Line__Group__1__Impl : ( ( rule__Line__ListAssignment_1 )* ) ;
+    // InternalBurst.g:1659:1: rule__Line__Group__1__Impl : ( ( rule__Line__CallsAssignment_1 ) ) ;
     public final void rule__Line__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1664:1: ( ( ( rule__Line__ListAssignment_1 )* ) )
-            // InternalBurst.g:1665:1: ( ( rule__Line__ListAssignment_1 )* )
+            // InternalBurst.g:1663:1: ( ( ( rule__Line__CallsAssignment_1 ) ) )
+            // InternalBurst.g:1664:1: ( ( rule__Line__CallsAssignment_1 ) )
             {
-            // InternalBurst.g:1665:1: ( ( rule__Line__ListAssignment_1 )* )
-            // InternalBurst.g:1666:2: ( rule__Line__ListAssignment_1 )*
+            // InternalBurst.g:1664:1: ( ( rule__Line__CallsAssignment_1 ) )
+            // InternalBurst.g:1665:2: ( rule__Line__CallsAssignment_1 )
             {
-             before(grammarAccess.getLineAccess().getListAssignment_1()); 
-            // InternalBurst.g:1667:2: ( rule__Line__ListAssignment_1 )*
-            loop23:
-            do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
+             before(grammarAccess.getLineAccess().getCallsAssignment_1()); 
+            // InternalBurst.g:1666:2: ( rule__Line__CallsAssignment_1 )
+            // InternalBurst.g:1666:3: rule__Line__CallsAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Line__CallsAssignment_1();
 
-                if ( (LA23_0==RULE_ID) ) {
-                    alt23=1;
-                }
+            state._fsp--;
 
 
-                switch (alt23) {
-            	case 1 :
-            	    // InternalBurst.g:1667:3: rule__Line__ListAssignment_1
-            	    {
-            	    pushFollow(FOLLOW_17);
-            	    rule__Line__ListAssignment_1();
+            }
 
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop23;
-                }
-            } while (true);
-
-             after(grammarAccess.getLineAccess().getListAssignment_1()); 
+             after(grammarAccess.getLineAccess().getCallsAssignment_1()); 
 
             }
 
@@ -5259,14 +5193,14 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Line__Group__2"
-    // InternalBurst.g:1675:1: rule__Line__Group__2 : rule__Line__Group__2__Impl ;
+    // InternalBurst.g:1674:1: rule__Line__Group__2 : rule__Line__Group__2__Impl ;
     public final void rule__Line__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1679:1: ( rule__Line__Group__2__Impl )
-            // InternalBurst.g:1680:2: rule__Line__Group__2__Impl
+            // InternalBurst.g:1678:1: ( rule__Line__Group__2__Impl )
+            // InternalBurst.g:1679:2: rule__Line__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Line__Group__2__Impl();
@@ -5292,21 +5226,52 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Line__Group__2__Impl"
-    // InternalBurst.g:1686:1: rule__Line__Group__2__Impl : ( RULE_ENDLINE ) ;
+    // InternalBurst.g:1685:1: rule__Line__Group__2__Impl : ( ( rule__Line__CallsAssignment_2 )* ) ;
     public final void rule__Line__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1690:1: ( ( RULE_ENDLINE ) )
-            // InternalBurst.g:1691:1: ( RULE_ENDLINE )
+            // InternalBurst.g:1689:1: ( ( ( rule__Line__CallsAssignment_2 )* ) )
+            // InternalBurst.g:1690:1: ( ( rule__Line__CallsAssignment_2 )* )
             {
-            // InternalBurst.g:1691:1: ( RULE_ENDLINE )
-            // InternalBurst.g:1692:2: RULE_ENDLINE
+            // InternalBurst.g:1690:1: ( ( rule__Line__CallsAssignment_2 )* )
+            // InternalBurst.g:1691:2: ( rule__Line__CallsAssignment_2 )*
             {
-             before(grammarAccess.getLineAccess().getENDLINETerminalRuleCall_2()); 
-            match(input,RULE_ENDLINE,FOLLOW_2); 
-             after(grammarAccess.getLineAccess().getENDLINETerminalRuleCall_2()); 
+             before(grammarAccess.getLineAccess().getCallsAssignment_2()); 
+            // InternalBurst.g:1692:2: ( rule__Line__CallsAssignment_2 )*
+            loop19:
+            do {
+                int alt19=2;
+                int LA19_0 = input.LA(1);
+
+                if ( (LA19_0==22) ) {
+                    alt19=1;
+                }
+                else if ( (LA19_0==RULE_ID) ) {
+                    alt19=1;
+                }
+
+
+                switch (alt19) {
+            	case 1 :
+            	    // InternalBurst.g:1692:3: rule__Line__CallsAssignment_2
+            	    {
+            	    pushFollow(FOLLOW_24);
+            	    rule__Line__CallsAssignment_2();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop19;
+                }
+            } while (true);
+
+             after(grammarAccess.getLineAccess().getCallsAssignment_2()); 
 
             }
 
@@ -5328,23 +5293,23 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Line__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Call__Group_0__0"
-    // InternalBurst.g:1702:1: rule__Call__Group_0__0 : rule__Call__Group_0__0__Impl rule__Call__Group_0__1 ;
-    public final void rule__Call__Group_0__0() throws RecognitionException {
+    // $ANTLR start "rule__Toto__Group__0"
+    // InternalBurst.g:1701:1: rule__Toto__Group__0 : rule__Toto__Group__0__Impl rule__Toto__Group__1 ;
+    public final void rule__Toto__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1706:1: ( rule__Call__Group_0__0__Impl rule__Call__Group_0__1 )
-            // InternalBurst.g:1707:2: rule__Call__Group_0__0__Impl rule__Call__Group_0__1
+            // InternalBurst.g:1705:1: ( rule__Toto__Group__0__Impl rule__Toto__Group__1 )
+            // InternalBurst.g:1706:2: rule__Toto__Group__0__Impl rule__Toto__Group__1
             {
-            pushFollow(FOLLOW_4);
-            rule__Call__Group_0__0__Impl();
+            pushFollow(FOLLOW_25);
+            rule__Toto__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Call__Group_0__1();
+            rule__Toto__Group__1();
 
             state._fsp--;
 
@@ -5363,29 +5328,29 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Call__Group_0__0"
+    // $ANTLR end "rule__Toto__Group__0"
 
 
-    // $ANTLR start "rule__Call__Group_0__0__Impl"
-    // InternalBurst.g:1714:1: rule__Call__Group_0__0__Impl : ( () ) ;
-    public final void rule__Call__Group_0__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Toto__Group__0__Impl"
+    // InternalBurst.g:1713:1: rule__Toto__Group__0__Impl : ( () ) ;
+    public final void rule__Toto__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1718:1: ( ( () ) )
-            // InternalBurst.g:1719:1: ( () )
+            // InternalBurst.g:1717:1: ( ( () ) )
+            // InternalBurst.g:1718:1: ( () )
             {
-            // InternalBurst.g:1719:1: ( () )
+            // InternalBurst.g:1718:1: ( () )
+            // InternalBurst.g:1719:2: ()
+            {
+             before(grammarAccess.getTotoAccess().getTotoAction_0()); 
             // InternalBurst.g:1720:2: ()
-            {
-             before(grammarAccess.getCallAccess().getCallAction_0_0()); 
-            // InternalBurst.g:1721:2: ()
-            // InternalBurst.g:1721:3: 
+            // InternalBurst.g:1720:3: 
             {
             }
 
-             after(grammarAccess.getCallAccess().getCallAction_0_0()); 
+             after(grammarAccess.getTotoAccess().getTotoAction_0()); 
 
             }
 
@@ -5400,21 +5365,21 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Call__Group_0__0__Impl"
+    // $ANTLR end "rule__Toto__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Call__Group_0__1"
-    // InternalBurst.g:1729:1: rule__Call__Group_0__1 : rule__Call__Group_0__1__Impl ;
-    public final void rule__Call__Group_0__1() throws RecognitionException {
+    // $ANTLR start "rule__Toto__Group__1"
+    // InternalBurst.g:1728:1: rule__Toto__Group__1 : rule__Toto__Group__1__Impl ;
+    public final void rule__Toto__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1733:1: ( rule__Call__Group_0__1__Impl )
-            // InternalBurst.g:1734:2: rule__Call__Group_0__1__Impl
+            // InternalBurst.g:1732:1: ( rule__Toto__Group__1__Impl )
+            // InternalBurst.g:1733:2: rule__Toto__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Call__Group_0__1__Impl();
+            rule__Toto__Group__1__Impl();
 
             state._fsp--;
 
@@ -5433,35 +5398,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Call__Group_0__1"
+    // $ANTLR end "rule__Toto__Group__1"
 
 
-    // $ANTLR start "rule__Call__Group_0__1__Impl"
-    // InternalBurst.g:1740:1: rule__Call__Group_0__1__Impl : ( ( rule__Call__NameAssignment_0_1 ) ) ;
-    public final void rule__Call__Group_0__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Toto__Group__1__Impl"
+    // InternalBurst.g:1739:1: rule__Toto__Group__1__Impl : ( ( rule__Toto__NameAssignment_1 ) ) ;
+    public final void rule__Toto__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1744:1: ( ( ( rule__Call__NameAssignment_0_1 ) ) )
-            // InternalBurst.g:1745:1: ( ( rule__Call__NameAssignment_0_1 ) )
+            // InternalBurst.g:1743:1: ( ( ( rule__Toto__NameAssignment_1 ) ) )
+            // InternalBurst.g:1744:1: ( ( rule__Toto__NameAssignment_1 ) )
             {
-            // InternalBurst.g:1745:1: ( ( rule__Call__NameAssignment_0_1 ) )
-            // InternalBurst.g:1746:2: ( rule__Call__NameAssignment_0_1 )
+            // InternalBurst.g:1744:1: ( ( rule__Toto__NameAssignment_1 ) )
+            // InternalBurst.g:1745:2: ( rule__Toto__NameAssignment_1 )
             {
-             before(grammarAccess.getCallAccess().getNameAssignment_0_1()); 
-            // InternalBurst.g:1747:2: ( rule__Call__NameAssignment_0_1 )
-            // InternalBurst.g:1747:3: rule__Call__NameAssignment_0_1
+             before(grammarAccess.getTotoAccess().getNameAssignment_1()); 
+            // InternalBurst.g:1746:2: ( rule__Toto__NameAssignment_1 )
+            // InternalBurst.g:1746:3: rule__Toto__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__Call__NameAssignment_0_1();
+            rule__Toto__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getCallAccess().getNameAssignment_0_1()); 
+             after(grammarAccess.getTotoAccess().getNameAssignment_1()); 
 
             }
 
@@ -5480,26 +5445,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Call__Group_0__1__Impl"
+    // $ANTLR end "rule__Toto__Group__1__Impl"
 
 
-    // $ANTLR start "rule__MemberCall__Group__0"
-    // InternalBurst.g:1756:1: rule__MemberCall__Group__0 : rule__MemberCall__Group__0__Impl rule__MemberCall__Group__1 ;
-    public final void rule__MemberCall__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__RenamedParameterCall__Group__0"
+    // InternalBurst.g:1755:1: rule__RenamedParameterCall__Group__0 : rule__RenamedParameterCall__Group__0__Impl rule__RenamedParameterCall__Group__1 ;
+    public final void rule__RenamedParameterCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1760:1: ( rule__MemberCall__Group__0__Impl rule__MemberCall__Group__1 )
-            // InternalBurst.g:1761:2: rule__MemberCall__Group__0__Impl rule__MemberCall__Group__1
+            // InternalBurst.g:1759:1: ( rule__RenamedParameterCall__Group__0__Impl rule__RenamedParameterCall__Group__1 )
+            // InternalBurst.g:1760:2: rule__RenamedParameterCall__Group__0__Impl rule__RenamedParameterCall__Group__1
             {
-            pushFollow(FOLLOW_4);
-            rule__MemberCall__Group__0__Impl();
+            pushFollow(FOLLOW_23);
+            rule__RenamedParameterCall__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__MemberCall__Group__1();
+            rule__RenamedParameterCall__Group__1();
 
             state._fsp--;
 
@@ -5518,29 +5483,29 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MemberCall__Group__0"
+    // $ANTLR end "rule__RenamedParameterCall__Group__0"
 
 
-    // $ANTLR start "rule__MemberCall__Group__0__Impl"
-    // InternalBurst.g:1768:1: rule__MemberCall__Group__0__Impl : ( () ) ;
-    public final void rule__MemberCall__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RenamedParameterCall__Group__0__Impl"
+    // InternalBurst.g:1767:1: rule__RenamedParameterCall__Group__0__Impl : ( () ) ;
+    public final void rule__RenamedParameterCall__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1772:1: ( ( () ) )
-            // InternalBurst.g:1773:1: ( () )
+            // InternalBurst.g:1771:1: ( ( () ) )
+            // InternalBurst.g:1772:1: ( () )
             {
-            // InternalBurst.g:1773:1: ( () )
+            // InternalBurst.g:1772:1: ( () )
+            // InternalBurst.g:1773:2: ()
+            {
+             before(grammarAccess.getRenamedParameterCallAccess().getRenamedParameterCallAction_0()); 
             // InternalBurst.g:1774:2: ()
-            {
-             before(grammarAccess.getMemberCallAccess().getMemberCallAction_0()); 
-            // InternalBurst.g:1775:2: ()
-            // InternalBurst.g:1775:3: 
+            // InternalBurst.g:1774:3: 
             {
             }
 
-             after(grammarAccess.getMemberCallAccess().getMemberCallAction_0()); 
+             after(grammarAccess.getRenamedParameterCallAccess().getRenamedParameterCallAction_0()); 
 
             }
 
@@ -5555,21 +5520,21 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MemberCall__Group__0__Impl"
+    // $ANTLR end "rule__RenamedParameterCall__Group__0__Impl"
 
 
-    // $ANTLR start "rule__MemberCall__Group__1"
-    // InternalBurst.g:1783:1: rule__MemberCall__Group__1 : rule__MemberCall__Group__1__Impl ;
-    public final void rule__MemberCall__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__RenamedParameterCall__Group__1"
+    // InternalBurst.g:1782:1: rule__RenamedParameterCall__Group__1 : rule__RenamedParameterCall__Group__1__Impl ;
+    public final void rule__RenamedParameterCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1787:1: ( rule__MemberCall__Group__1__Impl )
-            // InternalBurst.g:1788:2: rule__MemberCall__Group__1__Impl
+            // InternalBurst.g:1786:1: ( rule__RenamedParameterCall__Group__1__Impl )
+            // InternalBurst.g:1787:2: rule__RenamedParameterCall__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__MemberCall__Group__1__Impl();
+            rule__RenamedParameterCall__Group__1__Impl();
 
             state._fsp--;
 
@@ -5588,35 +5553,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MemberCall__Group__1"
+    // $ANTLR end "rule__RenamedParameterCall__Group__1"
 
 
-    // $ANTLR start "rule__MemberCall__Group__1__Impl"
-    // InternalBurst.g:1794:1: rule__MemberCall__Group__1__Impl : ( ( rule__MemberCall__NameAssignment_1 ) ) ;
-    public final void rule__MemberCall__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__RenamedParameterCall__Group__1__Impl"
+    // InternalBurst.g:1793:1: rule__RenamedParameterCall__Group__1__Impl : ( ( rule__RenamedParameterCall__NameAssignment_1 ) ) ;
+    public final void rule__RenamedParameterCall__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1798:1: ( ( ( rule__MemberCall__NameAssignment_1 ) ) )
-            // InternalBurst.g:1799:1: ( ( rule__MemberCall__NameAssignment_1 ) )
+            // InternalBurst.g:1797:1: ( ( ( rule__RenamedParameterCall__NameAssignment_1 ) ) )
+            // InternalBurst.g:1798:1: ( ( rule__RenamedParameterCall__NameAssignment_1 ) )
             {
-            // InternalBurst.g:1799:1: ( ( rule__MemberCall__NameAssignment_1 ) )
-            // InternalBurst.g:1800:2: ( rule__MemberCall__NameAssignment_1 )
+            // InternalBurst.g:1798:1: ( ( rule__RenamedParameterCall__NameAssignment_1 ) )
+            // InternalBurst.g:1799:2: ( rule__RenamedParameterCall__NameAssignment_1 )
             {
-             before(grammarAccess.getMemberCallAccess().getNameAssignment_1()); 
-            // InternalBurst.g:1801:2: ( rule__MemberCall__NameAssignment_1 )
-            // InternalBurst.g:1801:3: rule__MemberCall__NameAssignment_1
+             before(grammarAccess.getRenamedParameterCallAccess().getNameAssignment_1()); 
+            // InternalBurst.g:1800:2: ( rule__RenamedParameterCall__NameAssignment_1 )
+            // InternalBurst.g:1800:3: rule__RenamedParameterCall__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__MemberCall__NameAssignment_1();
+            rule__RenamedParameterCall__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMemberCallAccess().getNameAssignment_1()); 
+             after(grammarAccess.getRenamedParameterCallAccess().getNameAssignment_1()); 
 
             }
 
@@ -5635,26 +5600,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MemberCall__Group__1__Impl"
+    // $ANTLR end "rule__RenamedParameterCall__Group__1__Impl"
 
 
-    // $ANTLR start "rule__MemberInConcern__Group__0"
-    // InternalBurst.g:1810:1: rule__MemberInConcern__Group__0 : rule__MemberInConcern__Group__0__Impl rule__MemberInConcern__Group__1 ;
-    public final void rule__MemberInConcern__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__QualifiedName__Group__0"
+    // InternalBurst.g:1809:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
+    public final void rule__QualifiedName__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1814:1: ( rule__MemberInConcern__Group__0__Impl rule__MemberInConcern__Group__1 )
-            // InternalBurst.g:1815:2: rule__MemberInConcern__Group__0__Impl rule__MemberInConcern__Group__1
+            // InternalBurst.g:1813:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
+            // InternalBurst.g:1814:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
             {
-            pushFollow(FOLLOW_4);
-            rule__MemberInConcern__Group__0__Impl();
+            pushFollow(FOLLOW_26);
+            rule__QualifiedName__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__MemberInConcern__Group__1();
+            rule__QualifiedName__Group__1();
 
             state._fsp--;
 
@@ -5673,35 +5638,35 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MemberInConcern__Group__0"
+    // $ANTLR end "rule__QualifiedName__Group__0"
 
 
-    // $ANTLR start "rule__MemberInConcern__Group__0__Impl"
-    // InternalBurst.g:1822:1: rule__MemberInConcern__Group__0__Impl : ( () ) ;
-    public final void rule__MemberInConcern__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__QualifiedName__Group__0__Impl"
+    // InternalBurst.g:1821:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
+    public final void rule__QualifiedName__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1826:1: ( ( () ) )
-            // InternalBurst.g:1827:1: ( () )
+            // InternalBurst.g:1825:1: ( ( RULE_ID ) )
+            // InternalBurst.g:1826:1: ( RULE_ID )
             {
-            // InternalBurst.g:1827:1: ( () )
-            // InternalBurst.g:1828:2: ()
+            // InternalBurst.g:1826:1: ( RULE_ID )
+            // InternalBurst.g:1827:2: RULE_ID
             {
-             before(grammarAccess.getMemberInConcernAccess().getMemberInConcernAction_0()); 
-            // InternalBurst.g:1829:2: ()
-            // InternalBurst.g:1829:3: 
-            {
-            }
-
-             after(grammarAccess.getMemberInConcernAccess().getMemberInConcernAction_0()); 
+             before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
 
             }
 
 
             }
 
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
         }
         finally {
 
@@ -5710,26 +5675,124 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MemberInConcern__Group__0__Impl"
+    // $ANTLR end "rule__QualifiedName__Group__0__Impl"
 
 
-    // $ANTLR start "rule__MemberInConcern__Group__1"
-    // InternalBurst.g:1837:1: rule__MemberInConcern__Group__1 : rule__MemberInConcern__Group__1__Impl rule__MemberInConcern__Group__2 ;
-    public final void rule__MemberInConcern__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__QualifiedName__Group__1"
+    // InternalBurst.g:1836:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
+    public final void rule__QualifiedName__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1841:1: ( rule__MemberInConcern__Group__1__Impl rule__MemberInConcern__Group__2 )
-            // InternalBurst.g:1842:2: rule__MemberInConcern__Group__1__Impl rule__MemberInConcern__Group__2
+            // InternalBurst.g:1840:1: ( rule__QualifiedName__Group__1__Impl )
+            // InternalBurst.g:1841:2: rule__QualifiedName__Group__1__Impl
             {
-            pushFollow(FOLLOW_8);
-            rule__MemberInConcern__Group__1__Impl();
+            pushFollow(FOLLOW_2);
+            rule__QualifiedName__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__QualifiedName__Group__1"
+
+
+    // $ANTLR start "rule__QualifiedName__Group__1__Impl"
+    // InternalBurst.g:1847:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
+    public final void rule__QualifiedName__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1851:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
+            // InternalBurst.g:1852:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            {
+            // InternalBurst.g:1852:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // InternalBurst.g:1853:2: ( rule__QualifiedName__Group_1__0 )*
+            {
+             before(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
+            // InternalBurst.g:1854:2: ( rule__QualifiedName__Group_1__0 )*
+            loop20:
+            do {
+                int alt20=2;
+                int LA20_0 = input.LA(1);
+
+                if ( (LA20_0==20) ) {
+                    alt20=1;
+                }
+
+
+                switch (alt20) {
+            	case 1 :
+            	    // InternalBurst.g:1854:3: rule__QualifiedName__Group_1__0
+            	    {
+            	    pushFollow(FOLLOW_27);
+            	    rule__QualifiedName__Group_1__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop20;
+                }
+            } while (true);
+
+             after(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__QualifiedName__Group__1__Impl"
+
+
+    // $ANTLR start "rule__QualifiedName__Group_1__0"
+    // InternalBurst.g:1863:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
+    public final void rule__QualifiedName__Group_1__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1867:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
+            // InternalBurst.g:1868:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
+            {
+            pushFollow(FOLLOW_5);
+            rule__QualifiedName__Group_1__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__MemberInConcern__Group__2();
+            rule__QualifiedName__Group_1__1();
 
             state._fsp--;
 
@@ -5748,37 +5811,60 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MemberInConcern__Group__1"
+    // $ANTLR end "rule__QualifiedName__Group_1__0"
 
 
-    // $ANTLR start "rule__MemberInConcern__Group__1__Impl"
-    // InternalBurst.g:1849:1: rule__MemberInConcern__Group__1__Impl : ( ( rule__MemberInConcern__TargetAssignment_1 ) ) ;
-    public final void rule__MemberInConcern__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__QualifiedName__Group_1__0__Impl"
+    // InternalBurst.g:1875:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
+    public final void rule__QualifiedName__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1853:1: ( ( ( rule__MemberInConcern__TargetAssignment_1 ) ) )
-            // InternalBurst.g:1854:1: ( ( rule__MemberInConcern__TargetAssignment_1 ) )
+            // InternalBurst.g:1879:1: ( ( '.' ) )
+            // InternalBurst.g:1880:1: ( '.' )
             {
-            // InternalBurst.g:1854:1: ( ( rule__MemberInConcern__TargetAssignment_1 ) )
-            // InternalBurst.g:1855:2: ( rule__MemberInConcern__TargetAssignment_1 )
+            // InternalBurst.g:1880:1: ( '.' )
+            // InternalBurst.g:1881:2: '.'
             {
-             before(grammarAccess.getMemberInConcernAccess().getTargetAssignment_1()); 
-            // InternalBurst.g:1856:2: ( rule__MemberInConcern__TargetAssignment_1 )
-            // InternalBurst.g:1856:3: rule__MemberInConcern__TargetAssignment_1
+             before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
+            match(input,20,FOLLOW_2); 
+             after(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__QualifiedName__Group_1__0__Impl"
+
+
+    // $ANTLR start "rule__QualifiedName__Group_1__1"
+    // InternalBurst.g:1890:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
+    public final void rule__QualifiedName__Group_1__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1894:1: ( rule__QualifiedName__Group_1__1__Impl )
+            // InternalBurst.g:1895:2: rule__QualifiedName__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__MemberInConcern__TargetAssignment_1();
+            rule__QualifiedName__Group_1__1__Impl();
 
             state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getMemberInConcernAccess().getTargetAssignment_1()); 
-
-            }
 
 
             }
@@ -5795,63 +5881,25 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MemberInConcern__Group__1__Impl"
+    // $ANTLR end "rule__QualifiedName__Group_1__1"
 
 
-    // $ANTLR start "rule__MemberInConcern__Group__2"
-    // InternalBurst.g:1864:1: rule__MemberInConcern__Group__2 : rule__MemberInConcern__Group__2__Impl rule__MemberInConcern__Group__3 ;
-    public final void rule__MemberInConcern__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__QualifiedName__Group_1__1__Impl"
+    // InternalBurst.g:1901:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
+    public final void rule__QualifiedName__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1868:1: ( rule__MemberInConcern__Group__2__Impl rule__MemberInConcern__Group__3 )
-            // InternalBurst.g:1869:2: rule__MemberInConcern__Group__2__Impl rule__MemberInConcern__Group__3
+            // InternalBurst.g:1905:1: ( ( RULE_ID ) )
+            // InternalBurst.g:1906:1: ( RULE_ID )
             {
-            pushFollow(FOLLOW_4);
-            rule__MemberInConcern__Group__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__MemberInConcern__Group__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MemberInConcern__Group__2"
-
-
-    // $ANTLR start "rule__MemberInConcern__Group__2__Impl"
-    // InternalBurst.g:1876:1: rule__MemberInConcern__Group__2__Impl : ( '.' ) ;
-    public final void rule__MemberInConcern__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1880:1: ( ( '.' ) )
-            // InternalBurst.g:1881:1: ( '.' )
+            // InternalBurst.g:1906:1: ( RULE_ID )
+            // InternalBurst.g:1907:2: RULE_ID
             {
-            // InternalBurst.g:1881:1: ( '.' )
-            // InternalBurst.g:1882:2: '.'
-            {
-             before(grammarAccess.getMemberInConcernAccess().getFullStopKeyword_2()); 
-            match(input,15,FOLLOW_2); 
-             after(grammarAccess.getMemberInConcernAccess().getFullStopKeyword_2()); 
+             before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
 
             }
 
@@ -5870,109 +5918,29 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MemberInConcern__Group__2__Impl"
-
-
-    // $ANTLR start "rule__MemberInConcern__Group__3"
-    // InternalBurst.g:1891:1: rule__MemberInConcern__Group__3 : rule__MemberInConcern__Group__3__Impl ;
-    public final void rule__MemberInConcern__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1895:1: ( rule__MemberInConcern__Group__3__Impl )
-            // InternalBurst.g:1896:2: rule__MemberInConcern__Group__3__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__MemberInConcern__Group__3__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MemberInConcern__Group__3"
-
-
-    // $ANTLR start "rule__MemberInConcern__Group__3__Impl"
-    // InternalBurst.g:1902:1: rule__MemberInConcern__Group__3__Impl : ( ( rule__MemberInConcern__NameAssignment_3 ) ) ;
-    public final void rule__MemberInConcern__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1906:1: ( ( ( rule__MemberInConcern__NameAssignment_3 ) ) )
-            // InternalBurst.g:1907:1: ( ( rule__MemberInConcern__NameAssignment_3 ) )
-            {
-            // InternalBurst.g:1907:1: ( ( rule__MemberInConcern__NameAssignment_3 ) )
-            // InternalBurst.g:1908:2: ( rule__MemberInConcern__NameAssignment_3 )
-            {
-             before(grammarAccess.getMemberInConcernAccess().getNameAssignment_3()); 
-            // InternalBurst.g:1909:2: ( rule__MemberInConcern__NameAssignment_3 )
-            // InternalBurst.g:1909:3: rule__MemberInConcern__NameAssignment_3
-            {
-            pushFollow(FOLLOW_2);
-            rule__MemberInConcern__NameAssignment_3();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getMemberInConcernAccess().getNameAssignment_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MemberInConcern__Group__3__Impl"
+    // $ANTLR end "rule__QualifiedName__Group_1__1__Impl"
 
 
     // $ANTLR start "rule__File__ElementsAssignment"
-    // InternalBurst.g:1918:1: rule__File__ElementsAssignment : ( ruleAbstractElement ) ;
+    // InternalBurst.g:1917:1: rule__File__ElementsAssignment : ( ruleRuleFileElement ) ;
     public final void rule__File__ElementsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1922:1: ( ( ruleAbstractElement ) )
-            // InternalBurst.g:1923:2: ( ruleAbstractElement )
+            // InternalBurst.g:1921:1: ( ( ruleRuleFileElement ) )
+            // InternalBurst.g:1922:2: ( ruleRuleFileElement )
             {
-            // InternalBurst.g:1923:2: ( ruleAbstractElement )
-            // InternalBurst.g:1924:3: ruleAbstractElement
+            // InternalBurst.g:1922:2: ( ruleRuleFileElement )
+            // InternalBurst.g:1923:3: ruleRuleFileElement
             {
-             before(grammarAccess.getFileAccess().getElementsAbstractElementParserRuleCall_0()); 
+             before(grammarAccess.getFileAccess().getElementsRuleFileElementParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
-            ruleAbstractElement();
+            ruleRuleFileElement();
 
             state._fsp--;
 
-             after(grammarAccess.getFileAccess().getElementsAbstractElementParserRuleCall_0()); 
+             after(grammarAccess.getFileAccess().getElementsRuleFileElementParserRuleCall_0()); 
 
             }
 
@@ -5994,26 +5962,26 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__File__ElementsAssignment"
 
 
-    // $ANTLR start "rule__Package__NameAssignment_1"
-    // InternalBurst.g:1933:1: rule__Package__NameAssignment_1 : ( ruleQualifiedName ) ;
-    public final void rule__Package__NameAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__RuleImport__ImportedNamespaceAssignment_2"
+    // InternalBurst.g:1932:1: rule__RuleImport__ImportedNamespaceAssignment_2 : ( ruleQualifiedName ) ;
+    public final void rule__RuleImport__ImportedNamespaceAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1937:1: ( ( ruleQualifiedName ) )
-            // InternalBurst.g:1938:2: ( ruleQualifiedName )
+            // InternalBurst.g:1936:1: ( ( ruleQualifiedName ) )
+            // InternalBurst.g:1937:2: ( ruleQualifiedName )
             {
-            // InternalBurst.g:1938:2: ( ruleQualifiedName )
-            // InternalBurst.g:1939:3: ruleQualifiedName
+            // InternalBurst.g:1937:2: ( ruleQualifiedName )
+            // InternalBurst.g:1938:3: ruleQualifiedName
             {
-             before(grammarAccess.getPackageAccess().getNameQualifiedNameParserRuleCall_1_0()); 
+             before(grammarAccess.getRuleImportAccess().getImportedNamespaceQualifiedNameParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getPackageAccess().getNameQualifiedNameParserRuleCall_1_0()); 
+             after(grammarAccess.getRuleImportAccess().getImportedNamespaceQualifiedNameParserRuleCall_2_0()); 
 
             }
 
@@ -6032,70 +6000,29 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Package__NameAssignment_1"
+    // $ANTLR end "rule__RuleImport__ImportedNamespaceAssignment_2"
 
 
-    // $ANTLR start "rule__Package__ElementsAssignment_3"
-    // InternalBurst.g:1948:1: rule__Package__ElementsAssignment_3 : ( ruleAbstractElement ) ;
-    public final void rule__Package__ElementsAssignment_3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:1952:1: ( ( ruleAbstractElement ) )
-            // InternalBurst.g:1953:2: ( ruleAbstractElement )
-            {
-            // InternalBurst.g:1953:2: ( ruleAbstractElement )
-            // InternalBurst.g:1954:3: ruleAbstractElement
-            {
-             before(grammarAccess.getPackageAccess().getElementsAbstractElementParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_2);
-            ruleAbstractElement();
-
-            state._fsp--;
-
-             after(grammarAccess.getPackageAccess().getElementsAbstractElementParserRuleCall_3_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Package__ElementsAssignment_3"
-
-
-    // $ANTLR start "rule__Import__ImportedNamespaceAssignment_1"
-    // InternalBurst.g:1963:1: rule__Import__ImportedNamespaceAssignment_1 : ( ruleQualifiedName ) ;
-    public final void rule__Import__ImportedNamespaceAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__RulePackage__NameAssignment_2"
+    // InternalBurst.g:1947:1: rule__RulePackage__NameAssignment_2 : ( ruleQualifiedName ) ;
+    public final void rule__RulePackage__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1967:1: ( ( ruleQualifiedName ) )
-            // InternalBurst.g:1968:2: ( ruleQualifiedName )
+            // InternalBurst.g:1951:1: ( ( ruleQualifiedName ) )
+            // InternalBurst.g:1952:2: ( ruleQualifiedName )
             {
-            // InternalBurst.g:1968:2: ( ruleQualifiedName )
-            // InternalBurst.g:1969:3: ruleQualifiedName
+            // InternalBurst.g:1952:2: ( ruleQualifiedName )
+            // InternalBurst.g:1953:3: ruleQualifiedName
             {
-             before(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameParserRuleCall_1_0()); 
+             before(grammarAccess.getRulePackageAccess().getNameQualifiedNameParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameParserRuleCall_1_0()); 
+             after(grammarAccess.getRulePackageAccess().getNameQualifiedNameParserRuleCall_2_0()); 
 
             }
 
@@ -6114,25 +6041,66 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Import__ImportedNamespaceAssignment_1"
+    // $ANTLR end "rule__RulePackage__NameAssignment_2"
 
 
-    // $ANTLR start "rule__Concern__NameAssignment_3"
-    // InternalBurst.g:1978:1: rule__Concern__NameAssignment_3 : ( RULE_ID ) ;
-    public final void rule__Concern__NameAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__RulePackage__ElementsAssignment_5"
+    // InternalBurst.g:1962:1: rule__RulePackage__ElementsAssignment_5 : ( rulePackageElement ) ;
+    public final void rule__RulePackage__ElementsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1982:1: ( ( RULE_ID ) )
-            // InternalBurst.g:1983:2: ( RULE_ID )
+            // InternalBurst.g:1966:1: ( ( rulePackageElement ) )
+            // InternalBurst.g:1967:2: ( rulePackageElement )
             {
-            // InternalBurst.g:1983:2: ( RULE_ID )
-            // InternalBurst.g:1984:3: RULE_ID
+            // InternalBurst.g:1967:2: ( rulePackageElement )
+            // InternalBurst.g:1968:3: rulePackageElement
             {
-             before(grammarAccess.getConcernAccess().getNameIDTerminalRuleCall_3_0()); 
+             before(grammarAccess.getRulePackageAccess().getElementsPackageElementParserRuleCall_5_0()); 
+            pushFollow(FOLLOW_2);
+            rulePackageElement();
+
+            state._fsp--;
+
+             after(grammarAccess.getRulePackageAccess().getElementsPackageElementParserRuleCall_5_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RulePackage__ElementsAssignment_5"
+
+
+    // $ANTLR start "rule__RuleConcern__NameAssignment_2"
+    // InternalBurst.g:1977:1: rule__RuleConcern__NameAssignment_2 : ( RULE_ID ) ;
+    public final void rule__RuleConcern__NameAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:1981:1: ( ( RULE_ID ) )
+            // InternalBurst.g:1982:2: ( RULE_ID )
+            {
+            // InternalBurst.g:1982:2: ( RULE_ID )
+            // InternalBurst.g:1983:3: RULE_ID
+            {
+             before(grammarAccess.getRuleConcernAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getConcernAccess().getNameIDTerminalRuleCall_3_0()); 
+             after(grammarAccess.getRuleConcernAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
 
@@ -6151,37 +6119,37 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__NameAssignment_3"
+    // $ANTLR end "rule__RuleConcern__NameAssignment_2"
 
 
-    // $ANTLR start "rule__Concern__SupertypeAssignment_5_2"
-    // InternalBurst.g:1993:1: rule__Concern__SupertypeAssignment_5_2 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__Concern__SupertypeAssignment_5_2() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__SupertypeAssignment_3_3"
+    // InternalBurst.g:1992:1: rule__RuleConcern__SupertypeAssignment_3_3 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__RuleConcern__SupertypeAssignment_3_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:1997:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalBurst.g:1998:2: ( ( ruleQualifiedName ) )
+            // InternalBurst.g:1996:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalBurst.g:1997:2: ( ( ruleQualifiedName ) )
             {
-            // InternalBurst.g:1998:2: ( ( ruleQualifiedName ) )
+            // InternalBurst.g:1997:2: ( ( ruleQualifiedName ) )
+            // InternalBurst.g:1998:3: ( ruleQualifiedName )
+            {
+             before(grammarAccess.getRuleConcernAccess().getSupertypeConcernCrossReference_3_3_0()); 
             // InternalBurst.g:1999:3: ( ruleQualifiedName )
+            // InternalBurst.g:2000:4: ruleQualifiedName
             {
-             before(grammarAccess.getConcernAccess().getSupertypeConcernCrossReference_5_2_0()); 
-            // InternalBurst.g:2000:3: ( ruleQualifiedName )
-            // InternalBurst.g:2001:4: ruleQualifiedName
-            {
-             before(grammarAccess.getConcernAccess().getSupertypeConcernQualifiedNameParserRuleCall_5_2_0_1()); 
+             before(grammarAccess.getRuleConcernAccess().getSupertypeConcernQualifiedNameParserRuleCall_3_3_0_1()); 
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getConcernAccess().getSupertypeConcernQualifiedNameParserRuleCall_5_2_0_1()); 
+             after(grammarAccess.getRuleConcernAccess().getSupertypeConcernQualifiedNameParserRuleCall_3_3_0_1()); 
 
             }
 
-             after(grammarAccess.getConcernAccess().getSupertypeConcernCrossReference_5_2_0()); 
+             after(grammarAccess.getRuleConcernAccess().getSupertypeConcernCrossReference_3_3_0()); 
 
             }
 
@@ -6200,29 +6168,29 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__SupertypeAssignment_5_2"
+    // $ANTLR end "rule__RuleConcern__SupertypeAssignment_3_3"
 
 
-    // $ANTLR start "rule__Concern__MembersAssignment_6_2_0"
-    // InternalBurst.g:2012:1: rule__Concern__MembersAssignment_6_2_0 : ( ruleMember ) ;
-    public final void rule__Concern__MembersAssignment_6_2_0() throws RecognitionException {
+    // $ANTLR start "rule__RuleConcern__ElementsAssignment_4_1"
+    // InternalBurst.g:2011:1: rule__RuleConcern__ElementsAssignment_4_1 : ( ruleConcernElement ) ;
+    public final void rule__RuleConcern__ElementsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:2016:1: ( ( ruleMember ) )
-            // InternalBurst.g:2017:2: ( ruleMember )
+            // InternalBurst.g:2015:1: ( ( ruleConcernElement ) )
+            // InternalBurst.g:2016:2: ( ruleConcernElement )
             {
-            // InternalBurst.g:2017:2: ( ruleMember )
-            // InternalBurst.g:2018:3: ruleMember
+            // InternalBurst.g:2016:2: ( ruleConcernElement )
+            // InternalBurst.g:2017:3: ruleConcernElement
             {
-             before(grammarAccess.getConcernAccess().getMembersMemberParserRuleCall_6_2_0_0()); 
+             before(grammarAccess.getRuleConcernAccess().getElementsConcernElementParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMember();
+            ruleConcernElement();
 
             state._fsp--;
 
-             after(grammarAccess.getConcernAccess().getMembersMemberParserRuleCall_6_2_0_0()); 
+             after(grammarAccess.getRuleConcernAccess().getElementsConcernElementParserRuleCall_4_1_0()); 
 
             }
 
@@ -6241,78 +6209,37 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Concern__MembersAssignment_6_2_0"
+    // $ANTLR end "rule__RuleConcern__ElementsAssignment_4_1"
 
 
-    // $ANTLR start "rule__Concern__IntersectionsAssignment_6_2_1"
-    // InternalBurst.g:2027:1: rule__Concern__IntersectionsAssignment_6_2_1 : ( ruleIntersection ) ;
-    public final void rule__Concern__IntersectionsAssignment_6_2_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:2031:1: ( ( ruleIntersection ) )
-            // InternalBurst.g:2032:2: ( ruleIntersection )
-            {
-            // InternalBurst.g:2032:2: ( ruleIntersection )
-            // InternalBurst.g:2033:3: ruleIntersection
-            {
-             before(grammarAccess.getConcernAccess().getIntersectionsIntersectionParserRuleCall_6_2_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleIntersection();
-
-            state._fsp--;
-
-             after(grammarAccess.getConcernAccess().getIntersectionsIntersectionParserRuleCall_6_2_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Concern__IntersectionsAssignment_6_2_1"
-
-
-    // $ANTLR start "rule__Member__ConcernAssignment_1"
-    // InternalBurst.g:2042:1: rule__Member__ConcernAssignment_1 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__Member__ConcernAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__DeclareMember__ConcernAssignment_1"
+    // InternalBurst.g:2026:1: rule__DeclareMember__ConcernAssignment_1 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__DeclareMember__ConcernAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:2046:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalBurst.g:2047:2: ( ( ruleQualifiedName ) )
+            // InternalBurst.g:2030:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalBurst.g:2031:2: ( ( ruleQualifiedName ) )
             {
-            // InternalBurst.g:2047:2: ( ( ruleQualifiedName ) )
-            // InternalBurst.g:2048:3: ( ruleQualifiedName )
+            // InternalBurst.g:2031:2: ( ( ruleQualifiedName ) )
+            // InternalBurst.g:2032:3: ( ruleQualifiedName )
             {
-             before(grammarAccess.getMemberAccess().getConcernConcernCrossReference_1_0()); 
-            // InternalBurst.g:2049:3: ( ruleQualifiedName )
-            // InternalBurst.g:2050:4: ruleQualifiedName
+             before(grammarAccess.getDeclareMemberAccess().getConcernConcernCrossReference_1_0()); 
+            // InternalBurst.g:2033:3: ( ruleQualifiedName )
+            // InternalBurst.g:2034:4: ruleQualifiedName
             {
-             before(grammarAccess.getMemberAccess().getConcernConcernQualifiedNameParserRuleCall_1_0_1()); 
+             before(grammarAccess.getDeclareMemberAccess().getConcernConcernQualifiedNameParserRuleCall_1_0_1()); 
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getMemberAccess().getConcernConcernQualifiedNameParserRuleCall_1_0_1()); 
+             after(grammarAccess.getDeclareMemberAccess().getConcernConcernQualifiedNameParserRuleCall_1_0_1()); 
 
             }
 
-             after(grammarAccess.getMemberAccess().getConcernConcernCrossReference_1_0()); 
+             after(grammarAccess.getDeclareMemberAccess().getConcernConcernCrossReference_1_0()); 
 
             }
 
@@ -6331,25 +6258,25 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Member__ConcernAssignment_1"
+    // $ANTLR end "rule__DeclareMember__ConcernAssignment_1"
 
 
-    // $ANTLR start "rule__Member__NameAssignment_3"
-    // InternalBurst.g:2061:1: rule__Member__NameAssignment_3 : ( RULE_ID ) ;
-    public final void rule__Member__NameAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__DeclareMember__NameAssignment_2"
+    // InternalBurst.g:2045:1: rule__DeclareMember__NameAssignment_2 : ( RULE_ID ) ;
+    public final void rule__DeclareMember__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:2065:1: ( ( RULE_ID ) )
-            // InternalBurst.g:2066:2: ( RULE_ID )
+            // InternalBurst.g:2049:1: ( ( RULE_ID ) )
+            // InternalBurst.g:2050:2: ( RULE_ID )
             {
-            // InternalBurst.g:2066:2: ( RULE_ID )
-            // InternalBurst.g:2067:3: RULE_ID
+            // InternalBurst.g:2050:2: ( RULE_ID )
+            // InternalBurst.g:2051:3: RULE_ID
             {
-             before(grammarAccess.getMemberAccess().getNameIDTerminalRuleCall_3_0()); 
+             before(grammarAccess.getDeclareMemberAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getMemberAccess().getNameIDTerminalRuleCall_3_0()); 
+             after(grammarAccess.getDeclareMemberAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
 
@@ -6368,33 +6295,33 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Member__NameAssignment_3"
+    // $ANTLR end "rule__DeclareMember__NameAssignment_2"
 
 
-    // $ANTLR start "rule__Intersection__NameAssignment_1"
-    // InternalBurst.g:2076:1: rule__Intersection__NameAssignment_1 : ( ( 'when' ) ) ;
-    public final void rule__Intersection__NameAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__NameAssignment_1"
+    // InternalBurst.g:2060:1: rule__RuleIntersect__NameAssignment_1 : ( ( 'when' ) ) ;
+    public final void rule__RuleIntersect__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:2080:1: ( ( ( 'when' ) ) )
-            // InternalBurst.g:2081:2: ( ( 'when' ) )
+            // InternalBurst.g:2064:1: ( ( ( 'when' ) ) )
+            // InternalBurst.g:2065:2: ( ( 'when' ) )
             {
-            // InternalBurst.g:2081:2: ( ( 'when' ) )
-            // InternalBurst.g:2082:3: ( 'when' )
+            // InternalBurst.g:2065:2: ( ( 'when' ) )
+            // InternalBurst.g:2066:3: ( 'when' )
             {
-             before(grammarAccess.getIntersectionAccess().getNameWhenKeyword_1_0()); 
-            // InternalBurst.g:2083:3: ( 'when' )
-            // InternalBurst.g:2084:4: 'when'
+             before(grammarAccess.getRuleIntersectAccess().getNameWhenKeyword_1_0()); 
+            // InternalBurst.g:2067:3: ( 'when' )
+            // InternalBurst.g:2068:4: 'when'
             {
-             before(grammarAccess.getIntersectionAccess().getNameWhenKeyword_1_0()); 
-            match(input,19,FOLLOW_2); 
-             after(grammarAccess.getIntersectionAccess().getNameWhenKeyword_1_0()); 
+             before(grammarAccess.getRuleIntersectAccess().getNameWhenKeyword_1_0()); 
+            match(input,21,FOLLOW_2); 
+             after(grammarAccess.getRuleIntersectAccess().getNameWhenKeyword_1_0()); 
 
             }
 
-             after(grammarAccess.getIntersectionAccess().getNameWhenKeyword_1_0()); 
+             after(grammarAccess.getRuleIntersectAccess().getNameWhenKeyword_1_0()); 
 
             }
 
@@ -6413,29 +6340,29 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__NameAssignment_1"
+    // $ANTLR end "rule__RuleIntersect__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Intersection__MembersAssignment_3"
-    // InternalBurst.g:2095:1: rule__Intersection__MembersAssignment_3 : ( ruleMember ) ;
-    public final void rule__Intersection__MembersAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__ParametersAssignment_2_1"
+    // InternalBurst.g:2079:1: rule__RuleIntersect__ParametersAssignment_2_1 : ( ruleDeclareParameter ) ;
+    public final void rule__RuleIntersect__ParametersAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:2099:1: ( ( ruleMember ) )
-            // InternalBurst.g:2100:2: ( ruleMember )
+            // InternalBurst.g:2083:1: ( ( ruleDeclareParameter ) )
+            // InternalBurst.g:2084:2: ( ruleDeclareParameter )
             {
-            // InternalBurst.g:2100:2: ( ruleMember )
-            // InternalBurst.g:2101:3: ruleMember
+            // InternalBurst.g:2084:2: ( ruleDeclareParameter )
+            // InternalBurst.g:2085:3: ruleDeclareParameter
             {
-             before(grammarAccess.getIntersectionAccess().getMembersMemberParserRuleCall_3_0()); 
+             before(grammarAccess.getRuleIntersectAccess().getParametersDeclareParameterParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleMember();
+            ruleDeclareParameter();
 
             state._fsp--;
 
-             after(grammarAccess.getIntersectionAccess().getMembersMemberParserRuleCall_3_0()); 
+             after(grammarAccess.getRuleIntersectAccess().getParametersDeclareParameterParserRuleCall_2_1_0()); 
 
             }
 
@@ -6454,29 +6381,29 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__MembersAssignment_3"
+    // $ANTLR end "rule__RuleIntersect__ParametersAssignment_2_1"
 
 
-    // $ANTLR start "rule__Intersection__LinesContentAssignment_6"
-    // InternalBurst.g:2110:1: rule__Intersection__LinesContentAssignment_6 : ( ruleLine ) ;
-    public final void rule__Intersection__LinesContentAssignment_6() throws RecognitionException {
+    // $ANTLR start "rule__RuleIntersect__LinesAssignment_4"
+    // InternalBurst.g:2094:1: rule__RuleIntersect__LinesAssignment_4 : ( ruleIntersectionElement ) ;
+    public final void rule__RuleIntersect__LinesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:2114:1: ( ( ruleLine ) )
-            // InternalBurst.g:2115:2: ( ruleLine )
+            // InternalBurst.g:2098:1: ( ( ruleIntersectionElement ) )
+            // InternalBurst.g:2099:2: ( ruleIntersectionElement )
             {
-            // InternalBurst.g:2115:2: ( ruleLine )
-            // InternalBurst.g:2116:3: ruleLine
+            // InternalBurst.g:2099:2: ( ruleIntersectionElement )
+            // InternalBurst.g:2100:3: ruleIntersectionElement
             {
-             before(grammarAccess.getIntersectionAccess().getLinesContentLineParserRuleCall_6_0()); 
+             before(grammarAccess.getRuleIntersectAccess().getLinesIntersectionElementParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
-            ruleLine();
+            ruleIntersectionElement();
 
             state._fsp--;
 
-             after(grammarAccess.getIntersectionAccess().getLinesContentLineParserRuleCall_6_0()); 
+             after(grammarAccess.getRuleIntersectAccess().getLinesIntersectionElementParserRuleCall_4_0()); 
 
             }
 
@@ -6495,29 +6422,115 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Intersection__LinesContentAssignment_6"
+    // $ANTLR end "rule__RuleIntersect__LinesAssignment_4"
 
 
-    // $ANTLR start "rule__Line__FirstAssignment_0"
-    // InternalBurst.g:2125:1: rule__Line__FirstAssignment_0 : ( ruleCall ) ;
-    public final void rule__Line__FirstAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__RenamedParameter__ConcernAssignment_1"
+    // InternalBurst.g:2109:1: rule__RenamedParameter__ConcernAssignment_1 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__RenamedParameter__ConcernAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:2129:1: ( ( ruleCall ) )
-            // InternalBurst.g:2130:2: ( ruleCall )
+            // InternalBurst.g:2113:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalBurst.g:2114:2: ( ( ruleQualifiedName ) )
             {
-            // InternalBurst.g:2130:2: ( ruleCall )
-            // InternalBurst.g:2131:3: ruleCall
+            // InternalBurst.g:2114:2: ( ( ruleQualifiedName ) )
+            // InternalBurst.g:2115:3: ( ruleQualifiedName )
             {
-             before(grammarAccess.getLineAccess().getFirstCallParserRuleCall_0_0()); 
+             before(grammarAccess.getRenamedParameterAccess().getConcernConcernCrossReference_1_0()); 
+            // InternalBurst.g:2116:3: ( ruleQualifiedName )
+            // InternalBurst.g:2117:4: ruleQualifiedName
+            {
+             before(grammarAccess.getRenamedParameterAccess().getConcernConcernQualifiedNameParserRuleCall_1_0_1()); 
+            pushFollow(FOLLOW_2);
+            ruleQualifiedName();
+
+            state._fsp--;
+
+             after(grammarAccess.getRenamedParameterAccess().getConcernConcernQualifiedNameParserRuleCall_1_0_1()); 
+
+            }
+
+             after(grammarAccess.getRenamedParameterAccess().getConcernConcernCrossReference_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RenamedParameter__ConcernAssignment_1"
+
+
+    // $ANTLR start "rule__RenamedParameter__NameAssignment_2"
+    // InternalBurst.g:2128:1: rule__RenamedParameter__NameAssignment_2 : ( RULE_ID ) ;
+    public final void rule__RenamedParameter__NameAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:2132:1: ( ( RULE_ID ) )
+            // InternalBurst.g:2133:2: ( RULE_ID )
+            {
+            // InternalBurst.g:2133:2: ( RULE_ID )
+            // InternalBurst.g:2134:3: RULE_ID
+            {
+             before(grammarAccess.getRenamedParameterAccess().getNameIDTerminalRuleCall_2_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getRenamedParameterAccess().getNameIDTerminalRuleCall_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RenamedParameter__NameAssignment_2"
+
+
+    // $ANTLR start "rule__Line__CallsAssignment_1"
+    // InternalBurst.g:2143:1: rule__Line__CallsAssignment_1 : ( ruleCall ) ;
+    public final void rule__Line__CallsAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBurst.g:2147:1: ( ( ruleCall ) )
+            // InternalBurst.g:2148:2: ( ruleCall )
+            {
+            // InternalBurst.g:2148:2: ( ruleCall )
+            // InternalBurst.g:2149:3: ruleCall
+            {
+             before(grammarAccess.getLineAccess().getCallsCallParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
             ruleCall();
 
             state._fsp--;
 
-             after(grammarAccess.getLineAccess().getFirstCallParserRuleCall_0_0()); 
+             after(grammarAccess.getLineAccess().getCallsCallParserRuleCall_1_0()); 
 
             }
 
@@ -6536,29 +6549,29 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Line__FirstAssignment_0"
+    // $ANTLR end "rule__Line__CallsAssignment_1"
 
 
-    // $ANTLR start "rule__Line__ListAssignment_1"
-    // InternalBurst.g:2140:1: rule__Line__ListAssignment_1 : ( ruleCall ) ;
-    public final void rule__Line__ListAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Line__CallsAssignment_2"
+    // InternalBurst.g:2158:1: rule__Line__CallsAssignment_2 : ( ruleCall ) ;
+    public final void rule__Line__CallsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:2144:1: ( ( ruleCall ) )
-            // InternalBurst.g:2145:2: ( ruleCall )
+            // InternalBurst.g:2162:1: ( ( ruleCall ) )
+            // InternalBurst.g:2163:2: ( ruleCall )
             {
-            // InternalBurst.g:2145:2: ( ruleCall )
-            // InternalBurst.g:2146:3: ruleCall
+            // InternalBurst.g:2163:2: ( ruleCall )
+            // InternalBurst.g:2164:3: ruleCall
             {
-             before(grammarAccess.getLineAccess().getListCallParserRuleCall_1_0()); 
+             before(grammarAccess.getLineAccess().getCallsCallParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
             ruleCall();
 
             state._fsp--;
 
-             after(grammarAccess.getLineAccess().getListCallParserRuleCall_1_0()); 
+             after(grammarAccess.getLineAccess().getCallsCallParserRuleCall_2_0()); 
 
             }
 
@@ -6577,29 +6590,33 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Line__ListAssignment_1"
+    // $ANTLR end "rule__Line__CallsAssignment_2"
 
 
-    // $ANTLR start "rule__Call__NameAssignment_0_1"
-    // InternalBurst.g:2155:1: rule__Call__NameAssignment_0_1 : ( ruleMemberCall ) ;
-    public final void rule__Call__NameAssignment_0_1() throws RecognitionException {
+    // $ANTLR start "rule__Toto__NameAssignment_1"
+    // InternalBurst.g:2173:1: rule__Toto__NameAssignment_1 : ( ( 'toto' ) ) ;
+    public final void rule__Toto__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:2159:1: ( ( ruleMemberCall ) )
-            // InternalBurst.g:2160:2: ( ruleMemberCall )
+            // InternalBurst.g:2177:1: ( ( ( 'toto' ) ) )
+            // InternalBurst.g:2178:2: ( ( 'toto' ) )
             {
-            // InternalBurst.g:2160:2: ( ruleMemberCall )
-            // InternalBurst.g:2161:3: ruleMemberCall
+            // InternalBurst.g:2178:2: ( ( 'toto' ) )
+            // InternalBurst.g:2179:3: ( 'toto' )
             {
-             before(grammarAccess.getCallAccess().getNameMemberCallParserRuleCall_0_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleMemberCall();
+             before(grammarAccess.getTotoAccess().getNameTotoKeyword_1_0()); 
+            // InternalBurst.g:2180:3: ( 'toto' )
+            // InternalBurst.g:2181:4: 'toto'
+            {
+             before(grammarAccess.getTotoAccess().getNameTotoKeyword_1_0()); 
+            match(input,22,FOLLOW_2); 
+             after(grammarAccess.getTotoAccess().getNameTotoKeyword_1_0()); 
 
-            state._fsp--;
+            }
 
-             after(grammarAccess.getCallAccess().getNameMemberCallParserRuleCall_0_1_0()); 
+             after(grammarAccess.getTotoAccess().getNameTotoKeyword_1_0()); 
 
             }
 
@@ -6618,119 +6635,33 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Call__NameAssignment_0_1"
+    // $ANTLR end "rule__Toto__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Call__NameAssignment_1"
-    // InternalBurst.g:2170:1: rule__Call__NameAssignment_1 : ( ruleMemberInConcern ) ;
-    public final void rule__Call__NameAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:2174:1: ( ( ruleMemberInConcern ) )
-            // InternalBurst.g:2175:2: ( ruleMemberInConcern )
-            {
-            // InternalBurst.g:2175:2: ( ruleMemberInConcern )
-            // InternalBurst.g:2176:3: ruleMemberInConcern
-            {
-             before(grammarAccess.getCallAccess().getNameMemberInConcernParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleMemberInConcern();
-
-            state._fsp--;
-
-             after(grammarAccess.getCallAccess().getNameMemberInConcernParserRuleCall_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Call__NameAssignment_1"
-
-
-    // $ANTLR start "rule__MemberCall__NameAssignment_1"
-    // InternalBurst.g:2185:1: rule__MemberCall__NameAssignment_1 : ( ( RULE_ID ) ) ;
-    public final void rule__MemberCall__NameAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__RenamedParameterCall__NameAssignment_1"
+    // InternalBurst.g:2192:1: rule__RenamedParameterCall__NameAssignment_1 : ( ( RULE_ID ) ) ;
+    public final void rule__RenamedParameterCall__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBurst.g:2189:1: ( ( ( RULE_ID ) ) )
-            // InternalBurst.g:2190:2: ( ( RULE_ID ) )
+            // InternalBurst.g:2196:1: ( ( ( RULE_ID ) ) )
+            // InternalBurst.g:2197:2: ( ( RULE_ID ) )
             {
-            // InternalBurst.g:2190:2: ( ( RULE_ID ) )
-            // InternalBurst.g:2191:3: ( RULE_ID )
+            // InternalBurst.g:2197:2: ( ( RULE_ID ) )
+            // InternalBurst.g:2198:3: ( RULE_ID )
             {
-             before(grammarAccess.getMemberCallAccess().getNameMemberCrossReference_1_0()); 
-            // InternalBurst.g:2192:3: ( RULE_ID )
-            // InternalBurst.g:2193:4: RULE_ID
+             before(grammarAccess.getRenamedParameterCallAccess().getNameRenamedParameterCrossReference_1_0()); 
+            // InternalBurst.g:2199:3: ( RULE_ID )
+            // InternalBurst.g:2200:4: RULE_ID
             {
-             before(grammarAccess.getMemberCallAccess().getNameMemberIDTerminalRuleCall_1_0_1()); 
+             before(grammarAccess.getRenamedParameterCallAccess().getNameRenamedParameterIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getMemberCallAccess().getNameMemberIDTerminalRuleCall_1_0_1()); 
+             after(grammarAccess.getRenamedParameterCallAccess().getNameRenamedParameterIDTerminalRuleCall_1_0_1()); 
 
             }
 
-             after(grammarAccess.getMemberCallAccess().getNameMemberCrossReference_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MemberCall__NameAssignment_1"
-
-
-    // $ANTLR start "rule__MemberInConcern__TargetAssignment_1"
-    // InternalBurst.g:2204:1: rule__MemberInConcern__TargetAssignment_1 : ( ( RULE_ID ) ) ;
-    public final void rule__MemberInConcern__TargetAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:2208:1: ( ( ( RULE_ID ) ) )
-            // InternalBurst.g:2209:2: ( ( RULE_ID ) )
-            {
-            // InternalBurst.g:2209:2: ( ( RULE_ID ) )
-            // InternalBurst.g:2210:3: ( RULE_ID )
-            {
-             before(grammarAccess.getMemberInConcernAccess().getTargetConcernCrossReference_1_0()); 
-            // InternalBurst.g:2211:3: ( RULE_ID )
-            // InternalBurst.g:2212:4: RULE_ID
-            {
-             before(grammarAccess.getMemberInConcernAccess().getTargetConcernIDTerminalRuleCall_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getMemberInConcernAccess().getTargetConcernIDTerminalRuleCall_1_0_1()); 
-
-            }
-
-             after(grammarAccess.getMemberInConcernAccess().getTargetConcernCrossReference_1_0()); 
+             after(grammarAccess.getRenamedParameterCallAccess().getNameRenamedParameterCrossReference_1_0()); 
 
             }
 
@@ -6749,75 +6680,78 @@ public class InternalBurstParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MemberInConcern__TargetAssignment_1"
-
-
-    // $ANTLR start "rule__MemberInConcern__NameAssignment_3"
-    // InternalBurst.g:2223:1: rule__MemberInConcern__NameAssignment_3 : ( ( RULE_ID ) ) ;
-    public final void rule__MemberInConcern__NameAssignment_3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBurst.g:2227:1: ( ( ( RULE_ID ) ) )
-            // InternalBurst.g:2228:2: ( ( RULE_ID ) )
-            {
-            // InternalBurst.g:2228:2: ( ( RULE_ID ) )
-            // InternalBurst.g:2229:3: ( RULE_ID )
-            {
-             before(grammarAccess.getMemberInConcernAccess().getNameMemberCrossReference_3_0()); 
-            // InternalBurst.g:2230:3: ( RULE_ID )
-            // InternalBurst.g:2231:4: RULE_ID
-            {
-             before(grammarAccess.getMemberInConcernAccess().getNameMemberIDTerminalRuleCall_3_0_1()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getMemberInConcernAccess().getNameMemberIDTerminalRuleCall_3_0_1()); 
-
-            }
-
-             after(grammarAccess.getMemberInConcernAccess().getNameMemberCrossReference_3_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MemberInConcern__NameAssignment_3"
+    // $ANTLR end "rule__RenamedParameterCall__NameAssignment_1"
 
     // Delegated rules
 
 
+    protected DFA10 dfa10 = new DFA10(this);
+    static final String dfa_1s = "\4\uffff";
+    static final String dfa_2s = "\1\3\3\uffff";
+    static final String dfa_3s = "\2\4\2\uffff";
+    static final String dfa_4s = "\2\25\2\uffff";
+    static final String dfa_5s = "\2\uffff\1\1\1\2";
+    static final String dfa_6s = "\4\uffff}>";
+    static final String[] dfa_7s = {
+            "\1\1\13\uffff\3\3\1\2\1\uffff\1\3",
+            "\1\1\14\uffff\2\3\1\2\1\uffff\1\3",
+            "",
+            ""
+    };
+
+    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
+    static final short[] dfa_2 = DFA.unpackEncodedString(dfa_2s);
+    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
+    static final char[] dfa_4 = DFA.unpackEncodedStringToUnsignedChars(dfa_4s);
+    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
+    static final short[] dfa_6 = DFA.unpackEncodedString(dfa_6s);
+    static final short[][] dfa_7 = unpackEncodedStringArray(dfa_7s);
+
+    class DFA10 extends DFA {
+
+        public DFA10(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 10;
+            this.eot = dfa_1;
+            this.eof = dfa_2;
+            this.min = dfa_3;
+            this.max = dfa_4;
+            this.accept = dfa_5;
+            this.special = dfa_6;
+            this.transition = dfa_7;
+        }
+        public String getDescription() {
+            return "991:2: ( rule__RuleConcern__Group_3__0 )?";
+        }
+    }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x00000000000B1012L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x00000000000B5010L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000042010L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000084030L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080022L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000002030L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000004030L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x000000000000C012L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000260010L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000240012L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000090010L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080010L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000220030L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000200032L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000010030L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000000032L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000420030L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000400032L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000003000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000400020L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000400022L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000100002L});
 
 }

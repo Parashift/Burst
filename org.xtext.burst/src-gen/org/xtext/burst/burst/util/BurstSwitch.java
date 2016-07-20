@@ -8,19 +8,31 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.xtext.burst.burst.AbstractElement;
-import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Call;
 import org.xtext.burst.burst.Concern;
-import org.xtext.burst.burst.Destruct;
+import org.xtext.burst.burst.ConcernElement;
+import org.xtext.burst.burst.ConcernParameter;
+import org.xtext.burst.burst.ConcernParameterCall;
+import org.xtext.burst.burst.DeclareMember;
+import org.xtext.burst.burst.DeclareParameter;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.Import;
 import org.xtext.burst.burst.Intersection;
+import org.xtext.burst.burst.IntersectionElement;
 import org.xtext.burst.burst.Line;
 import org.xtext.burst.burst.Member;
 import org.xtext.burst.burst.MemberCall;
 import org.xtext.burst.burst.MemberInConcern;
+import org.xtext.burst.burst.PackageElement;
+import org.xtext.burst.burst.RenamedParameter;
+import org.xtext.burst.burst.RenamedParameterCall;
+import org.xtext.burst.burst.RuleConcern;
+import org.xtext.burst.burst.RuleFileElement;
+import org.xtext.burst.burst.RuleImport;
+import org.xtext.burst.burst.RuleIntersect;
+import org.xtext.burst.burst.RulePackage;
+import org.xtext.burst.burst.toto;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,63 +104,94 @@ public class BurstSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BurstPackage.ABSTRACT_ELEMENT:
+      case BurstPackage.RULE_FILE_ELEMENT:
       {
-        AbstractElement abstractElement = (AbstractElement)theEObject;
-        T result = caseAbstractElement(abstractElement);
+        RuleFileElement ruleFileElement = (RuleFileElement)theEObject;
+        T result = caseRuleFileElement(ruleFileElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BurstPackage.PACKAGE:
+      case BurstPackage.RULE_IMPORT:
       {
-        org.xtext.burst.burst.Package package_ = (org.xtext.burst.burst.Package)theEObject;
-        T result = casePackage(package_);
-        if (result == null) result = caseAbstractElement(package_);
+        RuleImport ruleImport = (RuleImport)theEObject;
+        T result = caseRuleImport(ruleImport);
+        if (result == null) result = caseRuleFileElement(ruleImport);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BurstPackage.IMPORT:
+      case BurstPackage.RULE_PACKAGE:
       {
-        Import import_ = (Import)theEObject;
-        T result = caseImport(import_);
-        if (result == null) result = caseAbstractElement(import_);
+        RulePackage rulePackage = (RulePackage)theEObject;
+        T result = caseRulePackage(rulePackage);
+        if (result == null) result = caseRuleFileElement(rulePackage);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BurstPackage.CONCERN:
+      case BurstPackage.PACKAGE_ELEMENT:
       {
-        Concern concern = (Concern)theEObject;
-        T result = caseConcern(concern);
-        if (result == null) result = caseAbstractElement(concern);
+        PackageElement packageElement = (PackageElement)theEObject;
+        T result = casePackageElement(packageElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BurstPackage.DESTRUCT:
+      case BurstPackage.RULE_CONCERN:
       {
-        Destruct destruct = (Destruct)theEObject;
-        T result = caseDestruct(destruct);
+        RuleConcern ruleConcern = (RuleConcern)theEObject;
+        T result = caseRuleConcern(ruleConcern);
+        if (result == null) result = casePackageElement(ruleConcern);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BurstPackage.BUILD:
+      case BurstPackage.CONCERN_ELEMENT:
       {
-        Build build = (Build)theEObject;
-        T result = caseBuild(build);
+        ConcernElement concernElement = (ConcernElement)theEObject;
+        T result = caseConcernElement(concernElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BurstPackage.MEMBER:
+      case BurstPackage.DECLARE_MEMBER:
       {
-        Member member = (Member)theEObject;
-        T result = caseMember(member);
+        DeclareMember declareMember = (DeclareMember)theEObject;
+        T result = caseDeclareMember(declareMember);
+        if (result == null) result = caseConcernElement(declareMember);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BurstPackage.INTERSECTION:
+      case BurstPackage.RULE_INTERSECT:
       {
-        Intersection intersection = (Intersection)theEObject;
-        T result = caseIntersection(intersection);
-        if (result == null) result = caseAbstractElement(intersection);
+        RuleIntersect ruleIntersect = (RuleIntersect)theEObject;
+        T result = caseRuleIntersect(ruleIntersect);
+        if (result == null) result = casePackageElement(ruleIntersect);
+        if (result == null) result = caseConcernElement(ruleIntersect);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.DECLARE_PARAMETER:
+      {
+        DeclareParameter declareParameter = (DeclareParameter)theEObject;
+        T result = caseDeclareParameter(declareParameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.CONCERN_PARAMETER:
+      {
+        ConcernParameter concernParameter = (ConcernParameter)theEObject;
+        T result = caseConcernParameter(concernParameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.RENAMED_PARAMETER:
+      {
+        RenamedParameter renamedParameter = (RenamedParameter)theEObject;
+        T result = caseRenamedParameter(renamedParameter);
+        if (result == null) result = caseDeclareParameter(renamedParameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.INTERSECTION_ELEMENT:
+      {
+        IntersectionElement intersectionElement = (IntersectionElement)theEObject;
+        T result = caseIntersectionElement(intersectionElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -156,6 +199,7 @@ public class BurstSwitch<T> extends Switch<T>
       {
         Line line = (Line)theEObject;
         T result = caseLine(line);
+        if (result == null) result = caseIntersectionElement(line);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -163,6 +207,29 @@ public class BurstSwitch<T> extends Switch<T>
       {
         Call call = (Call)theEObject;
         T result = caseCall(call);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.TOTO:
+      {
+        toto toto = (toto)theEObject;
+        T result = casetoto(toto);
+        if (result == null) result = caseCall(toto);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.RENAMED_PARAMETER_CALL:
+      {
+        RenamedParameterCall renamedParameterCall = (RenamedParameterCall)theEObject;
+        T result = caseRenamedParameterCall(renamedParameterCall);
+        if (result == null) result = caseCall(renamedParameterCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.CONCERN_PARAMETER_CALL:
+      {
+        ConcernParameterCall concernParameterCall = (ConcernParameterCall)theEObject;
+        T result = caseConcernParameterCall(concernParameterCall);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -177,6 +244,52 @@ public class BurstSwitch<T> extends Switch<T>
       {
         MemberInConcern memberInConcern = (MemberInConcern)theEObject;
         T result = caseMemberInConcern(memberInConcern);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.IMPORT:
+      {
+        Import import_ = (Import)theEObject;
+        T result = caseImport(import_);
+        if (result == null) result = caseRuleImport(import_);
+        if (result == null) result = caseRuleFileElement(import_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.PACKAGE:
+      {
+        org.xtext.burst.burst.Package package_ = (org.xtext.burst.burst.Package)theEObject;
+        T result = casePackage(package_);
+        if (result == null) result = caseRulePackage(package_);
+        if (result == null) result = caseRuleFileElement(package_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.CONCERN:
+      {
+        Concern concern = (Concern)theEObject;
+        T result = caseConcern(concern);
+        if (result == null) result = caseRuleConcern(concern);
+        if (result == null) result = casePackageElement(concern);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.MEMBER:
+      {
+        Member member = (Member)theEObject;
+        T result = caseMember(member);
+        if (result == null) result = caseDeclareMember(member);
+        if (result == null) result = caseConcernElement(member);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.INTERSECTION:
+      {
+        Intersection intersection = (Intersection)theEObject;
+        T result = caseIntersection(intersection);
+        if (result == null) result = caseRuleIntersect(intersection);
+        if (result == null) result = casePackageElement(intersection);
+        if (result == null) result = caseConcernElement(intersection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -201,129 +314,193 @@ public class BurstSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Rule File Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Rule File Element</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAbstractElement(AbstractElement object)
+  public T caseRuleFileElement(RuleFileElement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Rule Import</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Package</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Rule Import</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePackage(org.xtext.burst.burst.Package object)
+  public T caseRuleImport(RuleImport object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Rule Package</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Import</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Rule Package</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseImport(Import object)
+  public T caseRulePackage(RulePackage object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Concern</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Package Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Concern</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Package Element</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseConcern(Concern object)
+  public T casePackageElement(PackageElement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Destruct</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Rule Concern</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Destruct</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Rule Concern</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDestruct(Destruct object)
+  public T caseRuleConcern(RuleConcern object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Build</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Concern Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Build</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Concern Element</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBuild(Build object)
+  public T caseConcernElement(ConcernElement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Member</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Declare Member</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Member</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Declare Member</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMember(Member object)
+  public T caseDeclareMember(DeclareMember object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Intersection</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Rule Intersect</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Intersection</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Rule Intersect</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseIntersection(Intersection object)
+  public T caseRuleIntersect(RuleIntersect object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Declare Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Declare Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeclareParameter(DeclareParameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Concern Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Concern Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConcernParameter(ConcernParameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Renamed Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Renamed Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRenamedParameter(RenamedParameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Intersection Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Intersection Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntersectionElement(IntersectionElement object)
   {
     return null;
   }
@@ -361,6 +538,54 @@ public class BurstSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>toto</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>toto</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casetoto(toto object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Renamed Parameter Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Renamed Parameter Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRenamedParameterCall(RenamedParameterCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Concern Parameter Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Concern Parameter Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConcernParameterCall(ConcernParameterCall object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Member Call</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -388,6 +613,86 @@ public class BurstSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMemberInConcern(MemberInConcern object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Import</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseImport(Import object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Package</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackage(org.xtext.burst.burst.Package object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Concern</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Concern</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConcern(Concern object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Member</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Member</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMember(Member object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Intersection</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Intersection</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntersection(Intersection object)
   {
     return null;
   }

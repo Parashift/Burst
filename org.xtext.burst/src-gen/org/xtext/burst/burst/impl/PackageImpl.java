@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.burst.burst.AbstractElement;
 import org.xtext.burst.burst.BurstPackage;
+import org.xtext.burst.burst.PackageElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ import org.xtext.burst.burst.BurstPackage;
  *
  * @generated
  */
-public class PackageImpl extends AbstractElementImpl implements org.xtext.burst.burst.Package
+public class PackageImpl extends RulePackageImpl implements org.xtext.burst.burst.Package
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -65,7 +65,7 @@ public class PackageImpl extends AbstractElementImpl implements org.xtext.burst.
    * @generated
    * @ordered
    */
-  protected EList<AbstractElement> elements;
+  protected EList<PackageElement> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -116,11 +116,11 @@ public class PackageImpl extends AbstractElementImpl implements org.xtext.burst.
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<AbstractElement> getElements()
+  public EList<PackageElement> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, BurstPackage.PACKAGE__ELEMENTS);
+      elements = new EObjectContainmentEList<PackageElement>(PackageElement.class, this, BurstPackage.PACKAGE__ELEMENTS);
     }
     return elements;
   }
@@ -175,7 +175,7 @@ public class PackageImpl extends AbstractElementImpl implements org.xtext.burst.
         return;
       case BurstPackage.PACKAGE__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends AbstractElement>)newValue);
+        getElements().addAll((Collection<? extends PackageElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

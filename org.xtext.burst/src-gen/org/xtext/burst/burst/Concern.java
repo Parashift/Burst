@@ -16,15 +16,14 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.xtext.burst.burst.Concern#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.burst.burst.Concern#getSupertype <em>Supertype</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Concern#getMembers <em>Members</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Concern#getIntersections <em>Intersections</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Concern#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see org.xtext.burst.burst.BurstPackage#getConcern()
  * @model
  * @generated
  */
-public interface Concern extends AbstractElement
+public interface Concern extends RuleConcern
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -79,35 +78,19 @@ public interface Concern extends AbstractElement
   void setSupertype(Concern value);
 
   /**
-   * Returns the value of the '<em><b>Members</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.Member}.
+   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.burst.burst.ConcernElement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Members</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Members</em>' containment reference list.
-   * @see org.xtext.burst.burst.BurstPackage#getConcern_Members()
+   * @return the value of the '<em>Elements</em>' containment reference list.
+   * @see org.xtext.burst.burst.BurstPackage#getConcern_Elements()
    * @model containment="true"
    * @generated
    */
-  EList<Member> getMembers();
-
-  /**
-   * Returns the value of the '<em><b>Intersections</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.Intersection}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Intersections</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Intersections</em>' containment reference list.
-   * @see org.xtext.burst.burst.BurstPackage#getConcern_Intersections()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Intersection> getIntersections();
+  EList<ConcernElement> getElements();
 
 } // Concern

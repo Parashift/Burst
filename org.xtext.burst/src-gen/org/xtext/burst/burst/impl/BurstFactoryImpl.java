@@ -11,20 +11,32 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.xtext.burst.burst.AbstractElement;
-import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstFactory;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Call;
 import org.xtext.burst.burst.Concern;
-import org.xtext.burst.burst.Destruct;
+import org.xtext.burst.burst.ConcernElement;
+import org.xtext.burst.burst.ConcernParameter;
+import org.xtext.burst.burst.ConcernParameterCall;
+import org.xtext.burst.burst.DeclareMember;
+import org.xtext.burst.burst.DeclareParameter;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.Import;
 import org.xtext.burst.burst.Intersection;
+import org.xtext.burst.burst.IntersectionElement;
 import org.xtext.burst.burst.Line;
 import org.xtext.burst.burst.Member;
 import org.xtext.burst.burst.MemberCall;
 import org.xtext.burst.burst.MemberInConcern;
+import org.xtext.burst.burst.PackageElement;
+import org.xtext.burst.burst.RenamedParameter;
+import org.xtext.burst.burst.RenamedParameterCall;
+import org.xtext.burst.burst.RuleConcern;
+import org.xtext.burst.burst.RuleFileElement;
+import org.xtext.burst.burst.RuleImport;
+import org.xtext.burst.burst.RuleIntersect;
+import org.xtext.burst.burst.RulePackage;
+import org.xtext.burst.burst.toto;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,18 +91,30 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
     switch (eClass.getClassifierID())
     {
       case BurstPackage.FILE: return createFile();
-      case BurstPackage.ABSTRACT_ELEMENT: return createAbstractElement();
-      case BurstPackage.PACKAGE: return createPackage();
-      case BurstPackage.IMPORT: return createImport();
-      case BurstPackage.CONCERN: return createConcern();
-      case BurstPackage.DESTRUCT: return createDestruct();
-      case BurstPackage.BUILD: return createBuild();
-      case BurstPackage.MEMBER: return createMember();
-      case BurstPackage.INTERSECTION: return createIntersection();
+      case BurstPackage.RULE_FILE_ELEMENT: return createRuleFileElement();
+      case BurstPackage.RULE_IMPORT: return createRuleImport();
+      case BurstPackage.RULE_PACKAGE: return createRulePackage();
+      case BurstPackage.PACKAGE_ELEMENT: return createPackageElement();
+      case BurstPackage.RULE_CONCERN: return createRuleConcern();
+      case BurstPackage.CONCERN_ELEMENT: return createConcernElement();
+      case BurstPackage.DECLARE_MEMBER: return createDeclareMember();
+      case BurstPackage.RULE_INTERSECT: return createRuleIntersect();
+      case BurstPackage.DECLARE_PARAMETER: return createDeclareParameter();
+      case BurstPackage.CONCERN_PARAMETER: return createConcernParameter();
+      case BurstPackage.RENAMED_PARAMETER: return createRenamedParameter();
+      case BurstPackage.INTERSECTION_ELEMENT: return createIntersectionElement();
       case BurstPackage.LINE: return createLine();
       case BurstPackage.CALL: return createCall();
+      case BurstPackage.TOTO: return createtoto();
+      case BurstPackage.RENAMED_PARAMETER_CALL: return createRenamedParameterCall();
+      case BurstPackage.CONCERN_PARAMETER_CALL: return createConcernParameterCall();
       case BurstPackage.MEMBER_CALL: return createMemberCall();
       case BurstPackage.MEMBER_IN_CONCERN: return createMemberInConcern();
+      case BurstPackage.IMPORT: return createImport();
+      case BurstPackage.PACKAGE: return createPackage();
+      case BurstPackage.CONCERN: return createConcern();
+      case BurstPackage.MEMBER: return createMember();
+      case BurstPackage.INTERSECTION: return createIntersection();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -112,10 +136,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractElement createAbstractElement()
+  public RuleFileElement createRuleFileElement()
   {
-    AbstractElementImpl abstractElement = new AbstractElementImpl();
-    return abstractElement;
+    RuleFileElementImpl ruleFileElement = new RuleFileElementImpl();
+    return ruleFileElement;
   }
 
   /**
@@ -123,10 +147,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public org.xtext.burst.burst.Package createPackage()
+  public RuleImport createRuleImport()
   {
-    PackageImpl package_ = new PackageImpl();
-    return package_;
+    RuleImportImpl ruleImport = new RuleImportImpl();
+    return ruleImport;
   }
 
   /**
@@ -134,10 +158,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Import createImport()
+  public RulePackage createRulePackage()
   {
-    ImportImpl import_ = new ImportImpl();
-    return import_;
+    RulePackageImpl rulePackage = new RulePackageImpl();
+    return rulePackage;
   }
 
   /**
@@ -145,10 +169,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Concern createConcern()
+  public PackageElement createPackageElement()
   {
-    ConcernImpl concern = new ConcernImpl();
-    return concern;
+    PackageElementImpl packageElement = new PackageElementImpl();
+    return packageElement;
   }
 
   /**
@@ -156,10 +180,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Destruct createDestruct()
+  public RuleConcern createRuleConcern()
   {
-    DestructImpl destruct = new DestructImpl();
-    return destruct;
+    RuleConcernImpl ruleConcern = new RuleConcernImpl();
+    return ruleConcern;
   }
 
   /**
@@ -167,10 +191,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Build createBuild()
+  public ConcernElement createConcernElement()
   {
-    BuildImpl build = new BuildImpl();
-    return build;
+    ConcernElementImpl concernElement = new ConcernElementImpl();
+    return concernElement;
   }
 
   /**
@@ -178,10 +202,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Member createMember()
+  public DeclareMember createDeclareMember()
   {
-    MemberImpl member = new MemberImpl();
-    return member;
+    DeclareMemberImpl declareMember = new DeclareMemberImpl();
+    return declareMember;
   }
 
   /**
@@ -189,10 +213,54 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Intersection createIntersection()
+  public RuleIntersect createRuleIntersect()
   {
-    IntersectionImpl intersection = new IntersectionImpl();
-    return intersection;
+    RuleIntersectImpl ruleIntersect = new RuleIntersectImpl();
+    return ruleIntersect;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeclareParameter createDeclareParameter()
+  {
+    DeclareParameterImpl declareParameter = new DeclareParameterImpl();
+    return declareParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConcernParameter createConcernParameter()
+  {
+    ConcernParameterImpl concernParameter = new ConcernParameterImpl();
+    return concernParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RenamedParameter createRenamedParameter()
+  {
+    RenamedParameterImpl renamedParameter = new RenamedParameterImpl();
+    return renamedParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IntersectionElement createIntersectionElement()
+  {
+    IntersectionElementImpl intersectionElement = new IntersectionElementImpl();
+    return intersectionElement;
   }
 
   /**
@@ -222,6 +290,39 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public toto createtoto()
+  {
+    totoImpl toto = new totoImpl();
+    return toto;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RenamedParameterCall createRenamedParameterCall()
+  {
+    RenamedParameterCallImpl renamedParameterCall = new RenamedParameterCallImpl();
+    return renamedParameterCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConcernParameterCall createConcernParameterCall()
+  {
+    ConcernParameterCallImpl concernParameterCall = new ConcernParameterCallImpl();
+    return concernParameterCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public MemberCall createMemberCall()
   {
     MemberCallImpl memberCall = new MemberCallImpl();
@@ -237,6 +338,61 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
   {
     MemberInConcernImpl memberInConcern = new MemberInConcernImpl();
     return memberInConcern;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Import createImport()
+  {
+    ImportImpl import_ = new ImportImpl();
+    return import_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public org.xtext.burst.burst.Package createPackage()
+  {
+    PackageImpl package_ = new PackageImpl();
+    return package_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Concern createConcern()
+  {
+    ConcernImpl concern = new ConcernImpl();
+    return concern;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Member createMember()
+  {
+    MemberImpl member = new MemberImpl();
+    return member;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Intersection createIntersection()
+  {
+    IntersectionImpl intersection = new IntersectionImpl();
+    return intersection;
   }
 
   /**

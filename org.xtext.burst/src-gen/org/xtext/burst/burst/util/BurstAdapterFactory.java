@@ -10,19 +10,31 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.xtext.burst.burst.AbstractElement;
-import org.xtext.burst.burst.Build;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Call;
 import org.xtext.burst.burst.Concern;
-import org.xtext.burst.burst.Destruct;
+import org.xtext.burst.burst.ConcernElement;
+import org.xtext.burst.burst.ConcernParameter;
+import org.xtext.burst.burst.ConcernParameterCall;
+import org.xtext.burst.burst.DeclareMember;
+import org.xtext.burst.burst.DeclareParameter;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.Import;
 import org.xtext.burst.burst.Intersection;
+import org.xtext.burst.burst.IntersectionElement;
 import org.xtext.burst.burst.Line;
 import org.xtext.burst.burst.Member;
 import org.xtext.burst.burst.MemberCall;
 import org.xtext.burst.burst.MemberInConcern;
+import org.xtext.burst.burst.PackageElement;
+import org.xtext.burst.burst.RenamedParameter;
+import org.xtext.burst.burst.RenamedParameterCall;
+import org.xtext.burst.burst.RuleConcern;
+import org.xtext.burst.burst.RuleFileElement;
+import org.xtext.burst.burst.RuleImport;
+import org.xtext.burst.burst.RuleIntersect;
+import org.xtext.burst.burst.RulePackage;
+import org.xtext.burst.burst.toto;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,44 +105,64 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
         return createFileAdapter();
       }
       @Override
-      public Adapter caseAbstractElement(AbstractElement object)
+      public Adapter caseRuleFileElement(RuleFileElement object)
       {
-        return createAbstractElementAdapter();
+        return createRuleFileElementAdapter();
       }
       @Override
-      public Adapter casePackage(org.xtext.burst.burst.Package object)
+      public Adapter caseRuleImport(RuleImport object)
       {
-        return createPackageAdapter();
+        return createRuleImportAdapter();
       }
       @Override
-      public Adapter caseImport(Import object)
+      public Adapter caseRulePackage(RulePackage object)
       {
-        return createImportAdapter();
+        return createRulePackageAdapter();
       }
       @Override
-      public Adapter caseConcern(Concern object)
+      public Adapter casePackageElement(PackageElement object)
       {
-        return createConcernAdapter();
+        return createPackageElementAdapter();
       }
       @Override
-      public Adapter caseDestruct(Destruct object)
+      public Adapter caseRuleConcern(RuleConcern object)
       {
-        return createDestructAdapter();
+        return createRuleConcernAdapter();
       }
       @Override
-      public Adapter caseBuild(Build object)
+      public Adapter caseConcernElement(ConcernElement object)
       {
-        return createBuildAdapter();
+        return createConcernElementAdapter();
       }
       @Override
-      public Adapter caseMember(Member object)
+      public Adapter caseDeclareMember(DeclareMember object)
       {
-        return createMemberAdapter();
+        return createDeclareMemberAdapter();
       }
       @Override
-      public Adapter caseIntersection(Intersection object)
+      public Adapter caseRuleIntersect(RuleIntersect object)
       {
-        return createIntersectionAdapter();
+        return createRuleIntersectAdapter();
+      }
+      @Override
+      public Adapter caseDeclareParameter(DeclareParameter object)
+      {
+        return createDeclareParameterAdapter();
+      }
+      @Override
+      public Adapter caseConcernParameter(ConcernParameter object)
+      {
+        return createConcernParameterAdapter();
+      }
+      @Override
+      public Adapter caseRenamedParameter(RenamedParameter object)
+      {
+        return createRenamedParameterAdapter();
+      }
+      @Override
+      public Adapter caseIntersectionElement(IntersectionElement object)
+      {
+        return createIntersectionElementAdapter();
       }
       @Override
       public Adapter caseLine(Line object)
@@ -143,6 +175,21 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
         return createCallAdapter();
       }
       @Override
+      public Adapter casetoto(toto object)
+      {
+        return createtotoAdapter();
+      }
+      @Override
+      public Adapter caseRenamedParameterCall(RenamedParameterCall object)
+      {
+        return createRenamedParameterCallAdapter();
+      }
+      @Override
+      public Adapter caseConcernParameterCall(ConcernParameterCall object)
+      {
+        return createConcernParameterCallAdapter();
+      }
+      @Override
       public Adapter caseMemberCall(MemberCall object)
       {
         return createMemberCallAdapter();
@@ -151,6 +198,31 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMemberInConcern(MemberInConcern object)
       {
         return createMemberInConcernAdapter();
+      }
+      @Override
+      public Adapter caseImport(Import object)
+      {
+        return createImportAdapter();
+      }
+      @Override
+      public Adapter casePackage(org.xtext.burst.burst.Package object)
+      {
+        return createPackageAdapter();
+      }
+      @Override
+      public Adapter caseConcern(Concern object)
+      {
+        return createConcernAdapter();
+      }
+      @Override
+      public Adapter caseMember(Member object)
+      {
+        return createMemberAdapter();
+      }
+      @Override
+      public Adapter caseIntersection(Intersection object)
+      {
+        return createIntersectionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -190,121 +262,181 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.AbstractElement <em>Abstract Element</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.RuleFileElement <em>Rule File Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.AbstractElement
+   * @see org.xtext.burst.burst.RuleFileElement
    * @generated
    */
-  public Adapter createAbstractElementAdapter()
+  public Adapter createRuleFileElementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Package <em>Package</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.RuleImport <em>Rule Import</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.Package
+   * @see org.xtext.burst.burst.RuleImport
    * @generated
    */
-  public Adapter createPackageAdapter()
+  public Adapter createRuleImportAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Import <em>Import</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.RulePackage <em>Rule Package</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.Import
+   * @see org.xtext.burst.burst.RulePackage
    * @generated
    */
-  public Adapter createImportAdapter()
+  public Adapter createRulePackageAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Concern <em>Concern</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.PackageElement <em>Package Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.Concern
+   * @see org.xtext.burst.burst.PackageElement
    * @generated
    */
-  public Adapter createConcernAdapter()
+  public Adapter createPackageElementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Destruct <em>Destruct</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.RuleConcern <em>Rule Concern</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.Destruct
+   * @see org.xtext.burst.burst.RuleConcern
    * @generated
    */
-  public Adapter createDestructAdapter()
+  public Adapter createRuleConcernAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Build <em>Build</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.ConcernElement <em>Concern Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.Build
+   * @see org.xtext.burst.burst.ConcernElement
    * @generated
    */
-  public Adapter createBuildAdapter()
+  public Adapter createConcernElementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Member <em>Member</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.DeclareMember <em>Declare Member</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.Member
+   * @see org.xtext.burst.burst.DeclareMember
    * @generated
    */
-  public Adapter createMemberAdapter()
+  public Adapter createDeclareMemberAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Intersection <em>Intersection</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.RuleIntersect <em>Rule Intersect</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.Intersection
+   * @see org.xtext.burst.burst.RuleIntersect
    * @generated
    */
-  public Adapter createIntersectionAdapter()
+  public Adapter createRuleIntersectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.DeclareParameter <em>Declare Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.DeclareParameter
+   * @generated
+   */
+  public Adapter createDeclareParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.ConcernParameter <em>Concern Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.ConcernParameter
+   * @generated
+   */
+  public Adapter createConcernParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.RenamedParameter <em>Renamed Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.RenamedParameter
+   * @generated
+   */
+  public Adapter createRenamedParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.IntersectionElement <em>Intersection Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.IntersectionElement
+   * @generated
+   */
+  public Adapter createIntersectionElementAdapter()
   {
     return null;
   }
@@ -340,6 +472,51 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.toto <em>toto</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.toto
+   * @generated
+   */
+  public Adapter createtotoAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.RenamedParameterCall <em>Renamed Parameter Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.RenamedParameterCall
+   * @generated
+   */
+  public Adapter createRenamedParameterCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.ConcernParameterCall <em>Concern Parameter Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.ConcernParameterCall
+   * @generated
+   */
+  public Adapter createConcernParameterCallAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.MemberCall <em>Member Call</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -365,6 +542,81 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMemberInConcernAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Import <em>Import</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.Import
+   * @generated
+   */
+  public Adapter createImportAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Package <em>Package</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.Package
+   * @generated
+   */
+  public Adapter createPackageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Concern <em>Concern</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.Concern
+   * @generated
+   */
+  public Adapter createConcernAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Member <em>Member</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.Member
+   * @generated
+   */
+  public Adapter createMemberAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Intersection <em>Intersection</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.Intersection
+   * @generated
+   */
+  public Adapter createIntersectionAdapter()
   {
     return null;
   }

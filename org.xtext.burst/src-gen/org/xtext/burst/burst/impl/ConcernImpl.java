@@ -20,8 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Concern;
-import org.xtext.burst.burst.Intersection;
-import org.xtext.burst.burst.Member;
+import org.xtext.burst.burst.ConcernElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,13 +32,12 @@ import org.xtext.burst.burst.Member;
  * <ul>
  *   <li>{@link org.xtext.burst.burst.impl.ConcernImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.ConcernImpl#getSupertype <em>Supertype</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.ConcernImpl#getMembers <em>Members</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.ConcernImpl#getIntersections <em>Intersections</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.ConcernImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ConcernImpl extends AbstractElementImpl implements Concern
+public class ConcernImpl extends RuleConcernImpl implements Concern
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -72,24 +70,14 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
   protected Concern supertype;
 
   /**
-   * The cached value of the '{@link #getMembers() <em>Members</em>}' containment reference list.
+   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMembers()
+   * @see #getElements()
    * @generated
    * @ordered
    */
-  protected EList<Member> members;
-
-  /**
-   * The cached value of the '{@link #getIntersections() <em>Intersections</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIntersections()
-   * @generated
-   * @ordered
-   */
-  protected EList<Intersection> intersections;
+  protected EList<ConcernElement> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -183,27 +171,13 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Member> getMembers()
+  public EList<ConcernElement> getElements()
   {
-    if (members == null)
+    if (elements == null)
     {
-      members = new EObjectContainmentEList<Member>(Member.class, this, BurstPackage.CONCERN__MEMBERS);
+      elements = new EObjectContainmentEList<ConcernElement>(ConcernElement.class, this, BurstPackage.CONCERN__ELEMENTS);
     }
-    return members;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Intersection> getIntersections()
-  {
-    if (intersections == null)
-    {
-      intersections = new EObjectContainmentEList<Intersection>(Intersection.class, this, BurstPackage.CONCERN__INTERSECTIONS);
-    }
-    return intersections;
+    return elements;
   }
 
   /**
@@ -216,10 +190,8 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
   {
     switch (featureID)
     {
-      case BurstPackage.CONCERN__MEMBERS:
-        return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
-      case BurstPackage.CONCERN__INTERSECTIONS:
-        return ((InternalEList<?>)getIntersections()).basicRemove(otherEnd, msgs);
+      case BurstPackage.CONCERN__ELEMENTS:
+        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -239,10 +211,8 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
       case BurstPackage.CONCERN__SUPERTYPE:
         if (resolve) return getSupertype();
         return basicGetSupertype();
-      case BurstPackage.CONCERN__MEMBERS:
-        return getMembers();
-      case BurstPackage.CONCERN__INTERSECTIONS:
-        return getIntersections();
+      case BurstPackage.CONCERN__ELEMENTS:
+        return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -264,13 +234,9 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
       case BurstPackage.CONCERN__SUPERTYPE:
         setSupertype((Concern)newValue);
         return;
-      case BurstPackage.CONCERN__MEMBERS:
-        getMembers().clear();
-        getMembers().addAll((Collection<? extends Member>)newValue);
-        return;
-      case BurstPackage.CONCERN__INTERSECTIONS:
-        getIntersections().clear();
-        getIntersections().addAll((Collection<? extends Intersection>)newValue);
+      case BurstPackage.CONCERN__ELEMENTS:
+        getElements().clear();
+        getElements().addAll((Collection<? extends ConcernElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -292,11 +258,8 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
       case BurstPackage.CONCERN__SUPERTYPE:
         setSupertype((Concern)null);
         return;
-      case BurstPackage.CONCERN__MEMBERS:
-        getMembers().clear();
-        return;
-      case BurstPackage.CONCERN__INTERSECTIONS:
-        getIntersections().clear();
+      case BurstPackage.CONCERN__ELEMENTS:
+        getElements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -316,10 +279,8 @@ public class ConcernImpl extends AbstractElementImpl implements Concern
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case BurstPackage.CONCERN__SUPERTYPE:
         return supertype != null;
-      case BurstPackage.CONCERN__MEMBERS:
-        return members != null && !members.isEmpty();
-      case BurstPackage.CONCERN__INTERSECTIONS:
-        return intersections != null && !intersections.isEmpty();
+      case BurstPackage.CONCERN__ELEMENTS:
+        return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }

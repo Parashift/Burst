@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Concern;
@@ -29,7 +28,7 @@ import org.xtext.burst.burst.Member;
  *
  * @generated
  */
-public class MemberImpl extends MinimalEObjectImpl.Container implements Member
+public class MemberImpl extends DeclareMemberImpl implements Member
 {
   /**
    * The cached value of the '{@link #getConcern() <em>Concern</em>}' reference.
