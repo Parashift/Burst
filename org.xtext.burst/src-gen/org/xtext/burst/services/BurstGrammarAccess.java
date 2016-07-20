@@ -240,19 +240,19 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	public class ConcernElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.ConcernElement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDeclareMemberParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMemberParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cRuleIntersectParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cENDLINETerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//ConcernElement:
-		//	DeclareMember | RuleIntersect | ENDLINE;
+		//	Member | RuleIntersect | ENDLINE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DeclareMember | RuleIntersect | ENDLINE
+		//Member | RuleIntersect | ENDLINE
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//DeclareMember
-		public RuleCall getDeclareMemberParserRuleCall_0() { return cDeclareMemberParserRuleCall_0; }
+		//Member
+		public RuleCall getMemberParserRuleCall_0() { return cMemberParserRuleCall_0; }
 		
 		//RuleIntersect
 		public RuleCall getRuleIntersectParserRuleCall_1() { return cRuleIntersectParserRuleCall_1; }
@@ -260,8 +260,8 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//ENDLINE
 		public RuleCall getENDLINETerminalRuleCall_2() { return cENDLINETerminalRuleCall_2; }
 	}
-	public class DeclareMemberElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.DeclareMember");
+	public class MemberElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Member");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cMemberAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cConcernAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -270,7 +270,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
-		//DeclareMember:
+		//Member:
 		//	{Member} concern=[Concern|QualifiedName] name=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -304,7 +304,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final RuleCall cENDLINETerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
 		private final Assignment cParametersAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cParametersDeclareParameterParserRuleCall_2_1_0 = (RuleCall)cParametersAssignment_2_1.eContents().get(0);
+		private final RuleCall cParametersParameterParserRuleCall_2_1_0 = (RuleCall)cParametersAssignment_2_1.eContents().get(0);
 		private final Alternatives cAlternatives_2_2 = (Alternatives)cGroup_2.eContents().get(2);
 		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cAlternatives_2_2.eContents().get(0);
 		private final Keyword cAndKeyword_2_2_1 = (Keyword)cAlternatives_2_2.eContents().get(1);
@@ -314,11 +314,11 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//RuleIntersect:
-		//	{Intersection} name='when' (ENDLINE* parameters+=DeclareParameter (',' | 'and')?)*
+		//	{Intersection} name='when' (ENDLINE* parameters+=Parameter (',' | 'and')?)*
 		//	'{' lines+=IntersectionElement* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Intersection} name='when' (ENDLINE* parameters+=DeclareParameter (',' | 'and')?)* '{' lines+=IntersectionElement* '}'
+		//{Intersection} name='when' (ENDLINE* parameters+=Parameter (',' | 'and')?)* '{' lines+=IntersectionElement* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Intersection}
@@ -330,17 +330,17 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//'when'
 		public Keyword getNameWhenKeyword_1_0() { return cNameWhenKeyword_1_0; }
 		
-		//(ENDLINE* parameters+=DeclareParameter (',' | 'and')?)*
+		//(ENDLINE* parameters+=Parameter (',' | 'and')?)*
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//ENDLINE*
 		public RuleCall getENDLINETerminalRuleCall_2_0() { return cENDLINETerminalRuleCall_2_0; }
 		
-		//parameters+=DeclareParameter
+		//parameters+=Parameter
 		public Assignment getParametersAssignment_2_1() { return cParametersAssignment_2_1; }
 		
-		//DeclareParameter
-		public RuleCall getParametersDeclareParameterParserRuleCall_2_1_0() { return cParametersDeclareParameterParserRuleCall_2_1_0; }
+		//Parameter
+		public RuleCall getParametersParameterParserRuleCall_2_1_0() { return cParametersParameterParserRuleCall_2_1_0; }
 		
 		//(',' | 'and')?
 		public Alternatives getAlternatives_2_2() { return cAlternatives_2_2; }
@@ -363,35 +363,23 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
-	public class DeclareParameterElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.DeclareParameter");
-		private final RuleCall cRenamedParameterParserRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//DeclareParameter:
-		//	RenamedParameter;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//RenamedParameter
-		public RuleCall getRenamedParameterParserRuleCall() { return cRenamedParameterParserRuleCall; }
-	}
-	public class ConcernParameterElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.ConcernParameter");
+	public class ParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Parameter");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cConcernParameterAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cParameterAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cNameConcernCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
 		private final RuleCall cNameConcernQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cNameConcernCrossReference_1_0.eContents().get(1);
 		
-		////| ConcernParameter;
-		// ConcernParameter:
-		//	{ConcernParameter} name=[Concern|QualifiedName];
+		//Parameter:
+		//	{Parameter} name=[Concern|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ConcernParameter} name=[Concern|QualifiedName]
+		//{Parameter} name=[Concern|QualifiedName]
 		public Group getGroup() { return cGroup; }
 		
-		//{ConcernParameter}
-		public Action getConcernParameterAction_0() { return cConcernParameterAction_0; }
+		//{Parameter}
+		public Action getParameterAction_0() { return cParameterAction_0; }
 		
 		//name=[Concern|QualifiedName]
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -402,40 +390,32 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getNameConcernQualifiedNameParserRuleCall_1_0_1() { return cNameConcernQualifiedNameParserRuleCall_1_0_1; }
 	}
-	public class RenamedParameterElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.RenamedParameter");
+	public class VariableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Variable");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cRenamedParameterAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cConcernAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cConcernConcernCrossReference_1_0 = (CrossReference)cConcernAssignment_1.eContents().get(0);
-		private final RuleCall cConcernConcernQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cConcernConcernCrossReference_1_0.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Action cVariableAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cNameConcernCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameConcernQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cNameConcernCrossReference_1_0.eContents().get(1);
 		
-		//RenamedParameter:
-		//	{RenamedParameter} concern=[Concern|QualifiedName] name=ID;
+		//Variable:
+		//	{Variable} name=[Concern|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{RenamedParameter} concern=[Concern|QualifiedName] name=ID
+		//{Variable} name=[Concern|QualifiedName]
 		public Group getGroup() { return cGroup; }
 		
-		//{RenamedParameter}
-		public Action getRenamedParameterAction_0() { return cRenamedParameterAction_0; }
+		//{Variable}
+		public Action getVariableAction_0() { return cVariableAction_0; }
 		
-		//concern=[Concern|QualifiedName]
-		public Assignment getConcernAssignment_1() { return cConcernAssignment_1; }
+		//name=[Concern|QualifiedName]
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//[Concern|QualifiedName]
-		public CrossReference getConcernConcernCrossReference_1_0() { return cConcernConcernCrossReference_1_0; }
+		public CrossReference getNameConcernCrossReference_1_0() { return cNameConcernCrossReference_1_0; }
 		
 		//QualifiedName
-		public RuleCall getConcernConcernQualifiedNameParserRuleCall_1_0_1() { return cConcernConcernQualifiedNameParserRuleCall_1_0_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameConcernQualifiedNameParserRuleCall_1_0_1() { return cNameConcernQualifiedNameParserRuleCall_1_0_1; }
 	}
 	public class IntersectionElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.IntersectionElement");
@@ -490,21 +470,21 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	public class CallElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Call");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cTotoParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cRenamedParameterCallParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cCallMemberInConcernParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCallMemberParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Call:
-		//	toto | RenamedParameterCall;
+		//	CallMemberInConcern | CallMember;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//toto | RenamedParameterCall
+		//CallMemberInConcern | CallMember
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//toto
-		public RuleCall getTotoParserRuleCall_0() { return cTotoParserRuleCall_0; }
+		//CallMemberInConcern
+		public RuleCall getCallMemberInConcernParserRuleCall_0() { return cCallMemberInConcernParserRuleCall_0; }
 		
-		//RenamedParameterCall
-		public RuleCall getRenamedParameterCallParserRuleCall_1() { return cRenamedParameterCallParserRuleCall_1; }
+		//CallMember
+		public RuleCall getCallMemberParserRuleCall_1() { return cCallMemberParserRuleCall_1; }
 	}
 	public class TotoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.toto");
@@ -529,77 +509,50 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//'toto'
 		public Keyword getNameTotoKeyword_1_0() { return cNameTotoKeyword_1_0; }
 	}
-	public class RenamedParameterCallElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.RenamedParameterCall");
+	public class ParameterCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.ParameterCall");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cRenamedParameterCallAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cParameterCallAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cNameRenamedParameterCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
-		private final RuleCall cNameRenamedParameterIDTerminalRuleCall_1_0_1 = (RuleCall)cNameRenamedParameterCrossReference_1_0.eContents().get(1);
+		private final CrossReference cNameParameterCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameParameterIDTerminalRuleCall_1_0_1 = (RuleCall)cNameParameterCrossReference_1_0.eContents().get(1);
 		
-		//RenamedParameterCall:
-		//	{RenamedParameterCall} name=[RenamedParameter];
+		//ParameterCall:
+		//	{ParameterCall} name=[Parameter];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{RenamedParameterCall} name=[RenamedParameter]
+		//{ParameterCall} name=[Parameter]
 		public Group getGroup() { return cGroup; }
 		
-		//{RenamedParameterCall}
-		public Action getRenamedParameterCallAction_0() { return cRenamedParameterCallAction_0; }
+		//{ParameterCall}
+		public Action getParameterCallAction_0() { return cParameterCallAction_0; }
 		
-		//name=[RenamedParameter]
+		//name=[Parameter]
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//[RenamedParameter]
-		public CrossReference getNameRenamedParameterCrossReference_1_0() { return cNameRenamedParameterCrossReference_1_0; }
+		//[Parameter]
+		public CrossReference getNameParameterCrossReference_1_0() { return cNameParameterCrossReference_1_0; }
 		
 		//ID
-		public RuleCall getNameRenamedParameterIDTerminalRuleCall_1_0_1() { return cNameRenamedParameterIDTerminalRuleCall_1_0_1; }
+		public RuleCall getNameParameterIDTerminalRuleCall_1_0_1() { return cNameParameterIDTerminalRuleCall_1_0_1; }
 	}
-	public class ConcernParameterCallElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.ConcernParameterCall");
+	public class CallMemberElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.CallMember");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cConcernParameterCallAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cNameConcernParameterCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
-		private final RuleCall cNameConcernParameterIDTerminalRuleCall_1_0_1 = (RuleCall)cNameConcernParameterCrossReference_1_0.eContents().get(1);
-		
-		//ConcernParameterCall:
-		//	{ConcernParameterCall} name=[ConcernParameter];
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{ConcernParameterCall} name=[ConcernParameter]
-		public Group getGroup() { return cGroup; }
-		
-		//{ConcernParameterCall}
-		public Action getConcernParameterCallAction_0() { return cConcernParameterCallAction_0; }
-		
-		//name=[ConcernParameter]
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//[ConcernParameter]
-		public CrossReference getNameConcernParameterCrossReference_1_0() { return cNameConcernParameterCrossReference_1_0; }
-		
-		//ID
-		public RuleCall getNameConcernParameterIDTerminalRuleCall_1_0_1() { return cNameConcernParameterIDTerminalRuleCall_1_0_1; }
-	}
-	public class MemberCallElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.MemberCall");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cMemberCallAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cCallMemberAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cNameMemberCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
 		private final RuleCall cNameMemberIDTerminalRuleCall_1_0_1 = (RuleCall)cNameMemberCrossReference_1_0.eContents().get(1);
 		
-		//MemberCall:
-		//	{MemberCall} name=[Member];
+		//CallMember:
+		//	{CallMember} name=[Member];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{MemberCall} name=[Member]
+		//{CallMember} name=[Member]
 		public Group getGroup() { return cGroup; }
 		
-		//{MemberCall}
-		public Action getMemberCallAction_0() { return cMemberCallAction_0; }
+		//{CallMember}
+		public Action getCallMemberAction_0() { return cCallMemberAction_0; }
 		
 		//name=[Member]
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -610,8 +563,8 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameMemberIDTerminalRuleCall_1_0_1() { return cNameMemberIDTerminalRuleCall_1_0_1; }
 	}
-	public class MemberInConcernElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.MemberInConcern");
+	public class CallMemberInConcernElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.CallMemberInConcern");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cMemberInConcernAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cTargetAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -622,7 +575,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cNameMemberCrossReference_3_0 = (CrossReference)cNameAssignment_3.eContents().get(0);
 		private final RuleCall cNameMemberIDTerminalRuleCall_3_0_1 = (RuleCall)cNameMemberCrossReference_3_0.eContents().get(1);
 		
-		//MemberInConcern:
+		//CallMemberInConcern:
 		//	{MemberInConcern} target=[Concern] '.' name=[Member];
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -702,19 +655,17 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	private final PackageElementElements pPackageElement;
 	private final RuleConcernElements pRuleConcern;
 	private final ConcernElementElements pConcernElement;
-	private final DeclareMemberElements pDeclareMember;
+	private final MemberElements pMember;
 	private final RuleIntersectElements pRuleIntersect;
-	private final DeclareParameterElements pDeclareParameter;
-	private final ConcernParameterElements pConcernParameter;
-	private final RenamedParameterElements pRenamedParameter;
+	private final ParameterElements pParameter;
+	private final VariableElements pVariable;
 	private final IntersectionElementElements pIntersectionElement;
 	private final LineElements pLine;
 	private final CallElements pCall;
 	private final TotoElements pToto;
-	private final RenamedParameterCallElements pRenamedParameterCall;
-	private final ConcernParameterCallElements pConcernParameterCall;
-	private final MemberCallElements pMemberCall;
-	private final MemberInConcernElements pMemberInConcern;
+	private final ParameterCallElements pParameterCall;
+	private final CallMemberElements pCallMember;
+	private final CallMemberInConcernElements pCallMemberInConcern;
 	private final QualifiedNameElements pQualifiedName;
 	private final TerminalRule tID;
 	private final TerminalRule tINT;
@@ -737,19 +688,17 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPackageElement = new PackageElementElements();
 		this.pRuleConcern = new RuleConcernElements();
 		this.pConcernElement = new ConcernElementElements();
-		this.pDeclareMember = new DeclareMemberElements();
+		this.pMember = new MemberElements();
 		this.pRuleIntersect = new RuleIntersectElements();
-		this.pDeclareParameter = new DeclareParameterElements();
-		this.pConcernParameter = new ConcernParameterElements();
-		this.pRenamedParameter = new RenamedParameterElements();
+		this.pParameter = new ParameterElements();
+		this.pVariable = new VariableElements();
 		this.pIntersectionElement = new IntersectionElementElements();
 		this.pLine = new LineElements();
 		this.pCall = new CallElements();
 		this.pToto = new TotoElements();
-		this.pRenamedParameterCall = new RenamedParameterCallElements();
-		this.pConcernParameterCall = new ConcernParameterCallElements();
-		this.pMemberCall = new MemberCallElements();
-		this.pMemberInConcern = new MemberInConcernElements();
+		this.pParameterCall = new ParameterCallElements();
+		this.pCallMember = new CallMemberElements();
+		this.pCallMemberInConcern = new CallMemberInConcernElements();
 		this.pQualifiedName = new QualifiedNameElements();
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.ID");
 		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.INT");
@@ -848,7 +797,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ConcernElement:
-	//	DeclareMember | RuleIntersect | ENDLINE;
+	//	Member | RuleIntersect | ENDLINE;
 	public ConcernElementElements getConcernElementAccess() {
 		return pConcernElement;
 	}
@@ -857,18 +806,18 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		return getConcernElementAccess().getRule();
 	}
 	
-	//DeclareMember:
+	//Member:
 	//	{Member} concern=[Concern|QualifiedName] name=ID;
-	public DeclareMemberElements getDeclareMemberAccess() {
-		return pDeclareMember;
+	public MemberElements getMemberAccess() {
+		return pMember;
 	}
 	
-	public ParserRule getDeclareMemberRule() {
-		return getDeclareMemberAccess().getRule();
+	public ParserRule getMemberRule() {
+		return getMemberAccess().getRule();
 	}
 	
 	//RuleIntersect:
-	//	{Intersection} name='when' (ENDLINE* parameters+=DeclareParameter (',' | 'and')?)*
+	//	{Intersection} name='when' (ENDLINE* parameters+=Parameter (',' | 'and')?)*
 	//	'{' lines+=IntersectionElement* '}';
 	public RuleIntersectElements getRuleIntersectAccess() {
 		return pRuleIntersect;
@@ -878,35 +827,24 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		return getRuleIntersectAccess().getRule();
 	}
 	
-	//DeclareParameter:
-	//	RenamedParameter;
-	public DeclareParameterElements getDeclareParameterAccess() {
-		return pDeclareParameter;
+	//Parameter:
+	//	{Parameter} name=[Concern|QualifiedName];
+	public ParameterElements getParameterAccess() {
+		return pParameter;
 	}
 	
-	public ParserRule getDeclareParameterRule() {
-		return getDeclareParameterAccess().getRule();
+	public ParserRule getParameterRule() {
+		return getParameterAccess().getRule();
 	}
 	
-	////| ConcernParameter;
-	// ConcernParameter:
-	//	{ConcernParameter} name=[Concern|QualifiedName];
-	public ConcernParameterElements getConcernParameterAccess() {
-		return pConcernParameter;
+	//Variable:
+	//	{Variable} name=[Concern|QualifiedName];
+	public VariableElements getVariableAccess() {
+		return pVariable;
 	}
 	
-	public ParserRule getConcernParameterRule() {
-		return getConcernParameterAccess().getRule();
-	}
-	
-	//RenamedParameter:
-	//	{RenamedParameter} concern=[Concern|QualifiedName] name=ID;
-	public RenamedParameterElements getRenamedParameterAccess() {
-		return pRenamedParameter;
-	}
-	
-	public ParserRule getRenamedParameterRule() {
-		return getRenamedParameterAccess().getRule();
+	public ParserRule getVariableRule() {
+		return getVariableAccess().getRule();
 	}
 	
 	//IntersectionElement:
@@ -930,7 +868,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Call:
-	//	toto | RenamedParameterCall;
+	//	CallMemberInConcern | CallMember;
 	public CallElements getCallAccess() {
 		return pCall;
 	}
@@ -949,44 +887,34 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		return getTotoAccess().getRule();
 	}
 	
-	//RenamedParameterCall:
-	//	{RenamedParameterCall} name=[RenamedParameter];
-	public RenamedParameterCallElements getRenamedParameterCallAccess() {
-		return pRenamedParameterCall;
+	//ParameterCall:
+	//	{ParameterCall} name=[Parameter];
+	public ParameterCallElements getParameterCallAccess() {
+		return pParameterCall;
 	}
 	
-	public ParserRule getRenamedParameterCallRule() {
-		return getRenamedParameterCallAccess().getRule();
+	public ParserRule getParameterCallRule() {
+		return getParameterCallAccess().getRule();
 	}
 	
-	//ConcernParameterCall:
-	//	{ConcernParameterCall} name=[ConcernParameter];
-	public ConcernParameterCallElements getConcernParameterCallAccess() {
-		return pConcernParameterCall;
+	//CallMember:
+	//	{CallMember} name=[Member];
+	public CallMemberElements getCallMemberAccess() {
+		return pCallMember;
 	}
 	
-	public ParserRule getConcernParameterCallRule() {
-		return getConcernParameterCallAccess().getRule();
+	public ParserRule getCallMemberRule() {
+		return getCallMemberAccess().getRule();
 	}
 	
-	//MemberCall:
-	//	{MemberCall} name=[Member];
-	public MemberCallElements getMemberCallAccess() {
-		return pMemberCall;
-	}
-	
-	public ParserRule getMemberCallRule() {
-		return getMemberCallAccess().getRule();
-	}
-	
-	//MemberInConcern:
+	//CallMemberInConcern:
 	//	{MemberInConcern} target=[Concern] '.' name=[Member];
-	public MemberInConcernElements getMemberInConcernAccess() {
-		return pMemberInConcern;
+	public CallMemberInConcernElements getCallMemberInConcernAccess() {
+		return pCallMemberInConcern;
 	}
 	
-	public ParserRule getMemberInConcernRule() {
-		return getMemberInConcernAccess().getRule();
+	public ParserRule getCallMemberInConcernRule() {
+		return getCallMemberInConcernAccess().getRule();
 	}
 	
 	/// * 

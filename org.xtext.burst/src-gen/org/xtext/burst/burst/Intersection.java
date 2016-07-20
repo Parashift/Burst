@@ -53,7 +53,7 @@ public interface Intersection extends RuleIntersect
 
   /**
    * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.DeclareParameter}.
+   * The list contents are of type {@link org.xtext.burst.burst.Parameter}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
@@ -65,7 +65,7 @@ public interface Intersection extends RuleIntersect
    * @model containment="true"
    * @generated
    */
-  EList<DeclareParameter> getParameters();
+  EList<Parameter> getParameters();
 
   /**
    * Returns the value of the '<em><b>Lines</b></em>' containment reference list.

@@ -3,6 +3,7 @@
  */
 package org.xtext.burst.burst;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.xtext.burst.burst;
  * @model
  * @generated
  */
-public interface toto extends Call
+public interface toto extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

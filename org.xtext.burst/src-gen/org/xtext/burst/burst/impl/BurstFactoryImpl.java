@@ -14,28 +14,26 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.xtext.burst.burst.BurstFactory;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Call;
+import org.xtext.burst.burst.CallMember;
+import org.xtext.burst.burst.CallMemberInConcern;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.ConcernElement;
-import org.xtext.burst.burst.ConcernParameter;
-import org.xtext.burst.burst.ConcernParameterCall;
-import org.xtext.burst.burst.DeclareMember;
-import org.xtext.burst.burst.DeclareParameter;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.Import;
 import org.xtext.burst.burst.Intersection;
 import org.xtext.burst.burst.IntersectionElement;
 import org.xtext.burst.burst.Line;
 import org.xtext.burst.burst.Member;
-import org.xtext.burst.burst.MemberCall;
 import org.xtext.burst.burst.MemberInConcern;
 import org.xtext.burst.burst.PackageElement;
-import org.xtext.burst.burst.RenamedParameter;
-import org.xtext.burst.burst.RenamedParameterCall;
+import org.xtext.burst.burst.Parameter;
+import org.xtext.burst.burst.ParameterCall;
 import org.xtext.burst.burst.RuleConcern;
 import org.xtext.burst.burst.RuleFileElement;
 import org.xtext.burst.burst.RuleImport;
 import org.xtext.burst.burst.RuleIntersect;
 import org.xtext.burst.burst.RulePackage;
+import org.xtext.burst.burst.Variable;
 import org.xtext.burst.burst.toto;
 
 /**
@@ -97,24 +95,22 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
       case BurstPackage.PACKAGE_ELEMENT: return createPackageElement();
       case BurstPackage.RULE_CONCERN: return createRuleConcern();
       case BurstPackage.CONCERN_ELEMENT: return createConcernElement();
-      case BurstPackage.DECLARE_MEMBER: return createDeclareMember();
+      case BurstPackage.MEMBER: return createMember();
       case BurstPackage.RULE_INTERSECT: return createRuleIntersect();
-      case BurstPackage.DECLARE_PARAMETER: return createDeclareParameter();
-      case BurstPackage.CONCERN_PARAMETER: return createConcernParameter();
-      case BurstPackage.RENAMED_PARAMETER: return createRenamedParameter();
+      case BurstPackage.PARAMETER: return createParameter();
+      case BurstPackage.VARIABLE: return createVariable();
       case BurstPackage.INTERSECTION_ELEMENT: return createIntersectionElement();
       case BurstPackage.LINE: return createLine();
       case BurstPackage.CALL: return createCall();
       case BurstPackage.TOTO: return createtoto();
-      case BurstPackage.RENAMED_PARAMETER_CALL: return createRenamedParameterCall();
-      case BurstPackage.CONCERN_PARAMETER_CALL: return createConcernParameterCall();
-      case BurstPackage.MEMBER_CALL: return createMemberCall();
-      case BurstPackage.MEMBER_IN_CONCERN: return createMemberInConcern();
+      case BurstPackage.PARAMETER_CALL: return createParameterCall();
+      case BurstPackage.CALL_MEMBER: return createCallMember();
+      case BurstPackage.CALL_MEMBER_IN_CONCERN: return createCallMemberInConcern();
       case BurstPackage.IMPORT: return createImport();
       case BurstPackage.PACKAGE: return createPackage();
       case BurstPackage.CONCERN: return createConcern();
-      case BurstPackage.MEMBER: return createMember();
       case BurstPackage.INTERSECTION: return createIntersection();
+      case BurstPackage.MEMBER_IN_CONCERN: return createMemberInConcern();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -202,10 +198,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DeclareMember createDeclareMember()
+  public Member createMember()
   {
-    DeclareMemberImpl declareMember = new DeclareMemberImpl();
-    return declareMember;
+    MemberImpl member = new MemberImpl();
+    return member;
   }
 
   /**
@@ -224,10 +220,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DeclareParameter createDeclareParameter()
+  public Parameter createParameter()
   {
-    DeclareParameterImpl declareParameter = new DeclareParameterImpl();
-    return declareParameter;
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
   }
 
   /**
@@ -235,21 +231,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ConcernParameter createConcernParameter()
+  public Variable createVariable()
   {
-    ConcernParameterImpl concernParameter = new ConcernParameterImpl();
-    return concernParameter;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RenamedParameter createRenamedParameter()
-  {
-    RenamedParameterImpl renamedParameter = new RenamedParameterImpl();
-    return renamedParameter;
+    VariableImpl variable = new VariableImpl();
+    return variable;
   }
 
   /**
@@ -301,10 +286,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public RenamedParameterCall createRenamedParameterCall()
+  public ParameterCall createParameterCall()
   {
-    RenamedParameterCallImpl renamedParameterCall = new RenamedParameterCallImpl();
-    return renamedParameterCall;
+    ParameterCallImpl parameterCall = new ParameterCallImpl();
+    return parameterCall;
   }
 
   /**
@@ -312,10 +297,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ConcernParameterCall createConcernParameterCall()
+  public CallMember createCallMember()
   {
-    ConcernParameterCallImpl concernParameterCall = new ConcernParameterCallImpl();
-    return concernParameterCall;
+    CallMemberImpl callMember = new CallMemberImpl();
+    return callMember;
   }
 
   /**
@@ -323,21 +308,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MemberCall createMemberCall()
+  public CallMemberInConcern createCallMemberInConcern()
   {
-    MemberCallImpl memberCall = new MemberCallImpl();
-    return memberCall;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MemberInConcern createMemberInConcern()
-  {
-    MemberInConcernImpl memberInConcern = new MemberInConcernImpl();
-    return memberInConcern;
+    CallMemberInConcernImpl callMemberInConcern = new CallMemberInConcernImpl();
+    return callMemberInConcern;
   }
 
   /**
@@ -378,10 +352,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Member createMember()
+  public Intersection createIntersection()
   {
-    MemberImpl member = new MemberImpl();
-    return member;
+    IntersectionImpl intersection = new IntersectionImpl();
+    return intersection;
   }
 
   /**
@@ -389,10 +363,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Intersection createIntersection()
+  public MemberInConcern createMemberInConcern()
   {
-    IntersectionImpl intersection = new IntersectionImpl();
-    return intersection;
+    MemberInConcernImpl memberInConcern = new MemberInConcernImpl();
+    return memberInConcern;
   }
 
   /**

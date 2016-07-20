@@ -28,7 +28,7 @@ import org.xtext.burst.burst.Member;
  *
  * @generated
  */
-public class MemberImpl extends DeclareMemberImpl implements Member
+public class MemberImpl extends ConcernElementImpl implements Member
 {
   /**
    * The cached value of the '{@link #getConcern() <em>Concern</em>}' reference.

@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Concern;
@@ -30,7 +29,7 @@ import org.xtext.burst.burst.MemberInConcern;
  *
  * @generated
  */
-public class MemberInConcernImpl extends MinimalEObjectImpl.Container implements MemberInConcern
+public class MemberInConcernImpl extends CallMemberInConcernImpl implements MemberInConcern
 {
   /**
    * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.

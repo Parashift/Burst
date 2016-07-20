@@ -11,15 +11,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="PackageElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="RuleConcern" eSuperTypes="#//PackageElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConcernElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DeclareMember" eSuperTypes="#//ConcernElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RuleIntersect" eSuperTypes="#//PackageElement #//ConcernElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DeclareParameter"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ConcernParameter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Concern"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RenamedParameter" eSuperTypes="#//DeclareParameter">
+  <eClassifiers xsi:type="ecore:EClass" name="Member" eSuperTypes="#//ConcernElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="concern" eType="#//Concern"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RuleIntersect" eSuperTypes="#//PackageElement #//ConcernElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Concern"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Concern"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntersectionElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Line" eSuperTypes="#//IntersectionElement">
@@ -27,22 +28,16 @@
         eType="#//Call" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Call"/>
-  <eClassifiers xsi:type="ecore:EClass" name="toto" eSuperTypes="#//Call">
+  <eClassifiers xsi:type="ecore:EClass" name="toto">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RenamedParameterCall" eSuperTypes="#//Call">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//RenamedParameter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterCall">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Parameter"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConcernParameterCall">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ConcernParameter"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MemberCall">
+  <eClassifiers xsi:type="ecore:EClass" name="CallMember" eSuperTypes="#//Call">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Member"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MemberInConcern">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Concern"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Member"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CallMemberInConcern" eSuperTypes="#//Call"/>
   <eClassifiers xsi:type="ecore:EClass" name="Import" eSuperTypes="#//RuleImport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -57,15 +52,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//ConcernElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Member" eSuperTypes="#//DeclareMember">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="concern" eType="#//Concern"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Intersection" eSuperTypes="#//RuleIntersect">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//DeclareParameter" containment="true"/>
+        eType="#//Parameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lines" upperBound="-1"
         eType="#//IntersectionElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MemberInConcern" eSuperTypes="#//CallMemberInConcern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Concern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Member"/>
   </eClassifiers>
 </ecore:EPackage>

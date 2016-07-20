@@ -15,18 +15,16 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.burst.burst.BurstPackage;
+import org.xtext.burst.burst.CallMember;
 import org.xtext.burst.burst.Concern;
-import org.xtext.burst.burst.ConcernParameter;
-import org.xtext.burst.burst.ConcernParameterCall;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.Import;
 import org.xtext.burst.burst.Intersection;
 import org.xtext.burst.burst.Line;
 import org.xtext.burst.burst.Member;
-import org.xtext.burst.burst.MemberCall;
 import org.xtext.burst.burst.MemberInConcern;
-import org.xtext.burst.burst.RenamedParameter;
-import org.xtext.burst.burst.RenamedParameterCall;
+import org.xtext.burst.burst.ParameterCall;
+import org.xtext.burst.burst.Variable;
 import org.xtext.burst.burst.toto;
 import org.xtext.burst.services.BurstGrammarAccess;
 
@@ -44,14 +42,11 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == BurstPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case BurstPackage.CALL_MEMBER:
+				sequence_CallMember(context, (CallMember) semanticObject); 
+				return; 
 			case BurstPackage.CONCERN:
 				sequence_RuleConcern(context, (Concern) semanticObject); 
-				return; 
-			case BurstPackage.CONCERN_PARAMETER:
-				sequence_ConcernParameter(context, (ConcernParameter) semanticObject); 
-				return; 
-			case BurstPackage.CONCERN_PARAMETER_CALL:
-				sequence_ConcernParameterCall(context, (ConcernParameterCall) semanticObject); 
 				return; 
 			case BurstPackage.FILE:
 				sequence_File(context, (File) semanticObject); 
@@ -66,22 +61,22 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				sequence_Line(context, (Line) semanticObject); 
 				return; 
 			case BurstPackage.MEMBER:
-				sequence_DeclareMember(context, (Member) semanticObject); 
-				return; 
-			case BurstPackage.MEMBER_CALL:
-				sequence_MemberCall(context, (MemberCall) semanticObject); 
+				sequence_Member(context, (Member) semanticObject); 
 				return; 
 			case BurstPackage.MEMBER_IN_CONCERN:
-				sequence_MemberInConcern(context, (MemberInConcern) semanticObject); 
+				sequence_CallMemberInConcern(context, (MemberInConcern) semanticObject); 
 				return; 
 			case BurstPackage.PACKAGE:
 				sequence_RulePackage(context, (org.xtext.burst.burst.Package) semanticObject); 
 				return; 
-			case BurstPackage.RENAMED_PARAMETER:
-				sequence_RenamedParameter(context, (RenamedParameter) semanticObject); 
+			case BurstPackage.PARAMETER:
+				sequence_Parameter(context, (org.xtext.burst.burst.Parameter) semanticObject); 
 				return; 
-			case BurstPackage.RENAMED_PARAMETER_CALL:
-				sequence_RenamedParameterCall(context, (RenamedParameterCall) semanticObject); 
+			case BurstPackage.PARAMETER_CALL:
+				sequence_ParameterCall(context, (ParameterCall) semanticObject); 
+				return; 
+			case BurstPackage.VARIABLE:
+				sequence_Variable(context, (Variable) semanticObject); 
 				return; 
 			case BurstPackage.TOTO:
 				sequence_toto(context, (toto) semanticObject); 
@@ -93,58 +88,41 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     ConcernParameterCall returns ConcernParameterCall
+	 *     Call returns MemberInConcern
+	 *     CallMemberInConcern returns MemberInConcern
 	 *
 	 * Constraint:
-	 *     name=[ConcernParameter|ID]
+	 *     (target=[Concern|ID] name=[Member|ID])
 	 */
-	protected void sequence_ConcernParameterCall(ISerializationContext context, ConcernParameterCall semanticObject) {
+	protected void sequence_CallMemberInConcern(ISerializationContext context, MemberInConcern semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.CONCERN_PARAMETER_CALL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.CONCERN_PARAMETER_CALL__NAME));
+			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.MEMBER_IN_CONCERN__TARGET) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.MEMBER_IN_CONCERN__TARGET));
+			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.MEMBER_IN_CONCERN__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.MEMBER_IN_CONCERN__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConcernParameterCallAccess().getNameConcernParameterIDTerminalRuleCall_1_0_1(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCallMemberInConcernAccess().getTargetConcernIDTerminalRuleCall_1_0_1(), semanticObject.getTarget());
+		feeder.accept(grammarAccess.getCallMemberInConcernAccess().getNameMemberIDTerminalRuleCall_3_0_1(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ConcernParameter returns ConcernParameter
+	 *     Call returns CallMember
+	 *     CallMember returns CallMember
 	 *
 	 * Constraint:
-	 *     name=[Concern|QualifiedName]
+	 *     name=[Member|ID]
 	 */
-	protected void sequence_ConcernParameter(ISerializationContext context, ConcernParameter semanticObject) {
+	protected void sequence_CallMember(ISerializationContext context, CallMember semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.CONCERN_PARAMETER__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.CONCERN_PARAMETER__NAME));
+			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.CALL_MEMBER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.CALL_MEMBER__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConcernParameterAccess().getNameConcernQualifiedNameParserRuleCall_1_0_1(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ConcernElement returns Member
-	 *     DeclareMember returns Member
-	 *
-	 * Constraint:
-	 *     (concern=[Concern|QualifiedName] name=ID)
-	 */
-	protected void sequence_DeclareMember(ISerializationContext context, Member semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.MEMBER__CONCERN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.MEMBER__CONCERN));
-			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.MEMBER__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.MEMBER__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDeclareMemberAccess().getConcernConcernQualifiedNameParserRuleCall_1_0_1(), semanticObject.getConcern());
-		feeder.accept(grammarAccess.getDeclareMemberAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCallMemberAccess().getNameMemberIDTerminalRuleCall_1_0_1(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -176,80 +154,58 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     MemberCall returns MemberCall
-	 *
-	 * Constraint:
-	 *     name=[Member|ID]
-	 */
-	protected void sequence_MemberCall(ISerializationContext context, MemberCall semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.MEMBER_CALL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.MEMBER_CALL__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMemberCallAccess().getNameMemberIDTerminalRuleCall_1_0_1(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     MemberInConcern returns MemberInConcern
-	 *
-	 * Constraint:
-	 *     (target=[Concern|ID] name=[Member|ID])
-	 */
-	protected void sequence_MemberInConcern(ISerializationContext context, MemberInConcern semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.MEMBER_IN_CONCERN__TARGET) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.MEMBER_IN_CONCERN__TARGET));
-			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.MEMBER_IN_CONCERN__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.MEMBER_IN_CONCERN__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMemberInConcernAccess().getTargetConcernIDTerminalRuleCall_1_0_1(), semanticObject.getTarget());
-		feeder.accept(grammarAccess.getMemberInConcernAccess().getNameMemberIDTerminalRuleCall_3_0_1(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Call returns RenamedParameterCall
-	 *     RenamedParameterCall returns RenamedParameterCall
-	 *
-	 * Constraint:
-	 *     name=[RenamedParameter|ID]
-	 */
-	protected void sequence_RenamedParameterCall(ISerializationContext context, RenamedParameterCall semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.RENAMED_PARAMETER_CALL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.RENAMED_PARAMETER_CALL__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRenamedParameterCallAccess().getNameRenamedParameterIDTerminalRuleCall_1_0_1(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DeclareParameter returns RenamedParameter
-	 *     RenamedParameter returns RenamedParameter
+	 *     ConcernElement returns Member
+	 *     Member returns Member
 	 *
 	 * Constraint:
 	 *     (concern=[Concern|QualifiedName] name=ID)
 	 */
-	protected void sequence_RenamedParameter(ISerializationContext context, RenamedParameter semanticObject) {
+	protected void sequence_Member(ISerializationContext context, Member semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.RENAMED_PARAMETER__CONCERN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.RENAMED_PARAMETER__CONCERN));
-			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.RENAMED_PARAMETER__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.RENAMED_PARAMETER__NAME));
+			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.MEMBER__CONCERN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.MEMBER__CONCERN));
+			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.MEMBER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.MEMBER__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRenamedParameterAccess().getConcernConcernQualifiedNameParserRuleCall_1_0_1(), semanticObject.getConcern());
-		feeder.accept(grammarAccess.getRenamedParameterAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getMemberAccess().getConcernConcernQualifiedNameParserRuleCall_1_0_1(), semanticObject.getConcern());
+		feeder.accept(grammarAccess.getMemberAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ParameterCall returns ParameterCall
+	 *
+	 * Constraint:
+	 *     name=[Parameter|ID]
+	 */
+	protected void sequence_ParameterCall(ISerializationContext context, ParameterCall semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.PARAMETER_CALL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.PARAMETER_CALL__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameterCallAccess().getNameParameterIDTerminalRuleCall_1_0_1(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Parameter returns Parameter
+	 *
+	 * Constraint:
+	 *     name=[Concern|QualifiedName]
+	 */
+	protected void sequence_Parameter(ISerializationContext context, org.xtext.burst.burst.Parameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.PARAMETER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.PARAMETER__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameterAccess().getNameConcernQualifiedNameParserRuleCall_1_0_1(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -293,7 +249,7 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     RuleIntersect returns Intersection
 	 *
 	 * Constraint:
-	 *     (name='when' parameters+=DeclareParameter* lines+=IntersectionElement*)
+	 *     (name='when' parameters+=Parameter* lines+=IntersectionElement*)
 	 */
 	protected void sequence_RuleIntersect(ISerializationContext context, Intersection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -315,7 +271,24 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Call returns toto
+	 *     Variable returns Variable
+	 *
+	 * Constraint:
+	 *     name=[Concern|QualifiedName]
+	 */
+	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BurstPackage.Literals.VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BurstPackage.Literals.VARIABLE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getVariableAccess().getNameConcernQualifiedNameParserRuleCall_1_0_1(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     toto returns toto
 	 *
 	 * Constraint:

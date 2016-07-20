@@ -12,28 +12,26 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Call;
+import org.xtext.burst.burst.CallMember;
+import org.xtext.burst.burst.CallMemberInConcern;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.ConcernElement;
-import org.xtext.burst.burst.ConcernParameter;
-import org.xtext.burst.burst.ConcernParameterCall;
-import org.xtext.burst.burst.DeclareMember;
-import org.xtext.burst.burst.DeclareParameter;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.Import;
 import org.xtext.burst.burst.Intersection;
 import org.xtext.burst.burst.IntersectionElement;
 import org.xtext.burst.burst.Line;
 import org.xtext.burst.burst.Member;
-import org.xtext.burst.burst.MemberCall;
 import org.xtext.burst.burst.MemberInConcern;
 import org.xtext.burst.burst.PackageElement;
-import org.xtext.burst.burst.RenamedParameter;
-import org.xtext.burst.burst.RenamedParameterCall;
+import org.xtext.burst.burst.Parameter;
+import org.xtext.burst.burst.ParameterCall;
 import org.xtext.burst.burst.RuleConcern;
 import org.xtext.burst.burst.RuleFileElement;
 import org.xtext.burst.burst.RuleImport;
 import org.xtext.burst.burst.RuleIntersect;
 import org.xtext.burst.burst.RulePackage;
+import org.xtext.burst.burst.Variable;
 import org.xtext.burst.burst.toto;
 
 /**
@@ -135,9 +133,9 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
         return createConcernElementAdapter();
       }
       @Override
-      public Adapter caseDeclareMember(DeclareMember object)
+      public Adapter caseMember(Member object)
       {
-        return createDeclareMemberAdapter();
+        return createMemberAdapter();
       }
       @Override
       public Adapter caseRuleIntersect(RuleIntersect object)
@@ -145,19 +143,14 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
         return createRuleIntersectAdapter();
       }
       @Override
-      public Adapter caseDeclareParameter(DeclareParameter object)
+      public Adapter caseParameter(Parameter object)
       {
-        return createDeclareParameterAdapter();
+        return createParameterAdapter();
       }
       @Override
-      public Adapter caseConcernParameter(ConcernParameter object)
+      public Adapter caseVariable(Variable object)
       {
-        return createConcernParameterAdapter();
-      }
-      @Override
-      public Adapter caseRenamedParameter(RenamedParameter object)
-      {
-        return createRenamedParameterAdapter();
+        return createVariableAdapter();
       }
       @Override
       public Adapter caseIntersectionElement(IntersectionElement object)
@@ -180,24 +173,19 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
         return createtotoAdapter();
       }
       @Override
-      public Adapter caseRenamedParameterCall(RenamedParameterCall object)
+      public Adapter caseParameterCall(ParameterCall object)
       {
-        return createRenamedParameterCallAdapter();
+        return createParameterCallAdapter();
       }
       @Override
-      public Adapter caseConcernParameterCall(ConcernParameterCall object)
+      public Adapter caseCallMember(CallMember object)
       {
-        return createConcernParameterCallAdapter();
+        return createCallMemberAdapter();
       }
       @Override
-      public Adapter caseMemberCall(MemberCall object)
+      public Adapter caseCallMemberInConcern(CallMemberInConcern object)
       {
-        return createMemberCallAdapter();
-      }
-      @Override
-      public Adapter caseMemberInConcern(MemberInConcern object)
-      {
-        return createMemberInConcernAdapter();
+        return createCallMemberInConcernAdapter();
       }
       @Override
       public Adapter caseImport(Import object)
@@ -215,14 +203,14 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
         return createConcernAdapter();
       }
       @Override
-      public Adapter caseMember(Member object)
-      {
-        return createMemberAdapter();
-      }
-      @Override
       public Adapter caseIntersection(Intersection object)
       {
         return createIntersectionAdapter();
+      }
+      @Override
+      public Adapter caseMemberInConcern(MemberInConcern object)
+      {
+        return createMemberInConcernAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -352,16 +340,16 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.DeclareMember <em>Declare Member</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Member <em>Member</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.DeclareMember
+   * @see org.xtext.burst.burst.Member
    * @generated
    */
-  public Adapter createDeclareMemberAdapter()
+  public Adapter createMemberAdapter()
   {
     return null;
   }
@@ -382,46 +370,31 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.DeclareParameter <em>Declare Parameter</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Parameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.DeclareParameter
+   * @see org.xtext.burst.burst.Parameter
    * @generated
    */
-  public Adapter createDeclareParameterAdapter()
+  public Adapter createParameterAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.ConcernParameter <em>Concern Parameter</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Variable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.ConcernParameter
+   * @see org.xtext.burst.burst.Variable
    * @generated
    */
-  public Adapter createConcernParameterAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.RenamedParameter <em>Renamed Parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.burst.burst.RenamedParameter
-   * @generated
-   */
-  public Adapter createRenamedParameterAdapter()
+  public Adapter createVariableAdapter()
   {
     return null;
   }
@@ -487,61 +460,46 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.RenamedParameterCall <em>Renamed Parameter Call</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.ParameterCall <em>Parameter Call</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.RenamedParameterCall
+   * @see org.xtext.burst.burst.ParameterCall
    * @generated
    */
-  public Adapter createRenamedParameterCallAdapter()
+  public Adapter createParameterCallAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.ConcernParameterCall <em>Concern Parameter Call</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.CallMember <em>Call Member</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.ConcernParameterCall
+   * @see org.xtext.burst.burst.CallMember
    * @generated
    */
-  public Adapter createConcernParameterCallAdapter()
+  public Adapter createCallMemberAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.MemberCall <em>Member Call</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.CallMemberInConcern <em>Call Member In Concern</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.MemberCall
+   * @see org.xtext.burst.burst.CallMemberInConcern
    * @generated
    */
-  public Adapter createMemberCallAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.MemberInConcern <em>Member In Concern</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.burst.burst.MemberInConcern
-   * @generated
-   */
-  public Adapter createMemberInConcernAdapter()
+  public Adapter createCallMemberInConcernAdapter()
   {
     return null;
   }
@@ -592,21 +550,6 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Member <em>Member</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.burst.burst.Member
-   * @generated
-   */
-  public Adapter createMemberAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Intersection <em>Intersection</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -617,6 +560,21 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIntersectionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.MemberInConcern <em>Member In Concern</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.MemberInConcern
+   * @generated
+   */
+  public Adapter createMemberInConcernAdapter()
   {
     return null;
   }

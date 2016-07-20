@@ -87,13 +87,13 @@ public interface BurstFactory extends EFactory
   ConcernElement createConcernElement();
 
   /**
-   * Returns a new object of class '<em>Declare Member</em>'.
+   * Returns a new object of class '<em>Member</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Declare Member</em>'.
+   * @return a new object of class '<em>Member</em>'.
    * @generated
    */
-  DeclareMember createDeclareMember();
+  Member createMember();
 
   /**
    * Returns a new object of class '<em>Rule Intersect</em>'.
@@ -105,31 +105,22 @@ public interface BurstFactory extends EFactory
   RuleIntersect createRuleIntersect();
 
   /**
-   * Returns a new object of class '<em>Declare Parameter</em>'.
+   * Returns a new object of class '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Declare Parameter</em>'.
+   * @return a new object of class '<em>Parameter</em>'.
    * @generated
    */
-  DeclareParameter createDeclareParameter();
+  Parameter createParameter();
 
   /**
-   * Returns a new object of class '<em>Concern Parameter</em>'.
+   * Returns a new object of class '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Concern Parameter</em>'.
+   * @return a new object of class '<em>Variable</em>'.
    * @generated
    */
-  ConcernParameter createConcernParameter();
-
-  /**
-   * Returns a new object of class '<em>Renamed Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Renamed Parameter</em>'.
-   * @generated
-   */
-  RenamedParameter createRenamedParameter();
+  Variable createVariable();
 
   /**
    * Returns a new object of class '<em>Intersection Element</em>'.
@@ -168,40 +159,31 @@ public interface BurstFactory extends EFactory
   toto createtoto();
 
   /**
-   * Returns a new object of class '<em>Renamed Parameter Call</em>'.
+   * Returns a new object of class '<em>Parameter Call</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Renamed Parameter Call</em>'.
+   * @return a new object of class '<em>Parameter Call</em>'.
    * @generated
    */
-  RenamedParameterCall createRenamedParameterCall();
+  ParameterCall createParameterCall();
 
   /**
-   * Returns a new object of class '<em>Concern Parameter Call</em>'.
+   * Returns a new object of class '<em>Call Member</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Concern Parameter Call</em>'.
+   * @return a new object of class '<em>Call Member</em>'.
    * @generated
    */
-  ConcernParameterCall createConcernParameterCall();
+  CallMember createCallMember();
 
   /**
-   * Returns a new object of class '<em>Member Call</em>'.
+   * Returns a new object of class '<em>Call Member In Concern</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Member Call</em>'.
+   * @return a new object of class '<em>Call Member In Concern</em>'.
    * @generated
    */
-  MemberCall createMemberCall();
-
-  /**
-   * Returns a new object of class '<em>Member In Concern</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Member In Concern</em>'.
-   * @generated
-   */
-  MemberInConcern createMemberInConcern();
+  CallMemberInConcern createCallMemberInConcern();
 
   /**
    * Returns a new object of class '<em>Import</em>'.
@@ -231,15 +213,6 @@ public interface BurstFactory extends EFactory
   Concern createConcern();
 
   /**
-   * Returns a new object of class '<em>Member</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Member</em>'.
-   * @generated
-   */
-  Member createMember();
-
-  /**
    * Returns a new object of class '<em>Intersection</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -247,6 +220,15 @@ public interface BurstFactory extends EFactory
    * @generated
    */
   Intersection createIntersection();
+
+  /**
+   * Returns a new object of class '<em>Member In Concern</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Member In Concern</em>'.
+   * @generated
+   */
+  MemberInConcern createMemberInConcern();
 
   /**
    * Returns the package supported by this factory.

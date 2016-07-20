@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.DeclareParameter;
 import org.xtext.burst.burst.Intersection;
 import org.xtext.burst.burst.IntersectionElement;
+import org.xtext.burst.burst.Parameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,7 +68,7 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
    * @generated
    * @ordered
    */
-  protected EList<DeclareParameter> parameters;
+  protected EList<Parameter> parameters;
 
   /**
    * The cached value of the '{@link #getLines() <em>Lines</em>}' containment reference list.
@@ -129,11 +129,11 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DeclareParameter> getParameters()
+  public EList<Parameter> getParameters()
   {
     if (parameters == null)
     {
-      parameters = new EObjectContainmentEList<DeclareParameter>(DeclareParameter.class, this, BurstPackage.INTERSECTION__PARAMETERS);
+      parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, BurstPackage.INTERSECTION__PARAMETERS);
     }
     return parameters;
   }
@@ -206,7 +206,7 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
         return;
       case BurstPackage.INTERSECTION__PARAMETERS:
         getParameters().clear();
-        getParameters().addAll((Collection<? extends DeclareParameter>)newValue);
+        getParameters().addAll((Collection<? extends Parameter>)newValue);
         return;
       case BurstPackage.INTERSECTION__LINES:
         getLines().clear();

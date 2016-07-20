@@ -13,28 +13,26 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.xtext.burst.burst.BurstFactory;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Call;
+import org.xtext.burst.burst.CallMember;
+import org.xtext.burst.burst.CallMemberInConcern;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.ConcernElement;
-import org.xtext.burst.burst.ConcernParameter;
-import org.xtext.burst.burst.ConcernParameterCall;
-import org.xtext.burst.burst.DeclareMember;
-import org.xtext.burst.burst.DeclareParameter;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.Import;
 import org.xtext.burst.burst.Intersection;
 import org.xtext.burst.burst.IntersectionElement;
 import org.xtext.burst.burst.Line;
 import org.xtext.burst.burst.Member;
-import org.xtext.burst.burst.MemberCall;
 import org.xtext.burst.burst.MemberInConcern;
 import org.xtext.burst.burst.PackageElement;
-import org.xtext.burst.burst.RenamedParameter;
-import org.xtext.burst.burst.RenamedParameterCall;
+import org.xtext.burst.burst.Parameter;
+import org.xtext.burst.burst.ParameterCall;
 import org.xtext.burst.burst.RuleConcern;
 import org.xtext.burst.burst.RuleFileElement;
 import org.xtext.burst.burst.RuleImport;
 import org.xtext.burst.burst.RuleIntersect;
 import org.xtext.burst.burst.RulePackage;
+import org.xtext.burst.burst.Variable;
 import org.xtext.burst.burst.toto;
 
 /**
@@ -99,7 +97,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass declareMemberEClass = null;
+  private EClass memberEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,21 +111,14 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass declareParameterEClass = null;
+  private EClass parameterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass concernParameterEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass renamedParameterEClass = null;
+  private EClass variableEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -162,28 +153,21 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass renamedParameterCallEClass = null;
+  private EClass parameterCallEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass concernParameterCallEClass = null;
+  private EClass callMemberEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass memberCallEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass memberInConcernEClass = null;
+  private EClass callMemberInConcernEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -211,14 +195,14 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass memberEClass = null;
+  private EClass intersectionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass intersectionEClass = null;
+  private EClass memberInConcernEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -368,9 +352,29 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDeclareMember()
+  public EClass getMember()
   {
-    return declareMemberEClass;
+    return memberEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMember_Concern()
+  {
+    return (EReference)memberEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMember_Name()
+  {
+    return (EAttribute)memberEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -388,9 +392,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDeclareParameter()
+  public EClass getParameter()
   {
-    return declareParameterEClass;
+    return parameterEClass;
   }
 
   /**
@@ -398,9 +402,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getConcernParameter()
+  public EReference getParameter_Name()
   {
-    return concernParameterEClass;
+    return (EReference)parameterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -408,9 +412,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConcernParameter_Name()
+  public EClass getVariable()
   {
-    return (EReference)concernParameterEClass.getEStructuralFeatures().get(0);
+    return variableEClass;
   }
 
   /**
@@ -418,29 +422,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRenamedParameter()
+  public EReference getVariable_Name()
   {
-    return renamedParameterEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRenamedParameter_Concern()
-  {
-    return (EReference)renamedParameterEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getRenamedParameter_Name()
-  {
-    return (EAttribute)renamedParameterEClass.getEStructuralFeatures().get(1);
+    return (EReference)variableEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -508,9 +492,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRenamedParameterCall()
+  public EClass getParameterCall()
   {
-    return renamedParameterCallEClass;
+    return parameterCallEClass;
   }
 
   /**
@@ -518,9 +502,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRenamedParameterCall_Name()
+  public EReference getParameterCall_Name()
   {
-    return (EReference)renamedParameterCallEClass.getEStructuralFeatures().get(0);
+    return (EReference)parameterCallEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -528,9 +512,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getConcernParameterCall()
+  public EClass getCallMember()
   {
-    return concernParameterCallEClass;
+    return callMemberEClass;
   }
 
   /**
@@ -538,9 +522,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConcernParameterCall_Name()
+  public EReference getCallMember_Name()
   {
-    return (EReference)concernParameterCallEClass.getEStructuralFeatures().get(0);
+    return (EReference)callMemberEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -548,49 +532,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMemberCall()
+  public EClass getCallMemberInConcern()
   {
-    return memberCallEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMemberCall_Name()
-  {
-    return (EReference)memberCallEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getMemberInConcern()
-  {
-    return memberInConcernEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMemberInConcern_Target()
-  {
-    return (EReference)memberInConcernEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMemberInConcern_Name()
-  {
-    return (EReference)memberInConcernEClass.getEStructuralFeatures().get(1);
+    return callMemberInConcernEClass;
   }
 
   /**
@@ -688,36 +632,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMember()
-  {
-    return memberEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMember_Concern()
-  {
-    return (EReference)memberEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getMember_Name()
-  {
-    return (EAttribute)memberEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getIntersection()
   {
     return intersectionEClass;
@@ -751,6 +665,36 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
   public EReference getIntersection_Lines()
   {
     return (EReference)intersectionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMemberInConcern()
+  {
+    return memberInConcernEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMemberInConcern_Target()
+  {
+    return (EReference)memberInConcernEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMemberInConcern_Name()
+  {
+    return (EReference)memberInConcernEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -798,18 +742,17 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
 
     concernElementEClass = createEClass(CONCERN_ELEMENT);
 
-    declareMemberEClass = createEClass(DECLARE_MEMBER);
+    memberEClass = createEClass(MEMBER);
+    createEReference(memberEClass, MEMBER__CONCERN);
+    createEAttribute(memberEClass, MEMBER__NAME);
 
     ruleIntersectEClass = createEClass(RULE_INTERSECT);
 
-    declareParameterEClass = createEClass(DECLARE_PARAMETER);
+    parameterEClass = createEClass(PARAMETER);
+    createEReference(parameterEClass, PARAMETER__NAME);
 
-    concernParameterEClass = createEClass(CONCERN_PARAMETER);
-    createEReference(concernParameterEClass, CONCERN_PARAMETER__NAME);
-
-    renamedParameterEClass = createEClass(RENAMED_PARAMETER);
-    createEReference(renamedParameterEClass, RENAMED_PARAMETER__CONCERN);
-    createEAttribute(renamedParameterEClass, RENAMED_PARAMETER__NAME);
+    variableEClass = createEClass(VARIABLE);
+    createEReference(variableEClass, VARIABLE__NAME);
 
     intersectionElementEClass = createEClass(INTERSECTION_ELEMENT);
 
@@ -821,18 +764,13 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     totoEClass = createEClass(TOTO);
     createEAttribute(totoEClass, TOTO__NAME);
 
-    renamedParameterCallEClass = createEClass(RENAMED_PARAMETER_CALL);
-    createEReference(renamedParameterCallEClass, RENAMED_PARAMETER_CALL__NAME);
+    parameterCallEClass = createEClass(PARAMETER_CALL);
+    createEReference(parameterCallEClass, PARAMETER_CALL__NAME);
 
-    concernParameterCallEClass = createEClass(CONCERN_PARAMETER_CALL);
-    createEReference(concernParameterCallEClass, CONCERN_PARAMETER_CALL__NAME);
+    callMemberEClass = createEClass(CALL_MEMBER);
+    createEReference(callMemberEClass, CALL_MEMBER__NAME);
 
-    memberCallEClass = createEClass(MEMBER_CALL);
-    createEReference(memberCallEClass, MEMBER_CALL__NAME);
-
-    memberInConcernEClass = createEClass(MEMBER_IN_CONCERN);
-    createEReference(memberInConcernEClass, MEMBER_IN_CONCERN__TARGET);
-    createEReference(memberInConcernEClass, MEMBER_IN_CONCERN__NAME);
+    callMemberInConcernEClass = createEClass(CALL_MEMBER_IN_CONCERN);
 
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
@@ -846,14 +784,14 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     createEReference(concernEClass, CONCERN__SUPERTYPE);
     createEReference(concernEClass, CONCERN__ELEMENTS);
 
-    memberEClass = createEClass(MEMBER);
-    createEReference(memberEClass, MEMBER__CONCERN);
-    createEAttribute(memberEClass, MEMBER__NAME);
-
     intersectionEClass = createEClass(INTERSECTION);
     createEAttribute(intersectionEClass, INTERSECTION__NAME);
     createEReference(intersectionEClass, INTERSECTION__PARAMETERS);
     createEReference(intersectionEClass, INTERSECTION__LINES);
+
+    memberInConcernEClass = createEClass(MEMBER_IN_CONCERN);
+    createEReference(memberInConcernEClass, MEMBER_IN_CONCERN__TARGET);
+    createEReference(memberInConcernEClass, MEMBER_IN_CONCERN__NAME);
   }
 
   /**
@@ -888,18 +826,17 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     ruleImportEClass.getESuperTypes().add(this.getRuleFileElement());
     rulePackageEClass.getESuperTypes().add(this.getRuleFileElement());
     ruleConcernEClass.getESuperTypes().add(this.getPackageElement());
-    declareMemberEClass.getESuperTypes().add(this.getConcernElement());
+    memberEClass.getESuperTypes().add(this.getConcernElement());
     ruleIntersectEClass.getESuperTypes().add(this.getPackageElement());
     ruleIntersectEClass.getESuperTypes().add(this.getConcernElement());
-    renamedParameterEClass.getESuperTypes().add(this.getDeclareParameter());
     lineEClass.getESuperTypes().add(this.getIntersectionElement());
-    totoEClass.getESuperTypes().add(this.getCall());
-    renamedParameterCallEClass.getESuperTypes().add(this.getCall());
+    callMemberEClass.getESuperTypes().add(this.getCall());
+    callMemberInConcernEClass.getESuperTypes().add(this.getCall());
     importEClass.getESuperTypes().add(this.getRuleImport());
     packageEClass.getESuperTypes().add(this.getRulePackage());
     concernEClass.getESuperTypes().add(this.getRuleConcern());
-    memberEClass.getESuperTypes().add(this.getDeclareMember());
     intersectionEClass.getESuperTypes().add(this.getRuleIntersect());
+    memberInConcernEClass.getESuperTypes().add(this.getCallMemberInConcern());
 
     // Initialize classes and features; add operations and parameters
     initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -917,18 +854,17 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
 
     initEClass(concernElementEClass, ConcernElement.class, "ConcernElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(declareMemberEClass, DeclareMember.class, "DeclareMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMember_Concern(), this.getConcern(), null, "concern", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ruleIntersectEClass, RuleIntersect.class, "RuleIntersect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(declareParameterEClass, DeclareParameter.class, "DeclareParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParameter_Name(), this.getConcern(), null, "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(concernParameterEClass, ConcernParameter.class, "ConcernParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getConcernParameter_Name(), this.getConcern(), null, "name", null, 0, 1, ConcernParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(renamedParameterEClass, RenamedParameter.class, "RenamedParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRenamedParameter_Concern(), this.getConcern(), null, "concern", null, 0, 1, RenamedParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRenamedParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, RenamedParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVariable_Name(), this.getConcern(), null, "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(intersectionElementEClass, IntersectionElement.class, "IntersectionElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -940,18 +876,13 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     initEClass(totoEClass, toto.class, "toto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(gettoto_Name(), ecorePackage.getEString(), "name", null, 0, 1, toto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(renamedParameterCallEClass, RenamedParameterCall.class, "RenamedParameterCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRenamedParameterCall_Name(), this.getRenamedParameter(), null, "name", null, 0, 1, RenamedParameterCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(parameterCallEClass, ParameterCall.class, "ParameterCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParameterCall_Name(), this.getParameter(), null, "name", null, 0, 1, ParameterCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(concernParameterCallEClass, ConcernParameterCall.class, "ConcernParameterCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getConcernParameterCall_Name(), this.getConcernParameter(), null, "name", null, 0, 1, ConcernParameterCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(callMemberEClass, CallMember.class, "CallMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCallMember_Name(), this.getMember(), null, "name", null, 0, 1, CallMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(memberCallEClass, MemberCall.class, "MemberCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMemberCall_Name(), this.getMember(), null, "name", null, 0, 1, MemberCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(memberInConcernEClass, MemberInConcern.class, "MemberInConcern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMemberInConcern_Target(), this.getConcern(), null, "target", null, 0, 1, MemberInConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMemberInConcern_Name(), this.getMember(), null, "name", null, 0, 1, MemberInConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(callMemberInConcernEClass, CallMemberInConcern.class, "CallMemberInConcern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -965,14 +896,14 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     initEReference(getConcern_Supertype(), this.getConcern(), null, "supertype", null, 0, 1, Concern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConcern_Elements(), this.getConcernElement(), null, "elements", null, 0, -1, Concern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMember_Concern(), this.getConcern(), null, "concern", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(intersectionEClass, Intersection.class, "Intersection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntersection_Name(), ecorePackage.getEString(), "name", null, 0, 1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIntersection_Parameters(), this.getDeclareParameter(), null, "parameters", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIntersection_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIntersection_Lines(), this.getIntersectionElement(), null, "lines", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(memberInConcernEClass, MemberInConcern.class, "MemberInConcern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMemberInConcern_Target(), this.getConcern(), null, "target", null, 0, 1, MemberInConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMemberInConcern_Name(), this.getMember(), null, "name", null, 0, 1, MemberInConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

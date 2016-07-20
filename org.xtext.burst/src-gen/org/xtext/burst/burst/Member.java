@@ -21,7 +21,7 @@ package org.xtext.burst.burst;
  * @model
  * @generated
  */
-public interface Member extends DeclareMember
+public interface Member extends ConcernElement
 {
   /**
    * Returns the value of the '<em><b>Concern</b></em>' reference.

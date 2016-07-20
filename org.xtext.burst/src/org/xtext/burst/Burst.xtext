@@ -27,24 +27,21 @@ RuleConcern :	{Concern}
 	('{'  elements+=ConcernElement*  '}')?;
 
 ConcernElement:
-	DeclareMember | RuleIntersect | ENDLINE;
+	Member | RuleIntersect | ENDLINE;
 	
-DeclareMember:		{Member}
+Member:		{Member}
 	concern=[Concern|QualifiedName] name=ID;
 	
 RuleIntersect: {Intersection}
-	name='when'  ( (ENDLINE)* parameters+=DeclareParameter (','|'and')? )* 
+	name='when'  ( (ENDLINE)* parameters+=Parameter (','|'and')? )*  
 	 '{' lines+=IntersectionElement* '}' ;
+	
+Parameter: {Parameter}
+	name=[Concern|QualifiedName];	
 	 
-DeclareParameter: 
-	RenamedParameter ;//| ConcernParameter;
-
-ConcernParameter: {ConcernParameter}
+Variable : {Variable}
 	name=[Concern|QualifiedName];
 	
-RenamedParameter: {RenamedParameter}
-	concern=[Concern|QualifiedName] name=ID;
-	 
 IntersectionElement:
 	Line | ENDLINE;
 
@@ -52,21 +49,15 @@ Line: {Line}
 	calls+=Call calls+=Call*;
 	
 Call: 
-	toto | RenamedParameterCall ;
-
-toto: {toto}
-	name='toto';
+	CallMemberInConcern | CallMember  ;
 	
-RenamedParameterCall:	{RenamedParameterCall}
-	name=[RenamedParameter];
+ParameterCall:	{ParameterCall}
+	name=[Parameter];
 	
-ConcernParameterCall:	{ConcernParameterCall}
-	name=[ConcernParameter];
-	
-MemberCall:	{MemberCall}
+CallMember:	{CallMember}
 	name=[Member];
 
-MemberInConcern: {MemberInConcern}
+CallMemberInConcern: {MemberInConcern}
 	target=[Concern] '.' name=[Member];
 	/* 
 
