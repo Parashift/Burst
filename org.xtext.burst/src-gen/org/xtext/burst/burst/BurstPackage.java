@@ -256,34 +256,6 @@ public interface BurstPackage extends EPackage
   int RULE_INTERSECT_FEATURE_COUNT = PACKAGE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.burst.burst.impl.ParameterImpl <em>Parameter</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.burst.burst.impl.ParameterImpl
-   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getParameter()
-   * @generated
-   */
-  int PARAMETER = 9;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Parameter</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.VariableImpl <em>Variable</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -291,16 +263,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 10;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE__NAME = 0;
+  int VARIABLE = 9;
 
   /**
    * The number of structural features of the '<em>Variable</em>' class.
@@ -309,26 +272,128 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_FEATURE_COUNT = 1;
+  int VARIABLE_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.burst.burst.impl.IntersectionElementImpl <em>Intersection Element</em>}' class.
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.ParameterImpl <em>Parameter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.burst.burst.impl.IntersectionElementImpl
-   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getIntersectionElement()
+   * @see org.xtext.burst.burst.impl.ParameterImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getParameter()
    * @generated
    */
-  int INTERSECTION_ELEMENT = 11;
+  int PARAMETER = 10;
 
   /**
-   * The number of structural features of the '<em>Intersection Element</em>' class.
+   * The number of structural features of the '<em>Parameter</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERSECTION_ELEMENT_FEATURE_COUNT = 0;
+  int PARAMETER_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.NamedParameterImpl <em>Named Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.burst.burst.impl.NamedParameterImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getNamedParameter()
+   * @generated
+   */
+  int NAMED_PARAMETER = 11;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMED_PARAMETER__TYPE = PARAMETER_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMED_PARAMETER__NAME = PARAMETER_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Named Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMED_PARAMETER_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.StaticParameterImpl <em>Static Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.burst.burst.impl.StaticParameterImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getStaticParameter()
+   * @generated
+   */
+  int STATIC_PARAMETER = 12;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATIC_PARAMETER__NAME = PARAMETER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Static Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATIC_PARAMETER_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.UsageParameterImpl <em>Usage Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.burst.burst.impl.UsageParameterImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getUsageParameter()
+   * @generated
+   */
+  int USAGE_PARAMETER = 13;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USAGE_PARAMETER__TYPE = PARAMETER_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USAGE_PARAMETER__NAME = PARAMETER_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Usage Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USAGE_PARAMETER_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.LineImpl <em>Line</em>}' class.
@@ -338,7 +403,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getLine()
    * @generated
    */
-  int LINE = 12;
+  int LINE = 14;
 
   /**
    * The feature id for the '<em><b>Calls</b></em>' containment reference list.
@@ -347,7 +412,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINE__CALLS = INTERSECTION_ELEMENT_FEATURE_COUNT + 0;
+  int LINE__CALLS = 0;
 
   /**
    * The number of structural features of the '<em>Line</em>' class.
@@ -356,7 +421,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINE_FEATURE_COUNT = INTERSECTION_ELEMENT_FEATURE_COUNT + 1;
+  int LINE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.CallImpl <em>Call</em>}' class.
@@ -366,7 +431,16 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCall()
    * @generated
    */
-  int CALL = 13;
+  int CALL = 15;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Call</em>' class.
@@ -375,35 +449,72 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CALL_FEATURE_COUNT = 0;
+  int CALL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.burst.burst.impl.totoImpl <em>toto</em>}' class.
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.MemberCallImpl <em>Member Call</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.burst.burst.impl.totoImpl
-   * @see org.xtext.burst.burst.impl.BurstPackageImpl#gettoto()
+   * @see org.xtext.burst.burst.impl.MemberCallImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getMemberCall()
    * @generated
    */
-  int TOTO = 14;
+  int MEMBER_CALL = 16;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TOTO__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>toto</em>' class.
+   * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TOTO_FEATURE_COUNT = 1;
+  int MEMBER_CALL__NAME = CALL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER_CALL__VARIABLE = CALL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Member Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER_CALL_FEATURE_COUNT = CALL_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.VariableCallImpl <em>Variable Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.burst.burst.impl.VariableCallImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getVariableCall()
+   * @generated
+   */
+  int VARIABLE_CALL = 17;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_CALL__NAME = CALL__NAME;
+
+  /**
+   * The number of structural features of the '<em>Variable Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_CALL_FEATURE_COUNT = CALL_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.ParameterCallImpl <em>Parameter Call</em>}' class.
@@ -413,7 +524,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getParameterCall()
    * @generated
    */
-  int PARAMETER_CALL = 15;
+  int PARAMETER_CALL = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -441,7 +552,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCallMember()
    * @generated
    */
-  int CALL_MEMBER = 16;
+  int CALL_MEMBER = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -450,7 +561,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CALL_MEMBER__NAME = CALL_FEATURE_COUNT + 0;
+  int CALL_MEMBER__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Call Member</em>' class.
@@ -459,26 +570,26 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CALL_MEMBER_FEATURE_COUNT = CALL_FEATURE_COUNT + 1;
+  int CALL_MEMBER_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.burst.burst.impl.CallMemberInConcernImpl <em>Call Member In Concern</em>}' class.
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.CallParameterInConcernImpl <em>Call Parameter In Concern</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.burst.burst.impl.CallMemberInConcernImpl
-   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCallMemberInConcern()
+   * @see org.xtext.burst.burst.impl.CallParameterInConcernImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCallParameterInConcern()
    * @generated
    */
-  int CALL_MEMBER_IN_CONCERN = 17;
+  int CALL_PARAMETER_IN_CONCERN = 20;
 
   /**
-   * The number of structural features of the '<em>Call Member In Concern</em>' class.
+   * The number of structural features of the '<em>Call Parameter In Concern</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CALL_MEMBER_IN_CONCERN_FEATURE_COUNT = CALL_FEATURE_COUNT + 0;
+  int CALL_PARAMETER_IN_CONCERN_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.ImportImpl <em>Import</em>}' class.
@@ -488,7 +599,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getImport()
    * @generated
    */
-  int IMPORT = 18;
+  int IMPORT = 21;
 
   /**
    * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -516,7 +627,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getPackage()
    * @generated
    */
-  int PACKAGE = 19;
+  int PACKAGE = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -553,7 +664,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getConcern()
    * @generated
    */
-  int CONCERN = 20;
+  int CONCERN = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -599,7 +710,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getIntersection()
    * @generated
    */
-  int INTERSECTION = 21;
+  int INTERSECTION = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -645,7 +756,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getMemberInConcern()
    * @generated
    */
-  int MEMBER_IN_CONCERN = 22;
+  int MEMBER_IN_CONCERN = 25;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -654,7 +765,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_IN_CONCERN__TARGET = CALL_MEMBER_IN_CONCERN_FEATURE_COUNT + 0;
+  int MEMBER_IN_CONCERN__TARGET = CALL_PARAMETER_IN_CONCERN_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -663,7 +774,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_IN_CONCERN__NAME = CALL_MEMBER_IN_CONCERN_FEATURE_COUNT + 1;
+  int MEMBER_IN_CONCERN__NAME = CALL_PARAMETER_IN_CONCERN_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Member In Concern</em>' class.
@@ -672,7 +783,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_IN_CONCERN_FEATURE_COUNT = CALL_MEMBER_IN_CONCERN_FEATURE_COUNT + 2;
+  int MEMBER_IN_CONCERN_FEATURE_COUNT = CALL_PARAMETER_IN_CONCERN_FEATURE_COUNT + 2;
 
 
   /**
@@ -799,27 +910,6 @@ public interface BurstPackage extends EPackage
   EClass getRuleIntersect();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.burst.burst.Parameter <em>Parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Parameter</em>'.
-   * @see org.xtext.burst.burst.Parameter
-   * @generated
-   */
-  EClass getParameter();
-
-  /**
-   * Returns the meta object for the reference '{@link org.xtext.burst.burst.Parameter#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
-   * @see org.xtext.burst.burst.Parameter#getName()
-   * @see #getParameter()
-   * @generated
-   */
-  EReference getParameter_Name();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.Variable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -830,25 +920,99 @@ public interface BurstPackage extends EPackage
   EClass getVariable();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.burst.burst.Variable#getName <em>Name</em>}'.
+   * Returns the meta object for class '{@link org.xtext.burst.burst.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameter</em>'.
+   * @see org.xtext.burst.burst.Parameter
+   * @generated
+   */
+  EClass getParameter();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.burst.burst.NamedParameter <em>Named Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Named Parameter</em>'.
+   * @see org.xtext.burst.burst.NamedParameter
+   * @generated
+   */
+  EClass getNamedParameter();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.burst.burst.NamedParameter#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.xtext.burst.burst.NamedParameter#getType()
+   * @see #getNamedParameter()
+   * @generated
+   */
+  EReference getNamedParameter_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.NamedParameter#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.burst.burst.NamedParameter#getName()
+   * @see #getNamedParameter()
+   * @generated
+   */
+  EAttribute getNamedParameter_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.burst.burst.StaticParameter <em>Static Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Static Parameter</em>'.
+   * @see org.xtext.burst.burst.StaticParameter
+   * @generated
+   */
+  EClass getStaticParameter();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.burst.burst.StaticParameter#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Name</em>'.
-   * @see org.xtext.burst.burst.Variable#getName()
-   * @see #getVariable()
+   * @see org.xtext.burst.burst.StaticParameter#getName()
+   * @see #getStaticParameter()
    * @generated
    */
-  EReference getVariable_Name();
+  EReference getStaticParameter_Name();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.burst.burst.IntersectionElement <em>Intersection Element</em>}'.
+   * Returns the meta object for class '{@link org.xtext.burst.burst.UsageParameter <em>Usage Parameter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Intersection Element</em>'.
-   * @see org.xtext.burst.burst.IntersectionElement
+   * @return the meta object for class '<em>Usage Parameter</em>'.
+   * @see org.xtext.burst.burst.UsageParameter
    * @generated
    */
-  EClass getIntersectionElement();
+  EClass getUsageParameter();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.burst.burst.UsageParameter#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.xtext.burst.burst.UsageParameter#getType()
+   * @see #getUsageParameter()
+   * @generated
+   */
+  EReference getUsageParameter_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.UsageParameter#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.burst.burst.UsageParameter#getName()
+   * @see #getUsageParameter()
+   * @generated
+   */
+  EAttribute getUsageParameter_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.Line <em>Line</em>}'.
@@ -882,25 +1046,46 @@ public interface BurstPackage extends EPackage
   EClass getCall();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.burst.burst.toto <em>toto</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.burst.burst.Call#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>toto</em>'.
-   * @see org.xtext.burst.burst.toto
+   * @return the meta object for the reference '<em>Name</em>'.
+   * @see org.xtext.burst.burst.Call#getName()
+   * @see #getCall()
    * @generated
    */
-  EClass gettoto();
+  EReference getCall_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.toto#getName <em>Name</em>}'.
+   * Returns the meta object for class '{@link org.xtext.burst.burst.MemberCall <em>Member Call</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.burst.burst.toto#getName()
-   * @see #gettoto()
+   * @return the meta object for class '<em>Member Call</em>'.
+   * @see org.xtext.burst.burst.MemberCall
    * @generated
    */
-  EAttribute gettoto_Name();
+  EClass getMemberCall();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.burst.burst.MemberCall#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see org.xtext.burst.burst.MemberCall#getVariable()
+   * @see #getMemberCall()
+   * @generated
+   */
+  EReference getMemberCall_Variable();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.burst.burst.VariableCall <em>Variable Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Variable Call</em>'.
+   * @see org.xtext.burst.burst.VariableCall
+   * @generated
+   */
+  EClass getVariableCall();
 
   /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.ParameterCall <em>Parameter Call</em>}'.
@@ -945,14 +1130,14 @@ public interface BurstPackage extends EPackage
   EReference getCallMember_Name();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.burst.burst.CallMemberInConcern <em>Call Member In Concern</em>}'.
+   * Returns the meta object for class '{@link org.xtext.burst.burst.CallParameterInConcern <em>Call Parameter In Concern</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Call Member In Concern</em>'.
-   * @see org.xtext.burst.burst.CallMemberInConcern
+   * @return the meta object for class '<em>Call Parameter In Concern</em>'.
+   * @see org.xtext.burst.burst.CallParameterInConcern
    * @generated
    */
-  EClass getCallMemberInConcern();
+  EClass getCallParameterInConcern();
 
   /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.Import <em>Import</em>}'.
@@ -1263,24 +1448,6 @@ public interface BurstPackage extends EPackage
     EClass RULE_INTERSECT = eINSTANCE.getRuleIntersect();
 
     /**
-     * The meta object literal for the '{@link org.xtext.burst.burst.impl.ParameterImpl <em>Parameter</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.burst.burst.impl.ParameterImpl
-     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getParameter()
-     * @generated
-     */
-    EClass PARAMETER = eINSTANCE.getParameter();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PARAMETER__NAME = eINSTANCE.getParameter_Name();
-
-    /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.VariableImpl <em>Variable</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1291,22 +1458,84 @@ public interface BurstPackage extends EPackage
     EClass VARIABLE = eINSTANCE.getVariable();
 
     /**
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.ParameterImpl <em>Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.burst.burst.impl.ParameterImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getParameter()
+     * @generated
+     */
+    EClass PARAMETER = eINSTANCE.getParameter();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.NamedParameterImpl <em>Named Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.burst.burst.impl.NamedParameterImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getNamedParameter()
+     * @generated
+     */
+    EClass NAMED_PARAMETER = eINSTANCE.getNamedParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NAMED_PARAMETER__TYPE = eINSTANCE.getNamedParameter_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NAMED_PARAMETER__NAME = eINSTANCE.getNamedParameter_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.StaticParameterImpl <em>Static Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.burst.burst.impl.StaticParameterImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getStaticParameter()
+     * @generated
+     */
+    EClass STATIC_PARAMETER = eINSTANCE.getStaticParameter();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VARIABLE__NAME = eINSTANCE.getVariable_Name();
+    EReference STATIC_PARAMETER__NAME = eINSTANCE.getStaticParameter_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.burst.burst.impl.IntersectionElementImpl <em>Intersection Element</em>}' class.
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.UsageParameterImpl <em>Usage Parameter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.burst.burst.impl.IntersectionElementImpl
-     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getIntersectionElement()
+     * @see org.xtext.burst.burst.impl.UsageParameterImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getUsageParameter()
      * @generated
      */
-    EClass INTERSECTION_ELEMENT = eINSTANCE.getIntersectionElement();
+    EClass USAGE_PARAMETER = eINSTANCE.getUsageParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USAGE_PARAMETER__TYPE = eINSTANCE.getUsageParameter_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USAGE_PARAMETER__NAME = eINSTANCE.getUsageParameter_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.LineImpl <em>Line</em>}' class.
@@ -1337,22 +1566,40 @@ public interface BurstPackage extends EPackage
     EClass CALL = eINSTANCE.getCall();
 
     /**
-     * The meta object literal for the '{@link org.xtext.burst.burst.impl.totoImpl <em>toto</em>}' class.
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.burst.burst.impl.totoImpl
-     * @see org.xtext.burst.burst.impl.BurstPackageImpl#gettoto()
      * @generated
      */
-    EClass TOTO = eINSTANCE.gettoto();
+    EReference CALL__NAME = eINSTANCE.getCall_Name();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.MemberCallImpl <em>Member Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.burst.burst.impl.MemberCallImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getMemberCall()
+     * @generated
+     */
+    EClass MEMBER_CALL = eINSTANCE.getMemberCall();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TOTO__NAME = eINSTANCE.gettoto_Name();
+    EReference MEMBER_CALL__VARIABLE = eINSTANCE.getMemberCall_Variable();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.VariableCallImpl <em>Variable Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.burst.burst.impl.VariableCallImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getVariableCall()
+     * @generated
+     */
+    EClass VARIABLE_CALL = eINSTANCE.getVariableCall();
 
     /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.ParameterCallImpl <em>Parameter Call</em>}' class.
@@ -1391,14 +1638,14 @@ public interface BurstPackage extends EPackage
     EReference CALL_MEMBER__NAME = eINSTANCE.getCallMember_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.burst.burst.impl.CallMemberInConcernImpl <em>Call Member In Concern</em>}' class.
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.CallParameterInConcernImpl <em>Call Parameter In Concern</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.burst.burst.impl.CallMemberInConcernImpl
-     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCallMemberInConcern()
+     * @see org.xtext.burst.burst.impl.CallParameterInConcernImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCallParameterInConcern()
      * @generated
      */
-    EClass CALL_MEMBER_IN_CONCERN = eINSTANCE.getCallMemberInConcern();
+    EClass CALL_PARAMETER_IN_CONCERN = eINSTANCE.getCallParameterInConcern();
 
     /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.ImportImpl <em>Import</em>}' class.

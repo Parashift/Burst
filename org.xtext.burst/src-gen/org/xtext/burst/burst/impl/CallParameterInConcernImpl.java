@@ -5,24 +5,26 @@ package org.xtext.burst.burst.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.CallMemberInConcern;
+import org.xtext.burst.burst.CallParameterInConcern;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Call Member In Concern</b></em>'.
+ * An implementation of the model object '<em><b>Call Parameter In Concern</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class CallMemberInConcernImpl extends CallImpl implements CallMemberInConcern
+public class CallParameterInConcernImpl extends MinimalEObjectImpl.Container implements CallParameterInConcern
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected CallMemberInConcernImpl()
+  protected CallParameterInConcernImpl()
   {
     super();
   }
@@ -35,7 +37,7 @@ public class CallMemberInConcernImpl extends CallImpl implements CallMemberInCon
   @Override
   protected EClass eStaticClass()
   {
-    return BurstPackage.Literals.CALL_MEMBER_IN_CONCERN;
+    return BurstPackage.Literals.CALL_PARAMETER_IN_CONCERN;
   }
 
-} //CallMemberInConcernImpl
+} //CallParameterInConcernImpl

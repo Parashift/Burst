@@ -11,9 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.Member;
 import org.xtext.burst.burst.MemberInConcern;
+import org.xtext.burst.burst.Parameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +29,7 @@ import org.xtext.burst.burst.MemberInConcern;
  *
  * @generated
  */
-public class MemberInConcernImpl extends CallMemberInConcernImpl implements MemberInConcern
+public class MemberInConcernImpl extends CallParameterInConcernImpl implements MemberInConcern
 {
   /**
    * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
@@ -39,7 +39,7 @@ public class MemberInConcernImpl extends CallMemberInConcernImpl implements Memb
    * @generated
    * @ordered
    */
-  protected Concern target;
+  protected Parameter target;
 
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' reference.
@@ -77,12 +77,12 @@ public class MemberInConcernImpl extends CallMemberInConcernImpl implements Memb
    * <!-- end-user-doc -->
    * @generated
    */
-  public Concern getTarget()
+  public Parameter getTarget()
   {
     if (target != null && target.eIsProxy())
     {
       InternalEObject oldTarget = (InternalEObject)target;
-      target = (Concern)eResolveProxy(oldTarget);
+      target = (Parameter)eResolveProxy(oldTarget);
       if (target != oldTarget)
       {
         if (eNotificationRequired())
@@ -97,7 +97,7 @@ public class MemberInConcernImpl extends CallMemberInConcernImpl implements Memb
    * <!-- end-user-doc -->
    * @generated
    */
-  public Concern basicGetTarget()
+  public Parameter basicGetTarget()
   {
     return target;
   }
@@ -107,9 +107,9 @@ public class MemberInConcernImpl extends CallMemberInConcernImpl implements Memb
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTarget(Concern newTarget)
+  public void setTarget(Parameter newTarget)
   {
-    Concern oldTarget = target;
+    Parameter oldTarget = target;
     target = newTarget;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER_IN_CONCERN__TARGET, oldTarget, target));
@@ -189,7 +189,7 @@ public class MemberInConcernImpl extends CallMemberInConcernImpl implements Memb
     switch (featureID)
     {
       case BurstPackage.MEMBER_IN_CONCERN__TARGET:
-        setTarget((Concern)newValue);
+        setTarget((Parameter)newValue);
         return;
       case BurstPackage.MEMBER_IN_CONCERN__NAME:
         setName((Member)newValue);
@@ -209,7 +209,7 @@ public class MemberInConcernImpl extends CallMemberInConcernImpl implements Memb
     switch (featureID)
     {
       case BurstPackage.MEMBER_IN_CONCERN__TARGET:
-        setTarget((Concern)null);
+        setTarget((Parameter)null);
         return;
       case BurstPackage.MEMBER_IN_CONCERN__NAME:
         setName((Member)null);

@@ -5,26 +5,24 @@ package org.xtext.burst.burst.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.IntersectionElement;
+import org.xtext.burst.burst.VariableCall;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Intersection Element</b></em>'.
+ * An implementation of the model object '<em><b>Variable Call</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class IntersectionElementImpl extends MinimalEObjectImpl.Container implements IntersectionElement
+public class VariableCallImpl extends CallImpl implements VariableCall
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IntersectionElementImpl()
+  protected VariableCallImpl()
   {
     super();
   }
@@ -37,7 +35,7 @@ public class IntersectionElementImpl extends MinimalEObjectImpl.Container implem
   @Override
   protected EClass eStaticClass()
   {
-    return BurstPackage.Literals.INTERSECTION_ELEMENT;
+    return BurstPackage.Literals.VARIABLE_CALL;
   }
 
-} //IntersectionElementImpl
+} //VariableCallImpl

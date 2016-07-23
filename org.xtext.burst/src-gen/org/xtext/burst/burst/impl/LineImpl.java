@@ -12,6 +12,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,7 +34,7 @@ import org.xtext.burst.burst.Line;
  *
  * @generated
  */
-public class LineImpl extends IntersectionElementImpl implements Line
+public class LineImpl extends MinimalEObjectImpl.Container implements Line
 {
   /**
    * The cached value of the '{@link #getCalls() <em>Calls</em>}' containment reference list.

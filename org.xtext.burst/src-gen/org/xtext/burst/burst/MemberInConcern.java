@@ -21,7 +21,7 @@ package org.xtext.burst.burst;
  * @model
  * @generated
  */
-public interface MemberInConcern extends CallMemberInConcern
+public interface MemberInConcern extends CallParameterInConcern
 {
   /**
    * Returns the value of the '<em><b>Target</b></em>' reference.
@@ -32,12 +32,12 @@ public interface MemberInConcern extends CallMemberInConcern
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Target</em>' reference.
-   * @see #setTarget(Concern)
+   * @see #setTarget(Parameter)
    * @see org.xtext.burst.burst.BurstPackage#getMemberInConcern_Target()
    * @model
    * @generated
    */
-  Concern getTarget();
+  Parameter getTarget();
 
   /**
    * Sets the value of the '{@link org.xtext.burst.burst.MemberInConcern#getTarget <em>Target</em>}' reference.
@@ -47,7 +47,7 @@ public interface MemberInConcern extends CallMemberInConcern
    * @see #getTarget()
    * @generated
    */
-  void setTarget(Concern value);
+  void setTarget(Parameter value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' reference.

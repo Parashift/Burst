@@ -9,26 +9,25 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.Call;
-import org.xtext.burst.burst.Variable;
+import org.xtext.burst.burst.Concern;
+import org.xtext.burst.burst.StaticParameter;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Call</b></em>'.
+ * An implementation of the model object '<em><b>Static Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.CallImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.StaticParameterImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CallImpl extends MinimalEObjectImpl.Container implements Call
+public class StaticParameterImpl extends ParameterImpl implements StaticParameter
 {
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' reference.
@@ -38,14 +37,14 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
    * @generated
    * @ordered
    */
-  protected Variable name;
+  protected Concern name;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected CallImpl()
+  protected StaticParameterImpl()
   {
     super();
   }
@@ -58,7 +57,7 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
   @Override
   protected EClass eStaticClass()
   {
-    return BurstPackage.Literals.CALL;
+    return BurstPackage.Literals.STATIC_PARAMETER;
   }
 
   /**
@@ -66,16 +65,16 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
    * <!-- end-user-doc -->
    * @generated
    */
-  public Variable getName()
+  public Concern getName()
   {
     if (name != null && name.eIsProxy())
     {
       InternalEObject oldName = (InternalEObject)name;
-      name = (Variable)eResolveProxy(oldName);
+      name = (Concern)eResolveProxy(oldName);
       if (name != oldName)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.CALL__NAME, oldName, name));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.STATIC_PARAMETER__NAME, oldName, name));
       }
     }
     return name;
@@ -86,7 +85,7 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
    * <!-- end-user-doc -->
    * @generated
    */
-  public Variable basicGetName()
+  public Concern basicGetName()
   {
     return name;
   }
@@ -96,12 +95,12 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(Variable newName)
+  public void setName(Concern newName)
   {
-    Variable oldName = name;
+    Concern oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.CALL__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.STATIC_PARAMETER__NAME, oldName, name));
   }
 
   /**
@@ -114,7 +113,7 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
   {
     switch (featureID)
     {
-      case BurstPackage.CALL__NAME:
+      case BurstPackage.STATIC_PARAMETER__NAME:
         if (resolve) return getName();
         return basicGetName();
     }
@@ -131,8 +130,8 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
   {
     switch (featureID)
     {
-      case BurstPackage.CALL__NAME:
-        setName((Variable)newValue);
+      case BurstPackage.STATIC_PARAMETER__NAME:
+        setName((Concern)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -148,8 +147,8 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
   {
     switch (featureID)
     {
-      case BurstPackage.CALL__NAME:
-        setName((Variable)null);
+      case BurstPackage.STATIC_PARAMETER__NAME:
+        setName((Concern)null);
         return;
     }
     super.eUnset(featureID);
@@ -165,10 +164,10 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
   {
     switch (featureID)
     {
-      case BurstPackage.CALL__NAME:
+      case BurstPackage.STATIC_PARAMETER__NAME:
         return name != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //CallImpl
+} //StaticParameterImpl

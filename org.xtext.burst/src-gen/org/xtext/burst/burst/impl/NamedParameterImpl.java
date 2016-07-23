@@ -6,28 +6,40 @@ package org.xtext.burst.burst.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.toto;
+import org.xtext.burst.burst.Concern;
+import org.xtext.burst.burst.NamedParameter;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>toto</b></em>'.
+ * An implementation of the model object '<em><b>Named Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.totoImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.NamedParameterImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.NamedParameterImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class totoImpl extends MinimalEObjectImpl.Container implements toto
+public class NamedParameterImpl extends ParameterImpl implements NamedParameter
 {
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected Concern type;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -53,7 +65,7 @@ public class totoImpl extends MinimalEObjectImpl.Container implements toto
    * <!-- end-user-doc -->
    * @generated
    */
-  protected totoImpl()
+  protected NamedParameterImpl()
   {
     super();
   }
@@ -66,7 +78,50 @@ public class totoImpl extends MinimalEObjectImpl.Container implements toto
   @Override
   protected EClass eStaticClass()
   {
-    return BurstPackage.Literals.TOTO;
+    return BurstPackage.Literals.NAMED_PARAMETER;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Concern getType()
+  {
+    if (type != null && type.eIsProxy())
+    {
+      InternalEObject oldType = (InternalEObject)type;
+      type = (Concern)eResolveProxy(oldType);
+      if (type != oldType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.NAMED_PARAMETER__TYPE, oldType, type));
+      }
+    }
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Concern basicGetType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(Concern newType)
+  {
+    Concern oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.NAMED_PARAMETER__TYPE, oldType, type));
   }
 
   /**
@@ -89,7 +144,7 @@ public class totoImpl extends MinimalEObjectImpl.Container implements toto
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.TOTO__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.NAMED_PARAMETER__NAME, oldName, name));
   }
 
   /**
@@ -102,7 +157,10 @@ public class totoImpl extends MinimalEObjectImpl.Container implements toto
   {
     switch (featureID)
     {
-      case BurstPackage.TOTO__NAME:
+      case BurstPackage.NAMED_PARAMETER__TYPE:
+        if (resolve) return getType();
+        return basicGetType();
+      case BurstPackage.NAMED_PARAMETER__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -118,7 +176,10 @@ public class totoImpl extends MinimalEObjectImpl.Container implements toto
   {
     switch (featureID)
     {
-      case BurstPackage.TOTO__NAME:
+      case BurstPackage.NAMED_PARAMETER__TYPE:
+        setType((Concern)newValue);
+        return;
+      case BurstPackage.NAMED_PARAMETER__NAME:
         setName((String)newValue);
         return;
     }
@@ -135,7 +196,10 @@ public class totoImpl extends MinimalEObjectImpl.Container implements toto
   {
     switch (featureID)
     {
-      case BurstPackage.TOTO__NAME:
+      case BurstPackage.NAMED_PARAMETER__TYPE:
+        setType((Concern)null);
+        return;
+      case BurstPackage.NAMED_PARAMETER__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -152,7 +216,9 @@ public class totoImpl extends MinimalEObjectImpl.Container implements toto
   {
     switch (featureID)
     {
-      case BurstPackage.TOTO__NAME:
+      case BurstPackage.NAMED_PARAMETER__TYPE:
+        return type != null;
+      case BurstPackage.NAMED_PARAMETER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -175,4 +241,4 @@ public class totoImpl extends MinimalEObjectImpl.Container implements toto
     return result.toString();
   }
 
-} //totoImpl
+} //NamedParameterImpl

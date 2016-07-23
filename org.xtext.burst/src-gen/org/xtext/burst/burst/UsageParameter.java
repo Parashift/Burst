@@ -6,48 +6,48 @@ package org.xtext.burst.burst;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Member</b></em>'.
+ * A representation of the model object '<em><b>Usage Parameter</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.Member#getConcern <em>Concern</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Member#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.UsageParameter#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.UsageParameter#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see org.xtext.burst.burst.BurstPackage#getMember()
+ * @see org.xtext.burst.burst.BurstPackage#getUsageParameter()
  * @model
  * @generated
  */
-public interface Member extends ConcernElement, Variable
+public interface UsageParameter extends Parameter
 {
   /**
-   * Returns the value of the '<em><b>Concern</b></em>' reference.
+   * Returns the value of the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Concern</em>' reference isn't clear,
+   * If the meaning of the '<em>Type</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Concern</em>' reference.
-   * @see #setConcern(Concern)
-   * @see org.xtext.burst.burst.BurstPackage#getMember_Concern()
+   * @return the value of the '<em>Type</em>' reference.
+   * @see #setType(Concern)
+   * @see org.xtext.burst.burst.BurstPackage#getUsageParameter_Type()
    * @model
    * @generated
    */
-  Concern getConcern();
+  Concern getType();
 
   /**
-   * Sets the value of the '{@link org.xtext.burst.burst.Member#getConcern <em>Concern</em>}' reference.
+   * Sets the value of the '{@link org.xtext.burst.burst.UsageParameter#getType <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Concern</em>' reference.
-   * @see #getConcern()
+   * @param value the new value of the '<em>Type</em>' reference.
+   * @see #getType()
    * @generated
    */
-  void setConcern(Concern value);
+  void setType(Concern value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -59,14 +59,14 @@ public interface Member extends ConcernElement, Variable
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.xtext.burst.burst.BurstPackage#getMember_Name()
+   * @see org.xtext.burst.burst.BurstPackage#getUsageParameter_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.xtext.burst.burst.Member#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.burst.burst.UsageParameter#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -75,4 +75,4 @@ public interface Member extends ConcernElement, Variable
    */
   void setName(String value);
 
-} // Member
+} // UsageParameter

@@ -15,16 +15,17 @@ import org.xtext.burst.burst.BurstFactory;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Call;
 import org.xtext.burst.burst.CallMember;
-import org.xtext.burst.burst.CallMemberInConcern;
+import org.xtext.burst.burst.CallParameterInConcern;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.ConcernElement;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.Import;
 import org.xtext.burst.burst.Intersection;
-import org.xtext.burst.burst.IntersectionElement;
 import org.xtext.burst.burst.Line;
 import org.xtext.burst.burst.Member;
+import org.xtext.burst.burst.MemberCall;
 import org.xtext.burst.burst.MemberInConcern;
+import org.xtext.burst.burst.NamedParameter;
 import org.xtext.burst.burst.PackageElement;
 import org.xtext.burst.burst.Parameter;
 import org.xtext.burst.burst.ParameterCall;
@@ -33,8 +34,10 @@ import org.xtext.burst.burst.RuleFileElement;
 import org.xtext.burst.burst.RuleImport;
 import org.xtext.burst.burst.RuleIntersect;
 import org.xtext.burst.burst.RulePackage;
+import org.xtext.burst.burst.StaticParameter;
+import org.xtext.burst.burst.UsageParameter;
 import org.xtext.burst.burst.Variable;
-import org.xtext.burst.burst.toto;
+import org.xtext.burst.burst.VariableCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -97,15 +100,18 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
       case BurstPackage.CONCERN_ELEMENT: return createConcernElement();
       case BurstPackage.MEMBER: return createMember();
       case BurstPackage.RULE_INTERSECT: return createRuleIntersect();
-      case BurstPackage.PARAMETER: return createParameter();
       case BurstPackage.VARIABLE: return createVariable();
-      case BurstPackage.INTERSECTION_ELEMENT: return createIntersectionElement();
+      case BurstPackage.PARAMETER: return createParameter();
+      case BurstPackage.NAMED_PARAMETER: return createNamedParameter();
+      case BurstPackage.STATIC_PARAMETER: return createStaticParameter();
+      case BurstPackage.USAGE_PARAMETER: return createUsageParameter();
       case BurstPackage.LINE: return createLine();
       case BurstPackage.CALL: return createCall();
-      case BurstPackage.TOTO: return createtoto();
+      case BurstPackage.MEMBER_CALL: return createMemberCall();
+      case BurstPackage.VARIABLE_CALL: return createVariableCall();
       case BurstPackage.PARAMETER_CALL: return createParameterCall();
       case BurstPackage.CALL_MEMBER: return createCallMember();
-      case BurstPackage.CALL_MEMBER_IN_CONCERN: return createCallMemberInConcern();
+      case BurstPackage.CALL_PARAMETER_IN_CONCERN: return createCallParameterInConcern();
       case BurstPackage.IMPORT: return createImport();
       case BurstPackage.PACKAGE: return createPackage();
       case BurstPackage.CONCERN: return createConcern();
@@ -220,17 +226,6 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parameter createParameter()
-  {
-    ParameterImpl parameter = new ParameterImpl();
-    return parameter;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Variable createVariable()
   {
     VariableImpl variable = new VariableImpl();
@@ -242,10 +237,43 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public IntersectionElement createIntersectionElement()
+  public Parameter createParameter()
   {
-    IntersectionElementImpl intersectionElement = new IntersectionElementImpl();
-    return intersectionElement;
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NamedParameter createNamedParameter()
+  {
+    NamedParameterImpl namedParameter = new NamedParameterImpl();
+    return namedParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StaticParameter createStaticParameter()
+  {
+    StaticParameterImpl staticParameter = new StaticParameterImpl();
+    return staticParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UsageParameter createUsageParameter()
+  {
+    UsageParameterImpl usageParameter = new UsageParameterImpl();
+    return usageParameter;
   }
 
   /**
@@ -275,10 +303,21 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public toto createtoto()
+  public MemberCall createMemberCall()
   {
-    totoImpl toto = new totoImpl();
-    return toto;
+    MemberCallImpl memberCall = new MemberCallImpl();
+    return memberCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VariableCall createVariableCall()
+  {
+    VariableCallImpl variableCall = new VariableCallImpl();
+    return variableCall;
   }
 
   /**
@@ -308,10 +347,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public CallMemberInConcern createCallMemberInConcern()
+  public CallParameterInConcern createCallParameterInConcern()
   {
-    CallMemberInConcernImpl callMemberInConcern = new CallMemberInConcernImpl();
-    return callMemberInConcern;
+    CallParameterInConcernImpl callParameterInConcern = new CallParameterInConcernImpl();
+    return callParameterInConcern;
   }
 
   /**

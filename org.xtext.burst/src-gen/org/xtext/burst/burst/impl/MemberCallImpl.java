@@ -9,43 +9,42 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.Call;
+import org.xtext.burst.burst.MemberCall;
 import org.xtext.burst.burst.Variable;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Call</b></em>'.
+ * An implementation of the model object '<em><b>Member Call</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.CallImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.MemberCallImpl#getVariable <em>Variable</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CallImpl extends MinimalEObjectImpl.Container implements Call
+public class MemberCallImpl extends CallImpl implements MemberCall
 {
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
+   * The cached value of the '{@link #getVariable() <em>Variable</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getVariable()
    * @generated
    * @ordered
    */
-  protected Variable name;
+  protected Variable variable;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected CallImpl()
+  protected MemberCallImpl()
   {
     super();
   }
@@ -58,7 +57,7 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
   @Override
   protected EClass eStaticClass()
   {
-    return BurstPackage.Literals.CALL;
+    return BurstPackage.Literals.MEMBER_CALL;
   }
 
   /**
@@ -66,19 +65,19 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
    * <!-- end-user-doc -->
    * @generated
    */
-  public Variable getName()
+  public Variable getVariable()
   {
-    if (name != null && name.eIsProxy())
+    if (variable != null && variable.eIsProxy())
     {
-      InternalEObject oldName = (InternalEObject)name;
-      name = (Variable)eResolveProxy(oldName);
-      if (name != oldName)
+      InternalEObject oldVariable = (InternalEObject)variable;
+      variable = (Variable)eResolveProxy(oldVariable);
+      if (variable != oldVariable)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.CALL__NAME, oldName, name));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.MEMBER_CALL__VARIABLE, oldVariable, variable));
       }
     }
-    return name;
+    return variable;
   }
 
   /**
@@ -86,9 +85,9 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
    * <!-- end-user-doc -->
    * @generated
    */
-  public Variable basicGetName()
+  public Variable basicGetVariable()
   {
-    return name;
+    return variable;
   }
 
   /**
@@ -96,12 +95,12 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(Variable newName)
+  public void setVariable(Variable newVariable)
   {
-    Variable oldName = name;
-    name = newName;
+    Variable oldVariable = variable;
+    variable = newVariable;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.CALL__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER_CALL__VARIABLE, oldVariable, variable));
   }
 
   /**
@@ -114,9 +113,9 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
   {
     switch (featureID)
     {
-      case BurstPackage.CALL__NAME:
-        if (resolve) return getName();
-        return basicGetName();
+      case BurstPackage.MEMBER_CALL__VARIABLE:
+        if (resolve) return getVariable();
+        return basicGetVariable();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -131,8 +130,8 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
   {
     switch (featureID)
     {
-      case BurstPackage.CALL__NAME:
-        setName((Variable)newValue);
+      case BurstPackage.MEMBER_CALL__VARIABLE:
+        setVariable((Variable)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -148,8 +147,8 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
   {
     switch (featureID)
     {
-      case BurstPackage.CALL__NAME:
-        setName((Variable)null);
+      case BurstPackage.MEMBER_CALL__VARIABLE:
+        setVariable((Variable)null);
         return;
     }
     super.eUnset(featureID);
@@ -165,10 +164,10 @@ public class CallImpl extends MinimalEObjectImpl.Container implements Call
   {
     switch (featureID)
     {
-      case BurstPackage.CALL__NAME:
-        return name != null;
+      case BurstPackage.MEMBER_CALL__VARIABLE:
+        return variable != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //CallImpl
+} //MemberCallImpl

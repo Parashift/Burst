@@ -69,7 +69,7 @@ public interface Intersection extends RuleIntersect
 
   /**
    * Returns the value of the '<em><b>Lines</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.IntersectionElement}.
+   * The list contents are of type {@link org.xtext.burst.burst.Line}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Lines</em>' containment reference list isn't clear,
@@ -81,6 +81,6 @@ public interface Intersection extends RuleIntersect
    * @model containment="true"
    * @generated
    */
-  EList<IntersectionElement> getLines();
+  EList<Line> getLines();
 
 } // Intersection

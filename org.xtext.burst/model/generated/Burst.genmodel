@@ -20,27 +20,36 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Member/name"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//RuleIntersect"/>
-    <genClasses ecoreClass="Burst.ecore#//Parameter">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Parameter/name"/>
+    <genClasses ecoreClass="Burst.ecore#//Variable"/>
+    <genClasses ecoreClass="Burst.ecore#//Parameter"/>
+    <genClasses ecoreClass="Burst.ecore#//NamedParameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//NamedParameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//NamedParameter/name"/>
     </genClasses>
-    <genClasses ecoreClass="Burst.ecore#//Variable">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Variable/name"/>
+    <genClasses ecoreClass="Burst.ecore#//StaticParameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//StaticParameter/name"/>
     </genClasses>
-    <genClasses ecoreClass="Burst.ecore#//IntersectionElement"/>
+    <genClasses ecoreClass="Burst.ecore#//UsageParameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//UsageParameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//UsageParameter/name"/>
+    </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Line">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Line/calls"/>
     </genClasses>
-    <genClasses ecoreClass="Burst.ecore#//Call"/>
-    <genClasses ecoreClass="Burst.ecore#//toto">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//toto/name"/>
+    <genClasses ecoreClass="Burst.ecore#//Call">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Call/name"/>
     </genClasses>
+    <genClasses ecoreClass="Burst.ecore#//MemberCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//MemberCall/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="Burst.ecore#//VariableCall"/>
     <genClasses ecoreClass="Burst.ecore#//ParameterCall">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//ParameterCall/name"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//CallMember">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//CallMember/name"/>
     </genClasses>
-    <genClasses ecoreClass="Burst.ecore#//CallMemberInConcern"/>
+    <genClasses ecoreClass="Burst.ecore#//CallParameterInConcern"/>
     <genClasses ecoreClass="Burst.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Import/importedNamespace"/>
     </genClasses>

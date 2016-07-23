@@ -24,26 +24,44 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected BurstGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_RuleConcern_ENDLINETerminalRuleCall_3_0_a;
 	protected AbstractElementAlias match_RuleConcern_ENDLINETerminalRuleCall_3_2_a;
-	protected AbstractElementAlias match_RuleConcern___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q;
-	protected AbstractElementAlias match_RuleIntersect_ENDLINETerminalRuleCall_2_0_a;
-	protected AbstractElementAlias match_RuleIntersect___AndKeyword_2_2_1_or_CommaKeyword_2_2_0__q;
+	protected AbstractElementAlias match_RuleConcern_ENDLINETerminalRuleCall_4_1_a;
+	protected AbstractElementAlias match_RuleConcern_ENDLINETerminalRuleCall_4_2_1_p;
+	protected AbstractElementAlias match_RuleConcern___LeftCurlyBracketKeyword_4_0_ENDLINETerminalRuleCall_4_1_a_RightCurlyBracketKeyword_4_3__q;
+	protected AbstractElementAlias match_RuleIntersect_AndKeyword_4_1_1_or_CommaKeyword_4_1_0;
+	protected AbstractElementAlias match_RuleIntersect_ENDLINETerminalRuleCall_2_a;
+	protected AbstractElementAlias match_RuleIntersect_ENDLINETerminalRuleCall_4_0_a;
+	protected AbstractElementAlias match_RuleIntersect_ENDLINETerminalRuleCall_4_2_a;
+	protected AbstractElementAlias match_RuleIntersect_ENDLINETerminalRuleCall_6_a;
+	protected AbstractElementAlias match_RuleIntersect_ENDLINETerminalRuleCall_7_1_p;
 	protected AbstractElementAlias match_RulePackage_ENDLINETerminalRuleCall_3_a;
+	protected AbstractElementAlias match_RulePackage_ENDLINETerminalRuleCall_5_a;
+	protected AbstractElementAlias match_RulePackage_ENDLINETerminalRuleCall_6_1_a;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (BurstGrammarAccess) access;
 		match_RuleConcern_ENDLINETerminalRuleCall_3_0_a = new TokenAlias(true, true, grammarAccess.getRuleConcernAccess().getENDLINETerminalRuleCall_3_0());
 		match_RuleConcern_ENDLINETerminalRuleCall_3_2_a = new TokenAlias(true, true, grammarAccess.getRuleConcernAccess().getENDLINETerminalRuleCall_3_2());
-		match_RuleConcern___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getRuleConcernAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getRuleConcernAccess().getRightCurlyBracketKeyword_4_2()));
-		match_RuleIntersect_ENDLINETerminalRuleCall_2_0_a = new TokenAlias(true, true, grammarAccess.getRuleIntersectAccess().getENDLINETerminalRuleCall_2_0());
-		match_RuleIntersect___AndKeyword_2_2_1_or_CommaKeyword_2_2_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getRuleIntersectAccess().getAndKeyword_2_2_1()), new TokenAlias(false, false, grammarAccess.getRuleIntersectAccess().getCommaKeyword_2_2_0()));
+		match_RuleConcern_ENDLINETerminalRuleCall_4_1_a = new TokenAlias(true, true, grammarAccess.getRuleConcernAccess().getENDLINETerminalRuleCall_4_1());
+		match_RuleConcern_ENDLINETerminalRuleCall_4_2_1_p = new TokenAlias(true, false, grammarAccess.getRuleConcernAccess().getENDLINETerminalRuleCall_4_2_1());
+		match_RuleConcern___LeftCurlyBracketKeyword_4_0_ENDLINETerminalRuleCall_4_1_a_RightCurlyBracketKeyword_4_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getRuleConcernAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(true, true, grammarAccess.getRuleConcernAccess().getENDLINETerminalRuleCall_4_1()), new TokenAlias(false, false, grammarAccess.getRuleConcernAccess().getRightCurlyBracketKeyword_4_3()));
+		match_RuleIntersect_AndKeyword_4_1_1_or_CommaKeyword_4_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getRuleIntersectAccess().getAndKeyword_4_1_1()), new TokenAlias(false, false, grammarAccess.getRuleIntersectAccess().getCommaKeyword_4_1_0()));
+		match_RuleIntersect_ENDLINETerminalRuleCall_2_a = new TokenAlias(true, true, grammarAccess.getRuleIntersectAccess().getENDLINETerminalRuleCall_2());
+		match_RuleIntersect_ENDLINETerminalRuleCall_4_0_a = new TokenAlias(true, true, grammarAccess.getRuleIntersectAccess().getENDLINETerminalRuleCall_4_0());
+		match_RuleIntersect_ENDLINETerminalRuleCall_4_2_a = new TokenAlias(true, true, grammarAccess.getRuleIntersectAccess().getENDLINETerminalRuleCall_4_2());
+		match_RuleIntersect_ENDLINETerminalRuleCall_6_a = new TokenAlias(true, true, grammarAccess.getRuleIntersectAccess().getENDLINETerminalRuleCall_6());
+		match_RuleIntersect_ENDLINETerminalRuleCall_7_1_p = new TokenAlias(true, false, grammarAccess.getRuleIntersectAccess().getENDLINETerminalRuleCall_7_1());
 		match_RulePackage_ENDLINETerminalRuleCall_3_a = new TokenAlias(true, true, grammarAccess.getRulePackageAccess().getENDLINETerminalRuleCall_3());
+		match_RulePackage_ENDLINETerminalRuleCall_5_a = new TokenAlias(true, true, grammarAccess.getRulePackageAccess().getENDLINETerminalRuleCall_5());
+		match_RulePackage_ENDLINETerminalRuleCall_6_1_a = new TokenAlias(true, true, grammarAccess.getRulePackageAccess().getENDLINETerminalRuleCall_6_1());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (ruleCall.getRule() == grammarAccess.getENDLINERule())
 			return getENDLINEToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getUsageRule())
+			return getusageToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -56,6 +74,16 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 		return "\n";
 	}
 	
+	/**
+	 * usage:
+	 * 	ID;
+	 */
+	protected String getusageToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "";
+	}
+	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
 		if (transition.getAmbiguousSyntaxes().isEmpty()) return;
@@ -66,14 +94,30 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_RuleConcern_ENDLINETerminalRuleCall_3_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_RuleConcern_ENDLINETerminalRuleCall_3_2_a.equals(syntax))
 				emit_RuleConcern_ENDLINETerminalRuleCall_3_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_RuleConcern___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q.equals(syntax))
-				emit_RuleConcern___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_RuleIntersect_ENDLINETerminalRuleCall_2_0_a.equals(syntax))
-				emit_RuleIntersect_ENDLINETerminalRuleCall_2_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_RuleIntersect___AndKeyword_2_2_1_or_CommaKeyword_2_2_0__q.equals(syntax))
-				emit_RuleIntersect___AndKeyword_2_2_1_or_CommaKeyword_2_2_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RuleConcern_ENDLINETerminalRuleCall_4_1_a.equals(syntax))
+				emit_RuleConcern_ENDLINETerminalRuleCall_4_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RuleConcern_ENDLINETerminalRuleCall_4_2_1_p.equals(syntax))
+				emit_RuleConcern_ENDLINETerminalRuleCall_4_2_1_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RuleConcern___LeftCurlyBracketKeyword_4_0_ENDLINETerminalRuleCall_4_1_a_RightCurlyBracketKeyword_4_3__q.equals(syntax))
+				emit_RuleConcern___LeftCurlyBracketKeyword_4_0_ENDLINETerminalRuleCall_4_1_a_RightCurlyBracketKeyword_4_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RuleIntersect_AndKeyword_4_1_1_or_CommaKeyword_4_1_0.equals(syntax))
+				emit_RuleIntersect_AndKeyword_4_1_1_or_CommaKeyword_4_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RuleIntersect_ENDLINETerminalRuleCall_2_a.equals(syntax))
+				emit_RuleIntersect_ENDLINETerminalRuleCall_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RuleIntersect_ENDLINETerminalRuleCall_4_0_a.equals(syntax))
+				emit_RuleIntersect_ENDLINETerminalRuleCall_4_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RuleIntersect_ENDLINETerminalRuleCall_4_2_a.equals(syntax))
+				emit_RuleIntersect_ENDLINETerminalRuleCall_4_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RuleIntersect_ENDLINETerminalRuleCall_6_a.equals(syntax))
+				emit_RuleIntersect_ENDLINETerminalRuleCall_6_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RuleIntersect_ENDLINETerminalRuleCall_7_1_p.equals(syntax))
+				emit_RuleIntersect_ENDLINETerminalRuleCall_7_1_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_RulePackage_ENDLINETerminalRuleCall_3_a.equals(syntax))
 				emit_RulePackage_ENDLINETerminalRuleCall_3_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RulePackage_ENDLINETerminalRuleCall_5_a.equals(syntax))
+				emit_RulePackage_ENDLINETerminalRuleCall_5_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RulePackage_ENDLINETerminalRuleCall_6_1_a.equals(syntax))
+				emit_RulePackage_ENDLINETerminalRuleCall_6_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -102,13 +146,48 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('{' '}')?
+	 *     ENDLINE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID '{' (ambiguity) elements+=ConcernElement
+	 *     supertype=[Concern|QualifiedName] '{' (ambiguity) elements+=ConcernElement
+	 */
+	protected void emit_RuleConcern_ENDLINETerminalRuleCall_4_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     elements+=ConcernElement (ambiguity) '}' (rule end)
+	 *     elements+=ConcernElement (ambiguity) elements+=ConcernElement
+	 */
+	protected void emit_RuleConcern_ENDLINETerminalRuleCall_4_2_1_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('{' ENDLINE* '}')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     name=ID (ambiguity) (rule end)
 	 *     supertype=[Concern|QualifiedName] (ambiguity) (rule end)
 	 */
-	protected void emit_RuleConcern___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_RuleConcern___LeftCurlyBracketKeyword_4_0_ENDLINETerminalRuleCall_4_1_a_RightCurlyBracketKeyword_4_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ',' | 'and'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     parameters+=Parameter ENDLINE* (ambiguity) ENDLINE* parameters+=Parameter
+	 */
+	protected void emit_RuleIntersect_AndKeyword_4_1_1_or_CommaKeyword_4_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -118,22 +197,8 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     name='when' (ambiguity) parameters+=Parameter
-	 *     parameters+=Parameter (',' | 'and')? (ambiguity) parameters+=Parameter
 	 */
-	protected void emit_RuleIntersect_ENDLINETerminalRuleCall_2_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (',' | 'and')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     parameters+=Parameter (ambiguity) '{' '}' (rule end)
-	 *     parameters+=Parameter (ambiguity) '{' lines+=IntersectionElement
-	 *     parameters+=Parameter (ambiguity) ENDLINE* parameters+=Parameter
-	 */
-	protected void emit_RuleIntersect___AndKeyword_2_2_1_or_CommaKeyword_2_2_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_RuleIntersect_ENDLINETerminalRuleCall_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -142,10 +207,80 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ENDLINE*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=QualifiedName (ambiguity) '{' '}' (rule end)
-	 *     name=QualifiedName (ambiguity) '{' elements+=PackageElement
+	 *     parameters+=Parameter (ambiguity) (',' | 'and') ENDLINE* parameters+=Parameter
+	 */
+	protected void emit_RuleIntersect_ENDLINETerminalRuleCall_4_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     parameters+=Parameter ENDLINE* (',' | 'and') (ambiguity) parameters+=Parameter
+	 */
+	protected void emit_RuleIntersect_ENDLINETerminalRuleCall_4_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     parameters+=Parameter '{' (ambiguity) '}' (rule end)
+	 *     parameters+=Parameter '{' (ambiguity) lines+=Line
+	 */
+	protected void emit_RuleIntersect_ENDLINETerminalRuleCall_6_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     lines+=Line (ambiguity) '}' (rule end)
+	 *     lines+=Line (ambiguity) lines+=Line
+	 */
+	protected void emit_RuleIntersect_ENDLINETerminalRuleCall_7_1_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=QualifiedName (ambiguity) '{' ENDLINE* '}' (rule end)
+	 *     name=QualifiedName (ambiguity) '{' ENDLINE* elements+=PackageElement
 	 */
 	protected void emit_RulePackage_ENDLINETerminalRuleCall_3_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=QualifiedName ENDLINE* '{' (ambiguity) '}' (rule end)
+	 *     name=QualifiedName ENDLINE* '{' (ambiguity) elements+=PackageElement
+	 */
+	protected void emit_RulePackage_ENDLINETerminalRuleCall_5_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ENDLINE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     elements+=PackageElement (ambiguity) '}' (rule end)
+	 *     elements+=PackageElement (ambiguity) elements+=PackageElement
+	 */
+	protected void emit_RulePackage_ENDLINETerminalRuleCall_6_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

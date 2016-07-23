@@ -105,15 +105,6 @@ public interface BurstFactory extends EFactory
   RuleIntersect createRuleIntersect();
 
   /**
-   * Returns a new object of class '<em>Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameter</em>'.
-   * @generated
-   */
-  Parameter createParameter();
-
-  /**
    * Returns a new object of class '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -123,13 +114,40 @@ public interface BurstFactory extends EFactory
   Variable createVariable();
 
   /**
-   * Returns a new object of class '<em>Intersection Element</em>'.
+   * Returns a new object of class '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Intersection Element</em>'.
+   * @return a new object of class '<em>Parameter</em>'.
    * @generated
    */
-  IntersectionElement createIntersectionElement();
+  Parameter createParameter();
+
+  /**
+   * Returns a new object of class '<em>Named Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Named Parameter</em>'.
+   * @generated
+   */
+  NamedParameter createNamedParameter();
+
+  /**
+   * Returns a new object of class '<em>Static Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Static Parameter</em>'.
+   * @generated
+   */
+  StaticParameter createStaticParameter();
+
+  /**
+   * Returns a new object of class '<em>Usage Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Usage Parameter</em>'.
+   * @generated
+   */
+  UsageParameter createUsageParameter();
 
   /**
    * Returns a new object of class '<em>Line</em>'.
@@ -150,13 +168,22 @@ public interface BurstFactory extends EFactory
   Call createCall();
 
   /**
-   * Returns a new object of class '<em>toto</em>'.
+   * Returns a new object of class '<em>Member Call</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>toto</em>'.
+   * @return a new object of class '<em>Member Call</em>'.
    * @generated
    */
-  toto createtoto();
+  MemberCall createMemberCall();
+
+  /**
+   * Returns a new object of class '<em>Variable Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Call</em>'.
+   * @generated
+   */
+  VariableCall createVariableCall();
 
   /**
    * Returns a new object of class '<em>Parameter Call</em>'.
@@ -177,13 +204,13 @@ public interface BurstFactory extends EFactory
   CallMember createCallMember();
 
   /**
-   * Returns a new object of class '<em>Call Member In Concern</em>'.
+   * Returns a new object of class '<em>Call Parameter In Concern</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Call Member In Concern</em>'.
+   * @return a new object of class '<em>Call Parameter In Concern</em>'.
    * @generated
    */
-  CallMemberInConcern createCallMemberInConcern();
+  CallParameterInConcern createCallParameterInConcern();
 
   /**
    * Returns a new object of class '<em>Import</em>'.

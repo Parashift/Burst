@@ -3,6 +3,7 @@
  */
 package org.xtext.burst.burst;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.xtext.burst.burst;
  * @model
  * @generated
  */
-public interface CallMember extends Call
+public interface CallMember extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' reference.

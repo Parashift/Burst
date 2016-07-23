@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Intersection;
-import org.xtext.burst.burst.IntersectionElement;
+import org.xtext.burst.burst.Line;
 import org.xtext.burst.burst.Parameter;
 
 /**
@@ -78,7 +78,7 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
    * @generated
    * @ordered
    */
-  protected EList<IntersectionElement> lines;
+  protected EList<Line> lines;
 
   /**
    * <!-- begin-user-doc -->
@@ -143,11 +143,11 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<IntersectionElement> getLines()
+  public EList<Line> getLines()
   {
     if (lines == null)
     {
-      lines = new EObjectContainmentEList<IntersectionElement>(IntersectionElement.class, this, BurstPackage.INTERSECTION__LINES);
+      lines = new EObjectContainmentEList<Line>(Line.class, this, BurstPackage.INTERSECTION__LINES);
     }
     return lines;
   }
@@ -210,7 +210,7 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
         return;
       case BurstPackage.INTERSECTION__LINES:
         getLines().clear();
-        getLines().addAll((Collection<? extends IntersectionElement>)newValue);
+        getLines().addAll((Collection<? extends Line>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

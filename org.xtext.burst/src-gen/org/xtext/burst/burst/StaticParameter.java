@@ -3,25 +3,24 @@
  */
 package org.xtext.burst.burst;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Call</b></em>'.
+ * A representation of the model object '<em><b>Static Parameter</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.Call#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.StaticParameter#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see org.xtext.burst.burst.BurstPackage#getCall()
+ * @see org.xtext.burst.burst.BurstPackage#getStaticParameter()
  * @model
  * @generated
  */
-public interface Call extends EObject
+public interface StaticParameter extends Parameter
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' reference.
@@ -32,21 +31,21 @@ public interface Call extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' reference.
-   * @see #setName(Variable)
-   * @see org.xtext.burst.burst.BurstPackage#getCall_Name()
+   * @see #setName(Concern)
+   * @see org.xtext.burst.burst.BurstPackage#getStaticParameter_Name()
    * @model
    * @generated
    */
-  Variable getName();
+  Concern getName();
 
   /**
-   * Sets the value of the '{@link org.xtext.burst.burst.Call#getName <em>Name</em>}' reference.
+   * Sets the value of the '{@link org.xtext.burst.burst.StaticParameter#getName <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' reference.
    * @see #getName()
    * @generated
    */
-  void setName(Variable value);
+  void setName(Concern value);
 
-} // Call
+} // StaticParameter

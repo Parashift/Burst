@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.CallMember;
@@ -27,7 +28,7 @@ import org.xtext.burst.burst.Member;
  *
  * @generated
  */
-public class CallMemberImpl extends CallImpl implements CallMember
+public class CallMemberImpl extends MinimalEObjectImpl.Container implements CallMember
 {
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' reference.

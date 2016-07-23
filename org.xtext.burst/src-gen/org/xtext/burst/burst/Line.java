@@ -5,6 +5,8 @@ package org.xtext.burst.burst;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Line</b></em>'.
@@ -21,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Line extends IntersectionElement
+public interface Line extends EObject
 {
   /**
    * Returns the value of the '<em><b>Calls</b></em>' containment reference list.

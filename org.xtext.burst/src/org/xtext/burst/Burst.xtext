@@ -16,40 +16,57 @@ RuleImport:	{Import}
     'import' importedNamespace=QualifiedName;
     
 RulePackage: {Package}
-	'package' name=QualifiedName (ENDLINE)* '{' elements+=PackageElement* '}';
+	'package' name=QualifiedName (ENDLINE)* '{' (ENDLINE)* (elements+=PackageElement ENDLINE* )* '}';
 
 PackageElement: 
-	RuleConcern   | RuleIntersect | ENDLINE;
+	RuleConcern | RuleIntersect;
 	
 RuleConcern :	{Concern}
 	'concern' name=ID 
 	((ENDLINE)* 'extends' (ENDLINE)* supertype=[Concern|QualifiedName])?
-	('{'  elements+=ConcernElement*  '}')?;
+	('{' (ENDLINE)* (elements+=ConcernElement ENDLINE+)*  '}')?;
 
 ConcernElement:
-	Member | RuleIntersect | ENDLINE;
+	Member | RuleIntersect;
 	
 Member:		{Member}
 	concern=[Concern|QualifiedName] name=ID;
 	
 RuleIntersect: {Intersection}
-	name='when'  ( (ENDLINE)* parameters+=Parameter (','|'and')? )*  
-	 '{' lines+=IntersectionElement* '}' ;
+	name='when'  (ENDLINE)* parameters+=Parameter ( (ENDLINE)* (','|'and') (ENDLINE)* parameters+=Parameter  )*  
+	 '{' (ENDLINE)* (lines+=Line ENDLINE+ )* '}' ;
 	
-Parameter: {Parameter}
-	name=[Concern|QualifiedName];	
+Variable:
+        Member | Parameter;
+        
+Parameter: 
+	NamedParameter | StaticParameter | UsageParameter;
+
+NamedParameter: {NamedParameter}
+	type=[Concern] name=ID;
+
+StaticParameter: {StaticParameter}
+	'with' name=[Concern];
+
+UsageParameter: {UsageParameter}
+	type=[Concern] '.' usage name=ID;
+
+usage:
+	ID;	
 	 
-Variable : {Variable}
-	name=[Concern|QualifiedName];
-	
-IntersectionElement:
-	Line | ENDLINE;
 
 Line: {Line}
 	calls+=Call calls+=Call*;
 	
 Call: 
-	CallMemberInConcern | CallMember  ;
+	VariableCall | MemberCall;
+
+MemberCall: {MemberCall}
+	variable=[Variable]'.'name=[Member];
+
+VariableCall:	
+	{VariableCall}
+	name=[Variable] ;
 	
 ParameterCall:	{ParameterCall}
 	name=[Parameter];
@@ -57,8 +74,8 @@ ParameterCall:	{ParameterCall}
 CallMember:	{CallMember}
 	name=[Member];
 
-CallMemberInConcern: {MemberInConcern}
-	target=[Concern] '.' name=[Member];
+CallParameterInConcern: {MemberInConcern}
+	target=[Parameter] '.' name=[Member];
 	/* 
 
 Destruct: {Destruct}
