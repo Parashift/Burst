@@ -3,6 +3,20 @@
  */
 package org.xtext.burst.scoping
 
+import java.util.List
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.scoping.Scopes
+import org.xtext.burst.burst.Access
+import org.xtext.burst.burst.BurstPackage
+import org.xtext.burst.burst.Call
+import org.xtext.burst.burst.Concern
+import org.xtext.burst.burst.Import
+import org.xtext.burst.burst.Intersection
+import org.xtext.burst.burst.Member
+import org.xtext.burst.burst.Parameter
+import org.xtext.burst.burst.CallExpr
 
 /**
  * This class contains custom scoping description.
@@ -11,5 +25,93 @@ package org.xtext.burst.scoping
  * on how and when to use it.
  */
 class BurstScopeProvider extends AbstractBurstScopeProvider {
-
+	
+    override getScope(EObject context, EReference reference) {
+		
+		
+	
+				
+        // We want to define the Scope for the Element's superElement cross-reference
+        if (context instanceof Member
+                && reference == BurstPackage.Literals.MEMBER__CONCERN) {
+        	val rootElement = EcoreUtil2.getRootContainer(context);
+            var candidates = EcoreUtil2.getAllContentsOfType(rootElement, Concern);
+            val imports = EcoreUtil2.getAllContentsOfType(rootElement, Import);
+            for(Import i : imports){
+            	candidates.addAll(EcoreUtil2.getAllContentsOfType(i, Concern));
+            }
+            
+         	return Scopes.scopeFor(candidates);
+        }   
+        if (context instanceof Access
+                && reference == BurstPackage.Literals.ACCESS__MEMBERS) {
+            
+			var ac = context as Access;
+			
+			// If the name of the access was an parameter, 
+			// I will restore the true type (=Concern) of the currentConcern in the next if. 
+			// It's horrible, but with Xtend i see no other choice
+ 			var currentConcern = ac.name
+ 			
+ 			if(ac.name instanceof Parameter) {
+ 				var param =  currentConcern as Parameter
+ 				currentConcern = param.type
+ 			} 			
+ 			
+ 			if(ac.name instanceof Member) {
+ 				var member =  currentConcern as Member
+ 				currentConcern = member.concern
+ 			} 			
+ 			
+ 			var	currentMembers = EcoreUtil2.getAllContentsOfType(currentConcern, Member);
+ 			
+ 			// TO DO : Manage the case when more than one level of member are selected
+// 			for(Member m : ac.members) {
+// 				if(m.concern == null){
+// 					return Scopes.scopeFor(currentMembers);
+// 				}
+// 				for(Member subMember : currentMembers) {
+// 					if(m.name.equals(subMember.name)) {
+//	         			currentConcern = m.concern 
+//	         			currentMembers = EcoreUtil2.getAllContentsOfType(currentConcern, Member);
+// 					} else {
+// 						return Scopes.scopeFor(currentMembers);
+// 					}
+// 				}
+// 			}
+ 			return Scopes.scopeFor(currentMembers);
+        }
+	
+        if(context instanceof CallExpr
+        	&& reference == BurstPackage.Literals.CALL_EXPR__CONTENT) {
+         	return super.getScope(context, reference);
+        }
+        if(context instanceof CallExpr
+        	&& reference == BurstPackage.Literals.CALL_EXPR__SOURCE) {
+         	return super.getScope(context, reference);
+        }
+        
+        if(context instanceof Intersection
+        	&& reference == BurstPackage.Literals.PARAMETER__TYPE) {
+            // Collect a list of candidates by going through the model
+            // EcoreUtil2 provides useful functionality to do that
+            // For example searching for all elements within the root Object's tree
+        	val rootElement = EcoreUtil2.getRootContainer(context);
+            var candidates = getAllConcern(rootElement)
+            
+            // Create IEObjectDescriptions and puts them into an IScope instance
+            return Scopes.scopeFor(candidates);
+        }
+        return super.getScope(context, reference);
+    }
+				
+	protected def List<Concern> getAllConcern(EObject rootElement) {
+		var candidates = EcoreUtil2.getAllContentsOfType(rootElement, Concern);
+		            
+		            val imports = EcoreUtil2.getAllContentsOfType(rootElement, Import);
+		            for(Import i : imports){
+		            	candidates.addAll(EcoreUtil2.getAllContentsOfType(i, Concern));
+		            }
+		return candidates
+	}
 }

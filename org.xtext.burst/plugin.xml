@@ -7,4 +7,11 @@
 			class = "org.xtext.burst.burst.BurstPackage"
 			genModel = "model/generated/Burst.genmodel" />
 	</extension>
+ <extension
+       point="org.eclipse.emf.ecore.factory_override">
+    <factory
+          class="org.xtext.burst.ast.BurstFactoryImplExt"
+          uri="org.xtext.burst.burstfactoryast">
+    </factory>
+ </extension>
 </plugin>

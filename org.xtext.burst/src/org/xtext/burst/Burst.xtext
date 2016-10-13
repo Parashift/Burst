@@ -4,78 +4,71 @@ grammar org.xtext.burst.Burst hidden(WS, ML_COMMENT, SL_COMMENT)
 generate burst "http://www.xtext.org/burst/Burst"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
+File: {File}
+	ENDLINE* (Imports+=Import ENDLINE*)* (elements+=FileElement ENDLINE*)*;
 
 
-File:
-	elements+= RuleFileElement* ;
-
-RuleFileElement:
-	RuleImport | RulePackage | ENDLINE ;
+FileElement:
+	Roles | Package ;
 	
-RuleImport:	{Import}
+	
+Import:	{Import}
     'import' importedNamespace=QualifiedName;
     
-RulePackage: {Package}
+Roles :{Role} 
+	'role' name=ID;
+
+Package: {Package}
 	'package' name=QualifiedName (ENDLINE)* '{' (ENDLINE)* (elements+=PackageElement ENDLINE* )* '}';
 
 PackageElement: 
-	RuleConcern | RuleIntersect;
+	Concern | Template | RuleIntersect;
 	
-RuleConcern :	{Concern}
-	'concern' name=ID 
-	((ENDLINE)* 'extends' (ENDLINE)* supertype=[Concern|QualifiedName])?
-	('{' (ENDLINE)* (elements+=ConcernElement ENDLINE+)*  '}')?;
+Concern :	{Concern}
+	'concern' name=ID  ((ENDLINE)* '{' (ENDLINE)* (elements+=ConcernElement ENDLINE+)*  '}')?;
+
+Template :	{Template}
+	'template' name=ID '<' templateArguments+=[Concern] (',' templateArguments+=[Concern])* '>' 
+	( (ENDLINE)* '{' (ENDLINE)* (elements+=ConcernElement ENDLINE+)*  '}')?;
 
 ConcernElement:
 	Member | RuleIntersect;
 	
 Member:		{Member}
-	concern=[Concern|QualifiedName] name=ID;
+	(heritFrom?='is')? concern=[Concern|QualifiedName] name=ID;
 	
-RuleIntersect: {Intersection}
-	name='when'  (ENDLINE)* parameters+=Parameter ( (ENDLINE)* (','|'and') (ENDLINE)* parameters+=Parameter  )*  
-	 '{' (ENDLINE)* (lines+=Line ENDLINE+ )* '}' ;
+RuleIntersect:  {Intersection}
+	name='when'  (ENDLINE)* params+=Parameter ( (ENDLINE)* (','|'and') (ENDLINE)* params+=Parameter  )* 
+	('with'  (ENDLINE)* withParams+=WithParameter ( (ENDLINE)* (','|'and') (ENDLINE)* withParams+=WithParameter  )* )?
+	 '{' (ENDLINE)* (lines+=Line ENDLINE+ )* '}';
 	
-Variable:
-        Member | Parameter;
-        
-Parameter: 
-	NamedParameter | StaticParameter | UsageParameter;
+Locale:{Locale}
+	'new' type=[Concern|QualifiedName] name=ID;
 
-NamedParameter: {NamedParameter}
-	type=[Concern] name=ID;
+Parameter: {Parameter}
+	type=[Concern|QualifiedName] name=ID (usage?=':' role=[Role])?;
+	
+WithParameter: {WithParameter}
+	name=[Concern|QualifiedName] (usage?=':' role=[Role])?;
 
-StaticParameter: {StaticParameter}
-	'with' name=[Concern];
-
-UsageParameter: {UsageParameter}
-	type=[Concern] '.' usage name=ID;
-
-usage:
-	ID;	
-	 
-
-Line: {Line}
-	calls+=Call calls+=Call*;
+Variable: 
+	Member | Parameter | WithParameter | Locale | Concern;
+	
+Line: 
+	CallExpr;
+	
+CallExpr:	 
+	content+=Call+ (equality?='=' source+=Call+)?;
+	
+SubCall:{SubCall} 
+	'(' name=CallExpr ')';
 	
 Call: 
-	VariableCall | MemberCall;
+	Locale | Access | SubCall;
 
-MemberCall: {MemberCall}
-	variable=[Variable]'.'name=[Member];
+Access: {Access}
+	name=[Variable] ('.' members+=[Member])* (':' role=[Role])?;
 
-VariableCall:	
-	{VariableCall}
-	name=[Variable] ;
-	
-ParameterCall:	{ParameterCall}
-	name=[Parameter];
-	
-CallMember:	{CallMember}
-	name=[Member];
-
-CallParameterInConcern: {MemberInConcern}
-	target=[Parameter] '.' name=[Member];
 	/* 
 
 Destruct: {Destruct}
@@ -85,10 +78,6 @@ Build: {Build}
 	name='new' '{' linesContent+=(Line)* '}' ;
 
 
-	
-PotentialLine: 
-	Line|ENDLINE;
-	
 */
 	
 	
@@ -105,8 +94,5 @@ terminal ML_COMMENT	: '/*' -> '*/';
 terminal SL_COMMENT 	: '//' !('\n'|'\r')* ('\r'? '\n')?;
 
 terminal WS			: (' '|'\t' )+;
-//terminal PAUSE    : (ENDLINE)*;
 terminal ENDLINE    : '\r'? '\n';
 terminal ANY_OTHER: .;
-//terminal LINE_TO_COMPLETE : '&&&' !('\n'|'\r')* ('\r'? '\n')?;
-//terminal LINE_END	: ('\r'? '\n');

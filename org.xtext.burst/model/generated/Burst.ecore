@@ -2,74 +2,84 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="burst" nsURI="http://www.xtext.org/burst/Burst" nsPrefix="burst">
   <eClassifiers xsi:type="ecore:EClass" name="File">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Imports" upperBound="-1"
+        eType="#//Import" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//RuleFileElement" containment="true"/>
+        eType="#//FileElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RuleFileElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RuleImport" eSuperTypes="#//RuleFileElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RulePackage" eSuperTypes="#//RuleFileElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PackageElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RuleConcern" eSuperTypes="#//PackageElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ConcernElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Member" eSuperTypes="#//ConcernElement #//Variable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="concern" eType="#//Concern"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RuleIntersect" eSuperTypes="#//PackageElement #//ConcernElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Variable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//Variable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NamedParameter" eSuperTypes="#//Parameter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Concern"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StaticParameter" eSuperTypes="#//Parameter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Concern"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UsageParameter" eSuperTypes="#//Parameter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Concern"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Line">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="calls" upperBound="-1"
-        eType="#//Call" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Call">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Variable"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MemberCall" eSuperTypes="#//Call">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VariableCall" eSuperTypes="#//Call"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterCall">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Parameter"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CallMember">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Member"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CallParameterInConcern"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Import" eSuperTypes="#//RuleImport">
+  <eClassifiers xsi:type="ecore:EClass" name="FileElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Import">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//RulePackage">
+  <eClassifiers xsi:type="ecore:EClass" name="Roles" eSuperTypes="#//FileElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//FileElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//PackageElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Concern" eSuperTypes="#//RuleConcern">
+  <eClassifiers xsi:type="ecore:EClass" name="PackageElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Concern" eSuperTypes="#//PackageElement #//Variable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="supertype" eType="#//Concern"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//ConcernElement" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Template" eSuperTypes="#//PackageElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="templateArguments" unique="false"
+        upperBound="-1" eType="#//Concern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//ConcernElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConcernElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Member" eSuperTypes="#//ConcernElement #//Variable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heritFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concern" eType="#//Concern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RuleIntersect" eSuperTypes="#//PackageElement #//ConcernElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Locale" eSuperTypes="#//Variable #//Call">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Concern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//Variable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Concern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="usage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="role" eType="#//Role"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WithParameter" eSuperTypes="#//Variable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Concern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="usage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="role" eType="#//Role"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Line"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CallExpr" eSuperTypes="#//Line">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
+        eType="#//Call" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="equality" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" upperBound="-1"
+        eType="#//Call" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubCall" eSuperTypes="#//Call">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//CallExpr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Call"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Access" eSuperTypes="#//Call">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" unique="false"
+        upperBound="-1" eType="#//Member"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="role" eType="#//Role"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//Roles">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Intersection" eSuperTypes="#//RuleIntersect">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//Variable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lines" upperBound="-1"
         eType="#//Line" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MemberInConcern" eSuperTypes="#//CallParameterInConcern">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Parameter"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Member"/>
   </eClassifiers>
 </ecore:EPackage>
