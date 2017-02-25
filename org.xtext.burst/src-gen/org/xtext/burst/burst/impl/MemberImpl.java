@@ -22,7 +22,8 @@ import org.xtext.burst.burst.Member;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.MemberImpl#isHeritFrom <em>Herit From</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.MemberImpl#isActAs <em>Act As</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.MemberImpl#isIsContent <em>Is Content</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.MemberImpl#getConcern <em>Concern</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.MemberImpl#getName <em>Name</em>}</li>
  * </ul>
@@ -32,24 +33,44 @@ import org.xtext.burst.burst.Member;
 public class MemberImpl extends ConcernElementImpl implements Member
 {
   /**
-   * The default value of the '{@link #isHeritFrom() <em>Herit From</em>}' attribute.
+   * The default value of the '{@link #isActAs() <em>Act As</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isHeritFrom()
+   * @see #isActAs()
    * @generated
    * @ordered
    */
-  protected static final boolean HERIT_FROM_EDEFAULT = false;
+  protected static final boolean ACT_AS_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isHeritFrom() <em>Herit From</em>}' attribute.
+   * The cached value of the '{@link #isActAs() <em>Act As</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isHeritFrom()
+   * @see #isActAs()
    * @generated
    * @ordered
    */
-  protected boolean heritFrom = HERIT_FROM_EDEFAULT;
+  protected boolean actAs = ACT_AS_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isIsContent() <em>Is Content</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsContent()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean IS_CONTENT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIsContent() <em>Is Content</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsContent()
+   * @generated
+   * @ordered
+   */
+  protected boolean isContent = IS_CONTENT_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getConcern() <em>Concern</em>}' reference.
@@ -107,9 +128,9 @@ public class MemberImpl extends ConcernElementImpl implements Member
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isHeritFrom()
+  public boolean isActAs()
   {
-    return heritFrom;
+    return actAs;
   }
 
   /**
@@ -117,12 +138,35 @@ public class MemberImpl extends ConcernElementImpl implements Member
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setHeritFrom(boolean newHeritFrom)
+  public void setActAs(boolean newActAs)
   {
-    boolean oldHeritFrom = heritFrom;
-    heritFrom = newHeritFrom;
+    boolean oldActAs = actAs;
+    actAs = newActAs;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER__HERIT_FROM, oldHeritFrom, heritFrom));
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER__ACT_AS, oldActAs, actAs));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isIsContent()
+  {
+    return isContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsContent(boolean newIsContent)
+  {
+    boolean oldIsContent = isContent;
+    isContent = newIsContent;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER__IS_CONTENT, oldIsContent, isContent));
   }
 
   /**
@@ -201,8 +245,10 @@ public class MemberImpl extends ConcernElementImpl implements Member
   {
     switch (featureID)
     {
-      case BurstPackage.MEMBER__HERIT_FROM:
-        return isHeritFrom();
+      case BurstPackage.MEMBER__ACT_AS:
+        return isActAs();
+      case BurstPackage.MEMBER__IS_CONTENT:
+        return isIsContent();
       case BurstPackage.MEMBER__CONCERN:
         if (resolve) return getConcern();
         return basicGetConcern();
@@ -222,8 +268,11 @@ public class MemberImpl extends ConcernElementImpl implements Member
   {
     switch (featureID)
     {
-      case BurstPackage.MEMBER__HERIT_FROM:
-        setHeritFrom((Boolean)newValue);
+      case BurstPackage.MEMBER__ACT_AS:
+        setActAs((Boolean)newValue);
+        return;
+      case BurstPackage.MEMBER__IS_CONTENT:
+        setIsContent((Boolean)newValue);
         return;
       case BurstPackage.MEMBER__CONCERN:
         setConcern((Concern)newValue);
@@ -245,8 +294,11 @@ public class MemberImpl extends ConcernElementImpl implements Member
   {
     switch (featureID)
     {
-      case BurstPackage.MEMBER__HERIT_FROM:
-        setHeritFrom(HERIT_FROM_EDEFAULT);
+      case BurstPackage.MEMBER__ACT_AS:
+        setActAs(ACT_AS_EDEFAULT);
+        return;
+      case BurstPackage.MEMBER__IS_CONTENT:
+        setIsContent(IS_CONTENT_EDEFAULT);
         return;
       case BurstPackage.MEMBER__CONCERN:
         setConcern((Concern)null);
@@ -268,8 +320,10 @@ public class MemberImpl extends ConcernElementImpl implements Member
   {
     switch (featureID)
     {
-      case BurstPackage.MEMBER__HERIT_FROM:
-        return heritFrom != HERIT_FROM_EDEFAULT;
+      case BurstPackage.MEMBER__ACT_AS:
+        return actAs != ACT_AS_EDEFAULT;
+      case BurstPackage.MEMBER__IS_CONTENT:
+        return isContent != IS_CONTENT_EDEFAULT;
       case BurstPackage.MEMBER__CONCERN:
         return concern != null;
       case BurstPackage.MEMBER__NAME:
@@ -289,8 +343,10 @@ public class MemberImpl extends ConcernElementImpl implements Member
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (heritFrom: ");
-    result.append(heritFrom);
+    result.append(" (actAs: ");
+    result.append(actAs);
+    result.append(", isContent: ");
+    result.append(isContent);
     result.append(", name: ");
     result.append(name);
     result.append(')');

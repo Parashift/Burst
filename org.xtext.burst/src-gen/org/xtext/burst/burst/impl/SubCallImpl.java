@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.CallExpr;
+import org.xtext.burst.burst.Line;
 import org.xtext.burst.burst.SubCall;
 
 /**
@@ -28,7 +28,7 @@ import org.xtext.burst.burst.SubCall;
  *
  * @generated
  */
-public class SubCallImpl extends CallImpl implements SubCall
+public class SubCallImpl extends CallElementImpl implements SubCall
 {
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -38,7 +38,7 @@ public class SubCallImpl extends CallImpl implements SubCall
    * @generated
    * @ordered
    */
-  protected CallExpr name;
+  protected Line name;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,7 +66,7 @@ public class SubCallImpl extends CallImpl implements SubCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public CallExpr getName()
+  public Line getName()
   {
     return name;
   }
@@ -76,9 +76,9 @@ public class SubCallImpl extends CallImpl implements SubCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetName(CallExpr newName, NotificationChain msgs)
+  public NotificationChain basicSetName(Line newName, NotificationChain msgs)
   {
-    CallExpr oldName = name;
+    Line oldName = name;
     name = newName;
     if (eNotificationRequired())
     {
@@ -93,7 +93,7 @@ public class SubCallImpl extends CallImpl implements SubCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(CallExpr newName)
+  public void setName(Line newName)
   {
     if (newName != name)
     {
@@ -152,7 +152,7 @@ public class SubCallImpl extends CallImpl implements SubCall
     switch (featureID)
     {
       case BurstPackage.SUB_CALL__NAME:
-        setName((CallExpr)newValue);
+        setName((Line)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,7 +169,7 @@ public class SubCallImpl extends CallImpl implements SubCall
     switch (featureID)
     {
       case BurstPackage.SUB_CALL__NAME:
-        setName((CallExpr)null);
+        setName((Line)null);
         return;
     }
     super.eUnset(featureID);

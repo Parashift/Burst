@@ -32,15 +32,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConcernElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Member" eSuperTypes="#//ConcernElement #//Variable">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heritFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actAs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="concern" eType="#//Concern"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RuleIntersect" eSuperTypes="#//PackageElement #//ConcernElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Locale" eSuperTypes="#//Variable #//Call">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Concern"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//Variable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Concern"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -54,23 +51,37 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Line"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CallExpr" eSuperTypes="#//Line">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
-        eType="#//Call" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="equality" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" upperBound="-1"
-        eType="#//Call" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SubCall" eSuperTypes="#//Call">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//CallExpr"
+  <eClassifiers xsi:type="ecore:EClass" name="ContextManagement" eSuperTypes="#//Line">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="action" eType="#//concernManagment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Access"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Call"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Access" eSuperTypes="#//Call">
+  <eClassifiers xsi:type="ecore:EClass" name="Call" eSuperTypes="#//Line">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
+        eType="#//CallElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="equality" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" upperBound="-1"
+        eType="#//CallElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CallElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" unique="false" upperBound="-1"
+        eType="#//Role"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Locale" eSuperTypes="#//Variable #//CallElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Concern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Access" eSuperTypes="#//CallElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Variable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" unique="false"
         upperBound="-1" eType="#//Member"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="role" eType="#//Role"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubCall" eSuperTypes="#//CallElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Line" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="concernManagment">
+    <eLiterals name="add" literal="1"/>
+    <eLiterals name="remove" value="1" literal="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//Roles">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -78,7 +89,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="Intersection" eSuperTypes="#//RuleIntersect">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
-        eType="#//Variable" containment="true"/>
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="withParams" upperBound="-1"
+        eType="#//WithParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lines" upperBound="-1"
         eType="#//Line" containment="true"/>
   </eClassifiers>

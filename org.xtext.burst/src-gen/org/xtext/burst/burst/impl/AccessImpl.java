@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.xtext.burst.burst.Access;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Member;
-import org.xtext.burst.burst.Role;
 import org.xtext.burst.burst.Variable;
 
 /**
@@ -32,12 +31,11 @@ import org.xtext.burst.burst.Variable;
  * <ul>
  *   <li>{@link org.xtext.burst.burst.impl.AccessImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.AccessImpl#getMembers <em>Members</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.AccessImpl#getRole <em>Role</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AccessImpl extends CallImpl implements Access
+public class AccessImpl extends CallElementImpl implements Access
 {
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' reference.
@@ -58,16 +56,6 @@ public class AccessImpl extends CallImpl implements Access
    * @ordered
    */
   protected EList<Member> members;
-
-  /**
-   * The cached value of the '{@link #getRole() <em>Role</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRole()
-   * @generated
-   * @ordered
-   */
-  protected Role role;
 
   /**
    * <!-- begin-user-doc -->
@@ -152,49 +140,6 @@ public class AccessImpl extends CallImpl implements Access
    * <!-- end-user-doc -->
    * @generated
    */
-  public Role getRole()
-  {
-    if (role != null && role.eIsProxy())
-    {
-      InternalEObject oldRole = (InternalEObject)role;
-      role = (Role)eResolveProxy(oldRole);
-      if (role != oldRole)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.ACCESS__ROLE, oldRole, role));
-      }
-    }
-    return role;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Role basicGetRole()
-  {
-    return role;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRole(Role newRole)
-  {
-    Role oldRole = role;
-    role = newRole;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.ACCESS__ROLE, oldRole, role));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -205,9 +150,6 @@ public class AccessImpl extends CallImpl implements Access
         return basicGetName();
       case BurstPackage.ACCESS__MEMBERS:
         return getMembers();
-      case BurstPackage.ACCESS__ROLE:
-        if (resolve) return getRole();
-        return basicGetRole();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -230,9 +172,6 @@ public class AccessImpl extends CallImpl implements Access
         getMembers().clear();
         getMembers().addAll((Collection<? extends Member>)newValue);
         return;
-      case BurstPackage.ACCESS__ROLE:
-        setRole((Role)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -253,9 +192,6 @@ public class AccessImpl extends CallImpl implements Access
       case BurstPackage.ACCESS__MEMBERS:
         getMembers().clear();
         return;
-      case BurstPackage.ACCESS__ROLE:
-        setRole((Role)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -274,8 +210,6 @@ public class AccessImpl extends CallImpl implements Access
         return name != null;
       case BurstPackage.ACCESS__MEMBERS:
         return members != null && !members.isEmpty();
-      case BurstPackage.ACCESS__ROLE:
-        return role != null;
     }
     return super.eIsSet(featureID);
   }

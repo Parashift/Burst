@@ -16,6 +16,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class BurstGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		System.out.println("Hello World");
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
 //			resource.allContents
 //				.filter(typeof(Greeting))

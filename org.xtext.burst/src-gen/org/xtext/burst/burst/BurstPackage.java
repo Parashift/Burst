@@ -5,6 +5,7 @@ package org.xtext.burst.burst;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -329,13 +330,22 @@ public interface BurstPackage extends EPackage
   int MEMBER = 9;
 
   /**
-   * The feature id for the '<em><b>Herit From</b></em>' attribute.
+   * The feature id for the '<em><b>Act As</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MEMBER__HERIT_FROM = CONCERN_ELEMENT_FEATURE_COUNT + 0;
+  int MEMBER__ACT_AS = CONCERN_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Is Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER__IS_CONTENT = CONCERN_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Concern</b></em>' reference.
@@ -344,7 +354,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER__CONCERN = CONCERN_ELEMENT_FEATURE_COUNT + 1;
+  int MEMBER__CONCERN = CONCERN_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -353,7 +363,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER__NAME = CONCERN_ELEMENT_FEATURE_COUNT + 2;
+  int MEMBER__NAME = CONCERN_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Member</em>' class.
@@ -362,7 +372,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_FEATURE_COUNT = CONCERN_ELEMENT_FEATURE_COUNT + 3;
+  int MEMBER_FEATURE_COUNT = CONCERN_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.RuleIntersectImpl <em>Rule Intersect</em>}' class.
@@ -391,7 +401,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 14;
+  int VARIABLE = 13;
 
   /**
    * The number of structural features of the '<em>Variable</em>' class.
@@ -403,43 +413,6 @@ public interface BurstPackage extends EPackage
   int VARIABLE_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.burst.burst.impl.LocaleImpl <em>Locale</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.burst.burst.impl.LocaleImpl
-   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getLocale()
-   * @generated
-   */
-  int LOCALE = 11;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOCALE__TYPE = VARIABLE_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOCALE__NAME = VARIABLE_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Locale</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOCALE_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 2;
-
-  /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.ParameterImpl <em>Parameter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -447,7 +420,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 12;
+  int PARAMETER = 11;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -502,7 +475,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getWithParameter()
    * @generated
    */
-  int WITH_PARAMETER = 13;
+  int WITH_PARAMETER = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -548,7 +521,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getLine()
    * @generated
    */
-  int LINE = 15;
+  int LINE = 14;
 
   /**
    * The number of structural features of the '<em>Line</em>' class.
@@ -560,50 +533,41 @@ public interface BurstPackage extends EPackage
   int LINE_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.burst.burst.impl.CallExprImpl <em>Call Expr</em>}' class.
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.ContextManagementImpl <em>Context Management</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.burst.burst.impl.CallExprImpl
-   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCallExpr()
+   * @see org.xtext.burst.burst.impl.ContextManagementImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getContextManagement()
    * @generated
    */
-  int CALL_EXPR = 16;
+  int CONTEXT_MANAGEMENT = 15;
 
   /**
-   * The feature id for the '<em><b>Content</b></em>' containment reference list.
+   * The feature id for the '<em><b>Action</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CALL_EXPR__CONTENT = LINE_FEATURE_COUNT + 0;
+  int CONTEXT_MANAGEMENT__ACTION = LINE_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Equality</b></em>' attribute.
+   * The feature id for the '<em><b>Target</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CALL_EXPR__EQUALITY = LINE_FEATURE_COUNT + 1;
+  int CONTEXT_MANAGEMENT__TARGET = LINE_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Source</b></em>' containment reference list.
+   * The number of structural features of the '<em>Context Management</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CALL_EXPR__SOURCE = LINE_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Call Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALL_EXPR_FEATURE_COUNT = LINE_FEATURE_COUNT + 3;
+  int CONTEXT_MANAGEMENT_FEATURE_COUNT = LINE_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.CallImpl <em>Call</em>}' class.
@@ -613,7 +577,34 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCall()
    * @generated
    */
-  int CALL = 18;
+  int CALL = 16;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL__CONTENT = LINE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Equality</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL__EQUALITY = LINE_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Source</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL__SOURCE = LINE_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Call</em>' class.
@@ -622,35 +613,81 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CALL_FEATURE_COUNT = 0;
+  int CALL_FEATURE_COUNT = LINE_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.burst.burst.impl.SubCallImpl <em>Sub Call</em>}' class.
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.CallElementImpl <em>Call Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.burst.burst.impl.SubCallImpl
-   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getSubCall()
+   * @see org.xtext.burst.burst.impl.CallElementImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCallElement()
    * @generated
    */
-  int SUB_CALL = 17;
+  int CALL_ELEMENT = 17;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SUB_CALL__NAME = CALL_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Sub Call</em>' class.
+   * The feature id for the '<em><b>Roles</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUB_CALL_FEATURE_COUNT = CALL_FEATURE_COUNT + 1;
+  int CALL_ELEMENT__ROLES = 0;
+
+  /**
+   * The number of structural features of the '<em>Call Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL_ELEMENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.LocaleImpl <em>Locale</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.burst.burst.impl.LocaleImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getLocale()
+   * @generated
+   */
+  int LOCALE = 18;
+
+  /**
+   * The feature id for the '<em><b>Roles</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCALE__ROLES = VARIABLE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCALE__TYPE = VARIABLE_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCALE__NAME = VARIABLE_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Locale</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCALE_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.AccessImpl <em>Access</em>}' class.
@@ -663,13 +700,22 @@ public interface BurstPackage extends EPackage
   int ACCESS = 19;
 
   /**
+   * The feature id for the '<em><b>Roles</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACCESS__ROLES = CALL_ELEMENT__ROLES;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACCESS__NAME = CALL_FEATURE_COUNT + 0;
+  int ACCESS__NAME = CALL_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Members</b></em>' reference list.
@@ -678,16 +724,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACCESS__MEMBERS = CALL_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Role</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACCESS__ROLE = CALL_FEATURE_COUNT + 2;
+  int ACCESS__MEMBERS = CALL_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Access</em>' class.
@@ -696,7 +733,44 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACCESS_FEATURE_COUNT = CALL_FEATURE_COUNT + 3;
+  int ACCESS_FEATURE_COUNT = CALL_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.burst.burst.impl.SubCallImpl <em>Sub Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.burst.burst.impl.SubCallImpl
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getSubCall()
+   * @generated
+   */
+  int SUB_CALL = 20;
+
+  /**
+   * The feature id for the '<em><b>Roles</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_CALL__ROLES = CALL_ELEMENT__ROLES;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_CALL__NAME = CALL_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Sub Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_CALL_FEATURE_COUNT = CALL_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.RoleImpl <em>Role</em>}' class.
@@ -706,7 +780,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getRole()
    * @generated
    */
-  int ROLE = 20;
+  int ROLE = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -734,7 +808,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getIntersection()
    * @generated
    */
-  int INTERSECTION = 21;
+  int INTERSECTION = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -755,13 +829,22 @@ public interface BurstPackage extends EPackage
   int INTERSECTION__PARAMS = RULE_INTERSECT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>With Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERSECTION__WITH_PARAMS = RULE_INTERSECT_FEATURE_COUNT + 2;
+
+  /**
    * The feature id for the '<em><b>Lines</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERSECTION__LINES = RULE_INTERSECT_FEATURE_COUNT + 2;
+  int INTERSECTION__LINES = RULE_INTERSECT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Intersection</em>' class.
@@ -770,7 +853,17 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTERSECTION_FEATURE_COUNT = RULE_INTERSECT_FEATURE_COUNT + 3;
+  int INTERSECTION_FEATURE_COUNT = RULE_INTERSECT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.burst.burst.concernManagment <em>concern Managment</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.burst.burst.concernManagment
+   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getconcernManagment()
+   * @generated
+   */
+  int CONCERN_MANAGMENT = 23;
 
 
   /**
@@ -984,15 +1077,26 @@ public interface BurstPackage extends EPackage
   EClass getMember();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Member#isHeritFrom <em>Herit From</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Member#isActAs <em>Act As</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Herit From</em>'.
-   * @see org.xtext.burst.burst.Member#isHeritFrom()
+   * @return the meta object for the attribute '<em>Act As</em>'.
+   * @see org.xtext.burst.burst.Member#isActAs()
    * @see #getMember()
    * @generated
    */
-  EAttribute getMember_HeritFrom();
+  EAttribute getMember_ActAs();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Member#isIsContent <em>Is Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Content</em>'.
+   * @see org.xtext.burst.burst.Member#isIsContent()
+   * @see #getMember()
+   * @generated
+   */
+  EAttribute getMember_IsContent();
 
   /**
    * Returns the meta object for the reference '{@link org.xtext.burst.burst.Member#getConcern <em>Concern</em>}'.
@@ -1025,38 +1129,6 @@ public interface BurstPackage extends EPackage
    * @generated
    */
   EClass getRuleIntersect();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.burst.burst.Locale <em>Locale</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Locale</em>'.
-   * @see org.xtext.burst.burst.Locale
-   * @generated
-   */
-  EClass getLocale();
-
-  /**
-   * Returns the meta object for the reference '{@link org.xtext.burst.burst.Locale#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
-   * @see org.xtext.burst.burst.Locale#getType()
-   * @see #getLocale()
-   * @generated
-   */
-  EReference getLocale_Type();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Locale#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.burst.burst.Locale#getName()
-   * @see #getLocale()
-   * @generated
-   */
-  EAttribute getLocale_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.Parameter <em>Parameter</em>}'.
@@ -1176,68 +1248,36 @@ public interface BurstPackage extends EPackage
   EClass getLine();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.burst.burst.CallExpr <em>Call Expr</em>}'.
+   * Returns the meta object for class '{@link org.xtext.burst.burst.ContextManagement <em>Context Management</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Call Expr</em>'.
-   * @see org.xtext.burst.burst.CallExpr
+   * @return the meta object for class '<em>Context Management</em>'.
+   * @see org.xtext.burst.burst.ContextManagement
    * @generated
    */
-  EClass getCallExpr();
+  EClass getContextManagement();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.CallExpr#getContent <em>Content</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.ContextManagement#getAction <em>Action</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Content</em>'.
-   * @see org.xtext.burst.burst.CallExpr#getContent()
-   * @see #getCallExpr()
+   * @return the meta object for the attribute '<em>Action</em>'.
+   * @see org.xtext.burst.burst.ContextManagement#getAction()
+   * @see #getContextManagement()
    * @generated
    */
-  EReference getCallExpr_Content();
+  EAttribute getContextManagement_Action();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.CallExpr#isEquality <em>Equality</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.burst.burst.ContextManagement#getTarget <em>Target</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Equality</em>'.
-   * @see org.xtext.burst.burst.CallExpr#isEquality()
-   * @see #getCallExpr()
+   * @return the meta object for the containment reference '<em>Target</em>'.
+   * @see org.xtext.burst.burst.ContextManagement#getTarget()
+   * @see #getContextManagement()
    * @generated
    */
-  EAttribute getCallExpr_Equality();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.CallExpr#getSource <em>Source</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Source</em>'.
-   * @see org.xtext.burst.burst.CallExpr#getSource()
-   * @see #getCallExpr()
-   * @generated
-   */
-  EReference getCallExpr_Source();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.burst.burst.SubCall <em>Sub Call</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Sub Call</em>'.
-   * @see org.xtext.burst.burst.SubCall
-   * @generated
-   */
-  EClass getSubCall();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.burst.burst.SubCall#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Name</em>'.
-   * @see org.xtext.burst.burst.SubCall#getName()
-   * @see #getSubCall()
-   * @generated
-   */
-  EReference getSubCall_Name();
+  EReference getContextManagement_Target();
 
   /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.Call <em>Call</em>}'.
@@ -1248,6 +1288,92 @@ public interface BurstPackage extends EPackage
    * @generated
    */
   EClass getCall();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.Call#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Content</em>'.
+   * @see org.xtext.burst.burst.Call#getContent()
+   * @see #getCall()
+   * @generated
+   */
+  EReference getCall_Content();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Call#isEquality <em>Equality</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Equality</em>'.
+   * @see org.xtext.burst.burst.Call#isEquality()
+   * @see #getCall()
+   * @generated
+   */
+  EAttribute getCall_Equality();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.Call#getSource <em>Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Source</em>'.
+   * @see org.xtext.burst.burst.Call#getSource()
+   * @see #getCall()
+   * @generated
+   */
+  EReference getCall_Source();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.burst.burst.CallElement <em>Call Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Call Element</em>'.
+   * @see org.xtext.burst.burst.CallElement
+   * @generated
+   */
+  EClass getCallElement();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.xtext.burst.burst.CallElement#getRoles <em>Roles</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Roles</em>'.
+   * @see org.xtext.burst.burst.CallElement#getRoles()
+   * @see #getCallElement()
+   * @generated
+   */
+  EReference getCallElement_Roles();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.burst.burst.Locale <em>Locale</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Locale</em>'.
+   * @see org.xtext.burst.burst.Locale
+   * @generated
+   */
+  EClass getLocale();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.burst.burst.Locale#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.xtext.burst.burst.Locale#getType()
+   * @see #getLocale()
+   * @generated
+   */
+  EReference getLocale_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Locale#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.burst.burst.Locale#getName()
+   * @see #getLocale()
+   * @generated
+   */
+  EAttribute getLocale_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.Access <em>Access</em>}'.
@@ -1282,15 +1408,25 @@ public interface BurstPackage extends EPackage
   EReference getAccess_Members();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.burst.burst.Access#getRole <em>Role</em>}'.
+   * Returns the meta object for class '{@link org.xtext.burst.burst.SubCall <em>Sub Call</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Role</em>'.
-   * @see org.xtext.burst.burst.Access#getRole()
-   * @see #getAccess()
+   * @return the meta object for class '<em>Sub Call</em>'.
+   * @see org.xtext.burst.burst.SubCall
    * @generated
    */
-  EReference getAccess_Role();
+  EClass getSubCall();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.burst.burst.SubCall#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see org.xtext.burst.burst.SubCall#getName()
+   * @see #getSubCall()
+   * @generated
+   */
+  EReference getSubCall_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.Role <em>Role</em>}'.
@@ -1346,6 +1482,17 @@ public interface BurstPackage extends EPackage
   EReference getIntersection_Params();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.Intersection#getWithParams <em>With Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>With Params</em>'.
+   * @see org.xtext.burst.burst.Intersection#getWithParams()
+   * @see #getIntersection()
+   * @generated
+   */
+  EReference getIntersection_WithParams();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.Intersection#getLines <em>Lines</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1355,6 +1502,16 @@ public interface BurstPackage extends EPackage
    * @generated
    */
   EReference getIntersection_Lines();
+
+  /**
+   * Returns the meta object for enum '{@link org.xtext.burst.burst.concernManagment <em>concern Managment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>concern Managment</em>'.
+   * @see org.xtext.burst.burst.concernManagment
+   * @generated
+   */
+  EEnum getconcernManagment();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1560,12 +1717,20 @@ public interface BurstPackage extends EPackage
     EClass MEMBER = eINSTANCE.getMember();
 
     /**
-     * The meta object literal for the '<em><b>Herit From</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Act As</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MEMBER__HERIT_FROM = eINSTANCE.getMember_HeritFrom();
+    EAttribute MEMBER__ACT_AS = eINSTANCE.getMember_ActAs();
+
+    /**
+     * The meta object literal for the '<em><b>Is Content</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MEMBER__IS_CONTENT = eINSTANCE.getMember_IsContent();
 
     /**
      * The meta object literal for the '<em><b>Concern</b></em>' reference feature.
@@ -1592,32 +1757,6 @@ public interface BurstPackage extends EPackage
      * @generated
      */
     EClass RULE_INTERSECT = eINSTANCE.getRuleIntersect();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.burst.burst.impl.LocaleImpl <em>Locale</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.burst.burst.impl.LocaleImpl
-     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getLocale()
-     * @generated
-     */
-    EClass LOCALE = eINSTANCE.getLocale();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LOCALE__TYPE = eINSTANCE.getLocale_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LOCALE__NAME = eINSTANCE.getLocale_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -1716,56 +1855,30 @@ public interface BurstPackage extends EPackage
     EClass LINE = eINSTANCE.getLine();
 
     /**
-     * The meta object literal for the '{@link org.xtext.burst.burst.impl.CallExprImpl <em>Call Expr</em>}' class.
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.ContextManagementImpl <em>Context Management</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.burst.burst.impl.CallExprImpl
-     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCallExpr()
+     * @see org.xtext.burst.burst.impl.ContextManagementImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getContextManagement()
      * @generated
      */
-    EClass CALL_EXPR = eINSTANCE.getCallExpr();
+    EClass CONTEXT_MANAGEMENT = eINSTANCE.getContextManagement();
 
     /**
-     * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Action</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CALL_EXPR__CONTENT = eINSTANCE.getCallExpr_Content();
+    EAttribute CONTEXT_MANAGEMENT__ACTION = eINSTANCE.getContextManagement_Action();
 
     /**
-     * The meta object literal for the '<em><b>Equality</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Target</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CALL_EXPR__EQUALITY = eINSTANCE.getCallExpr_Equality();
-
-    /**
-     * The meta object literal for the '<em><b>Source</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CALL_EXPR__SOURCE = eINSTANCE.getCallExpr_Source();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.burst.burst.impl.SubCallImpl <em>Sub Call</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.burst.burst.impl.SubCallImpl
-     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getSubCall()
-     * @generated
-     */
-    EClass SUB_CALL = eINSTANCE.getSubCall();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SUB_CALL__NAME = eINSTANCE.getSubCall_Name();
+    EReference CONTEXT_MANAGEMENT__TARGET = eINSTANCE.getContextManagement_Target();
 
     /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.CallImpl <em>Call</em>}' class.
@@ -1776,6 +1889,74 @@ public interface BurstPackage extends EPackage
      * @generated
      */
     EClass CALL = eINSTANCE.getCall();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CALL__CONTENT = eINSTANCE.getCall_Content();
+
+    /**
+     * The meta object literal for the '<em><b>Equality</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CALL__EQUALITY = eINSTANCE.getCall_Equality();
+
+    /**
+     * The meta object literal for the '<em><b>Source</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CALL__SOURCE = eINSTANCE.getCall_Source();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.CallElementImpl <em>Call Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.burst.burst.impl.CallElementImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCallElement()
+     * @generated
+     */
+    EClass CALL_ELEMENT = eINSTANCE.getCallElement();
+
+    /**
+     * The meta object literal for the '<em><b>Roles</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CALL_ELEMENT__ROLES = eINSTANCE.getCallElement_Roles();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.LocaleImpl <em>Locale</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.burst.burst.impl.LocaleImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getLocale()
+     * @generated
+     */
+    EClass LOCALE = eINSTANCE.getLocale();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOCALE__TYPE = eINSTANCE.getLocale_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOCALE__NAME = eINSTANCE.getLocale_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.AccessImpl <em>Access</em>}' class.
@@ -1804,12 +1985,22 @@ public interface BurstPackage extends EPackage
     EReference ACCESS__MEMBERS = eINSTANCE.getAccess_Members();
 
     /**
-     * The meta object literal for the '<em><b>Role</b></em>' reference feature.
+     * The meta object literal for the '{@link org.xtext.burst.burst.impl.SubCallImpl <em>Sub Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.burst.burst.impl.SubCallImpl
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getSubCall()
+     * @generated
+     */
+    EClass SUB_CALL = eINSTANCE.getSubCall();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ACCESS__ROLE = eINSTANCE.getAccess_Role();
+    EReference SUB_CALL__NAME = eINSTANCE.getSubCall_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.RoleImpl <em>Role</em>}' class.
@@ -1856,12 +2047,30 @@ public interface BurstPackage extends EPackage
     EReference INTERSECTION__PARAMS = eINSTANCE.getIntersection_Params();
 
     /**
+     * The meta object literal for the '<em><b>With Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERSECTION__WITH_PARAMS = eINSTANCE.getIntersection_WithParams();
+
+    /**
      * The meta object literal for the '<em><b>Lines</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference INTERSECTION__LINES = eINSTANCE.getIntersection_Lines();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.burst.burst.concernManagment <em>concern Managment</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.burst.burst.concernManagment
+     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getconcernManagment()
+     * @generated
+     */
+    EEnum CONCERN_MANAGMENT = eINSTANCE.getconcernManagment();
 
   }
 

@@ -6,6 +6,10 @@
     copyrightFields="false" runtimeVersion="2.11">
   <genPackages prefix="Burst" basePackage="org.xtext.burst" disposableProviderFactory="true"
       fileExtensions="burst" ecorePackage="Burst.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Burst.ecore#//concernManagment">
+      <genEnumLiterals ecoreEnumLiteral="Burst.ecore#//concernManagment/add"/>
+      <genEnumLiterals ecoreEnumLiteral="Burst.ecore#//concernManagment/remove"/>
+    </genEnums>
     <genClasses ecoreClass="Burst.ecore#//File">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//File/Imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//File/elements"/>
@@ -31,15 +35,12 @@
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//ConcernElement"/>
     <genClasses ecoreClass="Burst.ecore#//Member">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Member/heritFrom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Member/actAs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Member/isContent"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Member/concern"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Member/name"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//RuleIntersect"/>
-    <genClasses ecoreClass="Burst.ecore#//Locale">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Locale/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Locale/name"/>
-    </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Parameter">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Parameter/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Parameter/name"/>
@@ -53,19 +54,28 @@
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Variable"/>
     <genClasses ecoreClass="Burst.ecore#//Line"/>
-    <genClasses ecoreClass="Burst.ecore#//CallExpr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//CallExpr/content"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//CallExpr/equality"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//CallExpr/source"/>
+    <genClasses ecoreClass="Burst.ecore#//ContextManagement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//ContextManagement/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//ContextManagement/target"/>
     </genClasses>
-    <genClasses ecoreClass="Burst.ecore#//SubCall">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//SubCall/name"/>
+    <genClasses ecoreClass="Burst.ecore#//Call">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Call/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Call/equality"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Call/source"/>
     </genClasses>
-    <genClasses ecoreClass="Burst.ecore#//Call"/>
+    <genClasses ecoreClass="Burst.ecore#//CallElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//CallElement/roles"/>
+    </genClasses>
+    <genClasses ecoreClass="Burst.ecore#//Locale">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Locale/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Locale/name"/>
+    </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Access">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Access/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Access/members"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Access/role"/>
+    </genClasses>
+    <genClasses ecoreClass="Burst.ecore#//SubCall">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//SubCall/name"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Role">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Role/name"/>
@@ -73,6 +83,7 @@
     <genClasses ecoreClass="Burst.ecore#//Intersection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Intersection/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Intersection/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Intersection/withParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Intersection/lines"/>
     </genClasses>
   </genPackages>

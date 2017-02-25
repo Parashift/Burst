@@ -5,6 +5,7 @@ package org.xtext.burst.burst.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -14,9 +15,10 @@ import org.xtext.burst.burst.Access;
 import org.xtext.burst.burst.BurstFactory;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Call;
-import org.xtext.burst.burst.CallExpr;
+import org.xtext.burst.burst.CallElement;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.ConcernElement;
+import org.xtext.burst.burst.ContextManagement;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.FileElement;
 import org.xtext.burst.burst.Import;
@@ -33,6 +35,7 @@ import org.xtext.burst.burst.SubCall;
 import org.xtext.burst.burst.Template;
 import org.xtext.burst.burst.Variable;
 import org.xtext.burst.burst.WithParameter;
+import org.xtext.burst.burst.concernManagment;
 
 /**
  * <!-- begin-user-doc -->
@@ -124,13 +127,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass localeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass parameterEClass = null;
 
   /**
@@ -159,14 +155,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass callExprEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass subCallEClass = null;
+  private EClass contextManagementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -180,7 +169,28 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass callElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass localeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass accessEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass subCallEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -195,6 +205,13 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * @generated
    */
   private EClass intersectionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum concernManagmentEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -464,7 +481,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMember_HeritFrom()
+  public EAttribute getMember_ActAs()
   {
     return (EAttribute)memberEClass.getEStructuralFeatures().get(0);
   }
@@ -474,9 +491,19 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getMember_IsContent()
+  {
+    return (EAttribute)memberEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getMember_Concern()
   {
-    return (EReference)memberEClass.getEStructuralFeatures().get(1);
+    return (EReference)memberEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -486,7 +513,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    */
   public EAttribute getMember_Name()
   {
-    return (EAttribute)memberEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)memberEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -497,36 +524,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
   public EClass getRuleIntersect()
   {
     return ruleIntersectEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getLocale()
-  {
-    return localeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getLocale_Type()
-  {
-    return (EReference)localeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getLocale_Name()
-  {
-    return (EAttribute)localeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -644,9 +641,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getCallExpr()
+  public EClass getContextManagement()
   {
-    return callExprEClass;
+    return contextManagementEClass;
   }
 
   /**
@@ -654,9 +651,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCallExpr_Content()
+  public EAttribute getContextManagement_Action()
   {
-    return (EReference)callExprEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)contextManagementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -664,39 +661,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCallExpr_Equality()
+  public EReference getContextManagement_Target()
   {
-    return (EAttribute)callExprEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCallExpr_Source()
-  {
-    return (EReference)callExprEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSubCall()
-  {
-    return subCallEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSubCall_Name()
-  {
-    return (EReference)subCallEClass.getEStructuralFeatures().get(0);
+    return (EReference)contextManagementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -707,6 +674,86 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
   public EClass getCall()
   {
     return callEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCall_Content()
+  {
+    return (EReference)callEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCall_Equality()
+  {
+    return (EAttribute)callEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCall_Source()
+  {
+    return (EReference)callEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCallElement()
+  {
+    return callElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCallElement_Roles()
+  {
+    return (EReference)callElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLocale()
+  {
+    return localeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLocale_Type()
+  {
+    return (EReference)localeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLocale_Name()
+  {
+    return (EAttribute)localeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -744,9 +791,19 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAccess_Role()
+  public EClass getSubCall()
   {
-    return (EReference)accessEClass.getEStructuralFeatures().get(2);
+    return subCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSubCall_Name()
+  {
+    return (EReference)subCallEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -804,9 +861,29 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIntersection_Lines()
+  public EReference getIntersection_WithParams()
   {
     return (EReference)intersectionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIntersection_Lines()
+  {
+    return (EReference)intersectionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getconcernManagment()
+  {
+    return concernManagmentEEnum;
   }
 
   /**
@@ -868,15 +945,12 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     concernElementEClass = createEClass(CONCERN_ELEMENT);
 
     memberEClass = createEClass(MEMBER);
-    createEAttribute(memberEClass, MEMBER__HERIT_FROM);
+    createEAttribute(memberEClass, MEMBER__ACT_AS);
+    createEAttribute(memberEClass, MEMBER__IS_CONTENT);
     createEReference(memberEClass, MEMBER__CONCERN);
     createEAttribute(memberEClass, MEMBER__NAME);
 
     ruleIntersectEClass = createEClass(RULE_INTERSECT);
-
-    localeEClass = createEClass(LOCALE);
-    createEReference(localeEClass, LOCALE__TYPE);
-    createEAttribute(localeEClass, LOCALE__NAME);
 
     parameterEClass = createEClass(PARAMETER);
     createEReference(parameterEClass, PARAMETER__TYPE);
@@ -893,20 +967,28 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
 
     lineEClass = createEClass(LINE);
 
-    callExprEClass = createEClass(CALL_EXPR);
-    createEReference(callExprEClass, CALL_EXPR__CONTENT);
-    createEAttribute(callExprEClass, CALL_EXPR__EQUALITY);
-    createEReference(callExprEClass, CALL_EXPR__SOURCE);
-
-    subCallEClass = createEClass(SUB_CALL);
-    createEReference(subCallEClass, SUB_CALL__NAME);
+    contextManagementEClass = createEClass(CONTEXT_MANAGEMENT);
+    createEAttribute(contextManagementEClass, CONTEXT_MANAGEMENT__ACTION);
+    createEReference(contextManagementEClass, CONTEXT_MANAGEMENT__TARGET);
 
     callEClass = createEClass(CALL);
+    createEReference(callEClass, CALL__CONTENT);
+    createEAttribute(callEClass, CALL__EQUALITY);
+    createEReference(callEClass, CALL__SOURCE);
+
+    callElementEClass = createEClass(CALL_ELEMENT);
+    createEReference(callElementEClass, CALL_ELEMENT__ROLES);
+
+    localeEClass = createEClass(LOCALE);
+    createEReference(localeEClass, LOCALE__TYPE);
+    createEAttribute(localeEClass, LOCALE__NAME);
 
     accessEClass = createEClass(ACCESS);
     createEReference(accessEClass, ACCESS__NAME);
     createEReference(accessEClass, ACCESS__MEMBERS);
-    createEReference(accessEClass, ACCESS__ROLE);
+
+    subCallEClass = createEClass(SUB_CALL);
+    createEReference(subCallEClass, SUB_CALL__NAME);
 
     roleEClass = createEClass(ROLE);
     createEAttribute(roleEClass, ROLE__NAME);
@@ -914,7 +996,11 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     intersectionEClass = createEClass(INTERSECTION);
     createEAttribute(intersectionEClass, INTERSECTION__NAME);
     createEReference(intersectionEClass, INTERSECTION__PARAMS);
+    createEReference(intersectionEClass, INTERSECTION__WITH_PARAMS);
     createEReference(intersectionEClass, INTERSECTION__LINES);
+
+    // Create enums
+    concernManagmentEEnum = createEEnum(CONCERN_MANAGMENT);
   }
 
   /**
@@ -955,13 +1041,14 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     memberEClass.getESuperTypes().add(this.getVariable());
     ruleIntersectEClass.getESuperTypes().add(this.getPackageElement());
     ruleIntersectEClass.getESuperTypes().add(this.getConcernElement());
-    localeEClass.getESuperTypes().add(this.getVariable());
-    localeEClass.getESuperTypes().add(this.getCall());
     parameterEClass.getESuperTypes().add(this.getVariable());
     withParameterEClass.getESuperTypes().add(this.getVariable());
-    callExprEClass.getESuperTypes().add(this.getLine());
-    subCallEClass.getESuperTypes().add(this.getCall());
-    accessEClass.getESuperTypes().add(this.getCall());
+    contextManagementEClass.getESuperTypes().add(this.getLine());
+    callEClass.getESuperTypes().add(this.getLine());
+    localeEClass.getESuperTypes().add(this.getVariable());
+    localeEClass.getESuperTypes().add(this.getCallElement());
+    accessEClass.getESuperTypes().add(this.getCallElement());
+    subCallEClass.getESuperTypes().add(this.getCallElement());
     roleEClass.getESuperTypes().add(this.getRoles());
     intersectionEClass.getESuperTypes().add(this.getRuleIntersect());
 
@@ -995,15 +1082,12 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     initEClass(concernElementEClass, ConcernElement.class, "ConcernElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMember_HeritFrom(), ecorePackage.getEBoolean(), "heritFrom", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMember_ActAs(), ecorePackage.getEBoolean(), "actAs", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMember_IsContent(), ecorePackage.getEBoolean(), "isContent", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMember_Concern(), this.getConcern(), null, "concern", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ruleIntersectEClass, RuleIntersect.class, "RuleIntersect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(localeEClass, Locale.class, "Locale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLocale_Type(), this.getConcern(), null, "type", null, 0, 1, Locale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLocale_Name(), ecorePackage.getEString(), "name", null, 0, 1, Locale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParameter_Type(), this.getConcern(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1020,28 +1104,42 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
 
     initEClass(lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(callExprEClass, CallExpr.class, "CallExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCallExpr_Content(), this.getCall(), null, "content", null, 0, -1, CallExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCallExpr_Equality(), ecorePackage.getEBoolean(), "equality", null, 0, 1, CallExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCallExpr_Source(), this.getCall(), null, "source", null, 0, -1, CallExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(subCallEClass, SubCall.class, "SubCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSubCall_Name(), this.getCallExpr(), null, "name", null, 0, 1, SubCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(contextManagementEClass, ContextManagement.class, "ContextManagement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getContextManagement_Action(), this.getconcernManagment(), "action", null, 0, 1, ContextManagement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContextManagement_Target(), this.getAccess(), null, "target", null, 0, 1, ContextManagement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(callEClass, Call.class, "Call", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCall_Content(), this.getCallElement(), null, "content", null, 0, -1, Call.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCall_Equality(), ecorePackage.getEBoolean(), "equality", null, 0, 1, Call.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCall_Source(), this.getCallElement(), null, "source", null, 0, -1, Call.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(callElementEClass, CallElement.class, "CallElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCallElement_Roles(), this.getRole(), null, "roles", null, 0, -1, CallElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(localeEClass, Locale.class, "Locale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLocale_Type(), this.getConcern(), null, "type", null, 0, 1, Locale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLocale_Name(), ecorePackage.getEString(), "name", null, 0, 1, Locale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(accessEClass, Access.class, "Access", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAccess_Name(), this.getVariable(), null, "name", null, 0, 1, Access.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAccess_Members(), this.getMember(), null, "members", null, 0, -1, Access.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAccess_Role(), this.getRole(), null, "role", null, 0, 1, Access.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(subCallEClass, SubCall.class, "SubCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSubCall_Name(), this.getLine(), null, "name", null, 0, 1, SubCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRole_Name(), ecorePackage.getEString(), "name", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(intersectionEClass, Intersection.class, "Intersection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntersection_Name(), ecorePackage.getEString(), "name", null, 0, 1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIntersection_Params(), this.getVariable(), null, "params", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIntersection_Params(), this.getParameter(), null, "params", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIntersection_WithParams(), this.getWithParameter(), null, "withParams", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIntersection_Lines(), this.getLine(), null, "lines", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize enums and add enum literals
+    initEEnum(concernManagmentEEnum, concernManagment.class, "concernManagment");
+    addEEnumLiteral(concernManagmentEEnum, concernManagment.ADD);
+    addEEnumLiteral(concernManagmentEEnum, concernManagment.REMOVE);
 
     // Create resource
     createResource(eNS_URI);

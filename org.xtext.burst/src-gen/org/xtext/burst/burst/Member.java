@@ -13,7 +13,8 @@ package org.xtext.burst.burst;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.Member#isHeritFrom <em>Herit From</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Member#isActAs <em>Act As</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Member#isIsContent <em>Is Content</em>}</li>
  *   <li>{@link org.xtext.burst.burst.Member#getConcern <em>Concern</em>}</li>
  *   <li>{@link org.xtext.burst.burst.Member#getName <em>Name</em>}</li>
  * </ul>
@@ -25,30 +26,56 @@ package org.xtext.burst.burst;
 public interface Member extends ConcernElement, Variable
 {
   /**
-   * Returns the value of the '<em><b>Herit From</b></em>' attribute.
+   * Returns the value of the '<em><b>Act As</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Herit From</em>' attribute isn't clear,
+   * If the meaning of the '<em>Act As</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Herit From</em>' attribute.
-   * @see #setHeritFrom(boolean)
-   * @see org.xtext.burst.burst.BurstPackage#getMember_HeritFrom()
+   * @return the value of the '<em>Act As</em>' attribute.
+   * @see #setActAs(boolean)
+   * @see org.xtext.burst.burst.BurstPackage#getMember_ActAs()
    * @model
    * @generated
    */
-  boolean isHeritFrom();
+  boolean isActAs();
 
   /**
-   * Sets the value of the '{@link org.xtext.burst.burst.Member#isHeritFrom <em>Herit From</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.burst.burst.Member#isActAs <em>Act As</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Herit From</em>' attribute.
-   * @see #isHeritFrom()
+   * @param value the new value of the '<em>Act As</em>' attribute.
+   * @see #isActAs()
    * @generated
    */
-  void setHeritFrom(boolean value);
+  void setActAs(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Is Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Content</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Content</em>' attribute.
+   * @see #setIsContent(boolean)
+   * @see org.xtext.burst.burst.BurstPackage#getMember_IsContent()
+   * @model
+   * @generated
+   */
+  boolean isIsContent();
+
+  /**
+   * Sets the value of the '{@link org.xtext.burst.burst.Member#isIsContent <em>Is Content</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Content</em>' attribute.
+   * @see #isIsContent()
+   * @generated
+   */
+  void setIsContent(boolean value);
 
   /**
    * Returns the value of the '<em><b>Concern</b></em>' reference.

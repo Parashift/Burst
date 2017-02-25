@@ -11,9 +11,10 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.xtext.burst.burst.Access;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Call;
-import org.xtext.burst.burst.CallExpr;
+import org.xtext.burst.burst.CallElement;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.ConcernElement;
+import org.xtext.burst.burst.ContextManagement;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.FileElement;
 import org.xtext.burst.burst.Import;
@@ -180,15 +181,6 @@ public class BurstSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BurstPackage.LOCALE:
-      {
-        Locale locale = (Locale)theEObject;
-        T result = caseLocale(locale);
-        if (result == null) result = caseVariable(locale);
-        if (result == null) result = caseCall(locale);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case BurstPackage.PARAMETER:
       {
         Parameter parameter = (Parameter)theEObject;
@@ -219,19 +211,11 @@ public class BurstSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BurstPackage.CALL_EXPR:
+      case BurstPackage.CONTEXT_MANAGEMENT:
       {
-        CallExpr callExpr = (CallExpr)theEObject;
-        T result = caseCallExpr(callExpr);
-        if (result == null) result = caseLine(callExpr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case BurstPackage.SUB_CALL:
-      {
-        SubCall subCall = (SubCall)theEObject;
-        T result = caseSubCall(subCall);
-        if (result == null) result = caseCall(subCall);
+        ContextManagement contextManagement = (ContextManagement)theEObject;
+        T result = caseContextManagement(contextManagement);
+        if (result == null) result = caseLine(contextManagement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -239,6 +223,23 @@ public class BurstSwitch<T> extends Switch<T>
       {
         Call call = (Call)theEObject;
         T result = caseCall(call);
+        if (result == null) result = caseLine(call);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.CALL_ELEMENT:
+      {
+        CallElement callElement = (CallElement)theEObject;
+        T result = caseCallElement(callElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.LOCALE:
+      {
+        Locale locale = (Locale)theEObject;
+        T result = caseLocale(locale);
+        if (result == null) result = caseVariable(locale);
+        if (result == null) result = caseCallElement(locale);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -246,7 +247,15 @@ public class BurstSwitch<T> extends Switch<T>
       {
         Access access = (Access)theEObject;
         T result = caseAccess(access);
-        if (result == null) result = caseCall(access);
+        if (result == null) result = caseCallElement(access);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.SUB_CALL:
+      {
+        SubCall subCall = (SubCall)theEObject;
+        T result = caseSubCall(subCall);
+        if (result == null) result = caseCallElement(subCall);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -450,22 +459,6 @@ public class BurstSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Locale</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Locale</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLocale(Locale object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -530,33 +523,17 @@ public class BurstSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Call Expr</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Context Management</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Call Expr</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Context Management</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCallExpr(CallExpr object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Sub Call</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sub Call</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSubCall(SubCall object)
+  public T caseContextManagement(ContextManagement object)
   {
     return null;
   }
@@ -578,6 +555,38 @@ public class BurstSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Call Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Call Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCallElement(CallElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Locale</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Locale</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLocale(Locale object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Access</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -589,6 +598,22 @@ public class BurstSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAccess(Access object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sub Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sub Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSubCall(SubCall object)
   {
     return null;
   }

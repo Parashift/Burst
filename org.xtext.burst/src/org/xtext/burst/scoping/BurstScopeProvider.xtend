@@ -16,7 +16,6 @@ import org.xtext.burst.burst.Import
 import org.xtext.burst.burst.Intersection
 import org.xtext.burst.burst.Member
 import org.xtext.burst.burst.Parameter
-import org.xtext.burst.burst.CallExpr
 
 /**
  * This class contains custom scoping description.
@@ -29,7 +28,7 @@ class BurstScopeProvider extends AbstractBurstScopeProvider {
     override getScope(EObject context, EReference reference) {
 		
 		
-	
+	 
 				
         // We want to define the Scope for the Element's superElement cross-reference
         if (context instanceof Member
@@ -82,12 +81,8 @@ class BurstScopeProvider extends AbstractBurstScopeProvider {
  			return Scopes.scopeFor(currentMembers);
         }
 	
-        if(context instanceof CallExpr
-        	&& reference == BurstPackage.Literals.CALL_EXPR__CONTENT) {
-         	return super.getScope(context, reference);
-        }
-        if(context instanceof CallExpr
-        	&& reference == BurstPackage.Literals.CALL_EXPR__SOURCE) {
+        if(context instanceof Call
+        	&& reference == BurstPackage.Literals.CALL) {
          	return super.getScope(context, reference);
         }
         

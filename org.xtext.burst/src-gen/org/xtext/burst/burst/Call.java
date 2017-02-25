@@ -3,18 +3,84 @@
  */
 package org.xtext.burst.burst;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Call</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.burst.burst.Call#getContent <em>Content</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Call#isEquality <em>Equality</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Call#getSource <em>Source</em>}</li>
+ * </ul>
  *
  * @see org.xtext.burst.burst.BurstPackage#getCall()
  * @model
  * @generated
  */
-public interface Call extends EObject
+public interface Call extends Line
 {
+  /**
+   * Returns the value of the '<em><b>Content</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.burst.burst.CallElement}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Content</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Content</em>' containment reference list.
+   * @see org.xtext.burst.burst.BurstPackage#getCall_Content()
+   * @model containment="true"
+   * @generated
+   */
+  EList<CallElement> getContent();
+
+  /**
+   * Returns the value of the '<em><b>Equality</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Equality</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Equality</em>' attribute.
+   * @see #setEquality(boolean)
+   * @see org.xtext.burst.burst.BurstPackage#getCall_Equality()
+   * @model
+   * @generated
+   */
+  boolean isEquality();
+
+  /**
+   * Sets the value of the '{@link org.xtext.burst.burst.Call#isEquality <em>Equality</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Equality</em>' attribute.
+   * @see #isEquality()
+   * @generated
+   */
+  void setEquality(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Source</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.burst.burst.CallElement}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Source</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Source</em>' containment reference list.
+   * @see org.xtext.burst.burst.BurstPackage#getCall_Source()
+   * @model containment="true"
+   * @generated
+   */
+  EList<CallElement> getSource();
+
 } // Call

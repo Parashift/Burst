@@ -13,9 +13,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.xtext.burst.burst.Access;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Call;
-import org.xtext.burst.burst.CallExpr;
+import org.xtext.burst.burst.CallElement;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.ConcernElement;
+import org.xtext.burst.burst.ContextManagement;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.FileElement;
 import org.xtext.burst.burst.Import;
@@ -152,11 +153,6 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
         return createRuleIntersectAdapter();
       }
       @Override
-      public Adapter caseLocale(Locale object)
-      {
-        return createLocaleAdapter();
-      }
-      @Override
       public Adapter caseParameter(Parameter object)
       {
         return createParameterAdapter();
@@ -177,14 +173,9 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
         return createLineAdapter();
       }
       @Override
-      public Adapter caseCallExpr(CallExpr object)
+      public Adapter caseContextManagement(ContextManagement object)
       {
-        return createCallExprAdapter();
-      }
-      @Override
-      public Adapter caseSubCall(SubCall object)
-      {
-        return createSubCallAdapter();
+        return createContextManagementAdapter();
       }
       @Override
       public Adapter caseCall(Call object)
@@ -192,9 +183,24 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
         return createCallAdapter();
       }
       @Override
+      public Adapter caseCallElement(CallElement object)
+      {
+        return createCallElementAdapter();
+      }
+      @Override
+      public Adapter caseLocale(Locale object)
+      {
+        return createLocaleAdapter();
+      }
+      @Override
       public Adapter caseAccess(Access object)
       {
         return createAccessAdapter();
+      }
+      @Override
+      public Adapter caseSubCall(SubCall object)
+      {
+        return createSubCallAdapter();
       }
       @Override
       public Adapter caseRole(Role object)
@@ -394,21 +400,6 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Locale <em>Locale</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.burst.burst.Locale
-   * @generated
-   */
-  public Adapter createLocaleAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Parameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -469,31 +460,16 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.CallExpr <em>Call Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.ContextManagement <em>Context Management</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.burst.burst.CallExpr
+   * @see org.xtext.burst.burst.ContextManagement
    * @generated
    */
-  public Adapter createCallExprAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.SubCall <em>Sub Call</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.burst.burst.SubCall
-   * @generated
-   */
-  public Adapter createSubCallAdapter()
+  public Adapter createContextManagementAdapter()
   {
     return null;
   }
@@ -514,6 +490,36 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.CallElement <em>Call Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.CallElement
+   * @generated
+   */
+  public Adapter createCallElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Locale <em>Locale</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.Locale
+   * @generated
+   */
+  public Adapter createLocaleAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.Access <em>Access</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -524,6 +530,21 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAccessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.SubCall <em>Sub Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.SubCall
+   * @generated
+   */
+  public Adapter createSubCallAdapter()
   {
     return null;
   }

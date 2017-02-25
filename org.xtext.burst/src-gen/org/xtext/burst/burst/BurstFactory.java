@@ -123,15 +123,6 @@ public interface BurstFactory extends EFactory
   RuleIntersect createRuleIntersect();
 
   /**
-   * Returns a new object of class '<em>Locale</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Locale</em>'.
-   * @generated
-   */
-  Locale createLocale();
-
-  /**
    * Returns a new object of class '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -168,22 +159,13 @@ public interface BurstFactory extends EFactory
   Line createLine();
 
   /**
-   * Returns a new object of class '<em>Call Expr</em>'.
+   * Returns a new object of class '<em>Context Management</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Call Expr</em>'.
+   * @return a new object of class '<em>Context Management</em>'.
    * @generated
    */
-  CallExpr createCallExpr();
-
-  /**
-   * Returns a new object of class '<em>Sub Call</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sub Call</em>'.
-   * @generated
-   */
-  SubCall createSubCall();
+  ContextManagement createContextManagement();
 
   /**
    * Returns a new object of class '<em>Call</em>'.
@@ -195,6 +177,24 @@ public interface BurstFactory extends EFactory
   Call createCall();
 
   /**
+   * Returns a new object of class '<em>Call Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Call Element</em>'.
+   * @generated
+   */
+  CallElement createCallElement();
+
+  /**
+   * Returns a new object of class '<em>Locale</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Locale</em>'.
+   * @generated
+   */
+  Locale createLocale();
+
+  /**
    * Returns a new object of class '<em>Access</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -202,6 +202,15 @@ public interface BurstFactory extends EFactory
    * @generated
    */
   Access createAccess();
+
+  /**
+   * Returns a new object of class '<em>Sub Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sub Call</em>'.
+   * @generated
+   */
+  SubCall createSubCall();
 
   /**
    * Returns a new object of class '<em>Role</em>'.

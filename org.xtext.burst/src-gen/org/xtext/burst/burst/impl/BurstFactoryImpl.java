@@ -4,6 +4,7 @@
 package org.xtext.burst.burst.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -15,9 +16,10 @@ import org.xtext.burst.burst.Access;
 import org.xtext.burst.burst.BurstFactory;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Call;
-import org.xtext.burst.burst.CallExpr;
+import org.xtext.burst.burst.CallElement;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.ConcernElement;
+import org.xtext.burst.burst.ContextManagement;
 import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.FileElement;
 import org.xtext.burst.burst.Import;
@@ -34,6 +36,7 @@ import org.xtext.burst.burst.SubCall;
 import org.xtext.burst.burst.Template;
 import org.xtext.burst.burst.Variable;
 import org.xtext.burst.burst.WithParameter;
+import org.xtext.burst.burst.concernManagment;
 
 /**
  * <!-- begin-user-doc -->
@@ -98,19 +101,54 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
       case BurstPackage.CONCERN_ELEMENT: return createConcernElement();
       case BurstPackage.MEMBER: return createMember();
       case BurstPackage.RULE_INTERSECT: return createRuleIntersect();
-      case BurstPackage.LOCALE: return createLocale();
       case BurstPackage.PARAMETER: return createParameter();
       case BurstPackage.WITH_PARAMETER: return createWithParameter();
       case BurstPackage.VARIABLE: return createVariable();
       case BurstPackage.LINE: return createLine();
-      case BurstPackage.CALL_EXPR: return createCallExpr();
-      case BurstPackage.SUB_CALL: return createSubCall();
+      case BurstPackage.CONTEXT_MANAGEMENT: return createContextManagement();
       case BurstPackage.CALL: return createCall();
+      case BurstPackage.CALL_ELEMENT: return createCallElement();
+      case BurstPackage.LOCALE: return createLocale();
       case BurstPackage.ACCESS: return createAccess();
+      case BurstPackage.SUB_CALL: return createSubCall();
       case BurstPackage.ROLE: return createRole();
       case BurstPackage.INTERSECTION: return createIntersection();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case BurstPackage.CONCERN_MANAGMENT:
+        return createconcernManagmentFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case BurstPackage.CONCERN_MANAGMENT:
+        return convertconcernManagmentToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -240,17 +278,6 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Locale createLocale()
-  {
-    LocaleImpl locale = new LocaleImpl();
-    return locale;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Parameter createParameter()
   {
     ParameterImpl parameter = new ParameterImpl();
@@ -295,21 +322,10 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public CallExpr createCallExpr()
+  public ContextManagement createContextManagement()
   {
-    CallExprImpl callExpr = new CallExprImpl();
-    return callExpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SubCall createSubCall()
-  {
-    SubCallImpl subCall = new SubCallImpl();
-    return subCall;
+    ContextManagementImpl contextManagement = new ContextManagementImpl();
+    return contextManagement;
   }
 
   /**
@@ -328,10 +344,43 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public CallElement createCallElement()
+  {
+    CallElementImpl callElement = new CallElementImpl();
+    return callElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Locale createLocale()
+  {
+    LocaleImpl locale = new LocaleImpl();
+    return locale;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Access createAccess()
   {
     AccessImpl access = new AccessImpl();
     return access;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SubCall createSubCall()
+  {
+    SubCallImpl subCall = new SubCallImpl();
+    return subCall;
   }
 
   /**
@@ -354,6 +403,28 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
   {
     IntersectionImpl intersection = new IntersectionImpl();
     return intersection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public concernManagment createconcernManagmentFromString(EDataType eDataType, String initialValue)
+  {
+    concernManagment result = concernManagment.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertconcernManagmentToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

@@ -21,7 +21,7 @@ package org.xtext.burst.burst;
  * @model
  * @generated
  */
-public interface Locale extends Variable, Call
+public interface Locale extends Variable, CallElement
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' reference.

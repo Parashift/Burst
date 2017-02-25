@@ -3,16 +3,24 @@
  */
 package org.xtext.burst.burst.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import org.xtext.burst.burst.BurstPackage;
+import org.xtext.burst.burst.CallElement;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.Locale;
+import org.xtext.burst.burst.Role;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +30,7 @@ import org.xtext.burst.burst.Locale;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.burst.burst.impl.LocaleImpl#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.LocaleImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.LocaleImpl#getName <em>Name</em>}</li>
  * </ul>
@@ -30,6 +39,16 @@ import org.xtext.burst.burst.Locale;
  */
 public class LocaleImpl extends VariableImpl implements Locale
 {
+  /**
+   * The cached value of the '{@link #getRoles() <em>Roles</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRoles()
+   * @generated
+   * @ordered
+   */
+  protected EList<Role> roles;
+
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
@@ -79,6 +98,20 @@ public class LocaleImpl extends VariableImpl implements Locale
   protected EClass eStaticClass()
   {
     return BurstPackage.Literals.LOCALE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Role> getRoles()
+  {
+    if (roles == null)
+    {
+      roles = new EObjectResolvingEList<Role>(Role.class, this, BurstPackage.LOCALE__ROLES);
+    }
+    return roles;
   }
 
   /**
@@ -157,6 +190,8 @@ public class LocaleImpl extends VariableImpl implements Locale
   {
     switch (featureID)
     {
+      case BurstPackage.LOCALE__ROLES:
+        return getRoles();
       case BurstPackage.LOCALE__TYPE:
         if (resolve) return getType();
         return basicGetType();
@@ -171,11 +206,16 @@ public class LocaleImpl extends VariableImpl implements Locale
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case BurstPackage.LOCALE__ROLES:
+        getRoles().clear();
+        getRoles().addAll((Collection<? extends Role>)newValue);
+        return;
       case BurstPackage.LOCALE__TYPE:
         setType((Concern)newValue);
         return;
@@ -196,6 +236,9 @@ public class LocaleImpl extends VariableImpl implements Locale
   {
     switch (featureID)
     {
+      case BurstPackage.LOCALE__ROLES:
+        getRoles().clear();
+        return;
       case BurstPackage.LOCALE__TYPE:
         setType((Concern)null);
         return;
@@ -216,12 +259,52 @@ public class LocaleImpl extends VariableImpl implements Locale
   {
     switch (featureID)
     {
+      case BurstPackage.LOCALE__ROLES:
+        return roles != null && !roles.isEmpty();
       case BurstPackage.LOCALE__TYPE:
         return type != null;
       case BurstPackage.LOCALE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == CallElement.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case BurstPackage.LOCALE__ROLES: return BurstPackage.CALL_ELEMENT__ROLES;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == CallElement.class)
+    {
+      switch (baseFeatureID)
+      {
+        case BurstPackage.CALL_ELEMENT__ROLES: return BurstPackage.LOCALE__ROLES;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**

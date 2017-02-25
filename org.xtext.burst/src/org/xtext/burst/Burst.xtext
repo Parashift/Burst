@@ -35,15 +35,14 @@ ConcernElement:
 	Member | RuleIntersect;
 	
 Member:		{Member}
-	(heritFrom?='is')? concern=[Concern|QualifiedName] name=ID;
+	(actAs?='as')?
+	(isContent?='is')? concern=[Concern|QualifiedName] name=ID;
 	
 RuleIntersect:  {Intersection}
-	name='when'  (ENDLINE)* params+=Parameter ( (ENDLINE)* (','|'and') (ENDLINE)* params+=Parameter  )* 
+	name= 'when' (ENDLINE)* params+=Parameter ( (ENDLINE)* (','|'and') (ENDLINE)* params+=Parameter  )* 
 	('with'  (ENDLINE)* withParams+=WithParameter ( (ENDLINE)* (','|'and') (ENDLINE)* withParams+=WithParameter  )* )?
 	 '{' (ENDLINE)* (lines+=Line ENDLINE+ )* '}';
 	
-Locale:{Locale}
-	'new' type=[Concern|QualifiedName] name=ID;
 
 Parameter: {Parameter}
 	type=[Concern|QualifiedName] name=ID (usage?=':' role=[Role])?;
@@ -55,20 +54,29 @@ Variable:
 	Member | Parameter | WithParameter | Locale | Concern;
 	
 Line: 
-	CallExpr;
-	
-CallExpr:	 
-	content+=Call+ (equality?='=' source+=Call+)?;
-	
-SubCall:{SubCall} 
-	'(' name=CallExpr ')';
-	
+	Call | ContextManagement;
+
+ContextManagement: {ContextManagement}
+	action=concernManagment target=Access;
+
 Call: 
-	Locale | Access | SubCall;
+	content+=CallElement+ (equality?='=' source+=CallElement+)?;
+	
+CallElement: 
+	(Locale | Access | SubCall);
 
+Locale: {Locale}
+	'new' type=[Concern|QualifiedName] name=ID (':' roles+=[Role])*;
+	
 Access: {Access}
-	name=[Variable] ('.' members+=[Member])* (':' role=[Role])?;
+	name=[Variable] ('.' members+=[Member])*  (':' roles+=[Role])*;
 
+SubCall: {SubCall} 
+	'(' name=Line ')' (':' roles+=[Role])*;
+	
+enum concernManagment: 
+	add = '1' | remove = '0'
+;
 	/* 
 
 Destruct: {Destruct}

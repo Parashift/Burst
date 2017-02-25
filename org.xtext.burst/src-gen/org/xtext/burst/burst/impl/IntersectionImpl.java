@@ -21,7 +21,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Intersection;
 import org.xtext.burst.burst.Line;
-import org.xtext.burst.burst.Variable;
+import org.xtext.burst.burst.Parameter;
+import org.xtext.burst.burst.WithParameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +34,7 @@ import org.xtext.burst.burst.Variable;
  * <ul>
  *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getParams <em>Params</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getWithParams <em>With Params</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getLines <em>Lines</em>}</li>
  * </ul>
  *
@@ -68,7 +70,17 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
    * @generated
    * @ordered
    */
-  protected EList<Variable> params;
+  protected EList<Parameter> params;
+
+  /**
+   * The cached value of the '{@link #getWithParams() <em>With Params</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWithParams()
+   * @generated
+   * @ordered
+   */
+  protected EList<WithParameter> withParams;
 
   /**
    * The cached value of the '{@link #getLines() <em>Lines</em>}' containment reference list.
@@ -129,13 +141,27 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Variable> getParams()
+  public EList<Parameter> getParams()
   {
     if (params == null)
     {
-      params = new EObjectContainmentEList<Variable>(Variable.class, this, BurstPackage.INTERSECTION__PARAMS);
+      params = new EObjectContainmentEList<Parameter>(Parameter.class, this, BurstPackage.INTERSECTION__PARAMS);
     }
     return params;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<WithParameter> getWithParams()
+  {
+    if (withParams == null)
+    {
+      withParams = new EObjectContainmentEList<WithParameter>(WithParameter.class, this, BurstPackage.INTERSECTION__WITH_PARAMS);
+    }
+    return withParams;
   }
 
   /**
@@ -164,6 +190,8 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
     {
       case BurstPackage.INTERSECTION__PARAMS:
         return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
+      case BurstPackage.INTERSECTION__WITH_PARAMS:
+        return ((InternalEList<?>)getWithParams()).basicRemove(otherEnd, msgs);
       case BurstPackage.INTERSECTION__LINES:
         return ((InternalEList<?>)getLines()).basicRemove(otherEnd, msgs);
     }
@@ -184,6 +212,8 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
         return getName();
       case BurstPackage.INTERSECTION__PARAMS:
         return getParams();
+      case BurstPackage.INTERSECTION__WITH_PARAMS:
+        return getWithParams();
       case BurstPackage.INTERSECTION__LINES:
         return getLines();
     }
@@ -206,7 +236,11 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
         return;
       case BurstPackage.INTERSECTION__PARAMS:
         getParams().clear();
-        getParams().addAll((Collection<? extends Variable>)newValue);
+        getParams().addAll((Collection<? extends Parameter>)newValue);
+        return;
+      case BurstPackage.INTERSECTION__WITH_PARAMS:
+        getWithParams().clear();
+        getWithParams().addAll((Collection<? extends WithParameter>)newValue);
         return;
       case BurstPackage.INTERSECTION__LINES:
         getLines().clear();
@@ -232,6 +266,9 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
       case BurstPackage.INTERSECTION__PARAMS:
         getParams().clear();
         return;
+      case BurstPackage.INTERSECTION__WITH_PARAMS:
+        getWithParams().clear();
+        return;
       case BurstPackage.INTERSECTION__LINES:
         getLines().clear();
         return;
@@ -253,6 +290,8 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case BurstPackage.INTERSECTION__PARAMS:
         return params != null && !params.isEmpty();
+      case BurstPackage.INTERSECTION__WITH_PARAMS:
+        return withParams != null && !withParams.isEmpty();
       case BurstPackage.INTERSECTION__LINES:
         return lines != null && !lines.isEmpty();
     }

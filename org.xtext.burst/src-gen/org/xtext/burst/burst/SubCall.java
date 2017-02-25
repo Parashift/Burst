@@ -20,7 +20,7 @@ package org.xtext.burst.burst;
  * @model
  * @generated
  */
-public interface SubCall extends Call
+public interface SubCall extends CallElement
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' containment reference.
@@ -31,12 +31,12 @@ public interface SubCall extends Call
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' containment reference.
-   * @see #setName(CallExpr)
+   * @see #setName(Line)
    * @see org.xtext.burst.burst.BurstPackage#getSubCall_Name()
    * @model containment="true"
    * @generated
    */
-  CallExpr getName();
+  Line getName();
 
   /**
    * Sets the value of the '{@link org.xtext.burst.burst.SubCall#getName <em>Name</em>}' containment reference.
@@ -46,6 +46,6 @@ public interface SubCall extends Call
    * @see #getName()
    * @generated
    */
-  void setName(CallExpr value);
+  void setName(Line value);
 
 } // SubCall
