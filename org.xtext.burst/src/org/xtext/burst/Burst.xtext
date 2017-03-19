@@ -41,8 +41,10 @@ Member:		{Member}
 RuleIntersect:  {Intersection}
 	name= 'when' (ENDLINE)* params+=Parameter ( (ENDLINE)* (','|'and') (ENDLINE)* params+=Parameter  )* 
 	('with'  (ENDLINE)* withParams+=WithParameter ( (ENDLINE)* (','|'and') (ENDLINE)* withParams+=WithParameter  )* )?
-	 '{' (ENDLINE)* (lines+=Line ENDLINE+ )* '}';
-	
+	 block=Block;
+	 
+Block : {Block}
+	'{' (ENDLINE)* (lines+=Line (ENDLINE+ lines+=Line)* (ENDLINE)*)? '}';
 
 Parameter: {Parameter}
 	type=[Concern|QualifiedName] name=ID (usage?=':' role=[Role])?;
@@ -54,16 +56,23 @@ Variable:
 	Member | Parameter | WithParameter | Locale | Concern;
 	
 Line: 
-	Call | ContextManagement;
+	Block | Call | ContextManagement | If | Stop;
 
+Stop: {Stop}
+	'stop' (condition=Call)?;
+
+If : {If}
+	'if' expression=Call (thenBlock=Block | (ENDLINE)+ thenBlock=Line)
+	(=> (ENDLINE)* 'else' (ENDLINE)* elseBlock=Line)?;
+	
 ContextManagement: {ContextManagement}
 	action=concernManagment target=Access;
 
-Call: 
+Call: {Call}
 	content+=CallElement+ (equality?='=' source+=CallElement+)?;
 	
 CallElement: 
-	(Locale | Access | SubCall);
+	(Locale | Access | SubCall | TerminalExpression);
 
 Locale: {Locale}
 	'new' type=[Concern|QualifiedName] name=ID (':' roles+=[Role])*;
@@ -71,8 +80,16 @@ Locale: {Locale}
 Access: {Access}
 	name=[Variable] ('.' members+=[Member])*  (':' roles+=[Role])*;
 
-SubCall: {SubCall} 
-	'(' name=Line ')' (':' roles+=[Role])*;
+SubCall: {Call}
+	'(' content+=Call ')' (':' roles+=[Role])*;
+
+TerminalExpression:
+	{IntConstant} value = INT|
+	{StringConstant} value = STRING|
+	{BoolConstant} value = ('true'|'false')|
+	{DoubleConstant} value = INT '.' INT|
+	{ThisConstant} value = 'this'|
+	{NullConstant} value = 'null';	
 	
 enum concernManagment: 
 	add = '1' | remove = '0'
