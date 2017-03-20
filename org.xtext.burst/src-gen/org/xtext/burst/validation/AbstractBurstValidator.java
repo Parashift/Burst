@@ -8,9 +8,8 @@ import java.util.List;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.AbstractDeclarativeValidator;
 import org.eclipse.xtext.validation.ComposedChecks;
-import org.eclipse.xtext.validation.NamesAreUniqueValidator;
 
-@ComposedChecks(validators = {NamesAreUniqueValidator.class})
+@ComposedChecks(validators = {BurstValidator.class})
 public abstract class AbstractBurstValidator extends AbstractDeclarativeValidator {
 	
 	@Override

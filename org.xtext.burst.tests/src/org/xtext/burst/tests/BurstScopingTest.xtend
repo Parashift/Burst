@@ -37,7 +37,7 @@ public class BurstScopingTest {
 				A externalParam1
 				when A parameter {
 					new A firstLocale
-					premier (new A secondeLocale)
+					affiche (new A secondeLocale)
 					new A afterLocale
 				}
 				A externalParam2

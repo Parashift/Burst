@@ -11,6 +11,10 @@ import org.eclipse.xtext.validation.Check
 import org.xtext.burst.burst.BurstPackage
 import org.xtext.burst.burst.Concern
 import org.xtext.burst.burst.Member
+import org.xtext.burst.burst.File
+import com.google.common.collect.HashMultimap
+import org.eclipse.xtend.lib.macro.declaration.NamedElement
+import org.xtext.burst.burst.Variable
 
 /**
  * This class contains custom validation rules. 
@@ -28,7 +32,23 @@ class BurstValidator extends AbstractBurstValidator {
 		val list = newHashSet()
 		checkNoCycleInConcern(m.concern, list)
 	}
-
+		
+	@Check
+	def checkNoDuplicate(File f) {
+		checkNoDuplicateElements(f.concerns, "concern")
+	}
+	
+	/**
+	 * We have to find how to use a "variable type" to generalize elements
+	 */
+	def checkNoDuplicateElements(List<? extends Variable> variables, String string) {
+//		val multiMap = HashMultimap.create()
+//		for(e : variables) {
+//			multiMap.put(e,e)
+//		}
+	}
+	
+	@Check
 	def void checkNoCycleInConcern(Concern c, HashSet<Concern> list) {
 		for(Member m : c.members) {
 			if(m.isContent) {

@@ -21,9 +21,9 @@ Export-Package: org.xtext.burst.parser.antlr.internal,
  org.xtext.burst.burst,
  org.xtext.burst.generator,
  org.xtext.burst.services,
- org.xtext.burst.parser.antlr,
  org.xtext.burst.scoping,
  org.xtext.burst.burst.impl,
  org.xtext.burst.burst.util,
- org.xtext.burst.serializer
+ org.xtext.burst.serializer,
+ org.xtext.burst.parser.antlr
 Import-Package: org.apache.log4j
