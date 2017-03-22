@@ -730,8 +730,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cWithParameterAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cNameConcernCrossReference_1_0 = (CrossReference)cNameAssignment_1.eContents().get(0);
-		private final RuleCall cNameConcernQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cNameConcernCrossReference_1_0.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Assignment cUsageAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
 		private final Keyword cUsageColonKeyword_2_0_0 = (Keyword)cUsageAssignment_2_0.eContents().get(0);
@@ -740,23 +739,20 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRoleRoleIDTerminalRuleCall_2_1_0_1 = (RuleCall)cRoleRoleCrossReference_2_1_0.eContents().get(1);
 		
 		//WithParameter:
-		//	{WithParameter} name=[Concern|QualifiedName] (usage?=':' role=[Role])?;
+		//	{WithParameter} name=ID (usage?=':' role=[Role])?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{WithParameter} name=[Concern|QualifiedName] (usage?=':' role=[Role])?
+		//{WithParameter} name=ID (usage?=':' role=[Role])?
 		public Group getGroup() { return cGroup; }
 		
 		//{WithParameter}
 		public Action getWithParameterAction_0() { return cWithParameterAction_0; }
 		
-		//name=[Concern|QualifiedName]
+		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//[Concern|QualifiedName]
-		public CrossReference getNameConcernCrossReference_1_0() { return cNameConcernCrossReference_1_0; }
-		
-		//QualifiedName
-		public RuleCall getNameConcernQualifiedNameParserRuleCall_1_0_1() { return cNameConcernQualifiedNameParserRuleCall_1_0_1; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//(usage?=':' role=[Role])?
 		public Group getGroup_2() { return cGroup_2; }
@@ -1661,7 +1657,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//WithParameter:
-	//	{WithParameter} name=[Concern|QualifiedName] (usage?=':' role=[Role])?;
+	//	{WithParameter} name=ID (usage?=':' role=[Role])?;
 	public WithParameterElements getWithParameterAccess() {
 		return pWithParameter;
 	}

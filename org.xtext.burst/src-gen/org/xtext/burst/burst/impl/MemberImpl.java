@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.Member;
+import org.xtext.burst.burst.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,16 +23,36 @@ import org.xtext.burst.burst.Member;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.burst.burst.impl.MemberImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.MemberImpl#isActAs <em>Act As</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.MemberImpl#isIsContent <em>Is Content</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.MemberImpl#getConcern <em>Concern</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.MemberImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MemberImpl extends ConcernElementImpl implements Member
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #isActAs() <em>Act As</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -83,26 +104,6 @@ public class MemberImpl extends ConcernElementImpl implements Member
   protected Concern concern;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -121,6 +122,29 @@ public class MemberImpl extends ConcernElementImpl implements Member
   protected EClass eStaticClass()
   {
     return BurstPackage.Literals.MEMBER;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER__NAME, oldName, name));
   }
 
   /**
@@ -217,34 +241,13 @@ public class MemberImpl extends ConcernElementImpl implements Member
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.MEMBER__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case BurstPackage.MEMBER__NAME:
+        return getName();
       case BurstPackage.MEMBER__ACT_AS:
         return isActAs();
       case BurstPackage.MEMBER__IS_CONTENT:
@@ -252,8 +255,6 @@ public class MemberImpl extends ConcernElementImpl implements Member
       case BurstPackage.MEMBER__CONCERN:
         if (resolve) return getConcern();
         return basicGetConcern();
-      case BurstPackage.MEMBER__NAME:
-        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -268,6 +269,9 @@ public class MemberImpl extends ConcernElementImpl implements Member
   {
     switch (featureID)
     {
+      case BurstPackage.MEMBER__NAME:
+        setName((String)newValue);
+        return;
       case BurstPackage.MEMBER__ACT_AS:
         setActAs((Boolean)newValue);
         return;
@@ -276,9 +280,6 @@ public class MemberImpl extends ConcernElementImpl implements Member
         return;
       case BurstPackage.MEMBER__CONCERN:
         setConcern((Concern)newValue);
-        return;
-      case BurstPackage.MEMBER__NAME:
-        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -294,6 +295,9 @@ public class MemberImpl extends ConcernElementImpl implements Member
   {
     switch (featureID)
     {
+      case BurstPackage.MEMBER__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case BurstPackage.MEMBER__ACT_AS:
         setActAs(ACT_AS_EDEFAULT);
         return;
@@ -302,9 +306,6 @@ public class MemberImpl extends ConcernElementImpl implements Member
         return;
       case BurstPackage.MEMBER__CONCERN:
         setConcern((Concern)null);
-        return;
-      case BurstPackage.MEMBER__NAME:
-        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -320,16 +321,54 @@ public class MemberImpl extends ConcernElementImpl implements Member
   {
     switch (featureID)
     {
+      case BurstPackage.MEMBER__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case BurstPackage.MEMBER__ACT_AS:
         return actAs != ACT_AS_EDEFAULT;
       case BurstPackage.MEMBER__IS_CONTENT:
         return isContent != IS_CONTENT_EDEFAULT;
       case BurstPackage.MEMBER__CONCERN:
         return concern != null;
-      case BurstPackage.MEMBER__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == Variable.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case BurstPackage.MEMBER__NAME: return BurstPackage.VARIABLE__NAME;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == Variable.class)
+    {
+      switch (baseFeatureID)
+      {
+        case BurstPackage.VARIABLE__NAME: return BurstPackage.MEMBER__NAME;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**
@@ -343,12 +382,12 @@ public class MemberImpl extends ConcernElementImpl implements Member
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (actAs: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", actAs: ");
     result.append(actAs);
     result.append(", isContent: ");
     result.append(isContent);
-    result.append(", name: ");
-    result.append(name);
     result.append(')');
     return result.toString();
   }

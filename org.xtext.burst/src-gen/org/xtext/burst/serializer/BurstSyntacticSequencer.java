@@ -367,7 +367,7 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ',' | 'and'
+	 *     'and' | ','
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     params+=Parameter ENDLINE* (ambiguity) ENDLINE* params+=Parameter
@@ -378,7 +378,7 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     'and' | ','
+	 *     ',' | 'and'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     withParams+=WithParameter ENDLINE* (ambiguity) ENDLINE* withParams+=WithParameter
@@ -403,7 +403,7 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ENDLINE*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     params+=Parameter (ambiguity) (',' | 'and') ENDLINE* params+=Parameter
+	 *     params+=Parameter (ambiguity) ('and' | ',') ENDLINE* params+=Parameter
 	 */
 	protected void emit_RuleIntersect_ENDLINETerminalRuleCall_4_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -414,7 +414,7 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ENDLINE*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     params+=Parameter ENDLINE* (',' | 'and') (ambiguity) params+=Parameter
+	 *     params+=Parameter ENDLINE* ('and' | ',') (ambiguity) params+=Parameter
 	 */
 	protected void emit_RuleIntersect_ENDLINETerminalRuleCall_4_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -436,7 +436,7 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ENDLINE*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     withParams+=WithParameter (ambiguity) ('and' | ',') ENDLINE* withParams+=WithParameter
+	 *     withParams+=WithParameter (ambiguity) (',' | 'and') ENDLINE* withParams+=WithParameter
 	 */
 	protected void emit_RuleIntersect_ENDLINETerminalRuleCall_5_3_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -447,7 +447,7 @@ public class BurstSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ENDLINE*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     withParams+=WithParameter ENDLINE* ('and' | ',') (ambiguity) withParams+=WithParameter
+	 *     withParams+=WithParameter ENDLINE* (',' | 'and') (ambiguity) withParams+=WithParameter
 	 */
 	protected void emit_RuleIntersect_ENDLINETerminalRuleCall_5_3_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

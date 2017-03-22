@@ -29,6 +29,89 @@ public class BurstValidatorTest {
 	}
 	
 	@Test
+	def void testDetectDuplicationPackages() {
+		'''
+		package A {
+			concern C
+		}
+		package A {
+			concern B
+		}'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def void testDetectDuplicationConcernInSamePackages() {
+		'''
+		package A {
+			concern B
+			concern C
+			concern B {
+				C param1
+			}
+		}'''.parse.assertError(BurstPackage.eINSTANCE.concern, BurstValidator.DUPLICATE_ELEMENT, "Duplicate concern 'B'")			
+	}
+	
+	@Test
+	def void testDetectDuplicationConcernInDistinctsPackages() {
+		'''
+		package A {
+			concern B
+		}
+		package B
+			concern C
+			concern B {
+				C param1
+			}
+		}'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def void testDetectDuplicationMembersInSameConcern() {
+		'''
+		package A {
+			concern B
+			concern C {
+				B unB
+				B unB
+			}
+		}
+		}'''.parse.assertError(BurstPackage.eINSTANCE.concern, BurstValidator.DUPLICATE_ELEMENT, "Duplicate member 'unB'")	
+	}
+	
+	@Test
+	def void testDetectDuplicationMembersInDistinctConcern() {
+		'''
+				package A {
+					concern B {
+						B unB
+					}
+					concern C {
+						B unB
+					}
+				}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
+	def void testDetectDuplicationWhen() {
+		'''
+				package A {
+					concern B
+					concern C {
+						B unB
+						when B b {
+							b unB
+						}
+						when B b, B unAutreB {
+							unB unAutreB
+							b unAutreB
+						}
+					}
+				}
+		'''.parse.assertNoErrors
+	}
+	
+	@Test
 	def void testDetectHyerarchyCycle1() {
 		'''
 		package A {

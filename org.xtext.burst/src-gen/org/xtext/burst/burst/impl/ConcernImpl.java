@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.ConcernElement;
+import org.xtext.burst.burst.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -218,6 +219,44 @@ public class ConcernImpl extends PackageElementImpl implements Concern
         return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == Variable.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case BurstPackage.CONCERN__NAME: return BurstPackage.VARIABLE__NAME;
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == Variable.class)
+    {
+      switch (baseFeatureID)
+      {
+        case BurstPackage.VARIABLE__NAME: return BurstPackage.CONCERN__NAME;
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**

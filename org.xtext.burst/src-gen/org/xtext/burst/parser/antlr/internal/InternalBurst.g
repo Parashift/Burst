@@ -1190,17 +1190,19 @@ ruleWithParameter returns [EObject current=null]
 		)
 		(
 			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getWithParameterAccess().getNameIDTerminalRuleCall_1_0());
+				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getWithParameterRule());
 					}
-				}
-				{
-					newCompositeNode(grammarAccess.getWithParameterAccess().getNameConcernCrossReference_1_0());
-				}
-				ruleQualifiedName
-				{
-					afterParserOrEnumRuleCall();
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.xtext.burst.Burst.ID");
 				}
 			)
 		)

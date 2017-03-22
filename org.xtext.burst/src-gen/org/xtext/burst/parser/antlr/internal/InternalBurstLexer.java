@@ -688,10 +688,10 @@ public class InternalBurstLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBurst.g:2180:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalBurst.g:2180:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalBurst.g:2182:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalBurst.g:2182:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalBurst.g:2180:11: ( '^' )?
+            // InternalBurst.g:2182:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -700,7 +700,7 @@ public class InternalBurstLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalBurst.g:2180:11: '^'
+                    // InternalBurst.g:2182:11: '^'
                     {
                     match('^'); 
 
@@ -718,7 +718,7 @@ public class InternalBurstLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalBurst.g:2180:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalBurst.g:2182:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -767,10 +767,10 @@ public class InternalBurstLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBurst.g:2182:10: ( ( '0' .. '9' )+ )
-            // InternalBurst.g:2182:12: ( '0' .. '9' )+
+            // InternalBurst.g:2184:10: ( ( '0' .. '9' )+ )
+            // InternalBurst.g:2184:12: ( '0' .. '9' )+
             {
-            // InternalBurst.g:2182:12: ( '0' .. '9' )+
+            // InternalBurst.g:2184:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -784,7 +784,7 @@ public class InternalBurstLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalBurst.g:2182:13: '0' .. '9'
+            	    // InternalBurst.g:2184:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -816,10 +816,10 @@ public class InternalBurstLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBurst.g:2184:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalBurst.g:2184:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalBurst.g:2186:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalBurst.g:2186:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalBurst.g:2184:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalBurst.g:2186:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -837,10 +837,10 @@ public class InternalBurstLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalBurst.g:2184:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalBurst.g:2186:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalBurst.g:2184:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalBurst.g:2186:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -856,7 +856,7 @@ public class InternalBurstLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalBurst.g:2184:21: '\\\\' .
+                    	    // InternalBurst.g:2186:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -864,7 +864,7 @@ public class InternalBurstLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalBurst.g:2184:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalBurst.g:2186:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -889,10 +889,10 @@ public class InternalBurstLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalBurst.g:2184:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalBurst.g:2186:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalBurst.g:2184:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalBurst.g:2186:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -908,7 +908,7 @@ public class InternalBurstLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalBurst.g:2184:54: '\\\\' .
+                    	    // InternalBurst.g:2186:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -916,7 +916,7 @@ public class InternalBurstLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalBurst.g:2184:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalBurst.g:2186:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -959,12 +959,12 @@ public class InternalBurstLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBurst.g:2186:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalBurst.g:2186:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalBurst.g:2188:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalBurst.g:2188:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalBurst.g:2186:24: ( options {greedy=false; } : . )*
+            // InternalBurst.g:2188:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -989,7 +989,7 @@ public class InternalBurstLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalBurst.g:2186:52: .
+            	    // InternalBurst.g:2188:52: .
             	    {
             	    matchAny(); 
 
@@ -1019,12 +1019,12 @@ public class InternalBurstLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBurst.g:2188:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalBurst.g:2188:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalBurst.g:2190:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalBurst.g:2190:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalBurst.g:2188:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalBurst.g:2190:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1037,7 +1037,7 @@ public class InternalBurstLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalBurst.g:2188:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalBurst.g:2190:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1057,7 +1057,7 @@ public class InternalBurstLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalBurst.g:2188:40: ( ( '\\r' )? '\\n' )?
+            // InternalBurst.g:2190:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1066,9 +1066,9 @@ public class InternalBurstLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalBurst.g:2188:41: ( '\\r' )? '\\n'
+                    // InternalBurst.g:2190:41: ( '\\r' )? '\\n'
                     {
-                    // InternalBurst.g:2188:41: ( '\\r' )?
+                    // InternalBurst.g:2190:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1077,7 +1077,7 @@ public class InternalBurstLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalBurst.g:2188:41: '\\r'
+                            // InternalBurst.g:2190:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1109,10 +1109,10 @@ public class InternalBurstLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBurst.g:2190:9: ( ( ' ' | '\\t' )+ )
-            // InternalBurst.g:2190:11: ( ' ' | '\\t' )+
+            // InternalBurst.g:2192:9: ( ( ' ' | '\\t' )+ )
+            // InternalBurst.g:2192:11: ( ' ' | '\\t' )+
             {
-            // InternalBurst.g:2190:11: ( ' ' | '\\t' )+
+            // InternalBurst.g:2192:11: ( ' ' | '\\t' )+
             int cnt11=0;
             loop11:
             do {
@@ -1166,10 +1166,10 @@ public class InternalBurstLexer extends Lexer {
         try {
             int _type = RULE_ENDLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBurst.g:2192:14: ( ( '\\r' )? '\\n' )
-            // InternalBurst.g:2192:16: ( '\\r' )? '\\n'
+            // InternalBurst.g:2194:14: ( ( '\\r' )? '\\n' )
+            // InternalBurst.g:2194:16: ( '\\r' )? '\\n'
             {
-            // InternalBurst.g:2192:16: ( '\\r' )?
+            // InternalBurst.g:2194:16: ( '\\r' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1178,7 +1178,7 @@ public class InternalBurstLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalBurst.g:2192:16: '\\r'
+                    // InternalBurst.g:2194:16: '\\r'
                     {
                     match('\r'); 
 
@@ -1204,8 +1204,8 @@ public class InternalBurstLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBurst.g:2194:16: ( . )
-            // InternalBurst.g:2194:18: .
+            // InternalBurst.g:2196:16: ( . )
+            // InternalBurst.g:2196:18: .
             {
             matchAny(); 
 

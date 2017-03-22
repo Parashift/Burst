@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.burst.burst.BurstPackage;
-import org.xtext.burst.burst.Concern;
 import org.xtext.burst.burst.Role;
 import org.xtext.burst.burst.WithParameter;
 
@@ -23,7 +22,6 @@ import org.xtext.burst.burst.WithParameter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.burst.burst.impl.WithParameterImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.WithParameterImpl#isUsage <em>Usage</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.WithParameterImpl#getRole <em>Role</em>}</li>
  * </ul>
@@ -32,16 +30,6 @@ import org.xtext.burst.burst.WithParameter;
  */
 public class WithParameterImpl extends VariableImpl implements WithParameter
 {
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected Concern name;
-
   /**
    * The default value of the '{@link #isUsage() <em>Usage</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -91,49 +79,6 @@ public class WithParameterImpl extends VariableImpl implements WithParameter
   protected EClass eStaticClass()
   {
     return BurstPackage.Literals.WITH_PARAMETER;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Concern getName()
-  {
-    if (name != null && name.eIsProxy())
-    {
-      InternalEObject oldName = (InternalEObject)name;
-      name = (Concern)eResolveProxy(oldName);
-      if (name != oldName)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.WITH_PARAMETER__NAME, oldName, name));
-      }
-    }
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Concern basicGetName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(Concern newName)
-  {
-    Concern oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.WITH_PARAMETER__NAME, oldName, name));
   }
 
   /**
@@ -212,9 +157,6 @@ public class WithParameterImpl extends VariableImpl implements WithParameter
   {
     switch (featureID)
     {
-      case BurstPackage.WITH_PARAMETER__NAME:
-        if (resolve) return getName();
-        return basicGetName();
       case BurstPackage.WITH_PARAMETER__USAGE:
         return isUsage();
       case BurstPackage.WITH_PARAMETER__ROLE:
@@ -234,9 +176,6 @@ public class WithParameterImpl extends VariableImpl implements WithParameter
   {
     switch (featureID)
     {
-      case BurstPackage.WITH_PARAMETER__NAME:
-        setName((Concern)newValue);
-        return;
       case BurstPackage.WITH_PARAMETER__USAGE:
         setUsage((Boolean)newValue);
         return;
@@ -257,9 +196,6 @@ public class WithParameterImpl extends VariableImpl implements WithParameter
   {
     switch (featureID)
     {
-      case BurstPackage.WITH_PARAMETER__NAME:
-        setName((Concern)null);
-        return;
       case BurstPackage.WITH_PARAMETER__USAGE:
         setUsage(USAGE_EDEFAULT);
         return;
@@ -280,8 +216,6 @@ public class WithParameterImpl extends VariableImpl implements WithParameter
   {
     switch (featureID)
     {
-      case BurstPackage.WITH_PARAMETER__NAME:
-        return name != null;
       case BurstPackage.WITH_PARAMETER__USAGE:
         return usage != USAGE_EDEFAULT;
       case BurstPackage.WITH_PARAMETER__ROLE:

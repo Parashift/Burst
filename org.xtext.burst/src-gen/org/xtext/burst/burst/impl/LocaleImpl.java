@@ -30,7 +30,6 @@ import org.xtext.burst.burst.Role;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.burst.burst.impl.LocaleImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.LocaleImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.LocaleImpl#getRoles <em>Roles</em>}</li>
  * </ul>
  *
@@ -47,26 +46,6 @@ public class LocaleImpl extends VariableImpl implements Locale
    * @ordered
    */
   protected Concern type;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getRoles() <em>Roles</em>}' reference list.
@@ -147,29 +126,6 @@ public class LocaleImpl extends VariableImpl implements Locale
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.LOCALE__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Role> getRoles()
   {
     if (roles == null)
@@ -192,8 +148,6 @@ public class LocaleImpl extends VariableImpl implements Locale
       case BurstPackage.LOCALE__TYPE:
         if (resolve) return getType();
         return basicGetType();
-      case BurstPackage.LOCALE__NAME:
-        return getName();
       case BurstPackage.LOCALE__ROLES:
         return getRoles();
     }
@@ -213,9 +167,6 @@ public class LocaleImpl extends VariableImpl implements Locale
     {
       case BurstPackage.LOCALE__TYPE:
         setType((Concern)newValue);
-        return;
-      case BurstPackage.LOCALE__NAME:
-        setName((String)newValue);
         return;
       case BurstPackage.LOCALE__ROLES:
         getRoles().clear();
@@ -238,9 +189,6 @@ public class LocaleImpl extends VariableImpl implements Locale
       case BurstPackage.LOCALE__TYPE:
         setType((Concern)null);
         return;
-      case BurstPackage.LOCALE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case BurstPackage.LOCALE__ROLES:
         getRoles().clear();
         return;
@@ -260,29 +208,10 @@ public class LocaleImpl extends VariableImpl implements Locale
     {
       case BurstPackage.LOCALE__TYPE:
         return type != null;
-      case BurstPackage.LOCALE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case BurstPackage.LOCALE__ROLES:
         return roles != null && !roles.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //LocaleImpl

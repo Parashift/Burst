@@ -50,7 +50,7 @@ Parameter: {Parameter}
 	type=[Concern|QualifiedName] name=ID (usage?=':' role=[Role])?;
 	
 WithParameter: {WithParameter}
-	name=[Concern|QualifiedName] (usage?=':' role=[Role])?;
+	name=ID /*[Concern|QualifiedName]*/ (usage?=':' role=[Role])?;
 	
 Variable: 
 	Member | Parameter | WithParameter | Locale | Concern;

@@ -493,7 +493,7 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Variable returns WithParameter
 	 *
 	 * Constraint:
-	 *     (name=[Concern|QualifiedName] (usage?=':' role=[Role|ID])?)
+	 *     (name=ID (usage?=':' role=[Role|ID])?)
 	 */
 	protected void sequence_WithParameter(ISerializationContext context, WithParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

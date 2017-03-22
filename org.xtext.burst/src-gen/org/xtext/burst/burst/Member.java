@@ -16,7 +16,6 @@ package org.xtext.burst.burst;
  *   <li>{@link org.xtext.burst.burst.Member#isActAs <em>Act As</em>}</li>
  *   <li>{@link org.xtext.burst.burst.Member#isIsContent <em>Is Content</em>}</li>
  *   <li>{@link org.xtext.burst.burst.Member#getConcern <em>Concern</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Member#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see org.xtext.burst.burst.BurstPackage#getMember()
@@ -102,31 +101,5 @@ public interface Member extends ConcernElement, Variable
    * @generated
    */
   void setConcern(Concern value);
-
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.burst.burst.BurstPackage#getMember_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.xtext.burst.burst.Member#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
 
 } // Member

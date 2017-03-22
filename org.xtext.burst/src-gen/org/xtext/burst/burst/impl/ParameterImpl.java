@@ -24,7 +24,6 @@ import org.xtext.burst.burst.Role;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.burst.burst.impl.ParameterImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.ParameterImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.ParameterImpl#isUsage <em>Usage</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.ParameterImpl#getRole <em>Role</em>}</li>
  * </ul>
@@ -42,26 +41,6 @@ public class ParameterImpl extends VariableImpl implements Parameter
    * @ordered
    */
   protected Concern type;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #isUsage() <em>Usage</em>}' attribute.
@@ -162,29 +141,6 @@ public class ParameterImpl extends VariableImpl implements Parameter
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.PARAMETER__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public boolean isUsage()
   {
     return usage;
@@ -259,8 +215,6 @@ public class ParameterImpl extends VariableImpl implements Parameter
       case BurstPackage.PARAMETER__TYPE:
         if (resolve) return getType();
         return basicGetType();
-      case BurstPackage.PARAMETER__NAME:
-        return getName();
       case BurstPackage.PARAMETER__USAGE:
         return isUsage();
       case BurstPackage.PARAMETER__ROLE:
@@ -282,9 +236,6 @@ public class ParameterImpl extends VariableImpl implements Parameter
     {
       case BurstPackage.PARAMETER__TYPE:
         setType((Concern)newValue);
-        return;
-      case BurstPackage.PARAMETER__NAME:
-        setName((String)newValue);
         return;
       case BurstPackage.PARAMETER__USAGE:
         setUsage((Boolean)newValue);
@@ -309,9 +260,6 @@ public class ParameterImpl extends VariableImpl implements Parameter
       case BurstPackage.PARAMETER__TYPE:
         setType((Concern)null);
         return;
-      case BurstPackage.PARAMETER__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case BurstPackage.PARAMETER__USAGE:
         setUsage(USAGE_EDEFAULT);
         return;
@@ -334,8 +282,6 @@ public class ParameterImpl extends VariableImpl implements Parameter
     {
       case BurstPackage.PARAMETER__TYPE:
         return type != null;
-      case BurstPackage.PARAMETER__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case BurstPackage.PARAMETER__USAGE:
         return usage != USAGE_EDEFAULT;
       case BurstPackage.PARAMETER__ROLE:
@@ -355,9 +301,7 @@ public class ParameterImpl extends VariableImpl implements Parameter
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", usage: ");
+    result.append(" (usage: ");
     result.append(usage);
     result.append(')');
     return result.toString();

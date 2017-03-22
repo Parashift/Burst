@@ -330,13 +330,22 @@ public interface BurstPackage extends EPackage
   int MEMBER = 9;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER__NAME = CONCERN_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Act As</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MEMBER__ACT_AS = CONCERN_ELEMENT_FEATURE_COUNT + 0;
+  int MEMBER__ACT_AS = CONCERN_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Is Content</b></em>' attribute.
@@ -345,7 +354,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER__IS_CONTENT = CONCERN_ELEMENT_FEATURE_COUNT + 1;
+  int MEMBER__IS_CONTENT = CONCERN_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Concern</b></em>' reference.
@@ -354,16 +363,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER__CONCERN = CONCERN_ELEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MEMBER__NAME = CONCERN_ELEMENT_FEATURE_COUNT + 3;
+  int MEMBER__CONCERN = CONCERN_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Member</em>' class.
@@ -451,13 +451,22 @@ public interface BurstPackage extends EPackage
   int VARIABLE = 14;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE__NAME = 0;
+
+  /**
    * The number of structural features of the '<em>Variable</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_FEATURE_COUNT = 0;
+  int VARIABLE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -470,6 +479,15 @@ public interface BurstPackage extends EPackage
   int PARAMETER = 12;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__NAME = VARIABLE__NAME;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -479,22 +497,13 @@ public interface BurstPackage extends EPackage
   int PARAMETER__TYPE = VARIABLE_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__NAME = VARIABLE_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Usage</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER__USAGE = VARIABLE_FEATURE_COUNT + 2;
+  int PARAMETER__USAGE = VARIABLE_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Role</b></em>' reference.
@@ -503,7 +512,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER__ROLE = VARIABLE_FEATURE_COUNT + 3;
+  int PARAMETER__ROLE = VARIABLE_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Parameter</em>' class.
@@ -512,7 +521,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 4;
+  int PARAMETER_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.WithParameterImpl <em>With Parameter</em>}' class.
@@ -525,13 +534,13 @@ public interface BurstPackage extends EPackage
   int WITH_PARAMETER = 13;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WITH_PARAMETER__NAME = VARIABLE_FEATURE_COUNT + 0;
+  int WITH_PARAMETER__NAME = VARIABLE__NAME;
 
   /**
    * The feature id for the '<em><b>Usage</b></em>' attribute.
@@ -540,7 +549,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WITH_PARAMETER__USAGE = VARIABLE_FEATURE_COUNT + 1;
+  int WITH_PARAMETER__USAGE = VARIABLE_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Role</b></em>' reference.
@@ -549,7 +558,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WITH_PARAMETER__ROLE = VARIABLE_FEATURE_COUNT + 2;
+  int WITH_PARAMETER__ROLE = VARIABLE_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>With Parameter</em>' class.
@@ -558,7 +567,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WITH_PARAMETER_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 3;
+  int WITH_PARAMETER_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.StopImpl <em>Stop</em>}' class.
@@ -756,6 +765,15 @@ public interface BurstPackage extends EPackage
   int LOCALE = 21;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCALE__NAME = VARIABLE__NAME;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -765,22 +783,13 @@ public interface BurstPackage extends EPackage
   int LOCALE__TYPE = VARIABLE_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOCALE__NAME = VARIABLE_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Roles</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOCALE__ROLES = VARIABLE_FEATURE_COUNT + 2;
+  int LOCALE__ROLES = VARIABLE_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Locale</em>' class.
@@ -789,7 +798,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOCALE_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 3;
+  int LOCALE_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.AccessImpl <em>Access</em>}' class.
@@ -1263,17 +1272,6 @@ public interface BurstPackage extends EPackage
   EClass getConcern();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Concern#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.burst.burst.Concern#getName()
-   * @see #getConcern()
-   * @generated
-   */
-  EAttribute getConcern_Name();
-
-  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.Concern#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1381,17 +1379,6 @@ public interface BurstPackage extends EPackage
   EReference getMember_Concern();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Member#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.burst.burst.Member#getName()
-   * @see #getMember()
-   * @generated
-   */
-  EAttribute getMember_Name();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.RuleIntersect <em>Rule Intersect</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1444,17 +1431,6 @@ public interface BurstPackage extends EPackage
   EReference getParameter_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Parameter#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.burst.burst.Parameter#getName()
-   * @see #getParameter()
-   * @generated
-   */
-  EAttribute getParameter_Name();
-
-  /**
    * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Parameter#isUsage <em>Usage</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1487,17 +1463,6 @@ public interface BurstPackage extends EPackage
   EClass getWithParameter();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.burst.burst.WithParameter#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
-   * @see org.xtext.burst.burst.WithParameter#getName()
-   * @see #getWithParameter()
-   * @generated
-   */
-  EReference getWithParameter_Name();
-
-  /**
    * Returns the meta object for the attribute '{@link org.xtext.burst.burst.WithParameter#isUsage <em>Usage</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1528,6 +1493,17 @@ public interface BurstPackage extends EPackage
    * @generated
    */
   EClass getVariable();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Variable#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.burst.burst.Variable#getName()
+   * @see #getVariable()
+   * @generated
+   */
+  EAttribute getVariable_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.Line <em>Line</em>}'.
@@ -1719,17 +1695,6 @@ public interface BurstPackage extends EPackage
    * @generated
    */
   EReference getLocale_Type();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Locale#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.burst.burst.Locale#getName()
-   * @see #getLocale()
-   * @generated
-   */
-  EAttribute getLocale_Name();
 
   /**
    * Returns the meta object for the reference list '{@link org.xtext.burst.burst.Locale#getRoles <em>Roles</em>}'.
@@ -2150,14 +2115,6 @@ public interface BurstPackage extends EPackage
     EClass CONCERN = eINSTANCE.getConcern();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONCERN__NAME = eINSTANCE.getConcern_Name();
-
-    /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2244,14 +2201,6 @@ public interface BurstPackage extends EPackage
     EReference MEMBER__CONCERN = eINSTANCE.getMember_Concern();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MEMBER__NAME = eINSTANCE.getMember_Name();
-
-    /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.RuleIntersectImpl <em>Rule Intersect</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2298,14 +2247,6 @@ public interface BurstPackage extends EPackage
     EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
-
-    /**
      * The meta object literal for the '<em><b>Usage</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2332,14 +2273,6 @@ public interface BurstPackage extends EPackage
     EClass WITH_PARAMETER = eINSTANCE.getWithParameter();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference WITH_PARAMETER__NAME = eINSTANCE.getWithParameter_Name();
-
-    /**
      * The meta object literal for the '<em><b>Usage</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2364,6 +2297,14 @@ public interface BurstPackage extends EPackage
      * @generated
      */
     EClass VARIABLE = eINSTANCE.getVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.LineImpl <em>Line</em>}' class.
@@ -2522,14 +2463,6 @@ public interface BurstPackage extends EPackage
      * @generated
      */
     EReference LOCALE__TYPE = eINSTANCE.getLocale_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LOCALE__NAME = eINSTANCE.getLocale_Name();
 
     /**
      * The meta object literal for the '<em><b>Roles</b></em>' reference list feature.

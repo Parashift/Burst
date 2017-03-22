@@ -5806,13 +5806,9 @@ rule__WithParameter__NameAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getWithParameterAccess().getNameConcernCrossReference_1_0()); }
-		(
-			{ before(grammarAccess.getWithParameterAccess().getNameConcernQualifiedNameParserRuleCall_1_0_1()); }
-			ruleQualifiedName
-			{ after(grammarAccess.getWithParameterAccess().getNameConcernQualifiedNameParserRuleCall_1_0_1()); }
-		)
-		{ after(grammarAccess.getWithParameterAccess().getNameConcernCrossReference_1_0()); }
+		{ before(grammarAccess.getWithParameterAccess().getNameIDTerminalRuleCall_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getWithParameterAccess().getNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

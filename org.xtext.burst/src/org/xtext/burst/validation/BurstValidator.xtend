@@ -25,7 +25,9 @@ class BurstValidator extends AbstractBurstValidator {
 	
 	extension ConcernExtensions c = new ConcernExtensions ();
 	
-	public static String HIERARCHY_CYCLE = ""
+	public static val ISSUE_CODE_PREFIX = "org.burst."
+	public static val DUPLICATE_ELEMENT = ISSUE_CODE_PREFIX + "DUPLICATE_ELEMENT"
+	public static val HIERARCHY_CYCLE =  ISSUE_CODE_PREFIX + "HIERARCHY_CYCLE"
 	
 	@Check
 	def checkNoCycleInConcernHierachy(Member m) {
@@ -41,11 +43,20 @@ class BurstValidator extends AbstractBurstValidator {
 	/**
 	 * We have to find how to use a "variable type" to generalize elements
 	 */
-	def checkNoDuplicateElements(List<? extends Variable> variables, String string) {
-//		val multiMap = HashMultimap.create()
-//		for(e : variables) {
-//			multiMap.put(e,e)
-//		}
+	def checkNoDuplicateElements(List<? extends Variable> variables, String desc) {
+
+		val multiMap = HashMultimap.create()
+		for(e : variables) {
+			multiMap.put(e.name,e)
+			for(entry: multiMap.asMap.entrySet) {
+				val duplicates = 	entry.value 
+				if(duplicates.size>1) {
+					for(d : duplicates) {
+						error("Duplicate "+desc+ " '"+ d.name+"'", d, BurstPackage.eINSTANCE.variable_Name, DUPLICATE_ELEMENT)
+					}
+				}
+			}
+		}
 	}
 	
 	@Check
