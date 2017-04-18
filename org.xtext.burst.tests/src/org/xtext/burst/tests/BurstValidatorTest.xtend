@@ -71,7 +71,7 @@ public class BurstValidatorTest {
 		package A {
 			concern B
 			concern C {
-				B unB
+				C unB
 				B unB
 			}
 		}
