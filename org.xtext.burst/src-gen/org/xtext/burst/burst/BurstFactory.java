@@ -141,15 +141,6 @@ public interface BurstFactory extends EFactory
   Parameter createParameter();
 
   /**
-   * Returns a new object of class '<em>With Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>With Parameter</em>'.
-   * @generated
-   */
-  WithParameter createWithParameter();
-
-  /**
    * Returns a new object of class '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

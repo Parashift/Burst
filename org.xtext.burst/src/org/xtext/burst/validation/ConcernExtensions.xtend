@@ -77,7 +77,6 @@ class ConcernExtensions {
 	def	List<Variable> getVariables(Intersection i) {
 		val list =  new ArrayList<Variable>();
 		list.addAll(i.params)
-		list.addAll(i.withParams)
 		return list;
 	}
 	

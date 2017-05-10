@@ -493,30 +493,15 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cENDLINETerminalRuleCall_4_2 = (RuleCall)cGroup_4.eContents().get(2);
 		private final Assignment cParamsAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
 		private final RuleCall cParamsParameterParserRuleCall_4_3_0 = (RuleCall)cParamsAssignment_4_3.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cWithKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final RuleCall cENDLINETerminalRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
-		private final Assignment cWithParamsAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cWithParamsWithParameterParserRuleCall_5_2_0 = (RuleCall)cWithParamsAssignment_5_2.eContents().get(0);
-		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
-		private final RuleCall cENDLINETerminalRuleCall_5_3_0 = (RuleCall)cGroup_5_3.eContents().get(0);
-		private final Alternatives cAlternatives_5_3_1 = (Alternatives)cGroup_5_3.eContents().get(1);
-		private final Keyword cCommaKeyword_5_3_1_0 = (Keyword)cAlternatives_5_3_1.eContents().get(0);
-		private final Keyword cAndKeyword_5_3_1_1 = (Keyword)cAlternatives_5_3_1.eContents().get(1);
-		private final RuleCall cENDLINETerminalRuleCall_5_3_2 = (RuleCall)cGroup_5_3.eContents().get(2);
-		private final Assignment cWithParamsAssignment_5_3_3 = (Assignment)cGroup_5_3.eContents().get(3);
-		private final RuleCall cWithParamsWithParameterParserRuleCall_5_3_3_0 = (RuleCall)cWithParamsAssignment_5_3_3.eContents().get(0);
-		private final Assignment cBlockAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cBlockBlockParserRuleCall_6_0 = (RuleCall)cBlockAssignment_6.eContents().get(0);
+		private final Assignment cBlockAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cBlockBlockParserRuleCall_5_0 = (RuleCall)cBlockAssignment_5.eContents().get(0);
 		
 		//RuleIntersect:
-		//	{Intersection} name='when' ENDLINE* params+=Parameter (ENDLINE* (',' | 'and') ENDLINE* params+=Parameter)* ('with'
-		//	ENDLINE* withParams+=WithParameter (ENDLINE* (',' | 'and') ENDLINE* withParams+=WithParameter)*)?
+		//	{Intersection} name='when' ENDLINE* params+=Parameter (ENDLINE* (',' | 'and')? ENDLINE* params+=Parameter)*
 		//	block=Block;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Intersection} name='when' ENDLINE* params+=Parameter (ENDLINE* (',' | 'and') ENDLINE* params+=Parameter)* ('with'
-		//ENDLINE* withParams+=WithParameter (ENDLINE* (',' | 'and') ENDLINE* withParams+=WithParameter)*)? block=Block
+		//{Intersection} name='when' ENDLINE* params+=Parameter (ENDLINE* (',' | 'and')? ENDLINE* params+=Parameter)* block=Block
 		public Group getGroup() { return cGroup; }
 		
 		//{Intersection}
@@ -537,13 +522,13 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//Parameter
 		public RuleCall getParamsParameterParserRuleCall_3_0() { return cParamsParameterParserRuleCall_3_0; }
 		
-		//(ENDLINE* (',' | 'and') ENDLINE* params+=Parameter)*
+		//(ENDLINE* (',' | 'and')? ENDLINE* params+=Parameter)*
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//ENDLINE*
 		public RuleCall getENDLINETerminalRuleCall_4_0() { return cENDLINETerminalRuleCall_4_0; }
 		
-		//',' | 'and'
+		//(',' | 'and')?
 		public Alternatives getAlternatives_4_1() { return cAlternatives_4_1; }
 		
 		//','
@@ -561,50 +546,11 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//Parameter
 		public RuleCall getParamsParameterParserRuleCall_4_3_0() { return cParamsParameterParserRuleCall_4_3_0; }
 		
-		//('with' ENDLINE* withParams+=WithParameter (ENDLINE* (',' | 'and') ENDLINE* withParams+=WithParameter)*)?
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'with'
-		public Keyword getWithKeyword_5_0() { return cWithKeyword_5_0; }
-		
-		//ENDLINE*
-		public RuleCall getENDLINETerminalRuleCall_5_1() { return cENDLINETerminalRuleCall_5_1; }
-		
-		//withParams+=WithParameter
-		public Assignment getWithParamsAssignment_5_2() { return cWithParamsAssignment_5_2; }
-		
-		//WithParameter
-		public RuleCall getWithParamsWithParameterParserRuleCall_5_2_0() { return cWithParamsWithParameterParserRuleCall_5_2_0; }
-		
-		//(ENDLINE* (',' | 'and') ENDLINE* withParams+=WithParameter)*
-		public Group getGroup_5_3() { return cGroup_5_3; }
-		
-		//ENDLINE*
-		public RuleCall getENDLINETerminalRuleCall_5_3_0() { return cENDLINETerminalRuleCall_5_3_0; }
-		
-		//',' | 'and'
-		public Alternatives getAlternatives_5_3_1() { return cAlternatives_5_3_1; }
-		
-		//','
-		public Keyword getCommaKeyword_5_3_1_0() { return cCommaKeyword_5_3_1_0; }
-		
-		//'and'
-		public Keyword getAndKeyword_5_3_1_1() { return cAndKeyword_5_3_1_1; }
-		
-		//ENDLINE*
-		public RuleCall getENDLINETerminalRuleCall_5_3_2() { return cENDLINETerminalRuleCall_5_3_2; }
-		
-		//withParams+=WithParameter
-		public Assignment getWithParamsAssignment_5_3_3() { return cWithParamsAssignment_5_3_3; }
-		
-		//WithParameter
-		public RuleCall getWithParamsWithParameterParserRuleCall_5_3_3_0() { return cWithParamsWithParameterParserRuleCall_5_3_3_0; }
-		
 		//block=Block
-		public Assignment getBlockAssignment_6() { return cBlockAssignment_6; }
+		public Assignment getBlockAssignment_5() { return cBlockAssignment_5; }
 		
 		//Block
-		public RuleCall getBlockBlockParserRuleCall_6_0() { return cBlockBlockParserRuleCall_6_0; }
+		public RuleCall getBlockBlockParserRuleCall_5_0() { return cBlockBlockParserRuleCall_5_0; }
 	}
 	public class BlockElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Block");
@@ -670,122 +616,127 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Parameter");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cParameterAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cTypeConcernCrossReference_1_0 = (CrossReference)cTypeAssignment_1.eContents().get(0);
-		private final RuleCall cTypeConcernQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cTypeConcernCrossReference_1_0.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Assignment cUsageAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final Keyword cUsageColonKeyword_3_0_0 = (Keyword)cUsageAssignment_3_0.eContents().get(0);
-		private final Assignment cRoleAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cRoleRoleCrossReference_3_1_0 = (CrossReference)cRoleAssignment_3_1.eContents().get(0);
-		private final RuleCall cRoleRoleIDTerminalRuleCall_3_1_0_1 = (RuleCall)cRoleRoleCrossReference_3_1_0.eContents().get(1);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_1_0_0 = (RuleCall)cNameAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Assignment cTypeAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final CrossReference cTypeConcernCrossReference_1_1_0_0 = (CrossReference)cTypeAssignment_1_1_0.eContents().get(0);
+		private final RuleCall cTypeConcernQualifiedNameParserRuleCall_1_1_0_0_1 = (RuleCall)cTypeConcernCrossReference_1_1_0_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cNameAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_1_1_2_0 = (RuleCall)cNameAssignment_1_1_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_3 = (Keyword)cGroup_1_1.eContents().get(3);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final Assignment cRoleAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
+		private final CrossReference cRoleRoleCrossReference_1_2_0_0 = (CrossReference)cRoleAssignment_1_2_0.eContents().get(0);
+		private final RuleCall cRoleRoleIDTerminalRuleCall_1_2_0_0_1 = (RuleCall)cRoleRoleCrossReference_1_2_0_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Assignment cTypeAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final CrossReference cTypeConcernCrossReference_1_2_2_0 = (CrossReference)cTypeAssignment_1_2_2.eContents().get(0);
+		private final RuleCall cTypeConcernQualifiedNameParserRuleCall_1_2_2_0_1 = (RuleCall)cTypeConcernCrossReference_1_2_2_0.eContents().get(1);
+		private final Keyword cCalledKeyword_1_2_3 = (Keyword)cGroup_1_2.eContents().get(3);
+		private final Assignment cNameAssignment_1_2_4 = (Assignment)cGroup_1_2.eContents().get(4);
+		private final RuleCall cNameIDTerminalRuleCall_1_2_4_0 = (RuleCall)cNameAssignment_1_2_4.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_2_5 = (Keyword)cGroup_1_2.eContents().get(5);
 		
 		//Parameter:
-		//	{Parameter} type=[Concern|QualifiedName] name=ID (usage?=':' role=[Role])?;
+		//	{Parameter} (name=ID | type=[Concern|QualifiedName] '(' name=ID ')' | role=[Role] '(' type=[Concern|QualifiedName]
+		//	'called' name=ID ')');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Parameter} type=[Concern|QualifiedName] name=ID (usage?=':' role=[Role])?
+		//{Parameter} (name=ID | type=[Concern|QualifiedName] '(' name=ID ')' | role=[Role] '(' type=[Concern|QualifiedName]
+		//'called' name=ID ')')
 		public Group getGroup() { return cGroup; }
 		
 		//{Parameter}
 		public Action getParameterAction_0() { return cParameterAction_0; }
 		
+		//name=ID | type=[Concern|QualifiedName] '(' name=ID ')' | role=[Role] '(' type=[Concern|QualifiedName] 'called' name=ID
+		//')'
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1_0() { return cNameAssignment_1_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0_0() { return cNameIDTerminalRuleCall_1_0_0; }
+		
+		//type=[Concern|QualifiedName] '(' name=ID ')'
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
 		//type=[Concern|QualifiedName]
-		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		public Assignment getTypeAssignment_1_1_0() { return cTypeAssignment_1_1_0; }
 		
 		//[Concern|QualifiedName]
-		public CrossReference getTypeConcernCrossReference_1_0() { return cTypeConcernCrossReference_1_0; }
+		public CrossReference getTypeConcernCrossReference_1_1_0_0() { return cTypeConcernCrossReference_1_1_0_0; }
 		
 		//QualifiedName
-		public RuleCall getTypeConcernQualifiedNameParserRuleCall_1_0_1() { return cTypeConcernQualifiedNameParserRuleCall_1_0_1; }
+		public RuleCall getTypeConcernQualifiedNameParserRuleCall_1_1_0_0_1() { return cTypeConcernQualifiedNameParserRuleCall_1_1_0_0_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_1_1() { return cLeftParenthesisKeyword_1_1_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_1_1_2() { return cNameAssignment_1_1_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_1_2_0() { return cNameIDTerminalRuleCall_1_1_2_0; }
 		
-		//(usage?=':' role=[Role])?
-		public Group getGroup_3() { return cGroup_3; }
+		//')'
+		public Keyword getRightParenthesisKeyword_1_1_3() { return cRightParenthesisKeyword_1_1_3; }
 		
-		//usage?=':'
-		public Assignment getUsageAssignment_3_0() { return cUsageAssignment_3_0; }
-		
-		//':'
-		public Keyword getUsageColonKeyword_3_0_0() { return cUsageColonKeyword_3_0_0; }
+		//role=[Role] '(' type=[Concern|QualifiedName] 'called' name=ID ')'
+		public Group getGroup_1_2() { return cGroup_1_2; }
 		
 		//role=[Role]
-		public Assignment getRoleAssignment_3_1() { return cRoleAssignment_3_1; }
+		public Assignment getRoleAssignment_1_2_0() { return cRoleAssignment_1_2_0; }
 		
 		//[Role]
-		public CrossReference getRoleRoleCrossReference_3_1_0() { return cRoleRoleCrossReference_3_1_0; }
+		public CrossReference getRoleRoleCrossReference_1_2_0_0() { return cRoleRoleCrossReference_1_2_0_0; }
 		
 		//ID
-		public RuleCall getRoleRoleIDTerminalRuleCall_3_1_0_1() { return cRoleRoleIDTerminalRuleCall_3_1_0_1; }
-	}
-	public class WithParameterElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.WithParameter");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cWithParameterAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cUsageAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final Keyword cUsageColonKeyword_2_0_0 = (Keyword)cUsageAssignment_2_0.eContents().get(0);
-		private final Assignment cRoleAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cRoleRoleCrossReference_2_1_0 = (CrossReference)cRoleAssignment_2_1.eContents().get(0);
-		private final RuleCall cRoleRoleIDTerminalRuleCall_2_1_0_1 = (RuleCall)cRoleRoleCrossReference_2_1_0.eContents().get(1);
+		public RuleCall getRoleRoleIDTerminalRuleCall_1_2_0_0_1() { return cRoleRoleIDTerminalRuleCall_1_2_0_0_1; }
 		
-		//WithParameter:
-		//	{WithParameter} name=ID (usage?=':' role=[Role])?;
-		@Override public ParserRule getRule() { return rule; }
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_2_1() { return cLeftParenthesisKeyword_1_2_1; }
 		
-		//{WithParameter} name=ID (usage?=':' role=[Role])?
-		public Group getGroup() { return cGroup; }
+		//type=[Concern|QualifiedName]
+		public Assignment getTypeAssignment_1_2_2() { return cTypeAssignment_1_2_2; }
 		
-		//{WithParameter}
-		public Action getWithParameterAction_0() { return cWithParameterAction_0; }
+		//[Concern|QualifiedName]
+		public CrossReference getTypeConcernCrossReference_1_2_2_0() { return cTypeConcernCrossReference_1_2_2_0; }
+		
+		//QualifiedName
+		public RuleCall getTypeConcernQualifiedNameParserRuleCall_1_2_2_0_1() { return cTypeConcernQualifiedNameParserRuleCall_1_2_2_0_1; }
+		
+		//'called'
+		public Keyword getCalledKeyword_1_2_3() { return cCalledKeyword_1_2_3; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_1_2_4() { return cNameAssignment_1_2_4; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_2_4_0() { return cNameIDTerminalRuleCall_1_2_4_0; }
 		
-		//(usage?=':' role=[Role])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//usage?=':'
-		public Assignment getUsageAssignment_2_0() { return cUsageAssignment_2_0; }
-		
-		//':'
-		public Keyword getUsageColonKeyword_2_0_0() { return cUsageColonKeyword_2_0_0; }
-		
-		//role=[Role]
-		public Assignment getRoleAssignment_2_1() { return cRoleAssignment_2_1; }
-		
-		//[Role]
-		public CrossReference getRoleRoleCrossReference_2_1_0() { return cRoleRoleCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getRoleRoleIDTerminalRuleCall_2_1_0_1() { return cRoleRoleIDTerminalRuleCall_2_1_0_1; }
+		//')'
+		public Keyword getRightParenthesisKeyword_1_2_5() { return cRightParenthesisKeyword_1_2_5; }
 	}
 	public class VariableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Variable");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cMemberParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cParameterParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cWithParameterParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cLocaleParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cConcernParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cLocaleParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cConcernParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
+		////Parameter: {Parameter}
+		////	(name=ID | type=[Concern|QualifiedName] (name=ID)) (usage?='a' role=[Role])?;
 		//Variable:
-		//	Member | Parameter | WithParameter | Locale | Concern;
+		//	Member | Parameter | Locale | Concern;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Member | Parameter | WithParameter | Locale | Concern
+		//Member | Parameter | Locale | Concern
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Member
@@ -794,14 +745,11 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		//Parameter
 		public RuleCall getParameterParserRuleCall_1() { return cParameterParserRuleCall_1; }
 		
-		//WithParameter
-		public RuleCall getWithParameterParserRuleCall_2() { return cWithParameterParserRuleCall_2; }
-		
 		//Locale
-		public RuleCall getLocaleParserRuleCall_3() { return cLocaleParserRuleCall_3; }
+		public RuleCall getLocaleParserRuleCall_2() { return cLocaleParserRuleCall_2; }
 		
 		//Concern
-		public RuleCall getConcernParserRuleCall_4() { return cConcernParserRuleCall_4; }
+		public RuleCall getConcernParserRuleCall_3() { return cConcernParserRuleCall_3; }
 	}
 	public class LineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.burst.Burst.Line");
@@ -1428,7 +1376,6 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	private final RuleIntersectElements pRuleIntersect;
 	private final BlockElements pBlock;
 	private final ParameterElements pParameter;
-	private final WithParameterElements pWithParameter;
 	private final VariableElements pVariable;
 	private final LineElements pLine;
 	private final StopElements pStop;
@@ -1469,7 +1416,6 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		this.pRuleIntersect = new RuleIntersectElements();
 		this.pBlock = new BlockElements();
 		this.pParameter = new ParameterElements();
-		this.pWithParameter = new WithParameterElements();
 		this.pVariable = new VariableElements();
 		this.pLine = new LineElements();
 		this.pStop = new StopElements();
@@ -1624,8 +1570,7 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//RuleIntersect:
-	//	{Intersection} name='when' ENDLINE* params+=Parameter (ENDLINE* (',' | 'and') ENDLINE* params+=Parameter)* ('with'
-	//	ENDLINE* withParams+=WithParameter (ENDLINE* (',' | 'and') ENDLINE* withParams+=WithParameter)*)?
+	//	{Intersection} name='when' ENDLINE* params+=Parameter (ENDLINE* (',' | 'and')? ENDLINE* params+=Parameter)*
 	//	block=Block;
 	public RuleIntersectElements getRuleIntersectAccess() {
 		return pRuleIntersect;
@@ -1647,7 +1592,8 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Parameter:
-	//	{Parameter} type=[Concern|QualifiedName] name=ID (usage?=':' role=[Role])?;
+	//	{Parameter} (name=ID | type=[Concern|QualifiedName] '(' name=ID ')' | role=[Role] '(' type=[Concern|QualifiedName]
+	//	'called' name=ID ')');
 	public ParameterElements getParameterAccess() {
 		return pParameter;
 	}
@@ -1656,18 +1602,10 @@ public class BurstGrammarAccess extends AbstractGrammarElementFinder {
 		return getParameterAccess().getRule();
 	}
 	
-	//WithParameter:
-	//	{WithParameter} name=ID (usage?=':' role=[Role])?;
-	public WithParameterElements getWithParameterAccess() {
-		return pWithParameter;
-	}
-	
-	public ParserRule getWithParameterRule() {
-		return getWithParameterAccess().getRule();
-	}
-	
+	////Parameter: {Parameter}
+	////	(name=ID | type=[Concern|QualifiedName] (name=ID)) (usage?='a' role=[Role])?;
 	//Variable:
-	//	Member | Parameter | WithParameter | Locale | Concern;
+	//	Member | Parameter | Locale | Concern;
 	public VariableElements getVariableAccess() {
 		return pVariable;
 	}

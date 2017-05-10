@@ -35,7 +35,6 @@ import org.xtext.burst.burst.Stop;
 import org.xtext.burst.burst.StringConstant;
 import org.xtext.burst.burst.Template;
 import org.xtext.burst.burst.ThisConstant;
-import org.xtext.burst.burst.WithParameter;
 import org.xtext.burst.services.BurstGrammarAccess;
 
 @SuppressWarnings("all")
@@ -126,9 +125,6 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case BurstPackage.THIS_CONSTANT:
 				sequence_TerminalExpression(context, (ThisConstant) semanticObject); 
-				return; 
-			case BurstPackage.WITH_PARAMETER:
-				sequence_WithParameter(context, (WithParameter) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -300,7 +296,7 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Variable returns Parameter
 	 *
 	 * Constraint:
-	 *     (type=[Concern|QualifiedName] name=ID (usage?=':' role=[Role|ID])?)
+	 *     (name=ID | (type=[Concern|QualifiedName] name=ID) | (role=[Role|ID] type=[Concern|QualifiedName] name=ID))
 	 */
 	protected void sequence_Parameter(ISerializationContext context, org.xtext.burst.burst.Parameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -333,7 +329,7 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     RuleIntersect returns Intersection
 	 *
 	 * Constraint:
-	 *     (name='when' params+=Parameter params+=Parameter* (withParams+=WithParameter withParams+=WithParameter*)? block=Block)
+	 *     (name='when' params+=Parameter params+=Parameter* block=Block)
 	 */
 	protected void sequence_RuleIntersect(ISerializationContext context, Intersection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -484,19 +480,6 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTerminalExpressionAccess().getValueThisKeyword_4_1_0(), semanticObject.getValue());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     WithParameter returns WithParameter
-	 *     Variable returns WithParameter
-	 *
-	 * Constraint:
-	 *     (name=ID (usage?=':' role=[Role|ID])?)
-	 */
-	protected void sequence_WithParameter(ISerializationContext context, WithParameter semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

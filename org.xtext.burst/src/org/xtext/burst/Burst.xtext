@@ -39,21 +39,21 @@ Member:		{Member}
 	(isContent?='is')? concern=[Concern|QualifiedName] name=ID;
 	
 RuleIntersect:  {Intersection}
-	name= 'when' (ENDLINE)* params+=Parameter ( (ENDLINE)* (','|'and') (ENDLINE)* params+=Parameter  )* 
-	('with'  (ENDLINE)* withParams+=WithParameter ( (ENDLINE)* (','|'and') (ENDLINE)* withParams+=WithParameter  )* )?
+	name= 'when' (ENDLINE)* params+=Parameter ( (ENDLINE)* (','|'and')? (ENDLINE)* params+=Parameter  )* 
 	 block=Block;
 	 
 Block : {Block}
 	'{' (ENDLINE)* (lines+=Line (ENDLINE+ lines+=Line)* (ENDLINE)*)? '}';
 
 Parameter: {Parameter}
-	type=[Concern|QualifiedName] name=ID (usage?=':' role=[Role])?;
-	
-WithParameter: {WithParameter}
-	name=ID /*[Concern|QualifiedName]*/ (usage?=':' role=[Role])?;
+	(name=ID | type=[Concern|QualifiedName] '(' name=ID ')' | role=[Role] '(' type=[Concern|QualifiedName] 'called' name=ID ')'  );
+
+
+//Parameter: {Parameter}
+//	(name=ID | type=[Concern|QualifiedName] (name=ID)) (usage?='a' role=[Role])?;
 	
 Variable: 
-	Member | Parameter | WithParameter | Locale | Concern;
+	Member | Parameter | Locale | Concern;
 	
 Line: 
 	Block | Call | ContextManagement | If | Stop;

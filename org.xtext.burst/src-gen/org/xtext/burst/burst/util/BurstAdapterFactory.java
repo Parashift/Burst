@@ -42,7 +42,6 @@ import org.xtext.burst.burst.Template;
 import org.xtext.burst.burst.TerminalExpression;
 import org.xtext.burst.burst.ThisConstant;
 import org.xtext.burst.burst.Variable;
-import org.xtext.burst.burst.WithParameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -171,11 +170,6 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
       public Adapter caseParameter(Parameter object)
       {
         return createParameterAdapter();
-      }
-      @Override
-      public Adapter caseWithParameter(WithParameter object)
-      {
-        return createWithParameterAdapter();
       }
       @Override
       public Adapter caseVariable(Variable object)
@@ -485,21 +479,6 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParameterAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.WithParameter <em>With Parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.burst.burst.WithParameter
-   * @generated
-   */
-  public Adapter createWithParameterAdapter()
   {
     return null;
   }

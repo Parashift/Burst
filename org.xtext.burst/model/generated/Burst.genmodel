@@ -44,12 +44,7 @@
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Parameter">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Parameter/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Parameter/usage"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//Parameter/role"/>
-    </genClasses>
-    <genClasses ecoreClass="Burst.ecore#//WithParameter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//WithParameter/usage"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Burst.ecore#//WithParameter/role"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//Variable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Variable/name"/>
@@ -91,7 +86,6 @@
     <genClasses ecoreClass="Burst.ecore#//Intersection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Burst.ecore#//Intersection/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Intersection/params"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Intersection/withParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Burst.ecore#//Intersection/block"/>
     </genClasses>
     <genClasses ecoreClass="Burst.ecore#//IntConstant">

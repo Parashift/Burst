@@ -12,11 +12,6 @@ import org.xtext.burst.burst.BurstPackage
 import org.xtext.burst.burst.Concern
 import org.xtext.burst.burst.Intersection
 import org.xtext.burst.validation.ConcernExtensions
-import org.xtext.burst.burst.Locale
-import java.util.List
-import java.util.ArrayList
-import org.xtext.burst.burst.Line
-import org.xtext.burst.burst.Call
 
 /**
  * This class contains custom scoping description.
@@ -37,7 +32,8 @@ class BurstScopeProvider extends AbstractBurstScopeProvider {
 		return switch (reference){
 			case pack.access_Name:
 				getScopeForVariableFrom(context)
-			default : super.getScope(context, reference)
+			default : 
+				super.getScope(context, reference)
 		}
 	}
 	

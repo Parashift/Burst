@@ -401,7 +401,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getLine()
    * @generated
    */
-  int LINE = 15;
+  int LINE = 14;
 
   /**
    * The number of structural features of the '<em>Line</em>' class.
@@ -448,7 +448,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 14;
+  int VARIABLE = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -497,22 +497,13 @@ public interface BurstPackage extends EPackage
   int PARAMETER__TYPE = VARIABLE_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Usage</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__USAGE = VARIABLE_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Role</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER__ROLE = VARIABLE_FEATURE_COUNT + 2;
+  int PARAMETER__ROLE = VARIABLE_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Parameter</em>' class.
@@ -521,53 +512,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.burst.burst.impl.WithParameterImpl <em>With Parameter</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.burst.burst.impl.WithParameterImpl
-   * @see org.xtext.burst.burst.impl.BurstPackageImpl#getWithParameter()
-   * @generated
-   */
-  int WITH_PARAMETER = 13;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WITH_PARAMETER__NAME = VARIABLE__NAME;
-
-  /**
-   * The feature id for the '<em><b>Usage</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WITH_PARAMETER__USAGE = VARIABLE_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Role</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WITH_PARAMETER__ROLE = VARIABLE_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>With Parameter</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WITH_PARAMETER_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 2;
+  int PARAMETER_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.StopImpl <em>Stop</em>}' class.
@@ -577,7 +522,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getStop()
    * @generated
    */
-  int STOP = 16;
+  int STOP = 15;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -605,7 +550,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getIf()
    * @generated
    */
-  int IF = 17;
+  int IF = 16;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -651,7 +596,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getContextManagement()
    * @generated
    */
-  int CONTEXT_MANAGEMENT = 18;
+  int CONTEXT_MANAGEMENT = 17;
 
   /**
    * The feature id for the '<em><b>Action</b></em>' attribute.
@@ -688,7 +633,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCall()
    * @generated
    */
-  int CALL = 19;
+  int CALL = 18;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -743,7 +688,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getCallElement()
    * @generated
    */
-  int CALL_ELEMENT = 20;
+  int CALL_ELEMENT = 19;
 
   /**
    * The number of structural features of the '<em>Call Element</em>' class.
@@ -762,7 +707,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getLocale()
    * @generated
    */
-  int LOCALE = 21;
+  int LOCALE = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -808,7 +753,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getAccess()
    * @generated
    */
-  int ACCESS = 22;
+  int ACCESS = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -854,7 +799,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getSubCall()
    * @generated
    */
-  int SUB_CALL = 23;
+  int SUB_CALL = 22;
 
   /**
    * The number of structural features of the '<em>Sub Call</em>' class.
@@ -873,7 +818,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getTerminalExpression()
    * @generated
    */
-  int TERMINAL_EXPRESSION = 24;
+  int TERMINAL_EXPRESSION = 23;
 
   /**
    * The number of structural features of the '<em>Terminal Expression</em>' class.
@@ -892,7 +837,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getRole()
    * @generated
    */
-  int ROLE = 25;
+  int ROLE = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -920,7 +865,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getIntersection()
    * @generated
    */
-  int INTERSECTION = 26;
+  int INTERSECTION = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -941,22 +886,13 @@ public interface BurstPackage extends EPackage
   int INTERSECTION__PARAMS = RULE_INTERSECT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>With Params</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INTERSECTION__WITH_PARAMS = RULE_INTERSECT_FEATURE_COUNT + 2;
-
-  /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERSECTION__BLOCK = RULE_INTERSECT_FEATURE_COUNT + 3;
+  int INTERSECTION__BLOCK = RULE_INTERSECT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Intersection</em>' class.
@@ -965,7 +901,7 @@ public interface BurstPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTERSECTION_FEATURE_COUNT = RULE_INTERSECT_FEATURE_COUNT + 4;
+  int INTERSECTION_FEATURE_COUNT = RULE_INTERSECT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.burst.burst.impl.IntConstantImpl <em>Int Constant</em>}' class.
@@ -975,7 +911,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getIntConstant()
    * @generated
    */
-  int INT_CONSTANT = 27;
+  int INT_CONSTANT = 26;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1003,7 +939,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getStringConstant()
    * @generated
    */
-  int STRING_CONSTANT = 28;
+  int STRING_CONSTANT = 27;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1031,7 +967,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getBoolConstant()
    * @generated
    */
-  int BOOL_CONSTANT = 29;
+  int BOOL_CONSTANT = 28;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1059,7 +995,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getDoubleConstant()
    * @generated
    */
-  int DOUBLE_CONSTANT = 30;
+  int DOUBLE_CONSTANT = 29;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1087,7 +1023,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getThisConstant()
    * @generated
    */
-  int THIS_CONSTANT = 31;
+  int THIS_CONSTANT = 30;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1115,7 +1051,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getNullConstant()
    * @generated
    */
-  int NULL_CONSTANT = 32;
+  int NULL_CONSTANT = 31;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1143,7 +1079,7 @@ public interface BurstPackage extends EPackage
    * @see org.xtext.burst.burst.impl.BurstPackageImpl#getconcernManagment()
    * @generated
    */
-  int CONCERN_MANAGMENT = 33;
+  int CONCERN_MANAGMENT = 32;
 
 
   /**
@@ -1431,17 +1367,6 @@ public interface BurstPackage extends EPackage
   EReference getParameter_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.Parameter#isUsage <em>Usage</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Usage</em>'.
-   * @see org.xtext.burst.burst.Parameter#isUsage()
-   * @see #getParameter()
-   * @generated
-   */
-  EAttribute getParameter_Usage();
-
-  /**
    * Returns the meta object for the reference '{@link org.xtext.burst.burst.Parameter#getRole <em>Role</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1451,38 +1376,6 @@ public interface BurstPackage extends EPackage
    * @generated
    */
   EReference getParameter_Role();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.burst.burst.WithParameter <em>With Parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>With Parameter</em>'.
-   * @see org.xtext.burst.burst.WithParameter
-   * @generated
-   */
-  EClass getWithParameter();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.burst.burst.WithParameter#isUsage <em>Usage</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Usage</em>'.
-   * @see org.xtext.burst.burst.WithParameter#isUsage()
-   * @see #getWithParameter()
-   * @generated
-   */
-  EAttribute getWithParameter_Usage();
-
-  /**
-   * Returns the meta object for the reference '{@link org.xtext.burst.burst.WithParameter#getRole <em>Role</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Role</em>'.
-   * @see org.xtext.burst.burst.WithParameter#getRole()
-   * @see #getWithParameter()
-   * @generated
-   */
-  EReference getWithParameter_Role();
 
   /**
    * Returns the meta object for class '{@link org.xtext.burst.burst.Variable <em>Variable</em>}'.
@@ -1822,17 +1715,6 @@ public interface BurstPackage extends EPackage
    * @generated
    */
   EReference getIntersection_Params();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.burst.burst.Intersection#getWithParams <em>With Params</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>With Params</em>'.
-   * @see org.xtext.burst.burst.Intersection#getWithParams()
-   * @see #getIntersection()
-   * @generated
-   */
-  EReference getIntersection_WithParams();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.burst.burst.Intersection#getBlock <em>Block</em>}'.
@@ -2247,46 +2129,12 @@ public interface BurstPackage extends EPackage
     EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
 
     /**
-     * The meta object literal for the '<em><b>Usage</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PARAMETER__USAGE = eINSTANCE.getParameter_Usage();
-
-    /**
      * The meta object literal for the '<em><b>Role</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference PARAMETER__ROLE = eINSTANCE.getParameter_Role();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.burst.burst.impl.WithParameterImpl <em>With Parameter</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.burst.burst.impl.WithParameterImpl
-     * @see org.xtext.burst.burst.impl.BurstPackageImpl#getWithParameter()
-     * @generated
-     */
-    EClass WITH_PARAMETER = eINSTANCE.getWithParameter();
-
-    /**
-     * The meta object literal for the '<em><b>Usage</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute WITH_PARAMETER__USAGE = eINSTANCE.getWithParameter_Usage();
-
-    /**
-     * The meta object literal for the '<em><b>Role</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference WITH_PARAMETER__ROLE = eINSTANCE.getWithParameter_Role();
 
     /**
      * The meta object literal for the '{@link org.xtext.burst.burst.impl.VariableImpl <em>Variable</em>}' class.
@@ -2569,14 +2417,6 @@ public interface BurstPackage extends EPackage
      * @generated
      */
     EReference INTERSECTION__PARAMS = eINSTANCE.getIntersection_Params();
-
-    /**
-     * The meta object literal for the '<em><b>With Params</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INTERSECTION__WITH_PARAMS = eINSTANCE.getIntersection_WithParams();
 
     /**
      * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.

@@ -15,6 +15,7 @@ import org.xtext.burst.burst.File
 import com.google.common.collect.HashMultimap
 import org.eclipse.xtend.lib.macro.declaration.NamedElement
 import org.xtext.burst.burst.Variable
+import org.xtext.burst.burst.Parameter
 
 /**
  * This class contains custom validation rules. 
@@ -28,6 +29,7 @@ class BurstValidator extends AbstractBurstValidator {
 	public static val ISSUE_CODE_PREFIX = "org.burst."
 	public static val DUPLICATE_ELEMENT = ISSUE_CODE_PREFIX + "DUPLICATE_ELEMENT"
 	public static val HIERARCHY_CYCLE =  ISSUE_CODE_PREFIX + "HIERARCHY_CYCLE"
+	public static val BAD_NAME =  ISSUE_CODE_PREFIX + "BAD_NAME"
 	
 	@Check
 	def checkNoCycleInConcernHierachy(Member m) {
@@ -74,6 +76,28 @@ class BurstValidator extends AbstractBurstValidator {
 			}
 		}
 		return
+	}
+	
+	@Check
+	def void oneNameParameterAreConcerns(Parameter p) {
+		if(p.type == null) {
+			var obj =  p as EObject
+			while(obj.eContainer !== null && !(obj.eContainer instanceof File)) {
+				obj = obj.eContainer
+			}
+			if(obj.eContainer instanceof File) {
+				val f = obj.eContainer as File
+				for(c : f.concerns) {
+					if(p.name.equals(c.name)) {
+						return
+					}
+				}
+				error("Couldn't resolve reference to Concern '"+ p.name +"'.", BurstPackage.Literals.PARAMETER__TYPE, BAD_NAME)
+				return
+			}
+			error("Parameter "+ p.name + " has no file linked", BurstPackage.Literals.PARAMETER__TYPE, BAD_NAME)
+			return
+		}
 	}
 	
 //	public static val INVALID_NAME = 'invalidName'

@@ -40,7 +40,6 @@ import org.xtext.burst.burst.Template;
 import org.xtext.burst.burst.TerminalExpression;
 import org.xtext.burst.burst.ThisConstant;
 import org.xtext.burst.burst.Variable;
-import org.xtext.burst.burst.WithParameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -204,14 +203,6 @@ public class BurstSwitch<T> extends Switch<T>
         Parameter parameter = (Parameter)theEObject;
         T result = caseParameter(parameter);
         if (result == null) result = caseVariable(parameter);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case BurstPackage.WITH_PARAMETER:
-      {
-        WithParameter withParameter = (WithParameter)theEObject;
-        T result = caseWithParameter(withParameter);
-        if (result == null) result = caseVariable(withParameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -584,22 +575,6 @@ public class BurstSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseParameter(Parameter object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>With Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>With Parameter</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseWithParameter(WithParameter object)
   {
     return null;
   }

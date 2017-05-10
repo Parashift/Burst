@@ -44,7 +44,6 @@ import org.xtext.burst.burst.Template;
 import org.xtext.burst.burst.TerminalExpression;
 import org.xtext.burst.burst.ThisConstant;
 import org.xtext.burst.burst.Variable;
-import org.xtext.burst.burst.WithParameter;
 import org.xtext.burst.burst.concernManagment;
 
 /**
@@ -145,13 +144,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * @generated
    */
   private EClass parameterEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass withParameterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -631,49 +623,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getParameter_Usage()
-  {
-    return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getParameter_Role()
   {
-    return (EReference)parameterEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getWithParameter()
-  {
-    return withParameterEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWithParameter_Usage()
-  {
-    return (EAttribute)withParameterEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getWithParameter_Role()
-  {
-    return (EReference)withParameterEClass.getEStructuralFeatures().get(1);
+    return (EReference)parameterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1001,19 +953,9 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIntersection_WithParams()
-  {
-    return (EReference)intersectionEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getIntersection_Block()
   {
-    return (EReference)intersectionEClass.getEStructuralFeatures().get(3);
+    return (EReference)intersectionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1215,12 +1157,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
 
     parameterEClass = createEClass(PARAMETER);
     createEReference(parameterEClass, PARAMETER__TYPE);
-    createEAttribute(parameterEClass, PARAMETER__USAGE);
     createEReference(parameterEClass, PARAMETER__ROLE);
-
-    withParameterEClass = createEClass(WITH_PARAMETER);
-    createEAttribute(withParameterEClass, WITH_PARAMETER__USAGE);
-    createEReference(withParameterEClass, WITH_PARAMETER__ROLE);
 
     variableEClass = createEClass(VARIABLE);
     createEAttribute(variableEClass, VARIABLE__NAME);
@@ -1266,7 +1203,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     intersectionEClass = createEClass(INTERSECTION);
     createEAttribute(intersectionEClass, INTERSECTION__NAME);
     createEReference(intersectionEClass, INTERSECTION__PARAMS);
-    createEReference(intersectionEClass, INTERSECTION__WITH_PARAMS);
     createEReference(intersectionEClass, INTERSECTION__BLOCK);
 
     intConstantEClass = createEClass(INT_CONSTANT);
@@ -1331,7 +1267,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     ruleIntersectEClass.getESuperTypes().add(this.getConcernElement());
     blockEClass.getESuperTypes().add(this.getLine());
     parameterEClass.getESuperTypes().add(this.getVariable());
-    withParameterEClass.getESuperTypes().add(this.getVariable());
     stopEClass.getESuperTypes().add(this.getLine());
     ifEClass.getESuperTypes().add(this.getLine());
     contextManagementEClass.getESuperTypes().add(this.getLine());
@@ -1391,12 +1326,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
 
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParameter_Type(), this.getConcern(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getParameter_Usage(), ecorePackage.getEBoolean(), "usage", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getParameter_Role(), this.getRole(), null, "role", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(withParameterEClass, WithParameter.class, "WithParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getWithParameter_Usage(), ecorePackage.getEBoolean(), "usage", null, 0, 1, WithParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWithParameter_Role(), this.getRole(), null, "role", null, 0, 1, WithParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1442,7 +1372,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     initEClass(intersectionEClass, Intersection.class, "Intersection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntersection_Name(), ecorePackage.getEString(), "name", null, 0, 1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIntersection_Params(), this.getParameter(), null, "params", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIntersection_WithParams(), this.getWithParameter(), null, "withParams", null, 0, -1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIntersection_Block(), this.getBlock(), null, "block", null, 0, 1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(intConstantEClass, IntConstant.class, "IntConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

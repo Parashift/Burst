@@ -14,7 +14,6 @@ package org.xtext.burst.burst;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.burst.burst.Parameter#getType <em>Type</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Parameter#isUsage <em>Usage</em>}</li>
  *   <li>{@link org.xtext.burst.burst.Parameter#getRole <em>Role</em>}</li>
  * </ul>
  *
@@ -49,32 +48,6 @@ public interface Parameter extends Variable
    * @generated
    */
   void setType(Concern value);
-
-  /**
-   * Returns the value of the '<em><b>Usage</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Usage</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Usage</em>' attribute.
-   * @see #setUsage(boolean)
-   * @see org.xtext.burst.burst.BurstPackage#getParameter_Usage()
-   * @model
-   * @generated
-   */
-  boolean isUsage();
-
-  /**
-   * Sets the value of the '{@link org.xtext.burst.burst.Parameter#isUsage <em>Usage</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Usage</em>' attribute.
-   * @see #isUsage()
-   * @generated
-   */
-  void setUsage(boolean value);
 
   /**
    * Returns the value of the '<em><b>Role</b></em>' reference.

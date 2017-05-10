@@ -22,7 +22,6 @@ import org.xtext.burst.burst.Block;
 import org.xtext.burst.burst.BurstPackage;
 import org.xtext.burst.burst.Intersection;
 import org.xtext.burst.burst.Parameter;
-import org.xtext.burst.burst.WithParameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +33,6 @@ import org.xtext.burst.burst.WithParameter;
  * <ul>
  *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getParams <em>Params</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getWithParams <em>With Params</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.IntersectionImpl#getBlock <em>Block</em>}</li>
  * </ul>
  *
@@ -71,16 +69,6 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
    * @ordered
    */
   protected EList<Parameter> params;
-
-  /**
-   * The cached value of the '{@link #getWithParams() <em>With Params</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getWithParams()
-   * @generated
-   * @ordered
-   */
-  protected EList<WithParameter> withParams;
 
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
@@ -155,20 +143,6 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<WithParameter> getWithParams()
-  {
-    if (withParams == null)
-    {
-      withParams = new EObjectContainmentEList<WithParameter>(WithParameter.class, this, BurstPackage.INTERSECTION__WITH_PARAMS);
-    }
-    return withParams;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Block getBlock()
   {
     return block;
@@ -224,8 +198,6 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
     {
       case BurstPackage.INTERSECTION__PARAMS:
         return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
-      case BurstPackage.INTERSECTION__WITH_PARAMS:
-        return ((InternalEList<?>)getWithParams()).basicRemove(otherEnd, msgs);
       case BurstPackage.INTERSECTION__BLOCK:
         return basicSetBlock(null, msgs);
     }
@@ -246,8 +218,6 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
         return getName();
       case BurstPackage.INTERSECTION__PARAMS:
         return getParams();
-      case BurstPackage.INTERSECTION__WITH_PARAMS:
-        return getWithParams();
       case BurstPackage.INTERSECTION__BLOCK:
         return getBlock();
     }
@@ -272,10 +242,6 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
         getParams().clear();
         getParams().addAll((Collection<? extends Parameter>)newValue);
         return;
-      case BurstPackage.INTERSECTION__WITH_PARAMS:
-        getWithParams().clear();
-        getWithParams().addAll((Collection<? extends WithParameter>)newValue);
-        return;
       case BurstPackage.INTERSECTION__BLOCK:
         setBlock((Block)newValue);
         return;
@@ -299,9 +265,6 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
       case BurstPackage.INTERSECTION__PARAMS:
         getParams().clear();
         return;
-      case BurstPackage.INTERSECTION__WITH_PARAMS:
-        getWithParams().clear();
-        return;
       case BurstPackage.INTERSECTION__BLOCK:
         setBlock((Block)null);
         return;
@@ -323,8 +286,6 @@ public class IntersectionImpl extends RuleIntersectImpl implements Intersection
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case BurstPackage.INTERSECTION__PARAMS:
         return params != null && !params.isEmpty();
-      case BurstPackage.INTERSECTION__WITH_PARAMS:
-        return withParams != null && !withParams.isEmpty();
       case BurstPackage.INTERSECTION__BLOCK:
         return block != null;
     }

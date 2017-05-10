@@ -24,7 +24,6 @@ import org.xtext.burst.burst.Role;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.burst.burst.impl.ParameterImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.ParameterImpl#isUsage <em>Usage</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.ParameterImpl#getRole <em>Role</em>}</li>
  * </ul>
  *
@@ -41,26 +40,6 @@ public class ParameterImpl extends VariableImpl implements Parameter
    * @ordered
    */
   protected Concern type;
-
-  /**
-   * The default value of the '{@link #isUsage() <em>Usage</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isUsage()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean USAGE_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isUsage() <em>Usage</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isUsage()
-   * @generated
-   * @ordered
-   */
-  protected boolean usage = USAGE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getRole() <em>Role</em>}' reference.
@@ -141,29 +120,6 @@ public class ParameterImpl extends VariableImpl implements Parameter
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isUsage()
-  {
-    return usage;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setUsage(boolean newUsage)
-  {
-    boolean oldUsage = usage;
-    usage = newUsage;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.PARAMETER__USAGE, oldUsage, usage));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Role getRole()
   {
     if (role != null && role.eIsProxy())
@@ -215,8 +171,6 @@ public class ParameterImpl extends VariableImpl implements Parameter
       case BurstPackage.PARAMETER__TYPE:
         if (resolve) return getType();
         return basicGetType();
-      case BurstPackage.PARAMETER__USAGE:
-        return isUsage();
       case BurstPackage.PARAMETER__ROLE:
         if (resolve) return getRole();
         return basicGetRole();
@@ -236,9 +190,6 @@ public class ParameterImpl extends VariableImpl implements Parameter
     {
       case BurstPackage.PARAMETER__TYPE:
         setType((Concern)newValue);
-        return;
-      case BurstPackage.PARAMETER__USAGE:
-        setUsage((Boolean)newValue);
         return;
       case BurstPackage.PARAMETER__ROLE:
         setRole((Role)newValue);
@@ -260,9 +211,6 @@ public class ParameterImpl extends VariableImpl implements Parameter
       case BurstPackage.PARAMETER__TYPE:
         setType((Concern)null);
         return;
-      case BurstPackage.PARAMETER__USAGE:
-        setUsage(USAGE_EDEFAULT);
-        return;
       case BurstPackage.PARAMETER__ROLE:
         setRole((Role)null);
         return;
@@ -282,29 +230,10 @@ public class ParameterImpl extends VariableImpl implements Parameter
     {
       case BurstPackage.PARAMETER__TYPE:
         return type != null;
-      case BurstPackage.PARAMETER__USAGE:
-        return usage != USAGE_EDEFAULT;
       case BurstPackage.PARAMETER__ROLE:
         return role != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (usage: ");
-    result.append(usage);
-    result.append(')');
-    return result.toString();
   }
 
 } //ParameterImpl

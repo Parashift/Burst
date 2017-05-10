@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.xtext.burst.burst.Intersection#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.burst.burst.Intersection#getParams <em>Params</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Intersection#getWithParams <em>With Params</em>}</li>
  *   <li>{@link org.xtext.burst.burst.Intersection#getBlock <em>Block</em>}</li>
  * </ul>
  *
@@ -67,22 +66,6 @@ public interface Intersection extends RuleIntersect
    * @generated
    */
   EList<Parameter> getParams();
-
-  /**
-   * Returns the value of the '<em><b>With Params</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.WithParameter}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>With Params</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>With Params</em>' containment reference list.
-   * @see org.xtext.burst.burst.BurstPackage#getIntersection_WithParams()
-   * @model containment="true"
-   * @generated
-   */
-  EList<WithParameter> getWithParams();
 
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference.

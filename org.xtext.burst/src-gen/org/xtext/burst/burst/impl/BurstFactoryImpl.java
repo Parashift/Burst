@@ -45,7 +45,6 @@ import org.xtext.burst.burst.Template;
 import org.xtext.burst.burst.TerminalExpression;
 import org.xtext.burst.burst.ThisConstant;
 import org.xtext.burst.burst.Variable;
-import org.xtext.burst.burst.WithParameter;
 import org.xtext.burst.burst.concernManagment;
 
 /**
@@ -113,7 +112,6 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
       case BurstPackage.RULE_INTERSECT: return createRuleIntersect();
       case BurstPackage.BLOCK: return createBlock();
       case BurstPackage.PARAMETER: return createParameter();
-      case BurstPackage.WITH_PARAMETER: return createWithParameter();
       case BurstPackage.VARIABLE: return createVariable();
       case BurstPackage.LINE: return createLine();
       case BurstPackage.STOP: return createStop();
@@ -313,17 +311,6 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
   {
     ParameterImpl parameter = new ParameterImpl();
     return parameter;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public WithParameter createWithParameter()
-  {
-    WithParameterImpl withParameter = new WithParameterImpl();
-    return withParameter;
   }
 
   /**
