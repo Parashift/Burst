@@ -1,24 +1,18 @@
 package org.xtext.burst.tests
 
-import org.junit.runner.RunWith
-import org.eclipse.xtext.testing.InjectWith
 import com.google.inject.Inject
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.scoping.IScopeProvider
+import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.util.ParseHelper
-import org.eclipse.xtext.testing.validation.ValidationTestHelper
-import org.xtext.burst.burst.File
-import org.junit.Test
-import org.xtext.burst.burst.BurstPackage
-import org.xtext.burst.validation.BurstValidator
-import org.xtext.burst.validation.ConcernExtensions
-import org.xtext.burst.burst.Concern
-import org.eclipse.emf.ecore.EReference
-import org.eclipse.emf.ecore.EObject
-import org.xtext.burst.burst.Intersection
 import org.junit.Assert
-import org.xtext.burst.scoping.BurstScopeProvider
-import org.eclipse.xtext.scoping.IScope
-import org.eclipse.xtext.scoping.IScopeProvider
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.xtext.burst.burst.BurstPackage
+import org.xtext.burst.burst.File
+import org.xtext.burst.validation.ConcernExtensions
 
 @RunWith(XtextRunner)
 @InjectWith(BurstInjectorProvider)
@@ -35,7 +29,7 @@ public class BurstScopingTest {
 		package A {
 			concern B {
 				A externalParam1
-				when A parameter {
+				when A (parameter) {
 					new A firstLocale
 					affiche (new A secondeLocale)
 					new A afterLocale
@@ -43,7 +37,7 @@ public class BurstScopingTest {
 				A externalParam2
 			}
 		}'''.parse.concerns.last.intersections.head.lines.last => 
-		[ 	assertScope(it, BurstPackage.eINSTANCE.access_Name, "firstLocale, secondeLocale, parameter, externalParam1, externalParam2")
+		[ 	assertScope(it, BurstPackage.eINSTANCE.access_Name, "firstLocale, secondeLocale, parameter, externalParam1, externalParam2, B")
 		]
 	
 	}
@@ -53,7 +47,7 @@ public class BurstScopingTest {
 		package A {
 			concern B {
 				A externalParam1
-				when A parameter {
+				when A (parameter) {
 					new A firstLocale
 					premier (new A secondeLocale)
 					{	{
@@ -70,7 +64,7 @@ public class BurstScopingTest {
 				A externalParam2
 			}
 		}'''.parse.concerns.last.intersections.head.lines.last => 
-		[ 	assertScope(it, BurstPackage.eINSTANCE.access_Name, "firstLocale, secondeLocale, parameter, externalParam1, externalParam2")
+		[ 	assertScope(it, BurstPackage.eINSTANCE.access_Name, "firstLocale, secondeLocale, parameter, externalParam1, externalParam2, B")
 		]
 	
 	}

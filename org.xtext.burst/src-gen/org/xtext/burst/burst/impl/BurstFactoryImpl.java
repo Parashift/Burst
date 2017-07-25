@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.xtext.burst.burst.Access;
+import org.xtext.burst.burst.BPackage;
 import org.xtext.burst.burst.Block;
 import org.xtext.burst.burst.BoolConstant;
 import org.xtext.burst.burst.BurstFactory;
@@ -124,6 +125,7 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
       case BurstPackage.SUB_CALL: return createSubCall();
       case BurstPackage.TERMINAL_EXPRESSION: return createTerminalExpression();
       case BurstPackage.ROLE: return createRole();
+      case BurstPackage.BPACKAGE: return createBPackage();
       case BurstPackage.INTERSECTION: return createIntersection();
       case BurstPackage.INT_CONSTANT: return createIntConstant();
       case BurstPackage.STRING_CONSTANT: return createStringConstant();
@@ -443,6 +445,17 @@ public class BurstFactoryImpl extends EFactoryImpl implements BurstFactory
   {
     RoleImpl role = new RoleImpl();
     return role;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BPackage createBPackage()
+  {
+    BPackageImpl bPackage = new BPackageImpl();
+    return bPackage;
   }
 
   /**

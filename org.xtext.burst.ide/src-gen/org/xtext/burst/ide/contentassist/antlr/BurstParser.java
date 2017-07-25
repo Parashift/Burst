@@ -78,7 +78,7 @@ public class BurstParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLocaleAccess().getGroup_4(), "rule__Locale__Group_4__0");
 					put(grammarAccess.getAccessAccess().getGroup(), "rule__Access__Group__0");
 					put(grammarAccess.getAccessAccess().getGroup_2(), "rule__Access__Group_2__0");
-					put(grammarAccess.getAccessAccess().getGroup_3(), "rule__Access__Group_3__0");
+					put(grammarAccess.getAccessAccess().getGroup_2_3(), "rule__Access__Group_2_3__0");
 					put(grammarAccess.getSubCallAccess().getGroup(), "rule__SubCall__Group__0");
 					put(grammarAccess.getSubCallAccess().getGroup_4(), "rule__SubCall__Group_4__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_0(), "rule__TerminalExpression__Group_0__0");
@@ -131,8 +131,8 @@ public class BurstParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLocaleAccess().getNameAssignment_3(), "rule__Locale__NameAssignment_3");
 					put(grammarAccess.getLocaleAccess().getRolesAssignment_4_1(), "rule__Locale__RolesAssignment_4_1");
 					put(grammarAccess.getAccessAccess().getNameAssignment_1(), "rule__Access__NameAssignment_1");
-					put(grammarAccess.getAccessAccess().getMembersAssignment_2_1(), "rule__Access__MembersAssignment_2_1");
-					put(grammarAccess.getAccessAccess().getRolesAssignment_3_1(), "rule__Access__RolesAssignment_3_1");
+					put(grammarAccess.getAccessAccess().getMemberAssignment_2_2(), "rule__Access__MemberAssignment_2_2");
+					put(grammarAccess.getAccessAccess().getRolesAssignment_2_3_1(), "rule__Access__RolesAssignment_2_3_1");
 					put(grammarAccess.getSubCallAccess().getContentAssignment_2(), "rule__SubCall__ContentAssignment_2");
 					put(grammarAccess.getSubCallAccess().getRolesAssignment_4_1(), "rule__SubCall__RolesAssignment_4_1");
 					put(grammarAccess.getTerminalExpressionAccess().getValueAssignment_0_1(), "rule__TerminalExpression__ValueAssignment_0_1");

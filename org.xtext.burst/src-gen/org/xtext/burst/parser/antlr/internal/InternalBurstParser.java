@@ -895,7 +895,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               				current = forceCreateModelElement(
-              					grammarAccess.getPackageAccess().getPackageAction_0(),
+              					grammarAccess.getPackageAccess().getBPackageAction_0(),
               					current);
               			
             }
@@ -3201,6 +3201,16 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
             if ( (LA36_0==RULE_ID) ) {
                 switch ( input.LA(2) ) {
+                case EOF:
+                case RULE_ENDLINE:
+                case RULE_ID:
+                case 15:
+                case 20:
+                case 25:
+                    {
+                    alt36=1;
+                    }
+                    break;
                 case 35:
                     {
                     alt36=2;
@@ -3208,9 +3218,9 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
                     break;
                 case 26:
                     {
-                    int LA36_3 = input.LA(3);
+                    int LA36_4 = input.LA(3);
 
-                    if ( (LA36_3==RULE_ID) ) {
+                    if ( (LA36_4==RULE_ID) ) {
                         int LA36_5 = input.LA(4);
 
                         if ( (LA36_5==27) ) {
@@ -3230,20 +3240,10 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
                     else {
                         if (state.backtracking>0) {state.failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 36, 3, input);
+                            new NoViableAltException("", 36, 4, input);
 
                         throw nvae;
                     }
-                    }
-                    break;
-                case EOF:
-                case RULE_ENDLINE:
-                case RULE_ID:
-                case 15:
-                case 20:
-                case 25:
-                    {
-                    alt36=1;
                     }
                     break;
                 default:
@@ -5236,25 +5236,25 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAccess"
-    // InternalBurst.g:1695:1: ruleAccess returns [EObject current=null] : ( () ( (otherlv_1= RULE_ID ) ) (otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )* ) ;
+    // InternalBurst.g:1695:1: ruleAccess returns [EObject current=null] : ( () ( (otherlv_1= RULE_ID ) ) ( () otherlv_3= '.' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ':' ( (otherlv_6= RULE_ID ) ) )* )* ) ;
     public final EObject ruleAccess() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
-        Token otherlv_2=null;
         Token otherlv_3=null;
         Token otherlv_4=null;
         Token otherlv_5=null;
+        Token otherlv_6=null;
 
 
         	enterRule();
 
         try {
-            // InternalBurst.g:1701:2: ( ( () ( (otherlv_1= RULE_ID ) ) (otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )* ) )
-            // InternalBurst.g:1702:2: ( () ( (otherlv_1= RULE_ID ) ) (otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )* )
+            // InternalBurst.g:1701:2: ( ( () ( (otherlv_1= RULE_ID ) ) ( () otherlv_3= '.' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ':' ( (otherlv_6= RULE_ID ) ) )* )* ) )
+            // InternalBurst.g:1702:2: ( () ( (otherlv_1= RULE_ID ) ) ( () otherlv_3= '.' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ':' ( (otherlv_6= RULE_ID ) ) )* )* )
             {
-            // InternalBurst.g:1702:2: ( () ( (otherlv_1= RULE_ID ) ) (otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )* )
-            // InternalBurst.g:1703:3: () ( (otherlv_1= RULE_ID ) ) (otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )*
+            // InternalBurst.g:1702:2: ( () ( (otherlv_1= RULE_ID ) ) ( () otherlv_3= '.' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ':' ( (otherlv_6= RULE_ID ) ) )* )* )
+            // InternalBurst.g:1703:3: () ( (otherlv_1= RULE_ID ) ) ( () otherlv_3= '.' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ':' ( (otherlv_6= RULE_ID ) ) )* )*
             {
             // InternalBurst.g:1703:3: ()
             // InternalBurst.g:1704:4: 
@@ -5294,87 +5294,45 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBurst.g:1723:3: (otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )*
-            loop49:
-            do {
-                int alt49=2;
-                int LA49_0 = input.LA(1);
-
-                if ( (LA49_0==35) ) {
-                    alt49=1;
-                }
-
-
-                switch (alt49) {
-            	case 1 :
-            	    // InternalBurst.g:1724:4: otherlv_2= '.' ( (otherlv_3= RULE_ID ) )
-            	    {
-            	    otherlv_2=(Token)match(input,35,FOLLOW_5); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      				newLeafNode(otherlv_2, grammarAccess.getAccessAccess().getFullStopKeyword_2_0());
-            	      			
-            	    }
-            	    // InternalBurst.g:1728:4: ( (otherlv_3= RULE_ID ) )
-            	    // InternalBurst.g:1729:5: (otherlv_3= RULE_ID )
-            	    {
-            	    // InternalBurst.g:1729:5: (otherlv_3= RULE_ID )
-            	    // InternalBurst.g:1730:6: otherlv_3= RULE_ID
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      						if (current==null) {
-            	      							current = createModelElement(grammarAccess.getAccessRule());
-            	      						}
-            	      					
-            	    }
-            	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_29); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      						newLeafNode(otherlv_3, grammarAccess.getAccessAccess().getMembersMemberCrossReference_2_1_0());
-            	      					
-            	    }
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop49;
-                }
-            } while (true);
-
-            // InternalBurst.g:1742:3: (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )*
+            // InternalBurst.g:1723:3: ( () otherlv_3= '.' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ':' ( (otherlv_6= RULE_ID ) ) )* )*
             loop50:
             do {
                 int alt50=2;
                 int LA50_0 = input.LA(1);
 
-                if ( (LA50_0==34) ) {
+                if ( (LA50_0==35) ) {
                     alt50=1;
                 }
 
 
                 switch (alt50) {
             	case 1 :
-            	    // InternalBurst.g:1743:4: otherlv_4= ':' ( (otherlv_5= RULE_ID ) )
+            	    // InternalBurst.g:1724:4: () otherlv_3= '.' ( (otherlv_4= RULE_ID ) ) (otherlv_5= ':' ( (otherlv_6= RULE_ID ) ) )*
             	    {
-            	    otherlv_4=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
+            	    // InternalBurst.g:1724:4: ()
+            	    // InternalBurst.g:1725:5: 
+            	    {
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(otherlv_4, grammarAccess.getAccessAccess().getColonKeyword_3_0());
+            	      					current = forceCreateModelElementAndSet(
+            	      						grammarAccess.getAccessAccess().getAccessBaseAction_2_0(),
+            	      						current);
+            	      				
+            	    }
+
+            	    }
+
+            	    otherlv_3=(Token)match(input,35,FOLLOW_5); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				newLeafNode(otherlv_3, grammarAccess.getAccessAccess().getFullStopKeyword_2_1());
             	      			
             	    }
-            	    // InternalBurst.g:1747:4: ( (otherlv_5= RULE_ID ) )
-            	    // InternalBurst.g:1748:5: (otherlv_5= RULE_ID )
+            	    // InternalBurst.g:1735:4: ( (otherlv_4= RULE_ID ) )
+            	    // InternalBurst.g:1736:5: (otherlv_4= RULE_ID )
             	    {
-            	    // InternalBurst.g:1748:5: (otherlv_5= RULE_ID )
-            	    // InternalBurst.g:1749:6: otherlv_5= RULE_ID
+            	    // InternalBurst.g:1736:5: (otherlv_4= RULE_ID )
+            	    // InternalBurst.g:1737:6: otherlv_4= RULE_ID
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -5383,10 +5341,10 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
             	      						}
             	      					
             	    }
-            	    otherlv_5=(Token)match(input,RULE_ID,FOLLOW_28); if (state.failed) return current;
+            	    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_30); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      						newLeafNode(otherlv_5, grammarAccess.getAccessAccess().getRolesRoleCrossReference_3_1_0());
+            	      						newLeafNode(otherlv_4, grammarAccess.getAccessAccess().getMemberMemberCrossReference_2_2_0());
             	      					
             	    }
 
@@ -5394,6 +5352,61 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
 
             	    }
+
+            	    // InternalBurst.g:1748:4: (otherlv_5= ':' ( (otherlv_6= RULE_ID ) ) )*
+            	    loop49:
+            	    do {
+            	        int alt49=2;
+            	        int LA49_0 = input.LA(1);
+
+            	        if ( (LA49_0==34) ) {
+            	            alt49=1;
+            	        }
+
+
+            	        switch (alt49) {
+            	    	case 1 :
+            	    	    // InternalBurst.g:1749:5: otherlv_5= ':' ( (otherlv_6= RULE_ID ) )
+            	    	    {
+            	    	    otherlv_5=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
+            	    	    if ( state.backtracking==0 ) {
+
+            	    	      					newLeafNode(otherlv_5, grammarAccess.getAccessAccess().getColonKeyword_2_3_0());
+            	    	      				
+            	    	    }
+            	    	    // InternalBurst.g:1753:5: ( (otherlv_6= RULE_ID ) )
+            	    	    // InternalBurst.g:1754:6: (otherlv_6= RULE_ID )
+            	    	    {
+            	    	    // InternalBurst.g:1754:6: (otherlv_6= RULE_ID )
+            	    	    // InternalBurst.g:1755:7: otherlv_6= RULE_ID
+            	    	    {
+            	    	    if ( state.backtracking==0 ) {
+
+            	    	      							if (current==null) {
+            	    	      								current = createModelElement(grammarAccess.getAccessRule());
+            	    	      							}
+            	    	      						
+            	    	    }
+            	    	    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_30); if (state.failed) return current;
+            	    	    if ( state.backtracking==0 ) {
+
+            	    	      							newLeafNode(otherlv_6, grammarAccess.getAccessAccess().getRolesRoleCrossReference_2_3_1_0());
+            	    	      						
+            	    	    }
+
+            	    	    }
+
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop49;
+            	        }
+            	    } while (true);
 
 
             	    }
@@ -5429,7 +5442,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSubCall"
-    // InternalBurst.g:1765:1: entryRuleSubCall returns [EObject current=null] : iv_ruleSubCall= ruleSubCall EOF ;
+    // InternalBurst.g:1772:1: entryRuleSubCall returns [EObject current=null] : iv_ruleSubCall= ruleSubCall EOF ;
     public final EObject entryRuleSubCall() throws RecognitionException {
         EObject current = null;
 
@@ -5437,8 +5450,8 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBurst.g:1765:48: (iv_ruleSubCall= ruleSubCall EOF )
-            // InternalBurst.g:1766:2: iv_ruleSubCall= ruleSubCall EOF
+            // InternalBurst.g:1772:48: (iv_ruleSubCall= ruleSubCall EOF )
+            // InternalBurst.g:1773:2: iv_ruleSubCall= ruleSubCall EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSubCallRule()); 
@@ -5469,7 +5482,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSubCall"
-    // InternalBurst.g:1772:1: ruleSubCall returns [EObject current=null] : ( () otherlv_1= '(' ( (lv_content_2_0= ruleCall ) ) otherlv_3= ')' (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )* ) ;
+    // InternalBurst.g:1779:1: ruleSubCall returns [EObject current=null] : ( () otherlv_1= '(' ( (lv_content_2_0= ruleCall ) ) otherlv_3= ')' (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )* ) ;
     public final EObject ruleSubCall() throws RecognitionException {
         EObject current = null;
 
@@ -5484,14 +5497,14 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBurst.g:1778:2: ( ( () otherlv_1= '(' ( (lv_content_2_0= ruleCall ) ) otherlv_3= ')' (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )* ) )
-            // InternalBurst.g:1779:2: ( () otherlv_1= '(' ( (lv_content_2_0= ruleCall ) ) otherlv_3= ')' (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )* )
+            // InternalBurst.g:1785:2: ( ( () otherlv_1= '(' ( (lv_content_2_0= ruleCall ) ) otherlv_3= ')' (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )* ) )
+            // InternalBurst.g:1786:2: ( () otherlv_1= '(' ( (lv_content_2_0= ruleCall ) ) otherlv_3= ')' (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )* )
             {
-            // InternalBurst.g:1779:2: ( () otherlv_1= '(' ( (lv_content_2_0= ruleCall ) ) otherlv_3= ')' (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )* )
-            // InternalBurst.g:1780:3: () otherlv_1= '(' ( (lv_content_2_0= ruleCall ) ) otherlv_3= ')' (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )*
+            // InternalBurst.g:1786:2: ( () otherlv_1= '(' ( (lv_content_2_0= ruleCall ) ) otherlv_3= ')' (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )* )
+            // InternalBurst.g:1787:3: () otherlv_1= '(' ( (lv_content_2_0= ruleCall ) ) otherlv_3= ')' (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )*
             {
-            // InternalBurst.g:1780:3: ()
-            // InternalBurst.g:1781:4: 
+            // InternalBurst.g:1787:3: ()
+            // InternalBurst.g:1788:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -5509,11 +5522,11 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getSubCallAccess().getLeftParenthesisKeyword_1());
               		
             }
-            // InternalBurst.g:1791:3: ( (lv_content_2_0= ruleCall ) )
-            // InternalBurst.g:1792:4: (lv_content_2_0= ruleCall )
+            // InternalBurst.g:1798:3: ( (lv_content_2_0= ruleCall ) )
+            // InternalBurst.g:1799:4: (lv_content_2_0= ruleCall )
             {
-            // InternalBurst.g:1792:4: (lv_content_2_0= ruleCall )
-            // InternalBurst.g:1793:5: lv_content_2_0= ruleCall
+            // InternalBurst.g:1799:4: (lv_content_2_0= ruleCall )
+            // InternalBurst.g:1800:5: lv_content_2_0= ruleCall
             {
             if ( state.backtracking==0 ) {
 
@@ -5550,7 +5563,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_3, grammarAccess.getSubCallAccess().getRightParenthesisKeyword_3());
               		
             }
-            // InternalBurst.g:1814:3: (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )*
+            // InternalBurst.g:1821:3: (otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) )*
             loop51:
             do {
                 int alt51=2;
@@ -5563,7 +5576,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
                 switch (alt51) {
             	case 1 :
-            	    // InternalBurst.g:1815:4: otherlv_4= ':' ( (otherlv_5= RULE_ID ) )
+            	    // InternalBurst.g:1822:4: otherlv_4= ':' ( (otherlv_5= RULE_ID ) )
             	    {
             	    otherlv_4=(Token)match(input,34,FOLLOW_5); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
@@ -5571,11 +5584,11 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
             	      				newLeafNode(otherlv_4, grammarAccess.getSubCallAccess().getColonKeyword_4_0());
             	      			
             	    }
-            	    // InternalBurst.g:1819:4: ( (otherlv_5= RULE_ID ) )
-            	    // InternalBurst.g:1820:5: (otherlv_5= RULE_ID )
+            	    // InternalBurst.g:1826:4: ( (otherlv_5= RULE_ID ) )
+            	    // InternalBurst.g:1827:5: (otherlv_5= RULE_ID )
             	    {
-            	    // InternalBurst.g:1820:5: (otherlv_5= RULE_ID )
-            	    // InternalBurst.g:1821:6: otherlv_5= RULE_ID
+            	    // InternalBurst.g:1827:5: (otherlv_5= RULE_ID )
+            	    // InternalBurst.g:1828:6: otherlv_5= RULE_ID
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -5630,7 +5643,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTerminalExpression"
-    // InternalBurst.g:1837:1: entryRuleTerminalExpression returns [EObject current=null] : iv_ruleTerminalExpression= ruleTerminalExpression EOF ;
+    // InternalBurst.g:1844:1: entryRuleTerminalExpression returns [EObject current=null] : iv_ruleTerminalExpression= ruleTerminalExpression EOF ;
     public final EObject entryRuleTerminalExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5638,8 +5651,8 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBurst.g:1837:59: (iv_ruleTerminalExpression= ruleTerminalExpression EOF )
-            // InternalBurst.g:1838:2: iv_ruleTerminalExpression= ruleTerminalExpression EOF
+            // InternalBurst.g:1844:59: (iv_ruleTerminalExpression= ruleTerminalExpression EOF )
+            // InternalBurst.g:1845:2: iv_ruleTerminalExpression= ruleTerminalExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getTerminalExpressionRule()); 
@@ -5670,7 +5683,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTerminalExpression"
-    // InternalBurst.g:1844:1: ruleTerminalExpression returns [EObject current=null] : ( ( () ( (lv_value_1_0= RULE_INT ) ) ) | ( () ( (lv_value_3_0= RULE_STRING ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT ) | ( () ( (lv_value_11_0= 'this' ) ) ) | ( () ( (lv_value_13_0= 'null' ) ) ) ) ;
+    // InternalBurst.g:1851:1: ruleTerminalExpression returns [EObject current=null] : ( ( () ( (lv_value_1_0= RULE_INT ) ) ) | ( () ( (lv_value_3_0= RULE_STRING ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT ) | ( () ( (lv_value_11_0= 'this' ) ) ) | ( () ( (lv_value_13_0= 'null' ) ) ) ) ;
     public final EObject ruleTerminalExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5688,10 +5701,10 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBurst.g:1850:2: ( ( ( () ( (lv_value_1_0= RULE_INT ) ) ) | ( () ( (lv_value_3_0= RULE_STRING ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT ) | ( () ( (lv_value_11_0= 'this' ) ) ) | ( () ( (lv_value_13_0= 'null' ) ) ) ) )
-            // InternalBurst.g:1851:2: ( ( () ( (lv_value_1_0= RULE_INT ) ) ) | ( () ( (lv_value_3_0= RULE_STRING ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT ) | ( () ( (lv_value_11_0= 'this' ) ) ) | ( () ( (lv_value_13_0= 'null' ) ) ) )
+            // InternalBurst.g:1857:2: ( ( ( () ( (lv_value_1_0= RULE_INT ) ) ) | ( () ( (lv_value_3_0= RULE_STRING ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT ) | ( () ( (lv_value_11_0= 'this' ) ) ) | ( () ( (lv_value_13_0= 'null' ) ) ) ) )
+            // InternalBurst.g:1858:2: ( ( () ( (lv_value_1_0= RULE_INT ) ) ) | ( () ( (lv_value_3_0= RULE_STRING ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT ) | ( () ( (lv_value_11_0= 'this' ) ) ) | ( () ( (lv_value_13_0= 'null' ) ) ) )
             {
-            // InternalBurst.g:1851:2: ( ( () ( (lv_value_1_0= RULE_INT ) ) ) | ( () ( (lv_value_3_0= RULE_STRING ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT ) | ( () ( (lv_value_11_0= 'this' ) ) ) | ( () ( (lv_value_13_0= 'null' ) ) ) )
+            // InternalBurst.g:1858:2: ( ( () ( (lv_value_1_0= RULE_INT ) ) ) | ( () ( (lv_value_3_0= RULE_STRING ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT ) | ( () ( (lv_value_11_0= 'this' ) ) ) | ( () ( (lv_value_13_0= 'null' ) ) ) )
             int alt53=6;
             switch ( input.LA(1) ) {
             case RULE_INT:
@@ -5744,13 +5757,13 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
             switch (alt53) {
                 case 1 :
-                    // InternalBurst.g:1852:3: ( () ( (lv_value_1_0= RULE_INT ) ) )
+                    // InternalBurst.g:1859:3: ( () ( (lv_value_1_0= RULE_INT ) ) )
                     {
-                    // InternalBurst.g:1852:3: ( () ( (lv_value_1_0= RULE_INT ) ) )
-                    // InternalBurst.g:1853:4: () ( (lv_value_1_0= RULE_INT ) )
+                    // InternalBurst.g:1859:3: ( () ( (lv_value_1_0= RULE_INT ) ) )
+                    // InternalBurst.g:1860:4: () ( (lv_value_1_0= RULE_INT ) )
                     {
-                    // InternalBurst.g:1853:4: ()
-                    // InternalBurst.g:1854:5: 
+                    // InternalBurst.g:1860:4: ()
+                    // InternalBurst.g:1861:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -5762,11 +5775,11 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBurst.g:1860:4: ( (lv_value_1_0= RULE_INT ) )
-                    // InternalBurst.g:1861:5: (lv_value_1_0= RULE_INT )
+                    // InternalBurst.g:1867:4: ( (lv_value_1_0= RULE_INT ) )
+                    // InternalBurst.g:1868:5: (lv_value_1_0= RULE_INT )
                     {
-                    // InternalBurst.g:1861:5: (lv_value_1_0= RULE_INT )
-                    // InternalBurst.g:1862:6: lv_value_1_0= RULE_INT
+                    // InternalBurst.g:1868:5: (lv_value_1_0= RULE_INT )
+                    // InternalBurst.g:1869:6: lv_value_1_0= RULE_INT
                     {
                     lv_value_1_0=(Token)match(input,RULE_INT,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -5799,13 +5812,13 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBurst.g:1880:3: ( () ( (lv_value_3_0= RULE_STRING ) ) )
+                    // InternalBurst.g:1887:3: ( () ( (lv_value_3_0= RULE_STRING ) ) )
                     {
-                    // InternalBurst.g:1880:3: ( () ( (lv_value_3_0= RULE_STRING ) ) )
-                    // InternalBurst.g:1881:4: () ( (lv_value_3_0= RULE_STRING ) )
+                    // InternalBurst.g:1887:3: ( () ( (lv_value_3_0= RULE_STRING ) ) )
+                    // InternalBurst.g:1888:4: () ( (lv_value_3_0= RULE_STRING ) )
                     {
-                    // InternalBurst.g:1881:4: ()
-                    // InternalBurst.g:1882:5: 
+                    // InternalBurst.g:1888:4: ()
+                    // InternalBurst.g:1889:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -5817,11 +5830,11 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBurst.g:1888:4: ( (lv_value_3_0= RULE_STRING ) )
-                    // InternalBurst.g:1889:5: (lv_value_3_0= RULE_STRING )
+                    // InternalBurst.g:1895:4: ( (lv_value_3_0= RULE_STRING ) )
+                    // InternalBurst.g:1896:5: (lv_value_3_0= RULE_STRING )
                     {
-                    // InternalBurst.g:1889:5: (lv_value_3_0= RULE_STRING )
-                    // InternalBurst.g:1890:6: lv_value_3_0= RULE_STRING
+                    // InternalBurst.g:1896:5: (lv_value_3_0= RULE_STRING )
+                    // InternalBurst.g:1897:6: lv_value_3_0= RULE_STRING
                     {
                     lv_value_3_0=(Token)match(input,RULE_STRING,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -5854,13 +5867,13 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBurst.g:1908:3: ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) )
+                    // InternalBurst.g:1915:3: ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) )
                     {
-                    // InternalBurst.g:1908:3: ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) )
-                    // InternalBurst.g:1909:4: () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) )
+                    // InternalBurst.g:1915:3: ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) )
+                    // InternalBurst.g:1916:4: () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) )
                     {
-                    // InternalBurst.g:1909:4: ()
-                    // InternalBurst.g:1910:5: 
+                    // InternalBurst.g:1916:4: ()
+                    // InternalBurst.g:1917:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -5872,13 +5885,13 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBurst.g:1916:4: ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) )
-                    // InternalBurst.g:1917:5: ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) )
+                    // InternalBurst.g:1923:4: ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) )
+                    // InternalBurst.g:1924:5: ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) )
                     {
-                    // InternalBurst.g:1917:5: ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) )
-                    // InternalBurst.g:1918:6: (lv_value_5_1= 'true' | lv_value_5_2= 'false' )
+                    // InternalBurst.g:1924:5: ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) )
+                    // InternalBurst.g:1925:6: (lv_value_5_1= 'true' | lv_value_5_2= 'false' )
                     {
-                    // InternalBurst.g:1918:6: (lv_value_5_1= 'true' | lv_value_5_2= 'false' )
+                    // InternalBurst.g:1925:6: (lv_value_5_1= 'true' | lv_value_5_2= 'false' )
                     int alt52=2;
                     int LA52_0 = input.LA(1);
 
@@ -5897,7 +5910,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt52) {
                         case 1 :
-                            // InternalBurst.g:1919:7: lv_value_5_1= 'true'
+                            // InternalBurst.g:1926:7: lv_value_5_1= 'true'
                             {
                             lv_value_5_1=(Token)match(input,36,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -5917,7 +5930,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalBurst.g:1930:7: lv_value_5_2= 'false'
+                            // InternalBurst.g:1937:7: lv_value_5_2= 'false'
                             {
                             lv_value_5_2=(Token)match(input,37,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -5952,13 +5965,13 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalBurst.g:1945:3: ( () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT )
+                    // InternalBurst.g:1952:3: ( () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT )
                     {
-                    // InternalBurst.g:1945:3: ( () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT )
-                    // InternalBurst.g:1946:4: () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT
+                    // InternalBurst.g:1952:3: ( () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT )
+                    // InternalBurst.g:1953:4: () ( (lv_value_7_0= RULE_INT ) ) otherlv_8= '.' this_INT_9= RULE_INT
                     {
-                    // InternalBurst.g:1946:4: ()
-                    // InternalBurst.g:1947:5: 
+                    // InternalBurst.g:1953:4: ()
+                    // InternalBurst.g:1954:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -5970,13 +5983,13 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBurst.g:1953:4: ( (lv_value_7_0= RULE_INT ) )
-                    // InternalBurst.g:1954:5: (lv_value_7_0= RULE_INT )
+                    // InternalBurst.g:1960:4: ( (lv_value_7_0= RULE_INT ) )
+                    // InternalBurst.g:1961:5: (lv_value_7_0= RULE_INT )
                     {
-                    // InternalBurst.g:1954:5: (lv_value_7_0= RULE_INT )
-                    // InternalBurst.g:1955:6: lv_value_7_0= RULE_INT
+                    // InternalBurst.g:1961:5: (lv_value_7_0= RULE_INT )
+                    // InternalBurst.g:1962:6: lv_value_7_0= RULE_INT
                     {
-                    lv_value_7_0=(Token)match(input,RULE_INT,FOLLOW_30); if (state.failed) return current;
+                    lv_value_7_0=(Token)match(input,RULE_INT,FOLLOW_31); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       						newLeafNode(lv_value_7_0, grammarAccess.getTerminalExpressionAccess().getValueINTTerminalRuleCall_3_1_0());
@@ -6000,7 +6013,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,35,FOLLOW_31); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,35,FOLLOW_32); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_8, grammarAccess.getTerminalExpressionAccess().getFullStopKeyword_3_2());
@@ -6019,13 +6032,13 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalBurst.g:1981:3: ( () ( (lv_value_11_0= 'this' ) ) )
+                    // InternalBurst.g:1988:3: ( () ( (lv_value_11_0= 'this' ) ) )
                     {
-                    // InternalBurst.g:1981:3: ( () ( (lv_value_11_0= 'this' ) ) )
-                    // InternalBurst.g:1982:4: () ( (lv_value_11_0= 'this' ) )
+                    // InternalBurst.g:1988:3: ( () ( (lv_value_11_0= 'this' ) ) )
+                    // InternalBurst.g:1989:4: () ( (lv_value_11_0= 'this' ) )
                     {
-                    // InternalBurst.g:1982:4: ()
-                    // InternalBurst.g:1983:5: 
+                    // InternalBurst.g:1989:4: ()
+                    // InternalBurst.g:1990:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -6037,11 +6050,11 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBurst.g:1989:4: ( (lv_value_11_0= 'this' ) )
-                    // InternalBurst.g:1990:5: (lv_value_11_0= 'this' )
+                    // InternalBurst.g:1996:4: ( (lv_value_11_0= 'this' ) )
+                    // InternalBurst.g:1997:5: (lv_value_11_0= 'this' )
                     {
-                    // InternalBurst.g:1990:5: (lv_value_11_0= 'this' )
-                    // InternalBurst.g:1991:6: lv_value_11_0= 'this'
+                    // InternalBurst.g:1997:5: (lv_value_11_0= 'this' )
+                    // InternalBurst.g:1998:6: lv_value_11_0= 'this'
                     {
                     lv_value_11_0=(Token)match(input,38,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -6070,13 +6083,13 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalBurst.g:2005:3: ( () ( (lv_value_13_0= 'null' ) ) )
+                    // InternalBurst.g:2012:3: ( () ( (lv_value_13_0= 'null' ) ) )
                     {
-                    // InternalBurst.g:2005:3: ( () ( (lv_value_13_0= 'null' ) ) )
-                    // InternalBurst.g:2006:4: () ( (lv_value_13_0= 'null' ) )
+                    // InternalBurst.g:2012:3: ( () ( (lv_value_13_0= 'null' ) ) )
+                    // InternalBurst.g:2013:4: () ( (lv_value_13_0= 'null' ) )
                     {
-                    // InternalBurst.g:2006:4: ()
-                    // InternalBurst.g:2007:5: 
+                    // InternalBurst.g:2013:4: ()
+                    // InternalBurst.g:2014:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -6088,11 +6101,11 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBurst.g:2013:4: ( (lv_value_13_0= 'null' ) )
-                    // InternalBurst.g:2014:5: (lv_value_13_0= 'null' )
+                    // InternalBurst.g:2020:4: ( (lv_value_13_0= 'null' ) )
+                    // InternalBurst.g:2021:5: (lv_value_13_0= 'null' )
                     {
-                    // InternalBurst.g:2014:5: (lv_value_13_0= 'null' )
-                    // InternalBurst.g:2015:6: lv_value_13_0= 'null'
+                    // InternalBurst.g:2021:5: (lv_value_13_0= 'null' )
+                    // InternalBurst.g:2022:6: lv_value_13_0= 'null'
                     {
                     lv_value_13_0=(Token)match(input,39,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -6145,7 +6158,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // InternalBurst.g:2032:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    // InternalBurst.g:2039:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
     public final String entryRuleQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -6153,8 +6166,8 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBurst.g:2032:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // InternalBurst.g:2033:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // InternalBurst.g:2039:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // InternalBurst.g:2040:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getQualifiedNameRule()); 
@@ -6185,7 +6198,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedName"
-    // InternalBurst.g:2039:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    // InternalBurst.g:2046:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -6197,13 +6210,13 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBurst.g:2045:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // InternalBurst.g:2046:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalBurst.g:2052:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // InternalBurst.g:2053:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // InternalBurst.g:2046:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // InternalBurst.g:2047:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            // InternalBurst.g:2053:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalBurst.g:2054:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_32); if (state.failed) return current;
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_29); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			current.merge(this_ID_0);
@@ -6214,7 +6227,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
               			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
               		
             }
-            // InternalBurst.g:2054:3: (kw= '.' this_ID_2= RULE_ID )*
+            // InternalBurst.g:2061:3: (kw= '.' this_ID_2= RULE_ID )*
             loop54:
             do {
                 int alt54=2;
@@ -6227,7 +6240,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
                 switch (alt54) {
             	case 1 :
-            	    // InternalBurst.g:2055:4: kw= '.' this_ID_2= RULE_ID
+            	    // InternalBurst.g:2062:4: kw= '.' this_ID_2= RULE_ID
             	    {
             	    kw=(Token)match(input,35,FOLLOW_5); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
@@ -6236,7 +6249,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
             	      				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
             	      			
             	    }
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_32); if (state.failed) return current;
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_29); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				current.merge(this_ID_2);
@@ -6281,7 +6294,7 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleconcernManagment"
-    // InternalBurst.g:2072:1: ruleconcernManagment returns [Enumerator current=null] : ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) ) ;
+    // InternalBurst.g:2079:1: ruleconcernManagment returns [Enumerator current=null] : ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) ) ;
     public final Enumerator ruleconcernManagment() throws RecognitionException {
         Enumerator current = null;
 
@@ -6292,10 +6305,10 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBurst.g:2078:2: ( ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) ) )
-            // InternalBurst.g:2079:2: ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) )
+            // InternalBurst.g:2085:2: ( ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) ) )
+            // InternalBurst.g:2086:2: ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) )
             {
-            // InternalBurst.g:2079:2: ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) )
+            // InternalBurst.g:2086:2: ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) )
             int alt55=2;
             int LA55_0 = input.LA(1);
 
@@ -6314,10 +6327,10 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
             }
             switch (alt55) {
                 case 1 :
-                    // InternalBurst.g:2080:3: (enumLiteral_0= '1' )
+                    // InternalBurst.g:2087:3: (enumLiteral_0= '1' )
                     {
-                    // InternalBurst.g:2080:3: (enumLiteral_0= '1' )
-                    // InternalBurst.g:2081:4: enumLiteral_0= '1'
+                    // InternalBurst.g:2087:3: (enumLiteral_0= '1' )
+                    // InternalBurst.g:2088:4: enumLiteral_0= '1'
                     {
                     enumLiteral_0=(Token)match(input,40,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -6333,10 +6346,10 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBurst.g:2088:3: (enumLiteral_1= '0' )
+                    // InternalBurst.g:2095:3: (enumLiteral_1= '0' )
                     {
-                    // InternalBurst.g:2088:3: (enumLiteral_1= '0' )
-                    // InternalBurst.g:2089:4: enumLiteral_1= '0'
+                    // InternalBurst.g:2095:3: (enumLiteral_1= '0' )
+                    // InternalBurst.g:2096:4: enumLiteral_1= '0'
                     {
                     enumLiteral_1=(Token)match(input,41,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -6521,9 +6534,9 @@ public class InternalBurstParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000080000010L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x000000F3040000E2L});
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000400000002L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000C00000002L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000C00000002L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000000040L});
 
 }

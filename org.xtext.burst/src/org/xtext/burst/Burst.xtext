@@ -18,7 +18,7 @@ Import:	{Import}
 Roles :{Role} 
 	'role' name=ID;
 
-Package: {Package}
+Package: {BPackage}
 	'package' name=QualifiedName (ENDLINE)* '{' (ENDLINE)* (elements+=PackageElement ENDLINE* )* '}';
 
 PackageElement: 
@@ -48,10 +48,6 @@ Block : {Block}
 Parameter: {Parameter}
 	(name=ID | type=[Concern|QualifiedName] '(' name=ID ')' | role=[Role] '(' type=[Concern|QualifiedName] 'called' name=ID ')'  );
 
-
-//Parameter: {Parameter}
-//	(name=ID | type=[Concern|QualifiedName] (name=ID)) (usage?='a' role=[Role])?;
-	
 Variable: 
 	Member | Parameter | Locale | Concern;
 	
@@ -78,7 +74,7 @@ Locale: {Locale}
 	'new' type=[Concern|QualifiedName] name=ID (':' roles+=[Role])*;
 	
 Access: {Access}
-	name=[Variable] ('.' members+=[Member])*  (':' roles+=[Role])*;
+	 name=[Variable] ({Access.base=current} '.' member=[Member]  (':' roles+=[Role])*)*;
 
 SubCall: {Call}
 	'(' content+=Call ')' (':' roles+=[Role])*;

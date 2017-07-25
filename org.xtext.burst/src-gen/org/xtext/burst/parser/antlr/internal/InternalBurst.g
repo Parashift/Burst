@@ -299,7 +299,7 @@ rulePackage returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getPackageAccess().getPackageAction_0(),
+					grammarAccess.getPackageAccess().getBPackageAction_0(),
 					$current);
 			}
 		)
@@ -1721,9 +1721,16 @@ ruleAccess returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_2='.'
+			(
+				{
+					$current = forceCreateModelElementAndSet(
+						grammarAccess.getAccessAccess().getAccessBaseAction_2_0(),
+						$current);
+				}
+			)
+			otherlv_3='.'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getAccessAccess().getFullStopKeyword_2_0());
+				newLeafNode(otherlv_3, grammarAccess.getAccessAccess().getFullStopKeyword_2_1());
 			}
 			(
 				(
@@ -1732,31 +1739,31 @@ ruleAccess returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getAccessRule());
 						}
 					}
-					otherlv_3=RULE_ID
+					otherlv_4=RULE_ID
 					{
-						newLeafNode(otherlv_3, grammarAccess.getAccessAccess().getMembersMemberCrossReference_2_1_0());
+						newLeafNode(otherlv_4, grammarAccess.getAccessAccess().getMemberMemberCrossReference_2_2_0());
 					}
 				)
 			)
-		)*
-		(
-			otherlv_4=':'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getAccessAccess().getColonKeyword_3_0());
-			}
 			(
+				otherlv_5=':'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getAccessAccess().getColonKeyword_2_3_0());
+				}
 				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getAccessRule());
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getAccessRule());
+							}
 						}
-					}
-					otherlv_5=RULE_ID
-					{
-						newLeafNode(otherlv_5, grammarAccess.getAccessAccess().getRolesRoleCrossReference_3_1_0());
-					}
+						otherlv_6=RULE_ID
+						{
+							newLeafNode(otherlv_6, grammarAccess.getAccessAccess().getRolesRoleCrossReference_2_3_1_0());
+						}
+					)
 				)
-			)
+			)*
 		)*
 	)
 ;

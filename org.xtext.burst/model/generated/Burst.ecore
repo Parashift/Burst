@@ -12,11 +12,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Roles" eSuperTypes="#//FileElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//FileElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//PackageElement" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//FileElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="PackageElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Concern" eSuperTypes="#//PackageElement #//Variable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
@@ -82,8 +78,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Access" eSuperTypes="#//CallElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Variable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="members" unique="false"
-        upperBound="-1" eType="#//Member"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="#//Access"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="#//Member"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roles" unique="false" upperBound="-1"
         eType="#//Role"/>
   </eClassifiers>
@@ -95,6 +92,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//Roles">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BPackage" eSuperTypes="#//Package">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//PackageElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Intersection" eSuperTypes="#//RuleIntersect">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

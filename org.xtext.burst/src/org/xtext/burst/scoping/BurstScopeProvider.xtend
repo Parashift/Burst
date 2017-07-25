@@ -12,6 +12,13 @@ import org.xtext.burst.burst.BurstPackage
 import org.xtext.burst.burst.Concern
 import org.xtext.burst.burst.Intersection
 import org.xtext.burst.validation.ConcernExtensions
+import org.xtext.burst.burst.BPackage
+import org.xtext.burst.burst.Access
+import org.xtext.burst.burst.Variable
+import org.xtext.burst.burst.Member
+import java.util.ArrayList
+import java.util.List
+import org.eclipse.emf.ecore.util.EcoreUtil
 
 /**
  * This class contains custom scoping description.
@@ -27,29 +34,53 @@ class BurstScopeProvider extends AbstractBurstScopeProvider {
 	val pack = BurstPackage.eINSTANCE
 	
 	
+	
 
 	override getScope(EObject context, EReference reference) {
 		return switch (reference){
-			case pack.access_Name:
-				getScopeForVariableFrom(context)
+			//case pack.access_Member:
+				//getScopeForVariableFrom(context)
+				
+			case pack.access_Member:
+				if(context instanceof Access) {
+					getScopeForAccess(context)
+				} else {
+					super.getScope(context, reference)
+				}
 			default : 
 				super.getScope(context, reference)
 		}
 	}
 	
+	def IScope getScopeForAccess(Access access) {
+		var concern = access.getConcern()
+		if(concern != null ){
+			return Scopes.scopeFor(concern.members)
+		}			
+		return	Scopes.scopeFor(new ArrayList<Variable>())
+	}
+	
 	def IScope getScopeForVariableFrom(EObject context) {
+		var Package af = null
 		val container = context.eContainer
-		return switch(container) {
+		val result = switch(container) {
+			Access: 
+				getScopeForVariableFrom(container)
+			
 			Concern: 
-				Scopes.scopeFor((container as Concern).members)
+				Scopes.scopeFor((container as Concern).members) // Here we have to add the scopes of the inherited concerns
+					
 			Intersection: 
 				Scopes.scopeFor((container as Intersection).variables, getScopeForVariableFrom(container))
+				
 			Block: 
 				Scopes.scopeFor((container as Block).localesBefore(context), 
-					getScopeForVariableFrom(container)
-				)
+					getScopeForVariableFrom(container))
+					
 			default: getScopeForVariableFrom(container)
 		}
+		System.out.println ("result for "+context+" : "+result)
+		return result
 	}
 	
 	

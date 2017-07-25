@@ -15,7 +15,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.burst.burst.Access#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.burst.burst.Access#getMembers <em>Members</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Access#getBase <em>Base</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.Access#getMember <em>Member</em>}</li>
  *   <li>{@link org.xtext.burst.burst.Access#getRoles <em>Roles</em>}</li>
  * </ul>
  *
@@ -52,20 +53,56 @@ public interface Access extends CallElement
   void setName(Variable value);
 
   /**
-   * Returns the value of the '<em><b>Members</b></em>' reference list.
-   * The list contents are of type {@link org.xtext.burst.burst.Member}.
+   * Returns the value of the '<em><b>Base</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Members</em>' reference list isn't clear,
+   * If the meaning of the '<em>Base</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Members</em>' reference list.
-   * @see org.xtext.burst.burst.BurstPackage#getAccess_Members()
+   * @return the value of the '<em>Base</em>' containment reference.
+   * @see #setBase(Access)
+   * @see org.xtext.burst.burst.BurstPackage#getAccess_Base()
+   * @model containment="true"
+   * @generated
+   */
+  Access getBase();
+
+  /**
+   * Sets the value of the '{@link org.xtext.burst.burst.Access#getBase <em>Base</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Base</em>' containment reference.
+   * @see #getBase()
+   * @generated
+   */
+  void setBase(Access value);
+
+  /**
+   * Returns the value of the '<em><b>Member</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Member</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Member</em>' reference.
+   * @see #setMember(Member)
+   * @see org.xtext.burst.burst.BurstPackage#getAccess_Member()
    * @model
    * @generated
    */
-  EList<Member> getMembers();
+  Member getMember();
+
+  /**
+   * Sets the value of the '{@link org.xtext.burst.burst.Access#getMember <em>Member</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Member</em>' reference.
+   * @see #getMember()
+   * @generated
+   */
+  void setMember(Member value);
 
   /**
    * Returns the value of the '<em><b>Roles</b></em>' reference list.

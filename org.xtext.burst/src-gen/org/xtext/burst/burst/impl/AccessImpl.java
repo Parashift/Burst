@@ -6,6 +6,7 @@ package org.xtext.burst.burst.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -31,7 +32,8 @@ import org.xtext.burst.burst.Variable;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.burst.burst.impl.AccessImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.burst.burst.impl.AccessImpl#getMembers <em>Members</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.AccessImpl#getBase <em>Base</em>}</li>
+ *   <li>{@link org.xtext.burst.burst.impl.AccessImpl#getMember <em>Member</em>}</li>
  *   <li>{@link org.xtext.burst.burst.impl.AccessImpl#getRoles <em>Roles</em>}</li>
  * </ul>
  *
@@ -50,14 +52,24 @@ public class AccessImpl extends CallElementImpl implements Access
   protected Variable name;
 
   /**
-   * The cached value of the '{@link #getMembers() <em>Members</em>}' reference list.
+   * The cached value of the '{@link #getBase() <em>Base</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMembers()
+   * @see #getBase()
    * @generated
    * @ordered
    */
-  protected EList<Member> members;
+  protected Access base;
+
+  /**
+   * The cached value of the '{@link #getMember() <em>Member</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMember()
+   * @generated
+   * @ordered
+   */
+  protected Member member;
 
   /**
    * The cached value of the '{@link #getRoles() <em>Roles</em>}' reference list.
@@ -138,13 +150,90 @@ public class AccessImpl extends CallElementImpl implements Access
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Member> getMembers()
+  public Access getBase()
   {
-    if (members == null)
+    return base;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBase(Access newBase, NotificationChain msgs)
+  {
+    Access oldBase = base;
+    base = newBase;
+    if (eNotificationRequired())
     {
-      members = new EObjectResolvingEList<Member>(Member.class, this, BurstPackage.ACCESS__MEMBERS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BurstPackage.ACCESS__BASE, oldBase, newBase);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return members;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBase(Access newBase)
+  {
+    if (newBase != base)
+    {
+      NotificationChain msgs = null;
+      if (base != null)
+        msgs = ((InternalEObject)base).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BurstPackage.ACCESS__BASE, null, msgs);
+      if (newBase != null)
+        msgs = ((InternalEObject)newBase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BurstPackage.ACCESS__BASE, null, msgs);
+      msgs = basicSetBase(newBase, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.ACCESS__BASE, newBase, newBase));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Member getMember()
+  {
+    if (member != null && member.eIsProxy())
+    {
+      InternalEObject oldMember = (InternalEObject)member;
+      member = (Member)eResolveProxy(oldMember);
+      if (member != oldMember)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BurstPackage.ACCESS__MEMBER, oldMember, member));
+      }
+    }
+    return member;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Member basicGetMember()
+  {
+    return member;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMember(Member newMember)
+  {
+    Member oldMember = member;
+    member = newMember;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BurstPackage.ACCESS__MEMBER, oldMember, member));
   }
 
   /**
@@ -167,6 +256,22 @@ public class AccessImpl extends CallElementImpl implements Access
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case BurstPackage.ACCESS__BASE:
+        return basicSetBase(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -174,8 +279,11 @@ public class AccessImpl extends CallElementImpl implements Access
       case BurstPackage.ACCESS__NAME:
         if (resolve) return getName();
         return basicGetName();
-      case BurstPackage.ACCESS__MEMBERS:
-        return getMembers();
+      case BurstPackage.ACCESS__BASE:
+        return getBase();
+      case BurstPackage.ACCESS__MEMBER:
+        if (resolve) return getMember();
+        return basicGetMember();
       case BurstPackage.ACCESS__ROLES:
         return getRoles();
     }
@@ -196,9 +304,11 @@ public class AccessImpl extends CallElementImpl implements Access
       case BurstPackage.ACCESS__NAME:
         setName((Variable)newValue);
         return;
-      case BurstPackage.ACCESS__MEMBERS:
-        getMembers().clear();
-        getMembers().addAll((Collection<? extends Member>)newValue);
+      case BurstPackage.ACCESS__BASE:
+        setBase((Access)newValue);
+        return;
+      case BurstPackage.ACCESS__MEMBER:
+        setMember((Member)newValue);
         return;
       case BurstPackage.ACCESS__ROLES:
         getRoles().clear();
@@ -221,8 +331,11 @@ public class AccessImpl extends CallElementImpl implements Access
       case BurstPackage.ACCESS__NAME:
         setName((Variable)null);
         return;
-      case BurstPackage.ACCESS__MEMBERS:
-        getMembers().clear();
+      case BurstPackage.ACCESS__BASE:
+        setBase((Access)null);
+        return;
+      case BurstPackage.ACCESS__MEMBER:
+        setMember((Member)null);
         return;
       case BurstPackage.ACCESS__ROLES:
         getRoles().clear();
@@ -243,8 +356,10 @@ public class AccessImpl extends CallElementImpl implements Access
     {
       case BurstPackage.ACCESS__NAME:
         return name != null;
-      case BurstPackage.ACCESS__MEMBERS:
-        return members != null && !members.isEmpty();
+      case BurstPackage.ACCESS__BASE:
+        return base != null;
+      case BurstPackage.ACCESS__MEMBER:
+        return member != null;
       case BurstPackage.ACCESS__ROLES:
         return roles != null && !roles.isEmpty();
     }

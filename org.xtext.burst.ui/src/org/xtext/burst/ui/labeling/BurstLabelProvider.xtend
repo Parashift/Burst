@@ -30,7 +30,11 @@ def text(Intersection i) {
 		text = text.concat(" "+(i.eContainer as Concern).name)
 	}
 	for (Parameter p :i.params) {
-		text = text.concat(" "+p.type.name)
+		var type= "undefined type"
+		if(p.type != null) {
+			type =p.type.name
+		} 
+		text = text.concat(" "+type)
 	}
 	return text
 }

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.xtext.burst.burst.Access;
+import org.xtext.burst.burst.BPackage;
 import org.xtext.burst.burst.Block;
 import org.xtext.burst.burst.BoolConstant;
 import org.xtext.burst.burst.BurstPackage;
@@ -300,6 +301,15 @@ public class BurstSwitch<T> extends Switch<T>
         T result = caseRole(role);
         if (result == null) result = caseRoles(role);
         if (result == null) result = caseFileElement(role);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BurstPackage.BPACKAGE:
+      {
+        BPackage bPackage = (BPackage)theEObject;
+        T result = caseBPackage(bPackage);
+        if (result == null) result = casePackage(bPackage);
+        if (result == null) result = caseFileElement(bPackage);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -767,6 +777,22 @@ public class BurstSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRole(Role object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>BPackage</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>BPackage</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBPackage(BPackage object)
   {
     return null;
   }

@@ -15,6 +15,7 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.burst.burst.Access;
+import org.xtext.burst.burst.BPackage;
 import org.xtext.burst.burst.Block;
 import org.xtext.burst.burst.BoolConstant;
 import org.xtext.burst.burst.BurstPackage;
@@ -53,6 +54,9 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			switch (semanticObject.eClass().getClassifierID()) {
 			case BurstPackage.ACCESS:
 				sequence_Access(context, (Access) semanticObject); 
+				return; 
+			case BurstPackage.BPACKAGE:
+				sequence_Package(context, (BPackage) semanticObject); 
 				return; 
 			case BurstPackage.BLOCK:
 				sequence_Block(context, (Block) semanticObject); 
@@ -105,9 +109,6 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case BurstPackage.NULL_CONSTANT:
 				sequence_TerminalExpression(context, (NullConstant) semanticObject); 
 				return; 
-			case BurstPackage.PACKAGE:
-				sequence_Package(context, (org.xtext.burst.burst.Package) semanticObject); 
-				return; 
 			case BurstPackage.PARAMETER:
 				sequence_Parameter(context, (org.xtext.burst.burst.Parameter) semanticObject); 
 				return; 
@@ -135,9 +136,10 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 * Contexts:
 	 *     CallElement returns Access
 	 *     Access returns Access
+	 *     Access.Access_2_0 returns Access
 	 *
 	 * Constraint:
-	 *     (name=[Variable|ID] members+=[Member|ID]* roles+=[Role|ID]*)
+	 *     (name=[Variable|ID] | (base=Access_Access_2_0 member=[Member|ID] roles+=[Role|ID]*))
 	 */
 	protected void sequence_Access(ISerializationContext context, Access semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -279,13 +281,13 @@ public class BurstSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     FileElement returns Package
-	 *     Package returns Package
+	 *     FileElement returns BPackage
+	 *     Package returns BPackage
 	 *
 	 * Constraint:
 	 *     (name=QualifiedName elements+=PackageElement*)
 	 */
-	protected void sequence_Package(ISerializationContext context, org.xtext.burst.burst.Package semanticObject) {
+	protected void sequence_Package(ISerializationContext context, BPackage semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

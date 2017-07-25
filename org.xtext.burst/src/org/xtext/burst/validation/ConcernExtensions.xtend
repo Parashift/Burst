@@ -12,18 +12,18 @@ import org.xtext.burst.burst.Variable
 import org.xtext.burst.burst.Intersection
 import org.xtext.burst.burst.Line
 import org.xtext.burst.burst.Call
+import org.xtext.burst.burst.BPackage
+import com.google.common.collect.HashMultimap
+import org.xtext.burst.burst.Parameter
+import org.xtext.burst.burst.Access
 
 class ConcernExtensions {
 
-	def	List<Concern> getPackage(File f) {
-		val list =  new ArrayList<Concern>();
+	def	List<BPackage> getPackage(File f) {
+		val list =  new ArrayList<BPackage>();
 		for (EObject p : f.eContents) {
-			if(p instanceof org.xtext.burst.burst.Package) {
-				for (EObject c : p.elements) {
-					if(c instanceof Concern) {
-						list.add(c)
-					}
-				}
+			if(p instanceof BPackage) {
+				list.add(p)
 			}
 		}
 		return list;
@@ -62,6 +62,16 @@ class ConcernExtensions {
 		return list;
 	}
 	
+	def	List<Concern> getConcerns(BPackage p) {
+		val list =  new ArrayList<Concern>();
+		for (EObject i : p.eContents) {
+			if(i instanceof Concern) {
+				list.add(i)
+			}
+		}
+		return list;
+	}
+	
 	def List<Line> getLines(Intersection intersection) {
 		val list =  new ArrayList<Line>();
 		if(intersection != null && intersection.block != null){
@@ -72,6 +82,60 @@ class ConcernExtensions {
 			}
 		}
 		return list;
+	}
+	
+	def	List<Variable> getVariables(File f) {
+		val list =  new ArrayList<Variable>();
+		for(c: f.concerns) {
+			list.add(c)
+			list.addAll(c.variables)	
+		}		
+		return list;
+	}
+	
+	def void setVariablesInMap(BPackage p, HashMultimap<String, Variable> multimap){
+		val list =  new ArrayList<Variable>();
+		for(c: p.concerns) {
+			multimap.put(c.name, c)
+			c.setVariablesInMap(multimap)
+		}			
+	}
+	
+	def	List<Variable> getVariables(BPackage p) {
+		val list =  new ArrayList<Variable>();
+		for(c: p.concerns) {
+			list.add(c)
+			list.addAll(c.variables)	
+		}		
+		return list;
+	}
+	
+	def void setVariablesInMap(Concern c, HashMultimap<String, Variable> multiMap){
+		for(m: c.members) {
+			multiMap.put(m.name, m)
+		}			
+		for(i: c.intersections) {
+			i.setVariablesInMap(multiMap)
+			i.block.setVariablesInMap(multiMap)
+		}		
+	}
+	
+	def	List<Variable> getVariables(Concern c) {
+		val list =  new ArrayList<Variable>();
+		for(m: c.members) {
+			list.add(m)
+		}			
+		for(i: c.intersections) {
+			list.addAll(i.variables)	
+			list.addAll(i.block.locales)	
+		}		
+		return list;
+	}
+	
+	def void setVariablesInMap(Intersection i, HashMultimap<String, Variable> multiMap){
+		for(p: i.params) {
+			multiMap.put(p.name, p)
+		}			
 	}
 	
 	def	List<Variable> getVariables(Intersection i) {
@@ -93,6 +157,20 @@ class ConcernExtensions {
 		return list;
 	}
 	
+	def void setVariablesInMap(Block b, HashMultimap<String, Variable> multiMap){
+		for (Line li : b.lines) {
+			for(EObject e : li.eContents) {
+				switch(e) {
+				Locale:
+					multiMap.put(e.name, e)
+				Call:
+					for(Locale l:getLocales(e as Call)) {
+						multiMap.put(l.name, l)
+					}
+				}
+			}
+		}		
+	}
 	def	List<Locale> getLocales(Block b) {
 		val list =  new ArrayList<Locale>();
 		for (Line l : b.lines) {
@@ -124,6 +202,28 @@ class ConcernExtensions {
 		return list;
 	}	
 	
+	def Concern getConcern(Variable v){
+
+		switch(v) {
+			Member :return (v as Member).concern
+			Concern : return (v as Concern)
+			Locale : (v as Locale).type
+			Parameter : (v as Parameter).type
+			default : return null
+		}
+	}
+	def Concern getConcern(Access v){
+		if(v.name instanceof Variable) {
+			return (v.name as Variable).concern
+		}
+		if(v.base instanceof Concern) {
+			return v.base as Concern
+		}
+		if(v.base instanceof Access) {
+			return v.base.concern
+		}
+		return null;
+	}
 }
 	
 

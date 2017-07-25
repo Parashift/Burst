@@ -249,6 +249,15 @@ public interface BurstFactory extends EFactory
   Role createRole();
 
   /**
+   * Returns a new object of class '<em>BPackage</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>BPackage</em>'.
+   * @generated
+   */
+  BPackage createBPackage();
+
+  /**
    * Returns a new object of class '<em>Intersection</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

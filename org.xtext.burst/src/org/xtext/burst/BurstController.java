@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.xtext.burst.burst.Access;
+import org.xtext.burst.burst.BPackage;
 import org.xtext.burst.burst.BurstFactory;
 import org.xtext.burst.burst.Call;
 import org.xtext.burst.burst.Concern;
@@ -20,7 +21,6 @@ import org.xtext.burst.burst.File;
 import org.xtext.burst.burst.FileElement;
 import org.xtext.burst.burst.Intersection;
 import org.xtext.burst.burst.Line;
-import org.xtext.burst.burst.Package;
 import org.xtext.burst.burst.PackageElement;
 import org.xtext.burst.burst.Parameter;
 import org.xtext.burst.burst.Role;
@@ -147,8 +147,8 @@ public class BurstController {
 		if (eobject instanceof File) {
 			EList<FileElement> elements = ((File) eobject).getElements();
 			for (FileElement elmt : elements) {
-				if (elmt instanceof Package) {
-					Package pack = (Package) elmt;
+				if (elmt instanceof BPackage) {
+					BPackage pack = (BPackage) elmt;
 					for (PackageElement packElmt : pack.getElements()) {
 						if (packElmt instanceof Concern) {
 							Concern c = (Concern) packElmt;

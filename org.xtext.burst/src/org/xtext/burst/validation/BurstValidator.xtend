@@ -16,6 +16,7 @@ import com.google.common.collect.HashMultimap
 import org.eclipse.xtend.lib.macro.declaration.NamedElement
 import org.xtext.burst.burst.Variable
 import org.xtext.burst.burst.Parameter
+import org.xtext.burst.burst.BPackage
 
 /**
  * This class contains custom validation rules. 
@@ -39,24 +40,50 @@ class BurstValidator extends AbstractBurstValidator {
 		
 	@Check
 	def checkNoDuplicate(File f) {
-		checkNoDuplicateElements(f.concerns, "concern")
+		
+		val multiMap = HashMultimap.create()
+		for(p :f.package) {
+			p.setVariablesInMap(multiMap)
+			for( v: p.variables){
+				v.fullfill(multiMap)
+				multiMap.put(v.name,v)
+			}		
+			for(entry: multiMap.asMap.entrySet) {
+				val duplicates = entry.value 
+				if(duplicates.size>1) {
+					for(d : duplicates) {
+						error("Duplicate "+d.eClass.name+ " '"+ d.name+"'", d, BurstPackage.eINSTANCE.variable_Name, DUPLICATE_ELEMENT)
+					}
+				}
+			}
+		}
 	}
+	
+	
+	def void fullfill(Variable variable, HashMultimap<String, Variable> multimap) {
+		
+	}
+	
 	
 	/**
 	 * We have to find how to use a "variable type" to generalize elements
 	 */
-	def checkNoDuplicateElements(List<? extends Variable> variables, String desc) {
-
-		val multiMap = HashMultimap.create()
+	def checkNoDuplicateElements(HashMultimap<String, Variable> multiMap , List<? extends Variable> variables) {
+		var c = null
 		for(e : variables) {
 			multiMap.put(e.name,e)
 			for(entry: multiMap.asMap.entrySet) {
-				val duplicates = 	entry.value 
+				val duplicates = entry.value 
 				if(duplicates.size>1) {
 					for(d : duplicates) {
-						error("Duplicate "+desc+ " '"+ d.name+"'", d, BurstPackage.eINSTANCE.variable_Name, DUPLICATE_ELEMENT)
+						error("Duplicate "+d.eClass.name+ " '"+ d.name+"'", d, BurstPackage.eINSTANCE.variable_Name, DUPLICATE_ELEMENT)
 					}
 				}
+			}
+			switch(e) {
+				case Concern:
+				 checkNoDuplicateElements(multiMap , (e as Concern).members)
+				
 			}
 		}
 	}
@@ -88,7 +115,7 @@ class BurstValidator extends AbstractBurstValidator {
 			if(obj.eContainer instanceof File) {
 				val f = obj.eContainer as File
 				for(c : f.concerns) {
-					if(p.name.equals(c.name)) {
+					if(p.name != null && p.name.equals(c.name)) {
 						return
 					}
 				}

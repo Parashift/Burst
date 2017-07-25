@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.burst.burst.Access;
+import org.xtext.burst.burst.BPackage;
 import org.xtext.burst.burst.Block;
 import org.xtext.burst.burst.BoolConstant;
 import org.xtext.burst.burst.BurstFactory;
@@ -234,6 +235,13 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass bPackageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass intersectionEClass = null;
 
   /**
@@ -426,26 +434,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
   public EClass getPackage()
   {
     return packageEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getPackage_Name()
-  {
-    return (EAttribute)packageEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPackage_Elements()
-  {
-    return (EReference)packageEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -863,7 +851,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAccess_Members()
+  public EReference getAccess_Base()
   {
     return (EReference)accessEClass.getEStructuralFeatures().get(1);
   }
@@ -873,9 +861,19 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAccess_Roles()
+  public EReference getAccess_Member()
   {
     return (EReference)accessEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAccess_Roles()
+  {
+    return (EReference)accessEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -916,6 +914,36 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
   public EAttribute getRole_Name()
   {
     return (EAttribute)roleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBPackage()
+  {
+    return bPackageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBPackage_Name()
+  {
+    return (EAttribute)bPackageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBPackage_Elements()
+  {
+    return (EReference)bPackageEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1130,8 +1158,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     rolesEClass = createEClass(ROLES);
 
     packageEClass = createEClass(PACKAGE);
-    createEAttribute(packageEClass, PACKAGE__NAME);
-    createEReference(packageEClass, PACKAGE__ELEMENTS);
 
     packageElementEClass = createEClass(PACKAGE_ELEMENT);
 
@@ -1190,7 +1216,8 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
 
     accessEClass = createEClass(ACCESS);
     createEReference(accessEClass, ACCESS__NAME);
-    createEReference(accessEClass, ACCESS__MEMBERS);
+    createEReference(accessEClass, ACCESS__BASE);
+    createEReference(accessEClass, ACCESS__MEMBER);
     createEReference(accessEClass, ACCESS__ROLES);
 
     subCallEClass = createEClass(SUB_CALL);
@@ -1199,6 +1226,10 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
 
     roleEClass = createEClass(ROLE);
     createEAttribute(roleEClass, ROLE__NAME);
+
+    bPackageEClass = createEClass(BPACKAGE);
+    createEAttribute(bPackageEClass, BPACKAGE__NAME);
+    createEReference(bPackageEClass, BPACKAGE__ELEMENTS);
 
     intersectionEClass = createEClass(INTERSECTION);
     createEAttribute(intersectionEClass, INTERSECTION__NAME);
@@ -1278,6 +1309,7 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     subCallEClass.getESuperTypes().add(this.getCallElement());
     terminalExpressionEClass.getESuperTypes().add(this.getCallElement());
     roleEClass.getESuperTypes().add(this.getRoles());
+    bPackageEClass.getESuperTypes().add(this.getPackage());
     intersectionEClass.getESuperTypes().add(this.getRuleIntersect());
     intConstantEClass.getESuperTypes().add(this.getTerminalExpression());
     stringConstantEClass.getESuperTypes().add(this.getTerminalExpression());
@@ -1299,8 +1331,6 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
     initEClass(rolesEClass, Roles.class, "Roles", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(packageEClass, org.xtext.burst.burst.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.burst.burst.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPackage_Elements(), this.getPackageElement(), null, "elements", null, 0, -1, org.xtext.burst.burst.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageElementEClass, PackageElement.class, "PackageElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1359,7 +1389,8 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
 
     initEClass(accessEClass, Access.class, "Access", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAccess_Name(), this.getVariable(), null, "name", null, 0, 1, Access.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAccess_Members(), this.getMember(), null, "members", null, 0, -1, Access.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAccess_Base(), this.getAccess(), null, "base", null, 0, 1, Access.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAccess_Member(), this.getMember(), null, "member", null, 0, 1, Access.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAccess_Roles(), this.getRole(), null, "roles", null, 0, -1, Access.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(subCallEClass, SubCall.class, "SubCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1368,6 +1399,10 @@ public class BurstPackageImpl extends EPackageImpl implements BurstPackage
 
     initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRole_Name(), ecorePackage.getEString(), "name", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bPackageEClass, BPackage.class, "BPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, BPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBPackage_Elements(), this.getPackageElement(), null, "elements", null, 0, -1, BPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(intersectionEClass, Intersection.class, "Intersection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntersection_Name(), ecorePackage.getEString(), "name", null, 0, 1, Intersection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

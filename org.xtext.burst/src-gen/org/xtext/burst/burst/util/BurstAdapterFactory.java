@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.xtext.burst.burst.Access;
+import org.xtext.burst.burst.BPackage;
 import org.xtext.burst.burst.Block;
 import org.xtext.burst.burst.BoolConstant;
 import org.xtext.burst.burst.BurstPackage;
@@ -230,6 +231,11 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
       public Adapter caseRole(Role object)
       {
         return createRoleAdapter();
+      }
+      @Override
+      public Adapter caseBPackage(BPackage object)
+      {
+        return createBPackageAdapter();
       }
       @Override
       public Adapter caseIntersection(Intersection object)
@@ -659,6 +665,21 @@ public class BurstAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRoleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.burst.burst.BPackage <em>BPackage</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.burst.burst.BPackage
+   * @generated
+   */
+  public Adapter createBPackageAdapter()
   {
     return null;
   }
